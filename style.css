@@ -1,0 +1,32 @@
+:root {
+  --bg-color-light: #f30;
+  --bg-color-middle: rgba(240, 166, 17, 0); /* ATM no effect on mozilla */
+  --bg-color-dark: #d30;
+}
+
+body {
+	background: /* based on HoneyComb CSS3 Patern by Paul Salentiny http://lea.verou.me/css3patterns/#honeycomb */
+        radial-gradient(circle farthest-side at 0% 50%, var(--bg-color-light) 23.5%, var(--bg-color-middle) 0) 21px 30px,
+		radial-gradient(circle farthest-side at 0% 50%, var(--bg-color-dark) 24%, var(--bg-color-middle) 0) 19px 30px,
+		linear-gradient(var(--bg-color-light) 14%, var(--bg-color-middle) 0, var(--bg-color-middle) 85%, var(--bg-color-light) 0) 0 0,
+		linear-gradient(150deg, var(--bg-color-light) 24%, var(--bg-color-dark) 0, var(--bg-color-dark) 26%, var(--bg-color-middle) 0, var(--bg-color-middle) 74%, var(--bg-color-dark) 0, var(--bg-color-dark) 76%, var(--bg-color-light) 0) 0 0,
+		linear-gradient(30deg, var(--bg-color-light) 24%, var(--bg-color-dark) 0, var(--bg-color-dark) 26%, var(--bg-color-middle) 0, var(--bg-color-middle) 74%, var(--bg-color-dark) 0, var(--bg-color-dark) 76%, var(--bg-color-light) 0) 0 0,
+		linear-gradient(90deg, var(--bg-color-dark) 2%, var(--bg-color-light) 0, var(--bg-color-light) 98%, var(--bg-color-dark) 0%) 0 0 var(--bg-color-light);
+	background-size: 40px 60px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 1em;
+	font-weight: 100;
+	margin: 1px;
+	padding: 1px;
+}
+
+table {
+	width: 100%;
+}
+
+.a-left {
+	text-align: left;
+}
+.a-right {
+    text-align: right;
+}
