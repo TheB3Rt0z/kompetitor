@@ -28,6 +28,20 @@
 			<article></article>
 			<aside></aside>
 		</section>
-		<footer></footer>
+		<footer>
+			<div>
+				<table>
+					<tfoot>
+						<tr>
+							<td colspan="2"><hr /></td>
+						</tr>
+						<tr>
+							<td class="a-left">REPORT</td>
+							<td class="a-right">EXPORT</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</footer>
 	</body>
 </html>

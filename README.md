@@ -1,1 +1,1 @@
-# Kompetitor v123.45
+# Kompetitor v0.00
