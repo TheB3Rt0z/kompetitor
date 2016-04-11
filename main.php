@@ -1,4 +1,16 @@
-<?php
+<?php ini_set('display_startup_errors', 1); ini_set('display_errors', 1); error_reporting(E_ALL);
+
+require_once 'includes/symphony.yaml/Parser.php';
+require_once 'includes/symphony.yaml/Unescaper.php';
+require_once 'includes/symphony.yaml/Inline.php';
+require_once 'includes/symphony.yaml/Yaml.php';
+require_once 'includes/symphony.yaml/Exception/ExceptionInterface.php';
+require_once 'includes/symphony.yaml/Exception/RuntimeException.php';
+require_once 'includes/symphony.yaml/Exception/ParseException.php';
+use Symfony\Component\Yaml\Parser; // https://symfony.com/doc/current/components/yaml/yaml_format.html
+$yaml = new Parser(); // https://symfony.com/doc/current/components/yaml/index.html
+// https://en.wikipedia.org/wiki/YAML
+
 
 class Main {
 
@@ -10,7 +22,7 @@ class Main {
 		$size = ($size - ($base ? $base : $status)) / 100;
 		pclose($dir);
 
-		return number_format($size, 2);
+		return number_format($size, 2) . " (Build" . (int)$status . ")";
 	}
 
 
@@ -22,6 +34,15 @@ class Main {
 
 
 function trnslt($string) {
+
+	global $intl, $shorts;
+
+	if (isset($intl[$string]))
+		$string = $intl[$string];
+
+	foreach ($shorts as $short => $def) {
+		$string = str_replace($short, '<span class="short" title="' . $def . '">' . $short . '</span>', $string);
+	}
 
 	return $string;
 }
