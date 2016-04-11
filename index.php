@@ -3,6 +3,8 @@
 	<head>
 		<title><?php echo APPLICATION_TITLE ?></title>
 		<meta charset="UTF-8" />
+		<link rel="icon" href="statics/icon-32x32.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="statics/icon-32x32.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script type="text/javascript" src="includes/jquery.min.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="scripts.js" charset="UTF-8"></script>
@@ -13,7 +15,10 @@
 				<table>
 					<thead>
 						<tr>
-							<th class="a-left"><?php echo APPLICATION_TITLE ?></th>
+							<th class="a-left">
+								<img src="statics/icon-32x32.png" alt="<?php echo APPLICATION_TITLE ?>" class="logo" />
+								<?php echo APPLICATION_TITLE ?>
+							</th>
 							<th class="a-right">TOOLBAR</th>
 						</tr>
 						<tr>
