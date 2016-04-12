@@ -1,8 +1,16 @@
-"personal data":
+"bas test":
     IT:
-        string: dati personali
+        string: test BAS
+        short: BAS
+        def: "Bisciotti/Arcelli/Sagnol"
+"conconi test":
+    IT:
+"personal data":
+    IT: dati personali
+"print":
+    IT: stampa
 "reference speed":
     IT:
         string: velocitá di riferimento
         short: VR
-        def: ciccio pasticcio va alla guerra
+        def: "ritmo da cui calcolare ipoteticamente la velocitá di allenamento, normalmente ottenuta con un TEST DI CONCONI oppure di tipo BAS, oppure semplicemente il ritmo tenuto su di una gara da 12,5 Km\n(é utile anche per calcolare i tempi attesi in gare dalla mezza in su)"

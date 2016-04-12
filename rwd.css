@@ -1,0 +1,32 @@
+@media all and (min-width:768px) {
+	
+    .invisible-on-desktop {
+        display: none;
+    }
+}
+
+
+@media all and (max-width:767px) {
+	
+	.invisible-on-tablet {
+        display: none;
+    }
+
+	.content.width-50 {
+	    width: 96%;
+	}	
+}
+
+
+@media all and (max-width:479px) {
+	
+	.invisible-on-mobile {
+	    display: none;
+	}
+	
+	header th .button {
+	    margin-top: 1%;
+	    text-align: center;
+	    width: 50%;
+	}
+}

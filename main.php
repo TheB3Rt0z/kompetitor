@@ -22,7 +22,8 @@ class Main {
 		$size = ($size - ($base ? $base : $status)) / 100;
 		pclose($dir);
 
-		return number_format($size, 2) . " (Build" . (int)$status . ")";
+		return number_format($size, 2)
+		     . '<span class="invisible-on-mobile"> (Build' . (int)$status . ')</span>';
 	}
 
 
@@ -45,4 +46,23 @@ function trnslt($string) {
 	}
 
 	return $string;
+}
+
+
+function button($type = null) {
+
+	switch ($type) {
+		case 'print': {
+			$label = strtoupper(trnslt('print'));
+			break;
+		}
+		default: {
+			$type = 'nav';
+			$label = false;
+			break;
+		}
+	}
+
+	if (isset($label))
+		echo '<a class="button ' . $type . ' ' . (!$label ? 'invisible-on-desktop' : '') . '"><span class="icon"></span> ' . $label . '</a>';
 }

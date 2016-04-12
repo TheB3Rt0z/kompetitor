@@ -6,7 +6,8 @@ global $intl, $shorts;
 foreach ($yaml->parse(file_get_contents('strings.yml')) as $key => $langs) {
 	foreach ($langs as $lang => $values) {
 		if ($lang == DEFAULT_LANGUAGE) {
-			$intl[$key] = $values['string'];
+			$string = is_string($values) ? $values : $values['string'];
+			$intl[$key] = $string ? $string : "[" . strtoupper($key) . "]";
 			if (!empty($values['short']) && !empty($values['def'])) {
 				$shorts[$values['short']] = $values['def'];
 			}
