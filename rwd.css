@@ -1,7 +1,10 @@
 @media all and (min-width:768px) {
 	
     .invisible-on-desktop {
-        display: none;
+        display: none !important;
+    }
+    .invisible-on-tablet {
+        display: block !important;
     }
 }
 
@@ -10,6 +13,23 @@
 	
 	.invisible-on-tablet {
         display: none;
+    }
+    
+    header th .button.nav {
+        display: block;
+    }
+    header th nav {
+        display: none;
+        position: fixed;
+        right: 1%;
+        top: 0;
+    }
+    header th nav .button {
+        text-align: left;
+        width: 50%;
+    }
+    header th nav .button:first-child {
+        margin-top: 5px;
     }
 
 	.content.width-50 {
@@ -22,11 +42,5 @@
 	
 	.invisible-on-mobile {
 	    display: none;
-	}
-	
-	header th .button {
-	    margin-top: 1%;
-	    text-align: center;
-	    width: 50%;
 	}
 }
