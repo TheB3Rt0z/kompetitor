@@ -52,6 +52,10 @@ function trnslt($string) {
 function button($type = null) {
 
 	switch ($type) {
+		case 'close': {
+			$label = false;
+			break;
+		}
 		case 'print': {
 			$label = strtoupper(trnslt('print'));
 			break;

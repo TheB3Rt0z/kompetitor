@@ -3,6 +3,7 @@
 	<head>
 		<title><?php echo APPLICATION_TITLE ?></title>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="statics/icon-32x32.png" type="image/x-icon" />
         <link rel="shortcut icon" href="statics/icon-32x32.png" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
@@ -23,8 +24,7 @@
 							<th class="a-right">
 								<?php button() ?>
 								<nav class="invisible-on-tablet">
-									<?php button('print') ?>
-									<?php button('print') ?>
+									<?php button('close') ?>
 									<?php button('print') ?>
 									<?php button('print') ?>
 									<?php button('print') ?>

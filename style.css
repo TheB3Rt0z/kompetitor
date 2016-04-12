@@ -144,6 +144,12 @@ footer td.debug:hover {
 .button.nav .icon {
     background-position: 1px -163px;
 }
+.button.close {
+	text-align: right;
+}
+.button.close .icon {
+    background-position: -148px -35px;
+}
 .button.print .icon {
 	background-position: -82px -35px;
 }

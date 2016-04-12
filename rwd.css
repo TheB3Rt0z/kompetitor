@@ -46,6 +46,7 @@
 	}
 	
 	header th nav .button {
+	    padding: 15px 5px;
         width: 92%;
     }
 }
