@@ -10,7 +10,9 @@ jQuery(function() {
 	});
 	
 	jQuery('header nav').bind('mouseleave', function() {
-		jQuery(this).hide(delay);
-		jQuery('header .button.nav').show(delay);
+		if (jQuery(window).width() < 768) {
+			jQuery(this).hide(delay);
+			jQuery('header .button.nav').show(delay);
+		}
 	});
 });
