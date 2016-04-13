@@ -27,8 +27,8 @@
 								<nav class="invisible-on-tablet">
 									<?php button('close') ?>
 									<?php button('print') ?>
-									<?php button('print') ?>
-									<?php button('credits') ?>
+									<?php button('settings') ?>
+									<?php button('credits', APPLICATION_CREDITS) ?>
 								</nav>
 							</th>
 						</tr>
@@ -66,7 +66,20 @@
 					</div>
 				</div>
 			</article>
-			<aside></aside>
+			<aside>
+				<div>
+					<div class="content width-33">
+						<div class="header">
+							<?php echo ucfirst(trnslt('bibliography')) ?>
+							<span>&#8679;</span>
+						</div>
+						<div class="body">
+							<?php echo str_replace('\n', '<br />', APPLICATION_BIBLIOGRAPHY) ?>
+						</div>
+					</div>
+				</div>
+				<br />&nbsp;<br />&nbsp;<br />&nbsp;<br />
+			</aside>
 		</section>
 		<footer>
 			<div>

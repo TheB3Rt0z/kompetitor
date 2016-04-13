@@ -23,7 +23,7 @@ class Main {
 		pclose($dir);
 
 		return number_format($size, 2)
-		     . '<span class="invisible-on-mobile"> (Build' . (int)$status . ')</span>';
+		     . ' (Build' . (int)$status . ')';
 	}
 
 
@@ -49,15 +49,24 @@ function trnslt($string) {
 }
 
 
-function button($type = null) {
+function button($type = null, $data = null) {
 
 	switch ($type) {
 		case 'close': {
 			$label = false;
 			break;
 		}
+		case 'credits': {
+			$label = strtoupper(trnslt('information'));
+			$href = "javascript:alert('" . $data . "');";
+			break;
+		}
 		case 'print': {
-			$label = strtoupper(trnslt('print'));
+			$label = strtoupper(trnslt($type));
+			break;
+		}
+		case 'settings': {
+			$label = strtoupper(trnslt($type));
 			break;
 		}
 		default: {
@@ -68,7 +77,7 @@ function button($type = null) {
 	}
 
 	if (isset($label))
-		echo '<a class="button ' . $type . ' ' . (!$label ? 'invisible-on-desktop' : '') . '"><span class="icon"></span> ' . $label . '</a>';
+		echo '<a class="button ' . $type . (!$label ? ' invisible-on-desktop' : '') . '" ' . (isset($href) ? 'href="' . $href . '"' : '') . '><span class="icon"></span> ' . $label . '</a>';
 }
 
 

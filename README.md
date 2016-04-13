@@ -1,1 +1,1 @@
-# Kompetitor v0.00<span class="invisible-on-mobile"> (Build1472)</span>
+# Kompetitor v0.00 (Build1508)

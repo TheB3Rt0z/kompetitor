@@ -3,6 +3,8 @@
         string: "test BAS"
         short: "BAS"
         def: "Bisciotti/Arcelli/Sagnol"
+"bibliography":
+    IT: "bibliografia"
 "conconi test":
     IT:
 "easy breathing":
@@ -15,6 +17,8 @@
         string: "respirazione impegnata"
         short: "RI"
         def:
+"information":
+    IT: "informazioni"
 "personal data":
     IT: "dati personali"
 "print":
@@ -24,6 +28,8 @@
         string: "velocitá di riferimento"
         short: "VR"
         def: "ritmo da cui calcolare ipoteticamente la velocitá di allenamento, normalmente ottenuta con un TEST DI CONCONI oppure di tipo BAS, oppure semplicemente il ritmo tenuto su di una gara da 12,5 Km\nN.B.: é utile anche per calcolare i tempi attesi in gare dalla mezza in su.."
+"settings":
+    IT: "impostazioni"
 "slightly engaged breathing":
     IT:
         string: "respirazione leggermente impegnata"

@@ -18,7 +18,8 @@ foreach ($yaml->parse(file_get_contents('strings.yml')) as $key => $langs) {
 define('APPLICATION_NAME', "Kompetitor");
 define('APPLICATION_TITLE', trnslt(APPLICATION_NAME) . " v" . Main::getVersion());
 define('APPLICATION_COPYRIGHT', APPLICATION_TITLE . " © " . date('Y') . " Bertozzi Matteo");
-define('APPLICATION_BIBLIOGRAPHY', "Andiamo a Correre (Fulvio Massini, 2012)");
-define('APPLICATION_CREDITS', APPLICATION_COPYRIGHT . "\n\n" . APPLICATION_BIBLIOGRAPHY);
+define('APPLICATION_BIBLIOGRAPHY', "- Andiamo a Correre (Fulvio Massini, 2012)" . "\\n"
+		                         . "- Voglio Correre (Enrico Arcelli, 2014)");
+define('APPLICATION_CREDITS', APPLICATION_COPYRIGHT . "\\n\\n" . ucfirst(trnslt('bibliography')) . "\\n" . APPLICATION_BIBLIOGRAPHY);
 
 Main::updateReadme("# " . APPLICATION_TITLE);
