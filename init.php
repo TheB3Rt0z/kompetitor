@@ -2,7 +2,7 @@
 
 define('DEFAULT_LANGUAGE', "IT");
 
-global $intl, $shorts;
+global $intl, $shorts, $links;
 foreach ($yaml->parse(file_get_contents('strings.yml')) as $key => $langs) {
 	foreach ($langs as $lang => $values) {
 		if ($lang == DEFAULT_LANGUAGE) {
@@ -10,6 +10,9 @@ foreach ($yaml->parse(file_get_contents('strings.yml')) as $key => $langs) {
 			$intl[$key] = $string ? $string : "[" . strtoupper($key) . "]";
 			if (!empty($values['short']) && !empty($values['def'])) {
 				$shorts[$values['short']] = $values['def'];
+				if (!empty($values['link'])) {
+					$links[$values['short']] = $values['link'];
+				}
 			}
 		}
 	}

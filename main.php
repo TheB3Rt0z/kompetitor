@@ -36,13 +36,16 @@ class Main {
 
 function trnslt($string) {
 
-	global $intl, $shorts;
+	global $intl, $shorts, $links;
 
 	if (isset($intl[$string]))
 		$string = $intl[$string];
 
 	foreach ($shorts as $short => $def) {
-		$string = str_replace($short, '<span class="short" title="' . $def . '">' . $short . '</span>', $string);
+		if (isset($links[$short]))
+			$string = str_replace($short, '<a href="' . $links[$short] . '" title="' . $def . '" target="_blank">' . $short . '</a>', $string);
+		else
+			$string = str_replace($short, '<span class="short" title="' . $def . '">' . $short . '</span>', $string);
 	}
 
 	return $string;

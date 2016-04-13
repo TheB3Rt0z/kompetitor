@@ -4,6 +4,8 @@
   --bg-color-dark: rgba(221, 51, 0, 1);
   --text-color: #666;
   --text-light: #999;
+  --text-lighter: #ccc;
+  --text-links: #966;
 } /* http://www.w3schools.com/colors/colors_names.asp */
 
 body {
@@ -35,6 +37,9 @@ table {
 p {
 	line-height: 1.5em;
 	margin: 0 0 1.5%;
+}
+p a {
+	color: var(--text-links);
 }
 
 .a-left {
@@ -135,7 +140,27 @@ footer td.debug:hover {
 	transform: rotate(180deg);
 }
 .content .body {
-	display: none;
+	/*display: none;*/ /* to be commented for debug */
+}
+.content .body fieldset {
+	border: solid 1px var(--text-color);
+	margin: 10px 0;
+	padding: 5px;
+}
+.content .body table {
+	background: var(--text-lighter);
+	float: left;
+}
+.content .body table td {
+    padding: 5px;
+    white-space: nowrap;
+}
+.content .body table td input {
+    width: 92%;
+}
+.separator {
+	float: left;
+    width: 100%;
 }
 
 .button {

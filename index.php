@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="scripts.js" charset="UTF-8"></script>
 	</head>
 	<body>
-		<form>
+		<form method="post">
 		<header>
 			<div>
 				<table>
@@ -48,26 +48,76 @@
 							<span>&#8679;</span>
 						</div>
 						<div class="body">
-							<p><?php echo trnslt('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ipsum hendrerit eros tincidunt molestie lacinia eu nunc. Curabitur quis imperdiet lorem. Phasellus mi nisl, iaculis nec justo nec, dictum ultricies erat. Morbi ornare massa sollicitudin mauris tempor ornare. Sed fringilla, est non accumsan scelerisque, sapien est ullamcorper lacus, a tempus ligula sem eu turpis. Quisque et sem feugiat, iaculis metus ut, tempor urna. Suspendisse sodales luctus vulputate. Mauris nibh urna, interdum sed ante nec, aliquet lobortis lorem. Aenean maximus viverra felis at gravida. Nulla egestas diam mi, sit amet egestas elit rhoncus posuere. Sed urna neque, pulvinar sed ornare nec, egestas non mauris.
-
-	Nulla ut iaculis dolor, sed tristique nisl. Mauris lacinia dolor id ligula dignissim egestas. Nullam ac varius nisl, tristique auctor diam. Cras sed leo nec nisl vestibulum sodales. Curabitur sit amet nunc ligula. Vestibulum rutrum sollicitudin pulvinar. VR In id eleifend mi. Nam fringilla molestie est, in aliquet justo dignissim id. Cras sed odio libero. Ut hendrerit nec sapien id semper. Ut tempor sem leo, a venenatis ante dictum at. Proin luctus ut lorem non placerat. Donec cursus, est at facilisis fringilla, metus arcu pulvinar arcu, id hendrerit nisl odio non ante. Suspendisse potenti.') ?></p>
+							<fieldset>
+								<table>
+									<tr>
+										<td class="a-left"><?php echo ucfirst(trnslt('first name')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[first-name]" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('last name')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[last-name]" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('date of birth')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[date-of-birth]" /></td>
+									</tr>
+									<tr>
+										<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
+										<td class="a-right"><input type="text" name="age" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[height]" /></td>
+									</tr>
+								</table>
+							</fieldset>
+							<fieldset>
+								<legend><?php echo ucfirst(trnslt('daily weighing')) ?></legend>
+								<table>
+									<tr>
+										<td class="a-left"><?php echo ucfirst(trnslt('mon')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[daily-weighing][mon]" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('tue')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[daily-weighing][tue]" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('wed')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[daily-weighing][wed]" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('thu')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[daily-weighing][thu]" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('fri')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[daily-weighing][fri]" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('sat')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[daily-weighing][sat]" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('sun')) ?>:</td>
+										<td class="a-right"><input type="text" name="personal-data[daily-weighing][sun]" /></td>
+									</tr>
+								</table>
+							</fieldset>
 							<?php submit() ?>
 						</div>
 					</div>
 					<div class="content width-50">
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ipsum hendrerit eros tincidunt molestie lacinia eu nunc. Curabitur quis imperdiet lorem. Phasellus mi nisl, iaculis nec justo nec, dictum ultricies erat. Morbi ornare massa sollicitudin mauris tempor ornare. Sed fringilla, est non accumsan scelerisque, sapien est ullamcorper lacus, a tempus ligula sem eu turpis. Quisque et sem feugiat, iaculis metus ut, tempor urna. Suspendisse sodales luctus vulputate. Mauris nibh urna, interdum sed ante nec, aliquet lobortis lorem. Aenean maximus viverra felis at gravida. Nulla egestas diam mi, sit amet egestas elit rhoncus posuere. Sed urna neque, pulvinar sed ornare nec, egestas non mauris.
-
-	Nulla ut iaculis dolor, sed tristique nisl. Mauris lacinia dolor id ligula dignissim egestas. Nullam ac varius nisl, tristique auctor diam. Cras sed leo nec nisl vestibulum sodales. Curabitur sit amet nunc ligula. Vestibulum rutrum sollicitudin pulvinar. In id eleifend mi. Nam fringilla molestie est, in aliquet justo dignissim id. Cras sed odio libero. Ut hendrerit nec sapien id semper. Ut tempor sem leo, a venenatis ante dictum at. Proin luctus ut lorem non placerat. Donec cursus, est at facilisis fringilla, metus arcu pulvinar arcu, id hendrerit nisl odio non ante. Suspendisse potenti. </p>
+						<div class="header">
+							<?php echo ucfirst(trnslt('processed physiological data')) ?>
+							<span>&#8679;</span>
+						</div>
 					</div>
-					<div class="content">
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a ipsum hendrerit eros tincidunt molestie lacinia eu nunc. Curabitur quis imperdiet lorem. Phasellus mi nisl, iaculis nec justo nec, dictum ultricies erat. Morbi ornare massa sollicitudin mauris tempor ornare. Sed fringilla, est non accumsan scelerisque, sapien est ullamcorper lacus, a tempus ligula sem eu turpis. Quisque et sem feugiat, iaculis metus ut, tempor urna. Suspendisse sodales luctus vulputate. Mauris nibh urna, interdum sed ante nec, aliquet lobortis lorem. Aenean maximus viverra felis at gravida. Nulla egestas diam mi, sit amet egestas elit rhoncus posuere. Sed urna neque, pulvinar sed ornare nec, egestas non mauris.
-
-	Nulla ut iaculis dolor, sed tristique nisl. Mauris lacinia dolor id ligula dignissim egestas. Nullam ac varius nisl, tristique auctor diam. Cras sed leo nec nisl vestibulum sodales. Curabitur sit amet nunc ligula. Vestibulum rutrum sollicitudin pulvinar. In id eleifend mi. Nam fringilla molestie est, in aliquet justo dignissim id. Cras sed odio libero. Ut hendrerit nec sapien id semper. Ut tempor sem leo, a venenatis ante dictum at. Proin luctus ut lorem non placerat. Donec cursus, est at facilisis fringilla, metus arcu pulvinar arcu, id hendrerit nisl odio non ante. Suspendisse potenti. </p>
-					</div>
+					<div class="separator"></div>
 				</div>
 			</article>
 			<aside>
 				<div>
+					<div class="content width-33">
+						<div class="header">
+							<?php echo ucfirst(trnslt('Riegel calculator')) ?>
+							<span>&#8679;</span>
+						</div>
+						<div class="body">
+							<p>
+								<?php echo ucfirst(trnslt('using the RsF to calculate expected time on a given distance')) ?>
+							</p>
+						</div>
+					</div>
+					<div class="content width-33">
+						<div class="header">
+							<?php echo ucwords(trnslt('tables & appendices')) ?>
+							<span>&#8679;</span>
+						</div>
+					</div>
 					<div class="content width-33">
 						<div class="header">
 							<?php echo ucfirst(trnslt('bibliography')) ?>

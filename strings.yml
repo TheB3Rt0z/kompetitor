@@ -1,3 +1,5 @@
+"age":
+    IT: "età"
 "bas test":
     IT:
         string: "test BAS"
@@ -7,6 +9,10 @@
     IT: "bibliografia"
 "conconi test":
     IT:
+"date of birth":
+    IT: "data di nascita"
+"daily weighing":
+    IT: "pesaggio giornaliero"
 "easy breathing":
     IT:
         string: "respirazione facile"
@@ -17,17 +23,34 @@
         string: "respirazione impegnata"
         short: "RI"
         def:
+"first name":
+    IT: "nome"
+"height":
+    IT: "altezza"
 "information":
     IT: "informazioni"
+"last name":
+    IT: "cognome"
 "personal data":
     IT: "dati personali"
 "print":
     IT: "stampa"
+"processed physiological data":
+    IT: "dati fisiologici elaborati"
 "reference speed":
     IT:
-        string: "velocitá di riferimento"
+        string: "velocità di riferimento"
         short: "VR"
-        def: "ritmo da cui calcolare ipoteticamente la velocitá di allenamento, normalmente ottenuta con un TEST DI CONCONI oppure di tipo BAS, oppure semplicemente il ritmo tenuto su di una gara da 12,5 Km\nN.B.: é utile anche per calcolare i tempi attesi in gare dalla mezza in su.."
+        def: "Velocità di Riferimento: ritmo da cui calcolare ipoteticamente la velocitá di allenamento, normalmente ottenuta con un TEST DI CONCONI oppure di tipo BAS, oppure semplicemente il ritmo tenuto su di una gara da 12,5 Km nei 2,5 mesi precedenti\nN.B.: é utile anche per calcolare i tempi attesi in gare dalla mezza in su.."
+        link: "http://www.fulviomassini.com/tag/velocita-di-riferimento/"
+"Riegel's calculator":
+    IT: "calcolatore di Riegel"
+"Riegel's formula":
+    IT:
+        string: "formula di Riegel"
+        short: "FR"
+        def: "Formula di Riegel: elaborata da Pete Riegel nel 1977 per predire il tempo su una certa distanza, noto il tempo su di un'altra, TP2 = TP1 * (D2/D1)^1,06"
+        link: "http://da0a42.blogspot.de/2014/03/la-formula-di-riegel-per-calcolare-le.html"
 "settings":
     IT: "impostazioni"
 "slightly engaged breathing":
@@ -35,5 +58,9 @@
         string: "respirazione leggermente impegnata"
         short: "RLI"
         def:
+"tables & appendices":
+    IT: "tabelle & appendici"
 "update":
     IT: "aggiorna"
+"using the RsF to calculate expected time on a given distance":
+    IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
