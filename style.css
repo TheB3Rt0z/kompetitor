@@ -3,6 +3,7 @@
   --bg-color-middle: rgba(240, 166, 17, 0); /* ATM no effect on mozilla */
   --bg-color-dark: rgba(221, 51, 0, 1);
   --text-color: #666;
+  --text-light: #999;
 } /* http://www.w3schools.com/colors/colors_names.asp */
 
 body {
@@ -105,10 +106,27 @@ footer td.debug:hover {
 .content.width-50 {
 	width: 46%;
 }
-.content .title {
+.content .header {
 	border-bottom: solid 1px var(--text-color);
+	cursor: pointer;
 	font-weight: bold;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	transition: .125s;
 	width: 100%;
+}
+.content .header:hover {
+    color: var(--text-light);
+}
+.content .header span {
+	float: right;
+	transition: .125s;
+}
+.content .header span.opened {
+	transform: rotate(180deg);
+}
+.content .body {
+	display: none;
 }
 
 .button {
@@ -124,6 +142,21 @@ footer td.debug:hover {
 .button:hover {
 	background-color: white;
     box-shadow: 0 2px 3px rgba(0, 0, 0, .25);
+}
+span.button {
+	float: right;
+	padding: 0;
+}
+input[type=submit] {
+	background: none;
+	border: none;
+	cursor: pointer;
+    font-size: 1.5em;
+    padding: 0 2px 1px;
+    transition: .125s;
+}
+input[type=submit]:hover {
+    transform: rotate(360deg);
 }
 .button .icon {
     background-image: url('statics/icons-full-set.png');

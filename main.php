@@ -70,3 +70,9 @@ function button($type = null) {
 	if (isset($label))
 		echo '<a class="button ' . $type . ' ' . (!$label ? 'invisible-on-desktop' : '') . '"><span class="icon"></span> ' . $label . '</a>';
 }
+
+
+function submit() {
+
+	echo '<span class="button"><input type="submit" value="&#9775;" title="' . strtoupper(trnslt("update")) . '" /></span>';
+}
