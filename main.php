@@ -22,6 +22,8 @@ class Main {
 		$this->post = $this->_retrieveData();
 
 		$this->_process();
+
+		$this->_updateData();
 	}
 
 
@@ -36,6 +38,13 @@ class Main {
 		return unserialize(base64_decode(file_get_contents('data.bin')));
 	}
 
+
+	private function _updateData() {
+
+		file_put_contents('data.bin', base64_encode(serialize($_POST + $this->post)));
+	}
+
+
 	function getPost($fieldset, $field) {
 
 		return (!empty($_POST[$fieldset][$field])
@@ -44,6 +53,7 @@ class Main {
 			     ? $this->post[$fieldset][$field]
 			     : ''));
 	}
+
 
 	static function getVersion($base = false) { // base should be set on first release
 
@@ -54,7 +64,7 @@ class Main {
 		pclose($dir);
 
 		return number_format($size, 2)
-		     . ' (Build' . (int)$status . ')';
+		     . ' (Build' . (int)$status . ')'; // to be commented on release
 	}
 
 
@@ -79,12 +89,6 @@ class Main {
 	static function updateReadme($data) {
 
 		file_put_contents('README.md', $data);
-	}
-
-
-	static function updateData() {
-
-		file_put_contents('data.bin', base64_encode(serialize($_POST)));
 	}
 }
 

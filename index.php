@@ -165,7 +165,7 @@
 						<tr>
 							<td class="a-left">REPORT</td>
 							<td class="a-left debug">
-								<pre>POST: <?php var_dump($_POST) ?></pre>
+								<pre>POST: <?php var_dump($main->post) ?></pre>
 							</td>
 							<td class="a-right">EXPORT</td>
 						</tr>
