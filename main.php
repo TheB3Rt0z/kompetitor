@@ -29,13 +29,22 @@ class Main {
 
 	private function _process() {
 
+		$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->post['personal-data']['date-of-birth'])));
+		$now = new DateTime(date('Y-m-d'));
 
+		$interval = $date_of_birth->diff($now);
+
+		$this->age['years'] = $_POST['processed-physiological-data']['age'] = $interval->y;
+		$this->age['months'] = $interval->m;
+		$this->age['days'] = $interval->d;
 	}
 
 
 	private function _retrieveData() {
 
-		return unserialize(base64_decode(file_get_contents('data.bin')));
+		return !empty($_POST)
+			   ? $_POST
+		       : unserialize(base64_decode(file_get_contents('data.bin')));
 	}
 
 

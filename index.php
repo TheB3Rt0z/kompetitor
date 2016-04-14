@@ -83,8 +83,7 @@
 										<td class="a-right"><input type="text" name="personal-data[date-of-birth]" value="<?php echo $main->getPost('personal-data', 'date-of-birth') ?>" /></td>
 									</tr>
 									<tr>
-										<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
-										<td class="a-right"><input type="text" name="age" /></td>
+
 										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal-data[height]" /></td>
 									</tr>
@@ -118,6 +117,16 @@
 						<div class="header">
 							<?php echo ucfirst(trnslt('processed physiological data')) ?>
 							<span>&#8679;</span>
+						</div>
+						<div class="body">
+							<fieldset>
+								<table>
+									<tr>
+										<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
+										<td class="a-right"><input type="text" name="processed-physiological-data[age]" value="<?php echo $main->getPost('processed-physiological-data', 'age') ?>" readonly disabled /></td>
+									</tr>
+								</table>
+							</fieldset>
 						</div>
 					</div>
 					<div class="separator"></div>

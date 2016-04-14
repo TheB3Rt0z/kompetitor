@@ -1,10 +1,11 @@
 :root {
-  --bg-color-light: rgba(255, 51, 0, 1);
+  --bg-color-light: rgba(255, 51, 0, .1);
   --bg-color-middle: rgba(240, 166, 17, 0); /* ATM no effect on mozilla */
-  --bg-color-dark: rgba(221, 51, 0, 1);
+  --bg-color-dark: rgba(221, 51, 0, .1);
   --text-color: #666;
   --text-light: #999;
   --text-lighter: #ccc;
+  --text-lighterer: #eee;
   --text-links: #966;
 } /* http://www.w3schools.com/colors/colors_names.asp */
 
@@ -149,7 +150,7 @@ footer td.debug:hover {
 	padding: 5px;
 }
 .content .body table {
-	background: var(--text-lighter);
+	background-color: var(--text-lighterer);
 	float: left;
 }
 .content .body table td {
@@ -158,6 +159,12 @@ footer td.debug:hover {
 }
 .content .body table td input {
     width: 92%;
+}
+.content .body table td input[readonly] {
+    background-color: var(--text-lighter);
+    border: none;
+    border-radius: 5px;
+    padding: 2px 4px;
 }
 
 .content.log {
