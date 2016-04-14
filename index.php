@@ -45,7 +45,7 @@
 					<?php
 					if (APPLICATION_LOG) {
 						?>
-						<div class="content">
+						<div class="content log">
 							<div class="body">
 								<fieldset>
 									<legend><?php echo ucfirst(trnslt('application log')) ?></legend>
@@ -76,11 +76,11 @@
 								<table>
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('first name')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[first-name]" /></td>
+										<td class="a-right"><input type="text" name="personal-data[first-name]" value="<?php echo $main->getPost('personal-data', 'first-name') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('last name')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[last-name]" /></td>
+										<td class="a-right"><input type="text" name="personal-data[last-name]" value="<?php echo $main->getPost('personal-data', 'last-name') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('date of birth')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[date-of-birth]" /></td>
+										<td class="a-right"><input type="text" name="personal-data[date-of-birth]" value="<?php echo $main->getPost('personal-data', 'date-of-birth') ?>" /></td>
 									</tr>
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>

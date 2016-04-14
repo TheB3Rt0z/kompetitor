@@ -31,6 +31,8 @@
         def: ""
 "first name":
     IT: "nome"
+"fri":
+    IT: "ven"
 "height":
     IT: "altezza"
 "information":
@@ -42,6 +44,8 @@
         string: "falcata"
         short: "FLC"
         def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dello stesso."
+"mon":
+    IT: "lun"
 "personal data":
     IT: "dati personali"
 "print":
@@ -62,6 +66,8 @@
         short: "FR"
         def: "Formula di Riegel: elaborata da Pete Riegel nel 1977 per predire il tempo su una certa distanza, noto il tempo su di un'altra, TP2 = TP1 * (D2/D1)^1,06."
         link: "http://da0a42.blogspot.de/2014/03/la-formula-di-riegel-per-calcolare-le.html"
+"sat":
+    IT: "sab"
 "settings":
     IT: "impostazioni"
 "slightly engaged breathing":
@@ -74,9 +80,17 @@
         string: "passo"
         short: "PSO"
         def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dell'altro."
+"sun":
+    IT: "dom"
 "tables & appendices":
     IT: "tabelle & appendici"
+"thu":
+    IT: "gio"
+"tue":
+    IT: "mar"
 "update":
     IT: "aggiorna"
 "using the RsF to calculate expected time on a given distance":
     IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
+"wed":
+    IT: "mer"

@@ -30,5 +30,7 @@ define('APPLICATION_BIBLIOGRAPHY', "- Andiamo a Correre (Fulvio Massini, 2012)" 
 define('APPLICATION_CREDITS', APPLICATION_COPYRIGHT . "\\n\\n" . ucfirst(trnslt('bibliography')) . "\\n" . APPLICATION_BIBLIOGRAPHY);
 
 Main::updateReadme("# " . APPLICATION_TITLE);
+$main = new Main;
+Main::updateData();
 
 define('APPLICATION_LOG', !empty(Main::$log) ? serialize(Main::$log) : false);

@@ -159,15 +159,23 @@ footer td.debug:hover {
 .content .body table td input {
     width: 92%;
 }
-.content .body table td .log.notice {
+
+.content.log {
+	box-shadow: 0 0 10px red inset;
+}
+.content.log .body legend {
+	color: var(--text-links);
+}
+.content.log .body table td .notice {
     color: #0a0;
 }
-.content .body table td .log.warning {
+.content.log .body table td .warning {
     color: #aa0;
 }
-.content .body table td .log.error {
+.content.log .body table td .error {
     color: #a00;
 }
+
 .separator {
 	float: left;
     width: 100%;

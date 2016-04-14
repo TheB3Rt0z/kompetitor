@@ -16,7 +16,36 @@ class Main {
 
 	static $log = array();
 
-	public static function getVersion($base = false) { // base should be set on first release
+
+	function __construct() {
+
+		$this->post = $this->_retrieveData();
+
+		$this->_process();
+	}
+
+
+	private function _process() {
+
+
+	}
+
+
+	private function _retrieveData() {
+
+		return unserialize(base64_decode(file_get_contents('data.bin')));
+	}
+
+	function getPost($fieldset, $field) {
+
+		return (!empty($_POST[$fieldset][$field])
+			   ? $_POST[$fieldset][$field]
+			   : (!empty($this->post[$fieldset][$field])
+			     ? $this->post[$fieldset][$field]
+			     : ''));
+	}
+
+	static function getVersion($base = false) { // base should be set on first release
 
 		$dir = popen('/usr/bin/du -sk .', 'r');
 		$size = $status = fgets($dir, 4096);
@@ -29,7 +58,7 @@ class Main {
 	}
 
 
-	public static function log($message, $type = 'debug') {
+	static function log($message, $type = 'debug') {
 
 		switch ($type) {
 			case 'notice':
@@ -47,9 +76,15 @@ class Main {
 	}
 
 
-	public static function updateReadme($data) {
+	static function updateReadme($data) {
 
 		file_put_contents('README.md', $data);
+	}
+
+
+	static function updateData() {
+
+		file_put_contents('data.bin', base64_encode(serialize($_POST)));
 	}
 }
 
