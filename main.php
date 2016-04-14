@@ -14,6 +14,8 @@ $yaml = new Parser(); // https://symfony.com/doc/current/components/yaml/index.h
 
 class Main {
 
+	static $log = array();
+
 	public static function getVersion($base = false) { // base should be set on first release
 
 		$dir = popen('/usr/bin/du -sk .', 'r');
@@ -24,6 +26,24 @@ class Main {
 
 		return number_format($size, 2)
 		     . ' (Build' . (int)$status . ')';
+	}
+
+
+	public static function log($message, $type = 'debug') {
+
+		switch ($type) {
+			case 'notice':
+			case 'warning':
+			case 'error': {
+				$message = '<span class="log ' . $type . '">' . strtoupper($type) . ": " . $message . '';
+				break;
+			}
+			default: {
+				$message = strtoupper($type) . ": " . $message;
+			}
+		}
+
+		self::$log[] = $message;
 	}
 
 

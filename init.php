@@ -8,7 +8,11 @@ foreach ($yaml->parse(file_get_contents('strings.yml')) as $key => $langs) {
 		if ($lang == DEFAULT_LANGUAGE) {
 			$string = is_string($values) ? $values : $values['string'];
 			$intl[$key] = $string ? $string : "[" . strtoupper($key) . "]";
-			if (!empty($values['short']) && !empty($values['def'])) {
+			if (!empty($values['short']) && isset($values['def'])) {
+				if (empty($values['def'])) {
+					$values['def'] = '???';
+					Main::log("Definition for short '" . $values['short'] . "' not found!", 'notice');
+				}
 				$shorts[$values['short']] = $values['def'];
 				if (!empty($values['link'])) {
 					$links[$values['short']] = $values['link'];
@@ -26,3 +30,5 @@ define('APPLICATION_BIBLIOGRAPHY', "- Andiamo a Correre (Fulvio Massini, 2012)" 
 define('APPLICATION_CREDITS', APPLICATION_COPYRIGHT . "\\n\\n" . ucfirst(trnslt('bibliography')) . "\\n" . APPLICATION_BIBLIOGRAPHY);
 
 Main::updateReadme("# " . APPLICATION_TITLE);
+
+define('APPLICATION_LOG', !empty(Main::$log) ? serialize(Main::$log) : false);

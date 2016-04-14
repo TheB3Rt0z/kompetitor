@@ -104,6 +104,7 @@ footer td.debug:hover {
 	margin: 1%;
 	padding: 1%;
 	transition: .25s;
+	width: 96%;
 }
 .content:hover {
 	box-shadow: 0 2px 3px rgba(0, 0, 0, .25);
@@ -144,7 +145,7 @@ footer td.debug:hover {
 }
 .content .body fieldset {
 	border: solid 1px var(--text-color);
-	margin: 10px 0;
+	margin: 5px 0 10px;
 	padding: 5px;
 }
 .content .body table {
@@ -157,6 +158,15 @@ footer td.debug:hover {
 }
 .content .body table td input {
     width: 92%;
+}
+.content .body table td .log.notice {
+    color: #0a0;
+}
+.content .body table td .log.warning {
+    color: #aa0;
+}
+.content .body table td .log.error {
+    color: #a00;
 }
 .separator {
 	float: left;

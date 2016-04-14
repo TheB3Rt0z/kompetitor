@@ -42,6 +42,30 @@
 		<section>
 			<article>
 				<div>
+					<?php
+					if (APPLICATION_LOG) {
+						?>
+						<div class="content">
+							<div class="body">
+								<fieldset>
+									<legend><?php echo ucfirst(trnslt('application log')) ?></legend>
+									<table>
+										<?php
+										foreach (unserialize(APPLICATION_LOG) as $log) {
+											?>
+											<tr>
+												<td><?php echo $log?></td>
+											</tr>
+											<?php
+										}
+										?>
+									</table>
+								</fieldset>
+							</div>
+						</div>
+						<?php
+					}
+					?>
 					<div class="content width-50">
 						<div class="header">
 							<?php echo ucfirst(trnslt('personal data')) ?>

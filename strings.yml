@@ -4,11 +4,17 @@
     IT:
         string: "test BAS"
         short: "BAS"
-        def: "Bisciotti/Arcelli/Sagnol"
+        def: "Test di Bisciotti/Arcelli/Sagnol: ???"
 "bibliography":
     IT: "bibliografia"
 "conconi test":
     IT:
+"creeping":
+    IT:
+        string: "creeping"
+        short: "CRP"
+        def: "Effetto negativo sulla prestazione causato dagli esercizi di allungamento, per esempio troppo prolungato, che porta all'elongazione tendinea.\nCiò riduce la capacità di immagazzinare energia da parte del tendine!"
+        link: "http://www.alessandroroppo.it/wordpress/approfondimenti/stretching-effetto-antalgico-e-creeping/"
 "date of birth":
     IT: "data di nascita"
 "daily weighing":
@@ -17,12 +23,12 @@
     IT:
         string: "respirazione facile"
         short: "RF"
-        def:
+        def: ""
 "engaged breathing":
     IT:
         string: "respirazione impegnata"
         short: "RI"
-        def:
+        def: ""
 "first name":
     IT: "nome"
 "height":
@@ -31,6 +37,11 @@
     IT: "informazioni"
 "last name":
     IT: "cognome"
+"lope":
+    IT:
+        string: "falcata"
+        short: "FLC"
+        def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dello stesso."
 "personal data":
     IT: "dati personali"
 "print":
@@ -49,7 +60,7 @@
     IT:
         string: "formula di Riegel"
         short: "FR"
-        def: "Formula di Riegel: elaborata da Pete Riegel nel 1977 per predire il tempo su una certa distanza, noto il tempo su di un'altra, TP2 = TP1 * (D2/D1)^1,06"
+        def: "Formula di Riegel: elaborata da Pete Riegel nel 1977 per predire il tempo su una certa distanza, noto il tempo su di un'altra, TP2 = TP1 * (D2/D1)^1,06."
         link: "http://da0a42.blogspot.de/2014/03/la-formula-di-riegel-per-calcolare-le.html"
 "settings":
     IT: "impostazioni"
@@ -57,7 +68,12 @@
     IT:
         string: "respirazione leggermente impegnata"
         short: "RLI"
-        def:
+        def: ""
+"step":
+    IT:
+        string: "passo"
+        short: "PSO"
+        def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dell'altro."
 "tables & appendices":
     IT: "tabelle & appendici"
 "update":
