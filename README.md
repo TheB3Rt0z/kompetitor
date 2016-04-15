@@ -1,1 +1,1 @@
-# Kompetitor v0.00 (Build1720)
+# Kompetitor v0.00 (Build1744)

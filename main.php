@@ -14,7 +14,13 @@ $yaml = new Parser(); // https://symfony.com/doc/current/components/yaml/index.h
 
 class Main {
 
-	static $log = array();
+	const LOG_DEBUG = 0,
+	      LOG_NOTICE = 1,
+	      LOG_WARNING = 2,
+	      LOG_ERROR = 3;
+
+
+	private static $logs = array();
 
 
 	function __construct() {
@@ -77,12 +83,21 @@ class Main {
 	}
 
 
-	static function log($message, $type = 'debug') {
+	static function addLog($message, $type = 'debug') {
 
-		switch ($type) {
-			case 'notice':
-			case 'warning':
-			case 'error': {
+		$codes = array(
+			'debug' => self::LOG_DEBUG,
+			'notice' => self::LOG_NOTICE,
+			'warning' => self::LOG_WARNING,
+			'error' => self::LOG_ERROR,
+		);
+
+		$code = $codes[$type];
+
+		switch ($code) {
+			case self::LOG_NOTICE:
+			case self::LOG_WARNING:
+			case self::LOG_ERROR: {
 				$message = '<span class="log ' . $type . '">' . strtoupper($type) . ": " . $message . '';
 				break;
 			}
@@ -91,7 +106,24 @@ class Main {
 			}
 		}
 
-		self::$log[] = $message;
+		self::$logs[$code][] = $message;
+	}
+
+
+	static function getLogs($list = array()) {
+
+		krsort(self::$logs);
+
+		foreach (self::$logs as $type => $logs)
+			$list = array_merge($list, $logs);
+
+		return $list;
+	}
+
+
+	static function hasLogs() {
+
+		return count(self::$logs);
 	}
 
 

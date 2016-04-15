@@ -11,8 +11,10 @@ foreach ($yaml->parse(file_get_contents('strings.yml')) as $key => $langs) {
 			if (!empty($values['short']) && isset($values['def'])) {
 				if (empty($values['def'])) {
 					$values['def'] = '???';
-					Main::log("Definition for short '" . $values['short'] . "' not found!", 'notice');
+					Main::addLog("Definition for short '" . $values['short'] . "' not found!", 'notice');
 				}
+				elseif (strpos($values['def'], '???') !== false)
+					Main::addLog("Incomplete definition for short '" . $values['short'] . "'!", 'warning');
 				$shorts[$values['short']] = $values['def'];
 				if (!empty($values['link'])) {
 					$links[$values['short']] = $values['link'];
@@ -33,4 +35,4 @@ Main::updateReadme("# " . APPLICATION_TITLE);
 
 $main = new Main;
 
-define('APPLICATION_LOG', !empty(Main::$log) ? serialize(Main::$log) : false);
+define('APPLICATION_LOG', Main::hasLogs() ? serialize(Main::getLogs()) : false);
