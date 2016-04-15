@@ -226,8 +226,8 @@
 							</p>
 						</div>
 					</div>
+					<div class="separator">&nbsp;<br />&nbsp;</div>
 				</div>
-				<br />&nbsp;<br />&nbsp;<br />&nbsp;<br />
 			</aside>
 		</section>
 		<footer>
