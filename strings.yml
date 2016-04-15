@@ -1,3 +1,14 @@
+"abdominal breathing":
+    IT:
+        string: "respirazione addominale"
+        short: "RA"
+        def: "Detta anche diaframmatica, ???"
+        link: "http://www.my-personaltrainer.it/respirazione_addominale.htm"
+"active global stretching":
+    IT:
+        string: "stretching globale attivo"
+        short: "SGA"
+        def: "Secondo il metodo di Philippe E. Souchard: ???"
 "age":
     IT: "età"
 "bas test":
@@ -19,6 +30,16 @@
     IT: "data di nascita"
 "daily weighing":
     IT: "pesaggio giornaliero"
+"decompensated global stretching":
+    IT:
+        string: "stretching globale decompensato"
+        short: "SGD"
+        def: "Secondo il metodo di Françoise Mézières: ???"
+"dynamic ballistic stretching":
+    IT:
+        string: "stretching dinamico balistico"
+        short: "SDB"
+        def: ""
 "easy breathing":
     IT:
         string: "respirazione facile"
@@ -52,6 +73,11 @@
     IT: "stampa"
 "processed physiological data":
     IT: "dati fisiologici elaborati"
+"proprioceptive neuromuscular facilitation":
+    IT:
+        string: "facilitazione propriocettiva neuromuscolare"
+        short: "FPN"
+        def: ""
 "reference speed":
     IT:
         string: "velocità di riferimento"
@@ -75,6 +101,11 @@
         string: "respirazione leggermente impegnata"
         short: "RLI"
         def: ""
+"static stretching":
+    IT:
+        string: "stretching statico"
+        short: "SS"
+        def: "Secondo il metodo di Bob Anderson: ???"
 "step":
     IT:
         string: "passo"
@@ -92,5 +123,11 @@
     IT: "aggiorna"
 "using the RsF to calculate expected time on a given distance":
     IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
+"Wharton's stretching":
+    IT:
+        string: "stretching di Wharton"
+        short: "SW"
+        def: "Secondo il metodo di Wharton padre e figlio: dalla discussa efficacia, si basa sul principio dell'interruzione dell'allungamento dopo pochi secondi (2 o meno), per evitare l'insorgere della contrazione da riflesso."
+        link: "http://www.albanesi.it/arearossa/articoli/01wharton35.htm"
 "wed":
     IT: "mer"
