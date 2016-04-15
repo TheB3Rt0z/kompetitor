@@ -68,13 +68,13 @@ class Main {
 
 		return !empty($_POST)
 			   ? $_POST
-		       : unserialize(base64_decode(file_get_contents('data.bin')));
+		       : unserialize(base64_decode(file_get_contents('data.b64')));
 	}
 
 
 	private function _updateData() {
 
-		file_put_contents('data.bin', base64_encode(serialize($_POST + (array)$this->post))); // to avoid errors on NULL
+		file_put_contents('data.b64', base64_encode(serialize($_POST + (array)$this->post))); // to avoid errors on NULL
 	}
 
 
