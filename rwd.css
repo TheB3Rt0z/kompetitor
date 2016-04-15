@@ -50,4 +50,9 @@
 	    padding: 15px 5px;
         width: 92%;
     }
+    
+    .content {
+        padding: 3%;
+        width: 92% !important;
+    }
 }

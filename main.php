@@ -35,14 +35,32 @@ class Main {
 
 	private function _process() {
 
-		$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->post['personal-data']['date-of-birth'])));
-		$now = new DateTime(date('Y-m-d'));
+		// age
+		if ($this->post['personal_data']['date_of_birth']) {
+			$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->post['personal_data']['date_of_birth'])));
+			$now = new DateTime(date('Y-m-d'));
 
-		$interval = $date_of_birth->diff($now);
+			$interval = $date_of_birth->diff($now);
 
-		$this->age['years'] = $_POST['processed-physiological-data']['age'] = $interval->y;
-		$this->age['months'] = $interval->m;
-		$this->age['days'] = $interval->d;
+			$this->age['years'] = $_POST['processed_physiological_data']['age'] = $interval->y;
+			$this->age['months'] = $interval->m;
+			$this->age['days'] = $interval->d;
+		}
+		else
+			$this->age['years'] = $this->age['months'] = $this->age['days'] = '???';
+
+		$_POST['processed_physiological_data']['age'] = $this->age['years'];
+
+		// mediated-weekly-weight
+		$daily_weighing = array_filter($this->post['personal_data']['daily_weighing'], function(&$value) {
+			return $value = str_replace(',', '.', $value);
+		});
+		if (!empty($daily_weighing))
+			$this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);
+		else
+			$this->mediated_weekly_weight = '???';
+
+		$_POST['processed_physiological_data']['mediated_weekly_weight'] = $this->mediated_weekly_weight;
 	}
 
 
@@ -56,17 +74,23 @@ class Main {
 
 	private function _updateData() {
 
-		file_put_contents('data.bin', base64_encode(serialize($_POST + $this->post)));
+		file_put_contents('data.bin', base64_encode(serialize($_POST + (array)$this->post))); // to avoid errors on NULL
 	}
 
 
-	function getPost($fieldset, $field) {
+	function getPost($fieldset, $field, $option = null) {
 
-		return (!empty($_POST[$fieldset][$field])
-			   ? $_POST[$fieldset][$field]
-			   : (!empty($this->post[$fieldset][$field])
-			     ? $this->post[$fieldset][$field]
-			     : ''));
+		return ($option
+			   ? (!empty($_POST[$fieldset][$field][$option])
+			     ? $_POST[$fieldset][$field][$option]
+			     : (!empty($this->post[$fieldset][$field][$option])
+			       ? $this->post[$fieldset][$field][$option]
+			       : ''))
+			   : (!empty($_POST[$fieldset][$field])
+			     ? $_POST[$fieldset][$field]
+			     : (!empty($this->post[$fieldset][$field])
+			       ? $this->post[$fieldset][$field]
+			       : '')));
 	}
 
 

@@ -72,44 +72,46 @@
 							<span>&#8679;</span>
 						</div>
 						<div class="body">
+							<br />
 							<fieldset>
 								<table>
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('first name')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[first-name]" value="<?php echo $main->getPost('personal-data', 'first-name') ?>" /></td>
+										<td class="a-right"><input type="text" name="personal_data[first_name]" value="<?php echo $main->getPost('personal_data', 'first_name') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('last name')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[last-name]" value="<?php echo $main->getPost('personal-data', 'last-name') ?>" /></td>
+										<td class="a-right"><input type="text" name="personal_data[last_name]" value="<?php echo $main->getPost('personal_data', 'last_name') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('date of birth')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[date-of-birth]" value="<?php echo $main->getPost('personal-data', 'date-of-birth') ?>" /></td>
+										<td class="a-right"><input type="text" name="personal_data[date_of_birth]" value="<?php echo $main->getPost('personal_data', 'date_of_birth') ?>" /></td>
 									</tr>
 									<tr>
-
-										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[height]" /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (cm):</td>
+										<td class="a-right"><input type="text" name="personal_data[height]" /></td>
 									</tr>
 								</table>
 							</fieldset>
+							<br />
 							<fieldset>
-								<legend><?php echo ucfirst(trnslt('daily weighing')) ?></legend>
+								<legend><?php echo ucfirst(trnslt('daily weighing')) ?> (kg)</legend>
 								<table>
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('mon')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[daily-weighing][mon]" /></td>
+										<td class="a-right"><input type="text" name="personal_data[daily_weighing][mon]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'mon') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('tue')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[daily-weighing][tue]" /></td>
+										<td class="a-right"><input type="text" name="personal_data[daily_weighing][tue]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'tue') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('wed')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[daily-weighing][wed]" /></td>
+										<td class="a-right"><input type="text" name="personal_data[daily_weighing][wed]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'wed') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('thu')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[daily-weighing][thu]" /></td>
+										<td class="a-right"><input type="text" name="personal_data[daily_weighing][thu]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'thu') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('fri')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[daily-weighing][fri]" /></td>
+										<td class="a-right"><input type="text" name="personal_data[daily_weighing][fri]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'fri') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('sat')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[daily-weighing][sat]" /></td>
+										<td class="a-right"><input type="text" name="personal_data[daily_weighing][sat]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'sat') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('sun')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal-data[daily-weighing][sun]" /></td>
+										<td class="a-right"><input type="text" name="personal_data[daily_weighing][sun]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'sun') ?>" /></td>
 									</tr>
 								</table>
 							</fieldset>
+							<br />
 							<?php submit() ?>
 						</div>
 					</div>
@@ -119,14 +121,67 @@
 							<span>&#8679;</span>
 						</div>
 						<div class="body">
+							<br />
 							<fieldset>
 								<table>
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
-										<td class="a-right"><input type="text" name="processed-physiological-data[age]" value="<?php echo $main->getPost('processed-physiological-data', 'age') ?>" readonly disabled /></td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[age]" value="<?php echo $main->getPost('processed_physiological_data', 'age') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('mediated weekly weight')) ?> (kg):</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
 									</tr>
 								</table>
 							</fieldset>
+						</div>
+					</div>
+					<div class="separator"></div>
+					<div class="content width-50">
+						<div class="header">
+							<?php echo ucfirst(trnslt('stretching exercises')) ?>
+							<span>&#8679;</span>
+						</div>
+						<div class="body">
+							<br />
+							<p>
+								Da codificare e integrare con immagini e links, vedi file ideas.txt
+							</p>
+						</div>
+					</div>
+					<div class="content width-50">
+						<div class="header">
+							<?php echo ucfirst(trnslt('core exercises')) ?>
+							<span>&#8679;</span>
+						</div>
+						<div class="body">
+							<br />
+							<p>
+								Anche qui, tutto di decidere..
+							</p>
+						</div>
+					</div>
+					<div class="separator"></div>
+					<div class="content width-50">
+						<div class="header">
+							<?php echo ucfirst(trnslt('exercises for the arms')) ?>
+							<span>&#8679;</span>
+						</div>
+						<div class="body">
+							<br />
+							<p>
+								Da compilare a partire dalle note e il foglietto a casa..
+							</p>
+						</div>
+					</div>
+					<div class="content width-50">
+						<div class="header">
+							<?php echo ucfirst(trnslt('Bertoz calculator')) ?>
+							<span>&#8679;</span>
+						</div>
+						<div class="body">
+							<br />
+							<p>
+								Spazio alla creatività!
+							</p>
 						</div>
 					</div>
 					<div class="separator"></div>
@@ -140,6 +195,7 @@
 							<span>&#8679;</span>
 						</div>
 						<div class="body">
+							<br />
 							<p>
 								<?php echo ucfirst(trnslt('using the RsF to calculate expected time on a given distance')) ?>
 							</p>
@@ -150,6 +206,13 @@
 							<?php echo ucwords(trnslt('tables & appendices')) ?>
 							<span>&#8679;</span>
 						</div>
+						<div class="body">
+							<br />
+							<p>
+								- tabella alimenti con valutazione quantitá<br />
+
+							</p>
+						</div>
 					</div>
 					<div class="content width-33">
 						<div class="header">
@@ -157,7 +220,10 @@
 							<span>&#8679;</span>
 						</div>
 						<div class="body">
-							<?php echo str_replace('\n', '<br />', APPLICATION_BIBLIOGRAPHY) ?>
+							<br />
+							<p>
+								<?php echo str_replace('\n', '<br />', APPLICATION_BIBLIOGRAPHY) ?>
+							</p>
 						</div>
 					</div>
 				</div>
