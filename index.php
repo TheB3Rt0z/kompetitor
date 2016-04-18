@@ -4,8 +4,8 @@
 		<title><?php echo APPLICATION_TITLE ?></title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" href="statics/icon-32x32.png" type="image/x-icon" />
-        <link rel="shortcut icon" href="statics/icon-32x32.png" type="image/x-icon" />
+		<link rel="icon" href="statics/icon-32x32.png" type="image/png" />
+        <link rel="shortcut icon" href="statics/icon-32x32.png" type="image/png" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<link rel="stylesheet" type="text/css" href="rwd.css" />
 		<script type="text/javascript" src="includes/jquery.min.js" charset="UTF-8"></script>
