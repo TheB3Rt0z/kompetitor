@@ -1,6 +1,6 @@
 "90°-openings":
     IT: "aperture a 90°"
-"90° pulls":
+"90°-pulls":
     IT: "tirate a 90°"
 "abdominal breathing":
     IT:
@@ -70,6 +70,8 @@
         def: ""
 "exercises for the arms":
     IT: "esercizi per le braccia"
+"finishing":
+    IT: "defaticamento"
 "first name":
     IT: "nome"
 "fri":
@@ -86,6 +88,8 @@
     IT: "informazioni"
 "last name":
     IT: "cognome"
+"lateral flyes":
+    IT: "volate laterali"
 "lateral slows":
     IT: "lenti laterali"
 "lope":
@@ -132,8 +136,6 @@
     IT: "sab"
 "settings":
     IT: "impostazioni"
-"lateral flyes":
-    IT: "volate laterali"
 "single-arm exercises":
     IT: "esercizi a braccio singolo"
 "slightly engaged breathing":
@@ -151,7 +153,7 @@
         string: "passo"
         short: "PSO"
         def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dell'altro."
-"streight punches":
+"straight punches":
     IT: "pugni diretti"
 "stretching exercises":
     IT: "esercizi di stretching"
