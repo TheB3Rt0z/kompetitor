@@ -20,6 +20,8 @@
     IT: "calcolatore di Bertoz"
 "bibliography":
     IT: "bibliografia"
+"biceps":
+    IT: "bicipiti"
 "conconi test":
     IT:
 "core exercises":
@@ -39,6 +41,8 @@
         string: "stretching globale decompensato"
         short: "SGD"
         def: "Secondo il metodo di Françoise Mézières: ???"
+"double-arm exercises":
+    IT: "esercizi a due braccia"
 "dynamic ballistic stretching":
     IT:
         string: "stretching dinamico balistico"
@@ -49,6 +53,8 @@
         string: "respirazione facile"
         short: "RF"
         def: ""
+"elbow rolls":
+    IT: "rullate di gomito"
 "engaged breathing":
     IT:
         string: "respirazione impegnata"
@@ -86,6 +92,8 @@
         string: "facilitazione propriocettiva neuromuscolare"
         short: "FPN"
         def: ""
+"rapid-fire punches":
+    IT: "pugni a raffica"
 "reference speed":
     IT:
         string: "velocità di riferimento"
@@ -104,6 +112,8 @@
     IT: "sab"
 "settings":
     IT: "impostazioni"
+"single-arm exercises":
+    IT: "esercizi a braccio singolo"
 "slightly engaged breathing":
     IT:
         string: "respirazione leggermente impegnata"
@@ -133,6 +143,10 @@
     IT: "aggiorna"
 "using the RsF to calculate expected time on a given distance":
     IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
+"vertical pulls":
+    IT: "tirate verticali"
+"warming-up":
+    IT: "riscaldamento"
 "Wharton's stretching":
     IT:
         string: "stretching di Wharton"

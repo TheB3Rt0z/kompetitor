@@ -14,6 +14,8 @@ function hideMobileNav() {
 
 jQuery(function() {
 	
+	jQuery('.content.log').prependTo('html body section article > div');
+	
 	jQuery('header .button.nav').bind('click', function() {
 		jQuery(this).hide(delay);
 		jQuery('header nav').show(delay);

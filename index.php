@@ -42,30 +42,7 @@
 		<section>
 			<article>
 				<div>
-					<?php
-					if (APPLICATION_LOG) {
-						?>
-						<div class="content log">
-							<div class="body">
-								<fieldset>
-									<legend><?php echo ucfirst(trnslt('application log')) ?></legend>
-									<table>
-										<?php
-										foreach (unserialize(APPLICATION_LOG) as $log) {
-											?>
-											<tr>
-												<td><?php echo $log?></td>
-											</tr>
-											<?php
-										}
-										?>
-									</table>
-								</fieldset>
-							</div>
-						</div>
-						<?php
-					}
-					?>
+					<!-- place for logs -->
 					<div class="content width-50">
 						<div class="header">
 							<?php echo ucfirst(trnslt('personal data')) ?>
@@ -85,7 +62,7 @@
 									</tr>
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (cm):</td>
-										<td class="a-right"><input type="text" name="personal_data[height]" /></td>
+										<td class="a-right"><input type="text" name="personal_data[height]" value="<?php echo $main->getPost('personal_data', 'height') ?>" /></td>
 									</tr>
 								</table>
 							</fieldset>
@@ -167,9 +144,7 @@
 						</div>
 						<div class="body">
 							<br />
-							<p>
-								Da compilare a partire dalle note e il foglietto a casa..
-							</p>
+							<?php include 'tables/arms-2x5kg.php' ?>
 						</div>
 					</div>
 					<div class="content width-50">
@@ -210,7 +185,6 @@
 							<br />
 							<p>
 								- tabella alimenti con valutazione quantitá<br />
-
 							</p>
 						</div>
 					</div>
@@ -250,4 +224,4 @@
 		</footer>
 		</form>
 	</body>
-</html>
+</html><?php include_once 'finish.php' ?>

@@ -149,6 +149,9 @@ footer td.debug:hover {
 	margin: 5px 0 10px;
 	padding: 5px;
 }
+.content .body legend {
+	margin-bottom: 5px;
+}
 .content .body table {
 	background-color: var(--text-lighterer);
 	float: left;
@@ -159,6 +162,7 @@ footer td.debug:hover {
 }
 .content .body table td input {
     width: 92%;
+    text-align: right;
 }
 .content .body table td input[readonly] {
     background-color: var(--text-lighter);
@@ -172,6 +176,9 @@ footer td.debug:hover {
 }
 .content.log .body legend {
 	color: var(--text-links);
+}
+.content.log .body table td .todo {
+    color: #0aa;
 }
 .content.log .body table td .notice {
     color: #0a0;

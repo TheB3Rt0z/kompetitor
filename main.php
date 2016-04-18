@@ -14,7 +14,8 @@ $yaml = new Parser(); // https://symfony.com/doc/current/components/yaml/index.h
 
 class Main {
 
-	const LOG_DEBUG = 0,
+	const LOG_TODO = -1,
+	      LOG_DEBUG = 0,
 	      LOG_NOTICE = 1,
 	      LOG_WARNING = 2,
 	      LOG_ERROR = 3;
@@ -110,6 +111,7 @@ class Main {
 	static function addLog($message, $type = 'debug') {
 
 		$codes = array(
+			'todo' => self::LOG_TODO,
 			'debug' => self::LOG_DEBUG,
 			'notice' => self::LOG_NOTICE,
 			'warning' => self::LOG_WARNING,
@@ -119,6 +121,7 @@ class Main {
 		$code = $codes[$type];
 
 		switch ($code) {
+			case self::LOG_TODO:
 			case self::LOG_NOTICE:
 			case self::LOG_WARNING:
 			case self::LOG_ERROR: {
