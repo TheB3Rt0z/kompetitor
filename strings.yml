@@ -1,3 +1,7 @@
+"90°-openings":
+    IT: "aperture a 90°"
+"90° pulls":
+    IT: "tirate a 90°"
 "abdominal breathing":
     IT:
         string: "respirazione addominale"
@@ -22,6 +26,8 @@
     IT: "bibliografia"
 "biceps":
     IT: "bicipiti"
+"clawings":
+    IT: "artigliate"
 "conconi test":
     IT:
 "core exercises":
@@ -41,6 +47,8 @@
         string: "stretching globale decompensato"
         short: "SGD"
         def: "Secondo il metodo di Françoise Mézières: ???"
+"double curls":
+    IT: "doppio curl"
 "double-arm exercises":
     IT: "esercizi a due braccia"
 "dynamic ballistic stretching":
@@ -66,12 +74,20 @@
     IT: "nome"
 "fri":
     IT: "ven"
+"frontal raises":
+    IT: "alzate frontali"
+"hammer-curls":
+    IT: "hammer curl"
 "height":
     IT: "altezza"
+"hump-launches":
+    IT: "lanci gobbi"
 "information":
     IT: "informazioni"
 "last name":
     IT: "cognome"
+"lateral slows":
+    IT: "lenti laterali"
 "lope":
     IT:
         string: "falcata"
@@ -94,6 +110,10 @@
         def: ""
 "rapid-fire punches":
     IT: "pugni a raffica"
+"real hammers":
+    IT: "real hammer"
+"rear handles":
+    IT: "manubri posteriori"
 "reference speed":
     IT:
         string: "velocità di riferimento"
@@ -112,6 +132,8 @@
     IT: "sab"
 "settings":
     IT: "impostazioni"
+"lateral flyes":
+    IT: "volate laterali"
 "single-arm exercises":
     IT: "esercizi a braccio singolo"
 "slightly engaged breathing":
@@ -129,6 +151,8 @@
         string: "passo"
         short: "PSO"
         def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dell'altro."
+"streight punches":
+    IT: "pugni diretti"
 "stretching exercises":
     IT: "esercizi di stretching"
 "sun":
@@ -155,3 +179,5 @@
         link: "http://www.albanesi.it/arearossa/articoli/01wharton35.htm"
 "wed":
     IT: "mer"
+"wrist-rolls":
+    IT: "rullate di polso"
