@@ -164,14 +164,15 @@ footer td.debug:hover {
     cursor: pointer;	
 }
 .content .body table td input[type=text] {
-    width: 92%;
-    text-align: right;
+	border: none;
+	border-radius: 3px;
+	float: right;
+	padding: 2px 4px;
+	text-align: right;
+    width: 86%;
 }
 .content .body table td input[readonly] {
     background-color: var(--text-lighter);
-    border: none;
-    border-radius: 5px;
-    padding: 2px 4px;
 }
 
 .content.log {

@@ -54,7 +54,7 @@ class Main {
 
 		// mediated-weekly-weight
 		$daily_weighing = array_filter($this->post['personal_data']['daily_weighing'], function(&$value) {
-			return $value = str_replace(',', '.', $value);
+			return $value = number_format(str_replace(',', '.', $value), 1);
 		});
 		if (!empty($daily_weighing))
 			$this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);

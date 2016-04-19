@@ -1,1 +1,1 @@
-# Kompetitor v0.00 (Build1976)
+# Kompetitor v0.00 (Build2024)
