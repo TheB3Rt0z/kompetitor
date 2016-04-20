@@ -1,4 +1,4 @@
-<?php $exercises = array(); $grade = 25; Main::addLog("grade value should be an input with submit", 'todo') ?>
+<?php $exercises = array(); $grade = 25; Main::addLog("grade value for arm-exercises should be an input with submit", 'todo') ?>
 
 <?php
 

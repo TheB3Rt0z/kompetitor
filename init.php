@@ -3,7 +3,7 @@
 define('DEFAULT_LANGUAGE', "IT");
 
 global $intl, $shorts, $links;
-foreach ($yaml_parser->parse(file_get_contents('strings.yml')) as $key => $langs) {
+foreach ($yaml_parser->parse(file_get_contents('statics/strings.yml')) as $key => $langs) {
 	foreach ($langs as $lang => $values) {
 		if ($lang == DEFAULT_LANGUAGE) {
 			$string = is_string($values) ? $values : $values['string'];

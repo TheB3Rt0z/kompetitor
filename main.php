@@ -1,4 +1,4 @@
-<?php ini_set('display_startup_errors', 1); ini_set('display_errors', 1); error_reporting(E_ALL);
+<?php session_start(); ini_set('display_startup_errors', 1); ini_set('display_errors', 1); error_reporting(E_ALL);
 
 require_once 'includes/symphony.yaml/Parser.php';
 require_once 'includes/symphony.yaml/Unescaper.php';
@@ -16,7 +16,8 @@ use Dropbox as dbx;
 
 class Main {
 
-	const LOG_TODO = -1,
+	const LOG_INFO = -2,
+		  LOG_TODO = -1,
 	      LOG_DEBUG = 0,
 	      LOG_NOTICE = 1,
 	      LOG_WARNING = 2,
@@ -34,6 +35,8 @@ class Main {
 		$this->_dbcl = new dbx\Client($this->_dbat, 'PHP-Example/1.0');
 
 		$this->post = $this->_retrieveData();
+		if (!isset($_SESSION['post']))
+			$_SESSION['post'] = $this->post;
 
 		$this->_process();
 
@@ -74,9 +77,13 @@ class Main {
 
 	private function _retrieveData() {
 
-		$data = fopen('data.b64', 'w+b');
-		$this->_data = $this->_dbcl->getFile('/data', $data);
-		fclose($data);
+		if (!isset($_SESSION['post'])) {
+			$data = fopen('data.b64', 'w+b');
+			$this->_data = $this->_dbcl->getFile('/data', $data);
+			fclose($data);
+
+			Main::addLog("Profile data was loaded from Dropbox API", 'info');
+		}
 
 		return !empty($_POST)
 			   ? $_POST
@@ -86,11 +93,19 @@ class Main {
 
 	private function _updateData() {
 
-		file_put_contents('data.b64', base64_encode(serialize($_POST + (array)$this->post))); // to avoid errors on NULL
+		$post = $_POST + (array)$this->post; // casting necessary to avoid errors on NULL
 
-		$data = fopen('data.b64', 'rb'); // read only binary
-		$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update($this->_data['rev']), $data);
-		fclose($data);
+		if ($post != $_SESSION['post']) {
+			file_put_contents('data.b64', base64_encode(serialize($post)));
+
+			$data = fopen('data.b64', 'rb'); // read only binary
+			$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update($this->_data['rev']), $data);
+			fclose($data);
+
+			Main::addLog("Profile data was saved to Dropbox API", 'info');
+
+			$_SESSION['post'] = $post;
+		}
 	}
 
 
@@ -126,6 +141,7 @@ class Main {
 	static function addLog($message, $type = 'debug') {
 
 		$codes = array(
+			'info' => self::LOG_INFO,
 			'todo' => self::LOG_TODO,
 			'debug' => self::LOG_DEBUG,
 			'notice' => self::LOG_NOTICE,
@@ -140,7 +156,11 @@ class Main {
 			case self::LOG_NOTICE:
 			case self::LOG_WARNING:
 			case self::LOG_ERROR: {
-				$message = '<span class="log ' . $type . '">' . strtoupper($type) . ": " . $message . '';
+				$message = '<span class="log ' . $type . '">' . strtoupper($type) . ': ' . $message . '</span>';
+				break;
+			}
+			case self::LOG_INFO: {
+				$message = '<span class="log">' . $message . '</span>';
 				break;
 			}
 			default: {
