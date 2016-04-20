@@ -103,6 +103,8 @@
     IT: "lun"
 "personal data":
     IT: "dati personali"
+"post-run stretching":
+    IT: "stretching post corsa"
 "print":
     IT: "stampa"
 "processed physiological data":
@@ -163,6 +165,8 @@
     IT: "tabelle & appendici"
 "thu":
     IT: "gio"
+"toning and stability":
+    IT: "tonificazione e stabilità"
 "tue":
     IT: "mar"
 "update":

@@ -139,6 +139,31 @@
 					<div class="separator"></div>
 					<div class="content width-50">
 						<div class="header">
+							<?php echo ucfirst(trnslt('post-run stretching')) ?>
+							<span>&#8679;</span>
+						</div>
+						<div class="body">
+							<br />
+							<p>
+								[...]
+							</p>
+						</div>
+					</div>
+					<div class="content width-50">
+						<div class="header">
+							<?php echo ucfirst(trnslt('toning and stability')) ?>
+							<span>&#8679;</span>
+						</div>
+						<div class="body">
+							<br />
+							<p>
+								Anche qui, tutto di decidere..
+							</p>
+						</div>
+					</div>
+					<div class="separator"></div>
+					<div class="content width-75">
+						<div class="header">
 							<?php echo ucfirst(trnslt('exercises for the arms')) ?>
 							<span>&#8679;</span>
 						</div>
@@ -147,7 +172,7 @@
 							<?php include 'tables/arms-2x5kg.php' ?>
 						</div>
 					</div>
-					<div class="content width-50">
+					<div class="content width-25">
 						<div class="header">
 							<?php echo ucfirst(trnslt('Bertoz calculator')) ?>
 							<span>&#8679;</span>
