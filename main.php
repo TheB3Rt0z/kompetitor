@@ -7,9 +7,11 @@ require_once 'includes/symphony.yaml/Yaml.php';
 require_once 'includes/symphony.yaml/Exception/ExceptionInterface.php';
 require_once 'includes/symphony.yaml/Exception/RuntimeException.php';
 require_once 'includes/symphony.yaml/Exception/ParseException.php';
-use Symfony\Component\Yaml\Parser; // https://symfony.com/doc/current/components/yaml/yaml_format.html
-$yaml = new Parser(); // https://symfony.com/doc/current/components/yaml/index.html
-// https://en.wikipedia.org/wiki/YAML
+use Symfony\Component\Yaml as yaml; // https://symfony.com/doc/current/components/yaml/yaml_format.html, https://en.wikipedia.org/wiki/YAML
+$yaml_parser = new yaml\Parser; // https://symfony.com/doc/current/components/yaml/index.html
+
+require_once "includes/dropbox.php/autoload.php"; // https://www.dropbox.com/developers-v1/core/sdks/php
+use Dropbox as dbx;
 
 
 class Main {
@@ -20,11 +22,16 @@ class Main {
 	      LOG_WARNING = 2,
 	      LOG_ERROR = 3;
 
+	private $_dbat = 'pjv6hedPbCEAAAAAAAARWxUKv1D1fZf2HxPeyzI7Ca4P-eZI3p1nCmuqbo1tORJN', // dropbox access token
+			$_dbcl = null,
+			$_data = null;
 
-	private static $logs = array();
+	private static $_logs = array();
 
 
 	function __construct() {
+
+		$this->_dbcl = new dbx\Client($this->_dbat, 'PHP-Example/1.0');
 
 		$this->post = $this->_retrieveData();
 
@@ -36,7 +43,7 @@ class Main {
 
 	private function _process() {
 
-		// age
+		// age (not only years anyway)
 		if ($this->post['personal_data']['date_of_birth']) {
 			$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->post['personal_data']['date_of_birth'])));
 			$now = new DateTime(date('Y-m-d'));
@@ -54,7 +61,7 @@ class Main {
 
 		// mediated-weekly-weight
 		$daily_weighing = array_filter($this->post['personal_data']['daily_weighing'], function(&$value) {
-			return $value = number_format(str_replace(',', '.', $value), 1);
+			return $value = number_format((double)str_replace(',', '.', $value), 1);
 		});
 		if (!empty($daily_weighing))
 			$this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);
@@ -67,6 +74,10 @@ class Main {
 
 	private function _retrieveData() {
 
+		$data = fopen('data.b64', 'w+b');
+		$this->_data = $this->_dbcl->getFile('/data', $data);
+		fclose($data);
+
 		return !empty($_POST)
 			   ? $_POST
 		       : unserialize(base64_decode(file_get_contents('data.b64')));
@@ -76,6 +87,10 @@ class Main {
 	private function _updateData() {
 
 		file_put_contents('data.b64', base64_encode(serialize($_POST + (array)$this->post))); // to avoid errors on NULL
+
+		$data = fopen('data.b64', 'rb'); // read only binary
+		$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update($this->_data['rev']), $data);
+		fclose($data);
 	}
 
 
@@ -133,15 +148,15 @@ class Main {
 			}
 		}
 
-		self::$logs[$code][] = $message;
+		self::$_logs[$code][] = $message;
 	}
 
 
 	static function getLogs($list = array()) {
 
-		krsort(self::$logs);
+		krsort(self::$_logs);
 
-		foreach (self::$logs as $type => $logs)
+		foreach (self::$_logs as $type => $logs)
 			$list = array_merge($list, $logs);
 
 		return $list;
@@ -150,7 +165,7 @@ class Main {
 
 	static function hasLogs() {
 
-		return count(self::$logs);
+		return count(self::$_logs);
 	}
 
 
