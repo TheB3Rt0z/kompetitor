@@ -43,12 +43,13 @@
 			<article>
 				<div>
 					<!-- place for logs -->
-					<div class="content width-50 icon personal-data">
+					<div class="content width-60 icon personal-data">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('personal data')) ?>
 							<span>&#8679;</span>
 						</div>
+						<br />
 						<br />
 						<div class="body">
 							<br />
@@ -65,6 +66,8 @@
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (cm):</td>
 										<td class="a-right"><input type="text" name="personal_data[height]" value="<?php echo $main->getPost('personal_data', 'height') ?>" /></td>
+										<td colspan="3"></td>
+										<td class="a-right"><?php submit() ?></td>
 									</tr>
 								</table>
 							</fieldset>
@@ -87,19 +90,19 @@
 										<td class="a-right"><input type="text" name="personal_data[daily_weighing][sat]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'sat') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('sun')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[daily_weighing][sun]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'sun') ?>" /></td>
+										<td class="a-right"><?php submit() ?></td>
 									</tr>
 								</table>
 							</fieldset>
-							<br />
-							<?php submit() ?>
 						</div>
 					</div>
-					<div class="content width-50 icon processed-physiological-data">
+					<div class="content width-40 icon processed-physiological-data">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('processed physiological data')) ?>
 							<span>&#8679;</span>
 						</div>
+						<br />
 						<br />
 						<div class="body">
 							<br />
@@ -116,11 +119,13 @@
 						</div>
 					</div>
 					<div class="separator"></div>
-					<div class="content width-50">
+					<div class="content width-50 icon exercises">
+						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('stretching exercises')) ?>
 							<span>&#8679;</span>
 						</div>
+						<br />
 						<br />
 						<div class="body">
 							<br />
@@ -129,11 +134,13 @@
 							</p>
 						</div>
 					</div>
-					<div class="content width-50">
+					<div class="content width-50 icon exercises">
+						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('core exercises')) ?>
 							<span>&#8679;</span>
 						</div>
+						<br />
 						<br />
 						<div class="body">
 							<br />
@@ -143,11 +150,13 @@
 						</div>
 					</div>
 					<div class="separator"></div>
-					<div class="content width-50">
+					<div class="content width-50 icon exercises">
+						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('post-run stretching')) ?>
 							<span>&#8679;</span>
 						</div>
+						<br />
 						<br />
 						<div class="body">
 							<br />
@@ -156,11 +165,13 @@
 							</p>
 						</div>
 					</div>
-					<div class="content width-50">
+					<div class="content width-50 icon exercises">
+						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('toning and stability')) ?>
 							<span>&#8679;</span>
 						</div>
+						<br />
 						<br />
 						<div class="body">
 							<br />
@@ -170,22 +181,24 @@
 						</div>
 					</div>
 					<div class="separator"></div>
-					<div class="content width-75">
+					<div class="content width-67">
 						<div class="header">
 							<?php echo ucfirst(trnslt('exercises for the arms')) ?>
 							<span>&#8679;</span>
 						</div>
+						<br />
 						<br />
 						<div class="body">
 							<br />
 							<?php include 'tables/arms-2x5kg.php' ?>
 						</div>
 					</div>
-					<div class="content width-25">
+					<div class="content width-33">
 						<div class="header">
 							<?php echo ucfirst(trnslt('Bertoz calculator')) ?>
 							<span>&#8679;</span>
 						</div>
+						<br />
 						<br />
 						<div class="body">
 							<br />
@@ -201,6 +214,7 @@
 							<span>&#8679;</span>
 						</div>
 						<br />
+						<br />
 						<div class="body">
 							<br />
 							<p>
@@ -214,6 +228,7 @@
 							<span>&#8679;</span>
 						</div>
 						<br />
+						<br />
 						<div class="body">
 							<br />
 							<p>
@@ -226,6 +241,7 @@
 							<?php echo ucfirst(trnslt('bibliography')) ?>
 							<span>&#8679;</span>
 						</div>
+						<br />
 						<br />
 						<div class="body">
 							<br />

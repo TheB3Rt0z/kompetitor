@@ -33,12 +33,8 @@
         margin-top: 5px;
     }
 
-    .content.width-25,
-    .content.width-33,
-	.content.width-50,
-	.content.width-66,
-	.content.width-75 {
-	    width: 96%;
+    .content {
+	    width: 96% !important;
 	}	
 }
 

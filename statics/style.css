@@ -111,17 +111,32 @@ footer td.debug:hover {
 .content:hover {
 	box-shadow: 0 2px 3px rgba(0, 0, 0, .25);
 }
+.content.width-20 {
+    width: 16%;
+}
 .content.width-25 {
     width: 21%;
 }
 .content.width-33 {
-    width: 29.333%;
+    width: 29%;
+}
+.content.width-40 {
+    width: 36%;
 }
 .content.width-50 {
 	width: 46%;
 }
+.content.width-60 {
+    width: 56%;
+}
+.content.width-67 {
+    width: 63%;
+}
 .content.width-75 {
     width: 71%;
+}
+.content.width-80 {
+    width: 76%;
 }
 .content .header {
 	border-bottom: solid 1px var(--text-color);
@@ -146,10 +161,13 @@ footer td.debug:hover {
 	width: 5%;
 }
 .content.icon.personal-data .icon {
-	background-position: 0 0;
+	background-position: -6px 0;
 }
 .content.icon.processed-physiological-data .icon {
-    background-position: -158px 0;
+    background-position: -163px 0;
+}
+.content.icon.exercises .icon {
+    background-position: -85px -398px;
 }
 .content.icon .header {
 	float: left;
