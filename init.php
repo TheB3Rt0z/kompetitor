@@ -10,10 +10,10 @@ foreach ($yaml_parser->parse(file_get_contents('statics/strings.yml')) as $key =
 			$intl[$key] = $string ? $string : "[" . strtoupper($key) . "]";
 			if (!empty($values['short']) && isset($values['def'])) {
 				if (empty($values['def'])) {
-					$values['def'] = '???';
+					$values['def'] = BOH;
 					Main::addLog("definition for short '" . $values['short'] . "' not found", 'notice');
 				}
-				elseif (strpos($values['def'], '???') !== false)
+				elseif (strpos($values['def'], BOH) !== false)
 					Main::addLog("incomplete definition for short '" . $values['short'] . "'", 'warning');
 				$shorts[$values['short']] = $values['def'];
 				if (!empty($values['link'])) {

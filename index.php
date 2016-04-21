@@ -66,7 +66,8 @@
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (cm):</td>
 										<td class="a-right"><input type="text" name="personal_data[height]" value="<?php echo $main->getPost('personal_data', 'height') ?>" /></td>
-										<td colspan="3"></td>
+										<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('foot length FL')) ?> (cm):</td>
+										<td class="a-left"><input type="text" name="personal_data[foot_length]" value="<?php echo $main->getPost('personal_data', 'foot_length') ?>" /></td>
 										<td class="a-right"><?php submit() ?></td>
 									</tr>
 								</table>
@@ -113,6 +114,20 @@
 										<td class="a-right"><input type="text" name="processed_physiological_data[age]" value="<?php echo $main->getPost('processed_physiological_data', 'age') ?>" readonly disabled /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('mediated weekly weight')) ?> (kg):</td>
 										<td class="a-right"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
+									</tr>
+								</table>
+							</fieldset>
+							<br />
+							<fieldset>
+								<legend><?php echo ucfirst(trnslt('shoes size')) ?></legend>
+								<table>
+									<tr>
+										<td class="a-left"><?php echo strtoupper(trnslt('usa')) ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][usa]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'usa') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo strtoupper(trnslt('uk')) ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][uk]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'uk') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo strtoupper(trnslt('eu')) ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][eu]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'eu') ?>" readonly disabled /></td>
 									</tr>
 								</table>
 							</fieldset>

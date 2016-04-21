@@ -40,9 +40,10 @@ if (ob_start()) {
 					<?php
 					foreach ($exercises as $key => $exercise) {
 						$exercise = explode("|", $exercise);
+						$value = $main->getPost('exercises_for_the_arms', 'exercises', $key);
 						?>
 						<td class="a-left">
-							<input id="exercise_<?php echo $key ?>" type="checkbox" />
+							<input id="exercise_<?php echo $key ?>" name="exercises_for_the_arms[exercises][<?php echo $key ?>]" type="checkbox" <?php if ($value) echo 'checked' ?>  />
 							<label for="exercise_<?php echo $key ?>">
 								<?php echo $exercise[1] ?>
 								<?php echo trnslt($exercise[0]) ?>

@@ -74,6 +74,11 @@
     IT: "defaticamento"
 "first name":
     IT: "nome"
+"foot length FL":
+    IT:
+        string: "lunghezza del piede LP"
+        short: "LP"
+        def: "È la massima distanza orizzontale dal centro della parte posteriore del tallone all'estremità del dito più sporgente, misurata mentre il soggetto è in posizione eretta con il peso equamente distribuito tra i due piedi.\nN.B.: Le dimensioni del piede sinistro e di quello destro sono spesso leggermente diverse e in questo caso entrambi i piedi sono misurati e le scarpe sono scelte sulla base della misura del piede più grande!"
 "fri":
     IT: "ven"
 "frontal raises":
@@ -138,6 +143,8 @@
     IT: "sab"
 "settings":
     IT: "impostazioni"
+"shoes size":
+    IT: "taglia di scarpe"
 "single-arm exercises":
     IT: "esercizi a braccio singolo"
 "slightly engaged breathing":

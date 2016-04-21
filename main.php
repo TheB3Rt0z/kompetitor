@@ -1,4 +1,6 @@
-<?php session_start(); ini_set('display_startup_errors', 1); ini_set('display_errors', 1); error_reporting(E_ALL);
+<?php session_start(); define('BOH', "???");
+
+ini_set('display_startup_errors', 1); ini_set('display_errors', 1); error_reporting(E_ALL);
 
 require_once 'includes/symphony.yaml/Parser.php';
 require_once 'includes/symphony.yaml/Unescaper.php';
@@ -22,6 +24,11 @@ class Main {
 	      LOG_NOTICE = 1,
 	      LOG_WARNING = 2,
 	      LOG_ERROR = 3;
+
+	const INCH_TO_CM = 2.54,
+	      CM_TO_INCH = .3937,
+	      FP_TO_CM = .666,
+	      CM_TO_FP = 1.5;
 
 	private $_dbat = 'pjv6hedPbCEAAAAAAAARWxUKv1D1fZf2HxPeyzI7Ca4P-eZI3p1nCmuqbo1tORJN', // dropbox access token
 			$_dbcl = null,
@@ -58,7 +65,7 @@ class Main {
 			$this->age['days'] = $interval->d;
 		}
 		else
-			$this->age['years'] = $this->age['months'] = $this->age['days'] = '???';
+			$this->age['years'] = $this->age['months'] = $this->age['days'] = BOH;
 
 		$_POST['processed_physiological_data']['age'] = $this->age['years'];
 
@@ -69,9 +76,26 @@ class Main {
 		if (!empty($daily_weighing))
 			$this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);
 		else
-			$this->mediated_weekly_weight = '???';
+			$this->mediated_weekly_weight = BOH;
 
 		$_POST['processed_physiological_data']['mediated_weekly_weight'] = $this->mediated_weekly_weight;
+
+		// shoes sizes calculation (ATM adult male only)
+		if ($this->post['personal_data']['foot_length']) {
+			$foot_length = $_POST['personal_data']['foot_length'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['foot_length']), 1);
+			$base_usa_cnd_uk = 3 * $foot_length * self::CM_TO_INCH;
+			$base_usa_cnd_uk = floor($base_usa_cnd_uk * 2) / 2;
+			$_POST['processed_physiological_data']['shoes_size']['usa'] = $this->shoes_size['usa'] = $base_usa_cnd_uk - 24;
+			$_POST['processed_physiological_data']['shoes_size']['uk'] = $this->shoes_size['uk'] = $base_usa_cnd_uk - 25;
+			$_POST['processed_physiological_data']['shoes_size']['eu'] = $this->shoes_size['eu'] = round(($foot_length + 1.5) * self::CM_TO_FP, 1);
+		}
+		else {
+			$_POST['processed_physiological_data']['shoes_size']['usa'] = BOH;
+			$_POST['processed_physiological_data']['shoes_size']['uk'] = BOH;
+			$_POST['processed_physiological_data']['shoes_size']['eu'] = BOH;
+		}
+
+		$_POST['personal_data']['height'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['height']), 1);
 	}
 
 
@@ -94,6 +118,8 @@ class Main {
 	private function _updateData() {
 
 		$post = $_POST + (array)$this->post; // casting necessary to avoid errors on NULL
+
+		unset($post['exercises_for_the_arms']); // excluding from synchronization
 
 		if ($post != $_SESSION['post']) {
 			file_put_contents('data.b64', base64_encode(serialize($post)));
