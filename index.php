@@ -181,7 +181,8 @@
 						</div>
 					</div>
 					<div class="separator"></div>
-					<div class="content width-67">
+					<div class="content width-67 icon arms-exercises">
+						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('exercises for the arms')) ?>
 							<span>&#8679;</span>
@@ -193,7 +194,8 @@
 							<?php include 'tables/arms-2x5kg.php' ?>
 						</div>
 					</div>
-					<div class="content width-33">
+					<div class="content width-33 icon bertoz-calculator">
+						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('Bertoz calculator')) ?>
 							<span>&#8679;</span>
@@ -208,7 +210,8 @@
 						</div>
 					</div>
 					<div class="separator"></div>
-					<div class="content width-33">
+					<div class="content width-33 icon riegel-calculator">
+						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('Riegel calculator')) ?>
 							<span>&#8679;</span>
@@ -222,7 +225,8 @@
 							</p>
 						</div>
 					</div>
-					<div class="content width-33">
+					<div class="content width-33 icon tables-and-appendices">
+						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucwords(trnslt('tables & appendices')) ?>
 							<span>&#8679;</span>
@@ -236,7 +240,8 @@
 							</p>
 						</div>
 					</div>
-					<div class="content width-33">
+					<div class="content width-33 icon bibliography">
+						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('bibliography')) ?>
 							<span>&#8679;</span>

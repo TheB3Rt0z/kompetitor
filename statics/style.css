@@ -157,8 +157,9 @@ footer td.debug:hover {
     background-repeat: no-repeat;
 	display: inline-block;
 	float: left;
-	height: 25px;
-	width: 5%;
+	height: 30px;
+	margin-right: 1%;
+	width: 4%;
 }
 .content.icon.personal-data .icon {
 	background-position: -6px 0;
@@ -168,6 +169,21 @@ footer td.debug:hover {
 }
 .content.icon.exercises .icon {
     background-position: -85px -398px;
+}
+.content.icon.arms-exercises .icon {
+    background-position: -122px -441px;
+}
+.content.icon.bertoz-calculator .icon {
+    background-position: -206px -574px;
+}
+.content.icon.riegel-calculator .icon {
+    background-position: -246px -571px;
+}
+.content.icon.tables-and-appendices .icon {
+    background-position: -246px -43px;
+}
+.content.icon.bibliography .icon {
+    background-position: -47px -441px;
 }
 .content.icon .header {
 	float: left;
