@@ -12,7 +12,8 @@
 		<script type="text/javascript" src="statics/scripts.js" charset="UTF-8"></script>
 	</head>
 	<body>
-		<form method="post">
+		<form id="main" method="post">
+		<input type="hidden" name="width" id="width" />
 		<header>
 			<div>
 				<table>
@@ -58,17 +59,21 @@
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('first name')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[first_name]" value="<?php echo $main->getPost('personal_data', 'first_name') ?>" /></td>
+										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 										<td class="a-left"><?php echo ucfirst(trnslt('last name')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[last_name]" value="<?php echo $main->getPost('personal_data', 'last_name') ?>" /></td>
+										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 										<td class="a-left"><?php echo ucfirst(trnslt('date of birth')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[date_of_birth]" value="<?php echo $main->getPost('personal_data', 'date_of_birth') ?>" /></td>
 									</tr>
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (cm):</td>
 										<td class="a-right"><input type="text" name="personal_data[height]" value="<?php echo $main->getPost('personal_data', 'height') ?>" /></td>
-										<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('foot length FL')) ?> (cm):</td>
-										<td class="a-left"><input type="text" name="personal_data[foot_length]" value="<?php echo $main->getPost('personal_data', 'foot_length') ?>" /></td>
-										<td class="a-right"><?php submit() ?></td>
+										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
+										<td class="a-left"><?php echo ucfirst(trnslt('foot length FL')) ?> (cm):</td>
+										<td class="a-right"><input type="text" name="personal_data[foot_length]" value="<?php echo $main->getPost('personal_data', 'foot_length') ?>" /></td>
+										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
+										<td class="a-right" colspan="2"><?php submit() ?></td>
 									</tr>
 								</table>
 							</fieldset>
@@ -83,15 +88,17 @@
 										<td class="a-right"><input type="text" name="personal_data[daily_weighing][tue]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'tue') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('wed')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[daily_weighing][wed]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'wed') ?>" /></td>
+									    <?php if ($main->is_mobile) echo '</tr><tr>' ?>
 										<td class="a-left"><?php echo ucfirst(trnslt('thu')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[daily_weighing][thu]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'thu') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('fri')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[daily_weighing][fri]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'fri') ?>" /></td>
 										<td class="a-left"><?php echo ucfirst(trnslt('sat')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[daily_weighing][sat]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'sat') ?>" /></td>
+										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 										<td class="a-left"><?php echo ucfirst(trnslt('sun')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[daily_weighing][sun]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'sun') ?>" /></td>
-										<td class="a-right"><?php submit() ?></td>
+										<td class="a-right" colspan="4"><?php submit() ?></td>
 									</tr>
 								</table>
 							</fieldset>

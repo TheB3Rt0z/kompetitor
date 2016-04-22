@@ -29,12 +29,18 @@ if (ob_start()) {
 			<?php echo floor($grade * 2.666) ?> <?php echo trnslt("elbow rolls") ?>
 		</legend>
 		<table>
-			<thead>
-				<tr>
-					<th colspan="2"><?php echo trnslt("single-arm exercises") ?></th>
-					<th colspan="2"><?php echo trnslt("double-arm exercises") ?></th>
-				</tr>
-			</thead>
+			<?php
+			if (!$main->is_mobile) {
+				?>
+				<thead>
+					<tr>
+						<th colspan="2"><?php echo trnslt("single-arm exercises") ?></th>
+						<th colspan="2"><?php echo trnslt("double-arm exercises") ?></th>
+					</tr>
+				</thead>
+				<?php
+			}
+			?>
 			<tbody>
 				<tr>
 					<?php
@@ -50,6 +56,8 @@ if (ob_start()) {
 							</label>
 						</td>
 						<?php
+						if ($main->is_mobile && is_int(($key + 1) / 2))
+							echo '</tr><tr>';
 						if (is_int(($key + 1) / 4))
 							echo '<tr></tr>';
 					}
@@ -58,7 +66,7 @@ if (ob_start()) {
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="3">
+					<td colspan="<?php echo $main->is_mobile ? 2 : 3 ?>">
 						<?php echo ucfirst(trnslt("finishing")) ?>:
 						<?php echo $grade * 2 ?> <?php echo trnslt("rapid-fire punches") ?>
 						+
@@ -66,13 +74,15 @@ if (ob_start()) {
 						+
 						<?php echo $grade * 4 ?> <?php echo trnslt("rapid-fire punches") ?>
 					</td>
-					<td><?php submit() ?></td>
+					<?php if ($main->is_mobile) echo '</tr><tr>' ?>
+					<td colspan="<?php echo $main->is_mobile ? 2 : 1 ?>"><?php submit() ?></td>
 				</tr>
 			</tfoot>
 		</table>
 	</fieldset>
 	<?php
-	file_put_contents('tables/arms-2x5kg.htm', ob_get_contents());
+	if (!$main->is_mobile)
+		file_put_contents('tables/arms-2x5kg.htm', ob_get_contents());
 	ob_end_flush();
 }
 ?>

@@ -45,6 +45,8 @@ class Main {
 		if (!isset($_SESSION['post']))
 			$_SESSION['post'] = $this->post;
 
+		$this->is_mobile = (!empty($this->post['width']) && ($this->post['width'] < 667));
+
 		$this->_process();
 
 		$this->_updateData();
@@ -60,14 +62,14 @@ class Main {
 
 			$interval = $date_of_birth->diff($now);
 
-			$this->age['years'] = $_POST['processed_physiological_data']['age'] = $interval->y;
+			$this->age['years'] = $interval->y;
 			$this->age['months'] = $interval->m;
 			$this->age['days'] = $interval->d;
 		}
 		else
 			$this->age['years'] = $this->age['months'] = $this->age['days'] = BOH;
 
-		$_POST['processed_physiological_data']['age'] = $this->age['years'];
+		$this->post['processed_physiological_data']['age'] = $this->age['years'];
 
 		// mediated-weekly-weight
 		$this->mediated_weekly_weight = BOH;
@@ -78,21 +80,21 @@ class Main {
 				$this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);
 		}
 
-		$_POST['processed_physiological_data']['mediated_weekly_weight'] = $this->mediated_weekly_weight;
+		$this->post['processed_physiological_data']['mediated_weekly_weight'] = $this->mediated_weekly_weight;
 
 		// shoes sizes calculation (ATM adult male only)
 		if (!empty($this->post['personal_data']['foot_length'])) {
-			$foot_length = $_POST['personal_data']['foot_length'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['foot_length']), 1);
+			$foot_length = $this->post['personal_data']['foot_length'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['foot_length']), 1);
 			$base_usa_cnd_uk = 3 * $foot_length * self::CM_TO_INCH;
 			$base_usa_cnd_uk = floor($base_usa_cnd_uk * 2) / 2;
-			$_POST['processed_physiological_data']['shoes_size']['usa'] = $this->shoes_size['usa'] = $base_usa_cnd_uk - 24;
-			$_POST['processed_physiological_data']['shoes_size']['uk'] = $this->shoes_size['uk'] = $base_usa_cnd_uk - 25;
-			$_POST['processed_physiological_data']['shoes_size']['eu'] = $this->shoes_size['eu'] = round(($foot_length + 1.5) * self::CM_TO_FP, 1);
+			$this->post['processed_physiological_data']['shoes_size']['usa'] = $this->shoes_size['usa'] = $base_usa_cnd_uk - 24;
+			$this->post['processed_physiological_data']['shoes_size']['uk'] = $this->shoes_size['uk'] = $base_usa_cnd_uk - 25;
+			$this->post['processed_physiological_data']['shoes_size']['eu'] = $this->shoes_size['eu'] = round(($foot_length + 1.5) * self::CM_TO_FP, 1);
 		}
 		else {
-			$_POST['processed_physiological_data']['shoes_size']['usa'] = BOH;
-			$_POST['processed_physiological_data']['shoes_size']['uk'] = BOH;
-			$_POST['processed_physiological_data']['shoes_size']['eu'] = BOH;
+			$this->post['processed_physiological_data']['shoes_size']['usa'] = BOH;
+			$this->post['processed_physiological_data']['shoes_size']['uk'] = BOH;
+			$this->post['processed_physiological_data']['shoes_size']['eu'] = BOH;
 		}
 
 		if (!empty($_POST['personal_data']['height']))
@@ -103,16 +105,16 @@ class Main {
 	private function _retrieveData() {
 
 		if (!isset($_SESSION['post'])) {
-			$data = fopen('data.b64', 'w+b');
+			$data = fopen(DATA_FILE, 'w+b');
 			$this->_data = $this->_dbcl->getFile('/data', $data);
 			fclose($data);
 
 			Main::addLog("Profile data was loaded from Dropbox API", 'info');
 		}
 
-		if (!file_exists('data.b64'))
-			fopen('data.b64', 'w+b');
-		$data = file_get_contents('data.b64');
+		if (!file_exists(DATA_FILE))
+			fopen(DATA_FILE, 'w+b');
+		$data = file_get_contents(DATA_FILE);
 
 		return !empty($_POST)
 			   ? $_POST
@@ -122,15 +124,15 @@ class Main {
 
 	private function _updateData() {
 
-		$post = $_POST + (array)$this->post; // casting necessary to avoid errors on NULL
+		$post = (array)$this->post + $_POST; // casting necessary to avoid errors on NULL
 
-		unset($post['exercises_for_the_arms']); // excluding from synchronization
+		unset($post['width'], $post['exercises_for_the_arms']); // excluding from synchronization
 
 		if ($post != $_SESSION['post']) {
-			file_put_contents('data.b64', base64_encode(serialize($post)));
+			file_put_contents(DATA_FILE, base64_encode(serialize($post)));
 
-			$data = fopen('data.b64', 'rb'); // read only binary
-			if ($data) // not saving if file was inexplicably truncated
+			$data = fopen(DATA_FILE, 'rb'); // read only binary
+			if (!empty($post)) // not saving in dropbox if file was inexplicably truncated
 				$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update($this->_data['rev']), $data);
 			fclose($data);
 

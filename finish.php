@@ -24,3 +24,17 @@ if (APPLICATION_LOG) {
 	<?php
 }
 ?>
+
+<script type="text/javascript">
+    jQuery(function() {
+
+	    var form = jQuery('form#main');
+
+	    form.children('#width').val(jQuery(window).width());
+	    jQuery(window).resize(function() {
+	    	form.children('#width').val(jQuery(window).width());
+	    });
+
+	    <?php if (empty($_POST)) echo "form.submit();" ?>
+    });
+</script>

@@ -1,6 +1,7 @@
 <?php require_once 'main.php';
 
 define('DEFAULT_LANGUAGE', "IT");
+define('DATA_FILE', '.data');
 
 global $intl, $shorts, $links;
 foreach ($yaml_parser->parse(file_get_contents('statics/strings.yml')) as $key => $langs) {

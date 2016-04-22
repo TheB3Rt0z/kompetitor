@@ -12,6 +12,21 @@ function hideMobileNav() {
 	}
 }
 
+
+function checkBreakpoints() {
+	
+	//jQuery('td.breakpoint').after('</tr><tr>');
+	
+	/*jQuery('td.breakpoint').each(function(){
+		jQuery(this).prevUntil('td').andSelf().wrapAll(jQuery('<tr></tr>'));
+	});
+	jQuery('td:first').after(jQuery('td:first').children());
+	jQuery('td:first').remove();*/
+	
+	jQuery('td.breakpoint').wrapAll(jQuery('<tr></tr>'));
+}
+
+
 jQuery(function() {
 	
 	jQuery('.content.log').prependTo('html body section article > div');
@@ -30,4 +45,6 @@ jQuery(function() {
 		body.toggle(delay);
 		jQuery(this).children('span').toggleClass('opened');
 	});
+	
+	jQuery('')
 });

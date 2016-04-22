@@ -1,4 +1,4 @@
-@media all and (min-width:1024px) {
+@media all and (min-width:1025px) {
 	
     .invisible-on-desktop {
         display: none !important;
@@ -9,7 +9,7 @@
 }
 
 
-@media all and (max-width:1023px) {
+@media all and (max-width:1024px) {
 	
 	.invisible-on-tablet {
         display: none;
@@ -35,11 +35,27 @@
 
     .content {
 	    width: 96% !important;
-	}	
+	}
 }
 
 
-@media all and (max-width:479px) {
+@media all and (max-width:667px) {
+	
+	.content.icon .icon {
+        width: 5.5%;
+	}
+	.content.icon .header {
+	    width: 93%;
+	}
+	
+	.content .body table th,
+	.content .body table td {
+	    white-space: normal;
+	}
+}
+
+
+@media all and (max-width:480px) {
 	
 	.invisible-on-mobile {
 	    display: none;
@@ -53,5 +69,12 @@
     .content {
         padding: 3%;
         width: 92% !important;
+    }
+    
+    .content.icon .icon {
+        width: 7.5%;
+    }
+    .content.icon .header {
+        width: 91%;
     }
 }
