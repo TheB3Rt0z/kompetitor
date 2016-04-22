@@ -54,7 +54,7 @@ class Main {
 	private function _process() {
 
 		// age (not only years anyway)
-		if ($this->post['personal_data']['date_of_birth']) {
+		if (!empty($this->post['personal_data']['date_of_birth'])) {
 			$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->post['personal_data']['date_of_birth'])));
 			$now = new DateTime(date('Y-m-d'));
 
@@ -70,18 +70,18 @@ class Main {
 		$_POST['processed_physiological_data']['age'] = $this->age['years'];
 
 		// mediated-weekly-weight
-		$daily_weighing = array_filter($this->post['personal_data']['daily_weighing'], function(&$value) {
-			return $value = number_format((double)str_replace(',', '.', $value), 1);
-		});
-		if (!empty($daily_weighing))
-			$this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);
-		else
-			$this->mediated_weekly_weight = BOH;
+		$this->mediated_weekly_weight = BOH;
+		if (!empty($this->post['personal_data']['daily_weighing'])) {
+			if ($daily_weighing = array_filter($this->post['personal_data']['daily_weighing'], function(&$value) {
+				return $value = $value ? number_format((double)str_replace(',', '.', $value), 1) : false;
+			}))
+				$this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);
+		}
 
 		$_POST['processed_physiological_data']['mediated_weekly_weight'] = $this->mediated_weekly_weight;
 
 		// shoes sizes calculation (ATM adult male only)
-		if ($this->post['personal_data']['foot_length']) {
+		if (!empty($this->post['personal_data']['foot_length'])) {
 			$foot_length = $_POST['personal_data']['foot_length'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['foot_length']), 1);
 			$base_usa_cnd_uk = 3 * $foot_length * self::CM_TO_INCH;
 			$base_usa_cnd_uk = floor($base_usa_cnd_uk * 2) / 2;
@@ -95,7 +95,8 @@ class Main {
 			$_POST['processed_physiological_data']['shoes_size']['eu'] = BOH;
 		}
 
-		$_POST['personal_data']['height'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['height']), 1);
+		if (!empty($_POST['personal_data']['height']))
+			$_POST['personal_data']['height'] = $this->height = number_format((double)str_replace(',', '.', $this->post['personal_data']['height']), 1);
 	}
 
 
@@ -109,9 +110,13 @@ class Main {
 			Main::addLog("Profile data was loaded from Dropbox API", 'info');
 		}
 
+		if (!file_exists('data.b64'))
+			fopen('data.b64', 'w+b');
+		$data = file_get_contents('data.b64');
+
 		return !empty($_POST)
 			   ? $_POST
-		       : unserialize(base64_decode(file_get_contents('data.b64')));
+		       : unserialize(base64_decode($data));
 	}
 
 
@@ -125,7 +130,8 @@ class Main {
 			file_put_contents('data.b64', base64_encode(serialize($post)));
 
 			$data = fopen('data.b64', 'rb'); // read only binary
-			$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update($this->_data['rev']), $data);
+			if ($data) // not saving if file was inexplicably truncated
+				$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update($this->_data['rev']), $data);
 			fclose($data);
 
 			Main::addLog("Profile data was saved to Dropbox API", 'info');

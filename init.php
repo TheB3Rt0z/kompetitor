@@ -28,6 +28,7 @@ define('APPLICATION_NAME', "Kompetitor");
 define('APPLICATION_TITLE', trnslt(APPLICATION_NAME) . " v" . Main::getVersion());
 define('APPLICATION_COPYRIGHT', APPLICATION_TITLE . " © " . date('Y') . " Bertozzi Matteo");
 define('APPLICATION_BIBLIOGRAPHY', "- Andiamo a Correre (Fulvio Massini, 2012)" . "\\n"
+		                         . "- La Perfezione del Corpo (Bruce & Linda Lee, 1998)" . "\\n"
 		                         . "- Voglio Correre (Enrico Arcelli, 2014)");
 define('APPLICATION_CREDITS', APPLICATION_COPYRIGHT . "\\n\\n" . ucfirst(trnslt('bibliography')) . "\\n" . APPLICATION_BIBLIOGRAPHY);
 
