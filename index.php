@@ -122,6 +122,10 @@
 										<td class="a-left"><?php echo ucfirst(trnslt('mediated weekly weight')) ?> (kg):</td>
 										<td class="a-right"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
 									</tr>
+									<tr>
+										<td class="a-left"><?php echo trnslt('BMI') ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[bmi]" value="<?php echo $main->getPost('processed_physiological_data', 'bmi') ?>" readonly disabled /></td>
+									</tr>
 								</table>
 							</fieldset>
 							<br />

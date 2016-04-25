@@ -26,6 +26,13 @@
     IT: "bibliografia"
 "biceps":
     IT: "bicipiti"
+"BMI":
+    IT: "IMC"
+"body mass index":
+    IT:
+        string: "indice di massa corporea"
+        short: "IMC"
+        def: "TEST!"
 "clawings":
     IT: "artigliate"
 "conconi test":

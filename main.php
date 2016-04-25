@@ -55,6 +55,9 @@ class Main {
 
 	private function _process() {
 
+		if (!empty($_POST['personal_data']['height']))
+			$_POST['personal_data']['height'] = $this->height = number_format((double)str_replace(',', '.', $this->post['personal_data']['height']), 1);
+
 		// age (not only years anyway)
 		if (!empty($this->post['personal_data']['date_of_birth'])) {
 			$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->post['personal_data']['date_of_birth'])));
@@ -82,6 +85,15 @@ class Main {
 
 		$this->post['processed_physiological_data']['mediated_weekly_weight'] = $this->mediated_weekly_weight;
 
+		// bmi and ideal-weight (averaged) calculation
+		if (!empty($this->height) && $this->mediated_weekly_weight != BOH) {
+			$bmi_quartelet = $this->mediated_weekly_weight / POW($this->height / 100, 2);
+			$this->post['processed_physiological_data']['bmi'] = number_format($bmi_quartelet, 3);
+		}
+		else
+			$this->post['processed_physiological_data']['bmi'] = BOH;
+		Main::addLog("average ideal weight calculation and correspondent elaborated fields should be added", 'todo');
+
 		// shoes sizes calculation (ATM adult male only)
 		if (!empty($this->post['personal_data']['foot_length'])) {
 			$foot_length = $this->post['personal_data']['foot_length'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['foot_length']), 1);
@@ -96,9 +108,6 @@ class Main {
 			$this->post['processed_physiological_data']['shoes_size']['uk'] = BOH;
 			$this->post['processed_physiological_data']['shoes_size']['eu'] = BOH;
 		}
-
-		if (!empty($_POST['personal_data']['height']))
-			$_POST['personal_data']['height'] = $this->height = number_format((double)str_replace(',', '.', $this->post['personal_data']['height']), 1);
 	}
 
 

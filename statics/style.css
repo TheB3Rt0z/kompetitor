@@ -21,7 +21,7 @@ body {
 		linear-gradient(150deg, var(--bg-color-light) 24%, var(--bg-color-dark) 0, var(--bg-color-dark) 26%, var(--bg-color-middle) 0, var(--bg-color-middle) 74%, var(--bg-color-dark) 0, var(--bg-color-dark) 76%, var(--bg-color-light) 0) 0 0,
 		linear-gradient(30deg, var(--bg-color-light) 24%, var(--bg-color-dark) 0, var(--bg-color-dark) 26%, var(--bg-color-middle) 0, var(--bg-color-middle) 74%, var(--bg-color-dark) 0, var(--bg-color-dark) 76%, var(--bg-color-light) 0) 0 0,
 		linear-gradient(90deg, var(--bg-color-dark) 2%, var(--bg-color-light) 0, var(--bg-color-light) 98%, var(--bg-color-dark) 0%) 0 0 var(--bg-color-light);
-	//background-color: crimson;
+	/*background-color: crimson;*/
 	background-size: 40px 60px;*/
 	color: var(--text-color);
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
