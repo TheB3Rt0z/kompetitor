@@ -121,12 +121,16 @@
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
 										<td class="a-right"><input type="text" name="processed_physiological_data[age]" value="<?php echo $main->getPost('processed_physiological_data', 'age') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo ucfirst(trnslt('mediated weekly weight')) ?> (in kg):</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
+										<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('mediated weekly weight')) ?> (in kg):</td>
+										<td class="a-right" colspan="2"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
 									</tr>
 									<tr>
 										<td class="a-left"><?php echo trnslt('BMI') ?>:</td>
 										<td class="a-right"><input type="text" name="processed_physiological_data[bmi]" value="<?php echo $main->getPost('processed_physiological_data', 'bmi') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo ucfirst(trnslt('ideal weight')) ?> (in kg):</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[ideal_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'ideal_weight') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo trnslt('RS') ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[rs]" value="<?php echo $main->getPost('processed_physiological_data', 'rs') ?>" readonly disabled /></td>
 									</tr>
 								</table>
 							</fieldset>
@@ -298,7 +302,8 @@
 						<tr>
 							<td class="a-left">REPORT</td>
 							<td class="a-left debug">
-								<pre>POST: <?php var_dump($main->post) ?></pre>
+								<br />
+								<?php var_dump($main->post) ?>
 							</td>
 							<td class="a-right">EXPORT</td>
 						</tr>

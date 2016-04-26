@@ -89,10 +89,23 @@ class Main {
 		if (!empty($this->height) && $this->mediated_weekly_weight != BOH) {
 			$bmi_quartelet = $this->mediated_weekly_weight / POW($this->height / 100, 2);
 			$this->post['processed_physiological_data']['bmi'] = number_format($bmi_quartelet, 3);
+
+			if ($this->age['years'] != BOH) {
+				$this->broca_ideal_weight = $this->height - 100;
+				$this->lorentz_ideal_weight = $this->height - 100 + (($this->height - 150) / 100);
+				$this->perrault_ideal_weight = $this->height - 100 - (($this->age['years'] - 20) / 4);
+				$ideal_weight = ($this->broca_ideal_weight
+						      + $this->lorentz_ideal_weight
+						      + $this->perrault_ideal_weight) / 3;
+				$this->post['processed_physiological_data']['ideal_weight'] = number_format($ideal_weight, 3);
+			}
+			else
+				$this->post['processed_physiological_data']['ideal_weight'] = BOH;
 		}
-		else
+		else {
 			$this->post['processed_physiological_data']['bmi'] = BOH;
-		Main::addLog("average ideal weight calculation and correspondent elaborated fields should be added", 'todo');
+			$this->post['processed_physiological_data']['ideal_weight'] = BOH;
+		}
 
 		// shoes sizes calculation (ATM adult male only)
 		if (!empty($this->post['personal_data']['foot_length'])) {
@@ -116,8 +129,10 @@ class Main {
 
 				if (!empty($values['pb'])) {
 					$pb = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($values['pb'])));
-					$this->post['distances_and_records'][$key]['step'] = $this->distances_and_records[$key]['step'] = date('i:s', round($pb->format('U') / $distance));
-					$this->post['distances_and_records'][$key]['speed'] = $this->distances_and_records[$key]['speed'] = number_format($distance * 3600 / $pb->format('U'), 3);
+					$this->distances_and_records[$key]['step_tmp'] = $step = round($pb->format('U') / $distance);
+					$this->distances_and_records[$key]['speed_tmp'] = $speed = $distance * 3600 / $pb->format('U');
+					$this->post['distances_and_records'][$key]['step'] = $this->distances_and_records[$key]['step'] = date('i:s', $step);
+					$this->post['distances_and_records'][$key]['speed'] = $this->distances_and_records[$key]['speed'] = number_format($speed, 3);
 				}
 				else {
 					$this->post['distances_and_records'][$key]['step'] = $this->distances_and_records[$key]['step'] = BOH;
@@ -126,8 +141,10 @@ class Main {
 
 				if (!empty($values['last_pb'])) {
 					$last_pb = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($values['last_pb'])));
-					$this->post['distances_and_records'][$key]['last_step'] = $this->distances_and_records[$key]['last_step'] = date('i:s', round($last_pb->format('U') / $distance));
-					$this->post['distances_and_records'][$key]['last_speed'] = $this->distances_and_records[$key]['last_speed'] = number_format($distance * 3600 / $last_pb->format('U'), 3);
+					$this->distances_and_records[$key]['last_step_tmp'] = $last_step = round($last_pb->format('U') / $distance);
+					$this->distances_and_records[$key]['last_speed_tmp'] = $last_speed = $distance * 3600 / $last_pb->format('U');
+					$this->post['distances_and_records'][$key]['last_step'] = $this->distances_and_records[$key]['last_step'] = date('i:s', $last_step);
+					$this->post['distances_and_records'][$key]['last_speed'] = $this->distances_and_records[$key]['last_speed'] = number_format($last_speed, 3);
 				}
 				else {
 					$this->post['distances_and_records'][$key]['last_step'] = $this->distances_and_records[$key]['last_step'] = BOH;
@@ -135,6 +152,18 @@ class Main {
 				}
 			}
 		}
+
+		// reference speed calculation
+		if (!empty($this->distances_and_records['10km']['last_step_tmp'])
+				&& !empty($this->distances_and_records['1/3M']['last_step_tmp'])
+				&& !empty($this->distances_and_records['15km']['last_step_tmp'])) {
+			$rs = ($this->distances_and_records['10km']['last_step_tmp']
+			    + $this->distances_and_records['1/3M']['last_step_tmp']
+			    + $this->distances_and_records['15km']['last_step_tmp']) / 3;
+			$this->post['processed_physiological_data']['rs'] = date('i:s', round($rs));
+		}
+		else
+			$this->post['processed_physiological_data']['rs'] = BOH;
 	}
 
 

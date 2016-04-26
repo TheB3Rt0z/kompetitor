@@ -32,7 +32,7 @@
     IT:
         string: "indice di massa corporea"
         short: "IMC"
-        def: "TEST!"
+        def: ""
 "clawings":
     IT: "artigliate"
 "conconi test":
@@ -100,6 +100,8 @@
     IT: "altezza"
 "hump-launches":
     IT: "lanci gobbi"
+"ideal weight":
+    IT: "peso ideale"
 "information":
     IT: "informazioni"
 "last name":
@@ -160,6 +162,8 @@
         short: "FR"
         def: "Formula di Riegel: elaborata da Pete Riegel nel 1977 per predire il tempo su una certa distanza, noto il tempo su di un'altra, TP2 = TP1 * (D2/D1)^1,06."
         link: "http://da0a42.blogspot.de/2014/03/la-formula-di-riegel-per-calcolare-le.html"
+"RS":
+    IT: "VR"
 "sat":
     IT: "sab"
 "settings":

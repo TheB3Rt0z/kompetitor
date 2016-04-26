@@ -98,10 +98,11 @@ footer td.debug {
 	font-family: "Lucida Console", Monaco, monospace;
 	font-size: 0;
 	min-width: 75%;
-	transition: .25s;
+	transition: .125s;
 }
 footer td.debug:hover {
-    font-size: inherit;	
+	background-color: white;
+    font-size: .75em;
 }
 
 .content {
