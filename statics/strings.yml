@@ -54,6 +54,10 @@
         string: "stretching globale decompensato"
         short: "SGD"
         def: "Secondo il metodo di Françoise Mézières: ???"
+"distance":
+    IT: "distanza"
+"distances & records":
+    IT: "distanze & records"
 "double curls":
     IT: "doppio curl"
 "double-arm exercises":
@@ -85,7 +89,7 @@
     IT:
         string: "lunghezza del piede LP"
         short: "LP"
-        def: "È la massima distanza orizzontale dal centro della parte posteriore del tallone all'estremità del dito più sporgente, misurata mentre il soggetto è in posizione eretta con il peso equamente distribuito tra i due piedi.\nN.B.: Le dimensioni del piede sinistro e di quello destro sono spesso leggermente diverse e in questo caso entrambi i piedi sono misurati e le scarpe sono scelte sulla base della misura del piede più grande!"
+        def: "È la massima distanza orizzontale (rigorosamente in cm) dal centro della parte posteriore del tallone all'estremità del dito più sporgente, misurata mentre il soggetto è in posizione eretta con il peso equamente distribuito tra i due piedi.\nN.B.: Le dimensioni del piede sinistro e di quello destro sono spesso leggermente diverse e in questo caso entrambi i piedi sono misurati e le scarpe sono scelte sulla base della misura del piede più grande!"
 "fri":
     IT: "ven"
 "frontal raises":
@@ -113,6 +117,16 @@
     IT: "peso settimanale mediato"
 "mon":
     IT: "lun"
+"most recent personal":
+    IT:
+        string: "ultimo personale"
+        short: "UP"
+        def: "???"
+"personal best":
+    IT:
+        string: "record personale"
+        short: "RP"
+        def: "???"
 "personal data":
     IT: "dati personali"
 "post-run stretching":
@@ -159,6 +173,8 @@
         string: "respirazione leggermente impegnata"
         short: "RLI"
         def: ""
+"speed":
+    IT: "velocità"
 "static stretching":
     IT:
         string: "stretching statico"

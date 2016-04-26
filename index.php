@@ -67,10 +67,10 @@
 										<td class="a-right"><input type="text" name="personal_data[date_of_birth]" value="<?php echo $main->getPost('personal_data', 'date_of_birth') ?>" /></td>
 									</tr>
 									<tr>
-										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (cm):</td>
+										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (in cm):</td>
 										<td class="a-right"><input type="text" name="personal_data[height]" value="<?php echo $main->getPost('personal_data', 'height') ?>" /></td>
 										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
-										<td class="a-left"><?php echo ucfirst(trnslt('foot length FL')) ?> (cm):</td>
+										<td class="a-left"><?php echo ucfirst(trnslt('foot length FL')) ?> (in cm):</td>
 										<td class="a-right"><input type="text" name="personal_data[foot_length]" value="<?php echo $main->getPost('personal_data', 'foot_length') ?>" /></td>
 										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 										<td class="a-right" colspan="2"><?php submit() ?></td>
@@ -79,7 +79,7 @@
 							</fieldset>
 							<br />
 							<fieldset>
-								<legend><?php echo ucfirst(trnslt('daily weighing')) ?> (kg)</legend>
+								<legend><?php echo ucfirst(trnslt('daily weighing')) ?> (in kg)</legend>
 								<table>
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('mon')) ?>:</td>
@@ -102,6 +102,41 @@
 									</tr>
 								</table>
 							</fieldset>
+							<br />
+							<fieldset>
+								<legend><?php echo ucwords(trnslt('distances & records')) ?></legend>
+								<table>
+									<thead>
+										<tr>
+											<th class="a-left"><?php echo ucfirst(trnslt("distance")) ?></th>
+											<th><?php echo ucwords(trnslt($main->is_mobile ? "records" : "personal best")) ?></th>
+											<th><?php echo ucfirst(trnslt("step")) ?></th>
+											<th><?php echo ucfirst(trnslt("speed")) ?></th>
+											<?php
+											if (!$main->is_mobile) {
+												?>
+												<th><?php echo ucwords(trnslt("most recent personal")) ?></th>
+												<th><?php echo ucfirst(trnslt("step")) ?></th>
+												<th><?php echo ucfirst(trnslt("speed")) ?></th>
+												<?php
+											}
+											?>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="a-left"><?php echo trnslt('5km') ?>:<input type="hidden" name="distances_and_records[5km][distance]" value="5" /></td>
+											<td class="a-right"><input type="text" name="distances_and_records[5km][pb]" value="<?php echo $main->getPost('distances_and_records', '5km', 'pb') ?>" /></td>
+											<td class="a-right"><input type="text" name="distances_and_records[5km][step]" value="<?php echo $main->getPost('distances_and_records', '5km', 'step') ?>" readonly disabled /></td>
+											<td class="a-right"><input type="text" name="distances_and_records[5km][speed]" value="<?php echo $main->getPost('distances_and_records', '5km', 'speed') ?>" readonly disabled /></td>
+											<?php if ($main->is_mobile) echo '</tr><tr><td>' . trnslt('MRP') . '-' . trnslt('5km') . ':</td>' ?>
+											<td class="a-right"><input type="text" name="distances_and_records[5km][last_pb]" value="<?php echo $main->getPost('distances_and_records', '5km', 'last_pb') ?>" /></td>
+											<td class="a-right"><input type="text" name="distances_and_records[5km][last_step]" value="<?php echo $main->getPost('distances_and_records', '5km', 'last_step') ?>" readonly disabled /></td>
+											<td class="a-right"><input type="text" name="distances_and_records[5km][last_speed]" value="<?php echo $main->getPost('distances_and_records', '5km', 'last_speed') ?>" readonly disabled /></td>
+										</tr>
+									</tbody>
+								</table>
+							</fieldset>
 						</div>
 					</div>
 					<div class="content width-40 icon processed-physiological-data">
@@ -119,7 +154,7 @@
 									<tr>
 										<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
 										<td class="a-right"><input type="text" name="processed_physiological_data[age]" value="<?php echo $main->getPost('processed_physiological_data', 'age') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo ucfirst(trnslt('mediated weekly weight')) ?> (kg):</td>
+										<td class="a-left"><?php echo ucfirst(trnslt('mediated weekly weight')) ?> (in kg):</td>
 										<td class="a-right"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
 									</tr>
 									<tr>

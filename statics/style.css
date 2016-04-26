@@ -32,7 +32,7 @@ body {
 	padding: 0;
 }
 body .short {
-	color: #000;
+	color: var(--text-links);
 	cursor: help;
 }
 
@@ -235,6 +235,7 @@ footer td.debug:hover {
 }
 .content .body table td input[readonly] {
     background-color: var(--text-lighter);
+    padding: 3px 4px 3.5px;
 }
 
 .content.log {

@@ -1,4 +1,4 @@
-<?php Main::addLog("add php checks for an 'intelligent' form reloading, not only $_POST based", 'todo'); define('APPLICATION_LOG', Main::hasLogs() ? serialize(Main::getLogs()) : false) ?>
+<?php Main::addLog("add php checks for an 'intelligent' form reloading, not only \$_POST based", 'todo'); define('APPLICATION_LOG', Main::hasLogs() ? serialize(Main::getLogs()) : false) ?>
 
 <?php
 if (APPLICATION_LOG) {
