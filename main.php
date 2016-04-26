@@ -153,7 +153,7 @@ class Main {
 			}
 		}
 
-		// reference speed calculation
+		// reference speed calculation + some speed expectations
 		if (!empty($this->distances_and_records['10km']['last_step_tmp'])
 				&& !empty($this->distances_and_records['1/3M']['last_step_tmp'])
 				&& !empty($this->distances_and_records['15km']['last_step_tmp'])) {
@@ -161,9 +161,23 @@ class Main {
 			    + $this->distances_and_records['1/3M']['last_step_tmp']
 			    + $this->distances_and_records['15km']['last_step_tmp']) / 3;
 			$this->post['processed_physiological_data']['rs'] = date('i:s', round($rs));
+
+			$this->post['processed_physiological_data']['speed_expectations']['10mi'] = $this->speed_expectations['10mi'] = date('i:s', round($rs + 1)); // 8-D
+			$this->post['processed_physiological_data']['speed_expectations']['hm'] = $this->speed_expectations['hm'] = date('i:s', round($rs + 2.5)); // from Fulvio Massini
+			$this->post['processed_physiological_data']['speed_expectations']['m'] = $this->speed_expectations['m'] = date('i:s', round($rs * 1.075)); // from corroergosum.it
+			$this->post['processed_physiological_data']['speed_expectations']['cm'] = $this->speed_expectations['cm'] = date('i:s', round($rs * 1.125)); // from corroergosum.it
+			$this->post['processed_physiological_data']['speed_expectations']['cl'] = $this->speed_expectations['cl'] = date('i:s', round($rs * 1.175)); // from corroergosum.it
+			$this->post['processed_physiological_data']['speed_expectations']['cll'] = $this->speed_expectations['cll'] = date('i:s', round($rs * 1.225)); // from corroergosum.it
 		}
-		else
+		else {
 			$this->post['processed_physiological_data']['rs'] = BOH;
+			$this->post['processed_physiological_data']['speed_expectations']['10mi'] = $this->speed_expectations['10mi'] = BOH;
+			$this->post['processed_physiological_data']['speed_expectations']['hm'] = $this->speed_expectations['hm'] = BOH;
+			$this->post['processed_physiological_data']['speed_expectations']['m'] = $this->speed_expectations['m'] = BOH;
+			$this->post['processed_physiological_data']['speed_expectations']['cm'] = $this->speed_expectations['cm'] = BOH;
+			$this->post['processed_physiological_data']['speed_expectations']['cl'] = $this->speed_expectations['cl'] = BOH;
+			$this->post['processed_physiological_data']['speed_expectations']['cll'] = $this->speed_expectations['cll'] = BOH;
+		}
 	}
 
 

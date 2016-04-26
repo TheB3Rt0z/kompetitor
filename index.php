@@ -136,6 +136,28 @@
 							</fieldset>
 							<br />
 							<fieldset>
+								<legend><?php echo ucfirst(trnslt('speed expectations')) ?> (min/km)</legend>
+								<table>
+									<tr>
+										<td class="a-left"><?php echo trnslt('10mi') ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][10mi]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', '10mi') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo trnslt('HM') ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][hm]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'hm') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo trnslt('M') ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][m]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'm') ?>" readonly disabled /></td>
+									</tr>
+									<tr>
+										<td class="a-left"><?php echo trnslt('CM') ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cm]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'cm') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo trnslt('CL') ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cl]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'cl') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo trnslt('CLL') ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cll]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'cll') ?>" readonly disabled /></td>
+									</tr>
+								</table>
+							</fieldset>
+							<br />
+							<fieldset>
 								<legend><?php echo ucfirst(trnslt('shoes size')) ?></legend>
 								<table>
 									<tr>

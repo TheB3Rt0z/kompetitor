@@ -117,13 +117,20 @@
         def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dello stesso."
 "mediated weekly weight":
     IT: "peso settimanale mediato"
+"medium":
+    IT:
+        string: "medio"
+        short: "CM"
+        def: "Tratti di corsa da correre alla velocità del 10/15% più lenta rispetto alla velocità di riferimento. Un ritmo uguale o molto simile a quelle che sarà il ritmo gara."
 "mon":
     IT: "lun"
 "most recent personal":
     IT:
         string: "ultimo personale"
         short: "UP"
-        def: "???"
+        def: "Si tratta semplicemente dell'ultimo risultato realistico sulla distanza in esame, meglio se non più vecchio di pochi mesi, soprattutto se impiegato nel calcolo della velocità di riferimento (10km, 1/3M e 15km)!"
+"MRP":
+    IT: "UP"
 "personal best":
     IT:
         string: "record personale"
@@ -142,6 +149,11 @@
         string: "facilitazione propriocettiva neuromuscolare"
         short: "FPN"
         def: ""
+"race pace":
+    IT:
+        string: "ritmo gara"
+        short: "RG"
+        def: "É la velocità a cui correre la maratona. Dovrebbe essere il 5-10% più lenta della velocità di riferimento."
 "rapid-fire punches":
     IT: "pugni a raffica"
 "real hammers":
@@ -177,8 +189,15 @@
         string: "respirazione leggermente impegnata"
         short: "RLI"
         def: ""
+"slow":
+    IT:
+        string: "lento"
+        short: "CL"
+        def: "Tratti di corsa da correre alla velocità del 15-20% più lenta rispetto alla velocità di riferimento."
 "speed":
     IT: "velocità"
+"speed expectations":
+    IT: "velocità attese"
 "static stretching":
     IT:
         string: "stretching statico"
@@ -209,6 +228,11 @@
     IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
 "vertical pulls":
     IT: "tirate verticali"
+"very slow":
+    IT:
+        string: "lentissimo"
+        short: "CLL"
+        def: "Tratti di corsa da correre alla velocità del 20-25% più lenta rispetto alla velocità di riferimento."
 "warming-up":
     IT: "riscaldamento"
 "Wharton's stretching":

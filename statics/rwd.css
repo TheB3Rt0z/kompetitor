@@ -67,6 +67,7 @@
     }
     
     .content {
+        margin: 5% 1%;
         padding: 3%;
         width: 92% !important;
     }
