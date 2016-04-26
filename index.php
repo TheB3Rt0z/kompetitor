@@ -109,15 +109,15 @@
 									<thead>
 										<tr>
 											<th class="a-left"><?php echo ucfirst(trnslt("distance")) ?></th>
-											<th><?php echo ucwords(trnslt($main->is_mobile ? "records" : "personal best")) ?></th>
-											<th><?php echo ucfirst(trnslt("step")) ?></th>
-											<th><?php echo ucfirst(trnslt("speed")) ?></th>
+											<th><?php echo ucwords(trnslt("personal best")) ?></th>
+											<th><?php echo ucfirst(trnslt("step")) ?> (min/km)</th>
+											<th><?php echo ucfirst(trnslt("speed")) ?> (km/h)</th>
 											<?php
 											if (!$main->is_mobile) {
 												?>
 												<th><?php echo ucwords(trnslt("most recent personal")) ?></th>
-												<th><?php echo ucfirst(trnslt("step")) ?></th>
-												<th><?php echo ucfirst(trnslt("speed")) ?></th>
+												<th><?php echo ucfirst(trnslt("step")) ?> (min/km)</th>
+												<th><?php echo ucfirst(trnslt("speed")) ?> (km/h)</th>
 												<?php
 											}
 											?>

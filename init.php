@@ -1,5 +1,6 @@
 <?php require_once 'main.php';
 
+setlocale(LC_TIME, 'ita', 'it_IT.utf8'); // only for dates
 define('DEFAULT_LANGUAGE', "IT");
 define('DATA_FILE', '.data');
 

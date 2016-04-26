@@ -217,6 +217,9 @@ footer td.debug:hover {
 	background-color: var(--text-lighterer);
 	float: left;
 }
+.content .body table th {
+	font-size: .666em;
+}
 .content .body table th,
 .content .body table td {
     padding: 5px;

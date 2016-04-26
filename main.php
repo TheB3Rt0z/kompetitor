@@ -108,6 +108,33 @@ class Main {
 			$this->post['processed_physiological_data']['shoes_size']['uk'] = BOH;
 			$this->post['processed_physiological_data']['shoes_size']['eu'] = BOH;
 		}
+
+		// providing distances and records calculations
+		if (!empty($this->post['distances_and_records'])) {
+			foreach ($this->post['distances_and_records'] as $key => $values) {
+				$distance = $values['distance'];
+
+				if (!empty($values['pb'])) {
+					$pb = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($values['pb'])));
+					$this->post['distances_and_records'][$key]['step'] = $this->distances_and_records[$key]['step'] = date('i:s', $pb->format('U') / $distance);
+					$this->post['distances_and_records'][$key]['speed'] = $this->distances_and_records[$key]['speed'] = number_format($distance * 3600 / $pb->format('U'), 3);
+				}
+				else {
+					$this->post['distances_and_records'][$key]['step'] = $this->distances_and_records[$key]['step'] = BOH;
+					$this->post['distances_and_records'][$key]['speed'] = $this->distances_and_records[$key]['speed'] = BOH;
+				}
+
+				if (!empty($values['last_pb'])) {
+					$last_pb = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($values['last_pb'])));
+					$this->post['distances_and_records'][$key]['last_step'] = $this->distances_and_records[$key]['last_step'] = date('i:s', $last_pb->format('U') / $distance);
+					$this->post['distances_and_records'][$key]['last_speed'] = $this->distances_and_records[$key]['last_speed'] = number_format($distance * 3600 / $last_pb->format('U'), 3);
+				}
+				else {
+					$this->post['distances_and_records'][$key]['last_step'] = $this->distances_and_records[$key]['last_step'] = BOH;
+					$this->post['distances_and_records'][$key]['last_speed'] = $this->distances_and_records[$key]['last_speed'] = BOH;
+				}
+			}
+		}
 	}
 
 
@@ -128,6 +155,12 @@ class Main {
 		return !empty($_POST)
 			   ? $_POST
 		       : unserialize(base64_decode($data));
+	}
+
+
+	private function _setPost($fieldset, $field, $option = null) {
+
+		Main::addLog("main's _setPost shoul be implemented and the code searched for it..", 'todo');
 	}
 
 
