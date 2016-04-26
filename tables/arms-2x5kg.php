@@ -1,4 +1,4 @@
-<?php $exercises = array(); $grade = 25; Main::addLog("grade value for arm-exercises should be an input with submit", 'todo') ?>
+<?php $grade = 25; Main::addLog("grade value for arm-exercises should be an input with submit", 'todo') ?>
 
 <?php
 
@@ -59,7 +59,7 @@ if (ob_start()) {
 						if ($main->is_mobile && is_int(($key + 1) / 2))
 							echo '</tr><tr>';
 						if (is_int(($key + 1) / 4))
-							echo '<tr></tr>';
+							echo '</tr><tr>';
 					}
 					?>
 				</tr>
