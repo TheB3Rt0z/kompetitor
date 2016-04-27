@@ -151,8 +151,8 @@
 										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cm]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'cm') ?>" readonly disabled /></td>
 										<td class="a-left"><?php echo trnslt('CL') ?>:</td>
 										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cl]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'cl') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo trnslt('CLL') ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cll]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'cll') ?>" readonly disabled /></td>
+										<td class="a-left"><?php echo trnslt('LL') ?>:</td>
+										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][ll]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'll') ?>" readonly disabled /></td>
 									</tr>
 								</table>
 							</fieldset>

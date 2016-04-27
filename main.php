@@ -167,7 +167,7 @@ class Main {
 			$this->post['processed_physiological_data']['speed_expectations']['m'] = $this->speed_expectations['m'] = date('i:s', round($rs * 1.075)); // from corroergosum.it
 			$this->post['processed_physiological_data']['speed_expectations']['cm'] = $this->speed_expectations['cm'] = date('i:s', round($rs * 1.125)); // from corroergosum.it
 			$this->post['processed_physiological_data']['speed_expectations']['cl'] = $this->speed_expectations['cl'] = date('i:s', round($rs * 1.175)); // from corroergosum.it
-			$this->post['processed_physiological_data']['speed_expectations']['cll'] = $this->speed_expectations['cll'] = date('i:s', round($rs * 1.225)); // from corroergosum.it
+			$this->post['processed_physiological_data']['speed_expectations']['ll'] = $this->speed_expectations['ll'] = date('i:s', round($rs * 1.225)); // from corroergosum.it
 		}
 		else {
 			$this->post['processed_physiological_data']['rs'] = BOH;
@@ -176,7 +176,7 @@ class Main {
 			$this->post['processed_physiological_data']['speed_expectations']['m'] = $this->speed_expectations['m'] = BOH;
 			$this->post['processed_physiological_data']['speed_expectations']['cm'] = $this->speed_expectations['cm'] = BOH;
 			$this->post['processed_physiological_data']['speed_expectations']['cl'] = $this->speed_expectations['cl'] = BOH;
-			$this->post['processed_physiological_data']['speed_expectations']['cll'] = $this->speed_expectations['cll'] = BOH;
+			$this->post['processed_physiological_data']['speed_expectations']['ll'] = $this->speed_expectations['ll'] = BOH;
 		}
 	}
 

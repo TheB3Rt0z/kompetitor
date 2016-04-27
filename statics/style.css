@@ -239,7 +239,7 @@ footer td.debug:hover {
 }
 .content .body table td input[readonly] {
     background-color: var(--text-lighter);
-    padding: 3px 4px 3.5px;
+    padding: 3px 4px 3.25px;
 }
 
 .content.log {
