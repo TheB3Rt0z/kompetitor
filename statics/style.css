@@ -247,6 +247,10 @@ footer td.debug:hover {
     background-color: var(--text-lighter);
     padding: 3px 4px 3.25px;
 }
+.content .body table td input.boh {
+    background-color: var(--text-links);
+    color: white;
+}
 
 .content.log {
 	box-shadow: 0 0 10px crimson inset;

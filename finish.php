@@ -1,4 +1,4 @@
-<?php Main::addLog("add php checks for an 'intelligent' form reloading, not only \$_POST based", 'todo'); define('APPLICATION_LOG', Main::hasLogs() ? serialize(Main::getLogs()) : false) ?>
+<?php define('APPLICATION_LOG', Main::hasLogs() ? serialize(Main::getLogs()) : false) ?>
 
 <?php
 if (APPLICATION_LOG) {
@@ -34,7 +34,5 @@ if (APPLICATION_LOG) {
 	    jQuery(window).resize(function() {
 	    	form.children('#width').val(jQuery(window).width());
 	    });
-
-	    <?php if (empty($_POST)) echo "form.submit();" ?>
     });
 </script>

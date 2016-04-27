@@ -4,6 +4,15 @@ jQuery.noConflict();
 var delay = 125;
 
 
+function decorate() {
+	
+	jQuery('.content .body table td input[readonly]').each(function() {
+		if (jQuery(this).val() == '???')
+			jQuery(this).addClass('boh');
+	});
+}
+
+
 function hideMobileNav() {
 	
 	if (jQuery(window).width() < 768) {
@@ -16,6 +25,8 @@ function hideMobileNav() {
 jQuery(function() {
 	
 	jQuery('.content.log').prependTo('html body section article > div');
+	
+	decorate();
 	
 	jQuery('header .button.nav').bind('click', function() {
 		jQuery(this).hide(delay);

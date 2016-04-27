@@ -18,7 +18,8 @@ use Dropbox as dbx;
 
 class Main {
 
-	const LOG_INFO = -2,
+	const LOG_INFO = -3,
+	      LOG_IDEA = -2,
 		  LOG_TODO = -1,
 	      LOG_DEBUG = 0,
 	      LOG_NOTICE = 1,
@@ -55,8 +56,8 @@ class Main {
 
 	private function _process() {
 
-		if (!empty($_POST['personal_data']['height']))
-			$_POST['personal_data']['height'] = $this->height = number_format((double)str_replace(',', '.', $this->post['personal_data']['height']), 1);
+		if (!empty($this->post['personal_data']['height']))
+			$this->post['personal_data']['height'] = $this->height = number_format((double)str_replace(',', '.', $this->post['personal_data']['height']), 1);
 
 		// age (not only years anyway)
 		if (!empty($this->post['personal_data']['date_of_birth'])) {
@@ -82,13 +83,12 @@ class Main {
 			}))
 				$this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);
 		}
-
 		$this->post['processed_physiological_data']['mediated_weekly_weight'] = $this->mediated_weekly_weight;
 
 		// bmi and ideal-weight (averaged) calculation
 		if (!empty($this->height) && $this->mediated_weekly_weight != BOH) {
 			$bmi_quartelet = $this->mediated_weekly_weight / POW($this->height / 100, 2);
-			$this->post['processed_physiological_data']['bmi'] = number_format($bmi_quartelet, 3);
+			$this->post['processed_physiological_data']['bmi'] = $this->bmi = number_format($bmi_quartelet, 3);
 
 			if ($this->age['years'] != BOH) {
 				$this->broca_ideal_weight = $this->height - 100;
@@ -183,16 +183,14 @@ class Main {
 
 	private function _retrieveData() {
 
-		if (!isset($_SESSION['post'])) {
+		if (!file_exists(DATA_FILE) || !$_SESSION['post']) {
 			$data = fopen(DATA_FILE, 'w+b');
-			$this->_data = $this->_dbcl->getFile('/data', $data);
+			$this->_dbcl->getFile('/data', $data);
 			fclose($data);
 
 			Main::addLog("Profile data was loaded from Dropbox API", 'info');
 		}
 
-		if (!file_exists(DATA_FILE))
-			fopen(DATA_FILE, 'w+b');
 		$data = file_get_contents(DATA_FILE);
 
 		return !empty($_POST)
@@ -211,24 +209,24 @@ class Main {
 
 		$post = (array)$this->post + $_POST; // casting necessary to avoid errors on NULL
 
-		unset($post['width'], $post['exercises_for_the_arms']); // excluding from synchronization
+		unset($post['width'], $post['exercises_for_the_arms']['exercises']); // excluding from synchronization
 
-		if ($post != $_SESSION['post']) {
+		if ($_SESSION['post'] != $post) {
 			file_put_contents(DATA_FILE, base64_encode(serialize($post)));
 
 			$data = fopen(DATA_FILE, 'rb'); // read only binary
 			if (!empty($post)) // not saving in dropbox if file was inexplicably truncated
-				$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update($this->_data['rev']), $data);
+				$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update(null), $data);
 			fclose($data);
 
 			Main::addLog("Profile data was saved to Dropbox API", 'info');
-
-			$_SESSION['post'] = $post;
 		}
+
+		$_SESSION['post'] = $post;
 	}
 
 
-	function getPost($fieldset, $field, $option = null) {
+	function getPost($fieldset, $field, $option = null) { // this should be better written..
 
 		return ($option
 			   ? (!empty($_POST[$fieldset][$field][$option])
@@ -261,6 +259,7 @@ class Main {
 
 		$codes = array(
 			'info' => self::LOG_INFO,
+			'idea' => self::LOG_IDEA,
 			'todo' => self::LOG_TODO,
 			'debug' => self::LOG_DEBUG,
 			'notice' => self::LOG_NOTICE,
@@ -271,6 +270,7 @@ class Main {
 		$code = $codes[$type];
 
 		switch ($code) {
+			case self::LOG_IDEA:
 			case self::LOG_TODO:
 			case self::LOG_NOTICE:
 			case self::LOG_WARNING:
@@ -282,7 +282,7 @@ class Main {
 				$message = '<span class="log">' . $message . '</span>';
 				break;
 			}
-			default: {
+			default: { // ATM only debug
 				$message = strtoupper($type) . ": " . $message;
 			}
 		}
