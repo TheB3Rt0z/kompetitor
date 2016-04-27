@@ -12,7 +12,7 @@
     IT:
         string: "stretching globale attivo"
         short: "SGA"
-        def: "Secondo il metodo di Philippe E. Souchard: ???"
+        def: "Secondo il metodo di Philippe E. Souchard: frutto dell'esperienza e dello studio dell'esperto globalista, é una forma di stretching relativa allo studio generale della postura umana e ai problemi che possono presentarsi durante la pratica sportiva."
 "age":
     IT: "età"
 "bas test":
@@ -54,7 +54,8 @@
     IT:
         string: "stretching globale decompensato"
         short: "SGD"
-        def: "Secondo il metodo di Françoise Mézières: ???"
+        def: "Stretching secondo il metodo di Françoise Mézières, basato sul concetto di 'catene' muscolari, evolverà nei metodi di Philippe E. Souchard."
+        link: "http://www.my-personaltrainer.it/allenamento/allungamento-globale-decompensato.html"
 "distance":
     IT: "distanza"
 "distances & records":
