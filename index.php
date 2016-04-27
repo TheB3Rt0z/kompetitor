@@ -72,8 +72,10 @@
 										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 										<td class="a-left"><?php echo ucfirst(trnslt('foot length FL')) ?> (in cm):</td>
 										<td class="a-right"><input type="text" name="personal_data[foot_length]" value="<?php echo $main->getPost('personal_data', 'foot_length') ?>" /></td>
-										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
-										<td class="a-right" colspan="2"><?php submit() ?></td>
+										<?php
+										if (!$main->is_mobile)
+											echo '<td class="a-right" colspan="2">' . submit() . '</td>';
+										?>
 									</tr>
 								</table>
 							</fieldset>
@@ -98,7 +100,7 @@
 										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 										<td class="a-left"><?php echo ucfirst(trnslt('sun')) ?>:</td>
 										<td class="a-right"><input type="text" name="personal_data[daily_weighing][sun]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'sun') ?>" /></td>
-										<td class="a-right" colspan="4"><?php submit() ?></td>
+										<td class="a-right" colspan="4"><?php echo submit($main->is_mobile ? 'update data' : false) ?></td>
 									</tr>
 								</table>
 							</fieldset>

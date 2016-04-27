@@ -19,7 +19,8 @@
     IT:
         string: "test BAS"
         short: "BAS"
-        def: "Test di Bisciotti/Arcelli/Sagnol: ???"
+        def: "Test di Bisciotti/Arcelli/Sagnol: calcolo della velocità di soglia anaerobica, quella a cui andrebbero corse le ripetute! In più, offre indicazioni sul ritmo da tenere sui medi e i lunghi lenti.\nIn pratica si tratta di correre nel miglior tempo possibile i 2000 e i 3000 metri a distanza di 48 ore l'uno dall'altro."
+        link: "http://www.runnerstermoli.it/myrun/langolo-tecnico/calcolo-della-velocita-di-soglia-anaerobica-test-di-bas/"
 "Bertoz calculator":
     IT: "calcolatore di Bertoz"
 "bibliography":
@@ -94,6 +95,8 @@
     IT: "ven"
 "frontal raises":
     IT: "alzate frontali"
+"grade":
+    IT: "grado"
 "half marathon":
     IT:
         string: "mezza maratona"
@@ -245,6 +248,8 @@
     IT: "mar"
 "update":
     IT: "aggiorna"
+"update data":
+    IT: "aggiorna i dati"
 "using the RsF to calculate expected time on a given distance":
     IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
 "vertical pulls":

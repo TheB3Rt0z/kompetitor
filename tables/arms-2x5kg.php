@@ -1,4 +1,4 @@
-<?php $grade = 25; Main::addLog("grade value for arm-exercises should be an input with submit", 'todo') ?>
+<?php $grade = $main->getPost('exercises_for_the_arms', 'grade') ?>
 
 <?php
 
@@ -66,7 +66,7 @@ if (ob_start()) {
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="<?php echo $main->is_mobile ? 2 : 3 ?>">
+					<td class="a-left" colspan="<?php echo $main->is_mobile ? 2 : 3 ?>">
 						<?php echo ucfirst(trnslt("finishing")) ?>:
 						<?php echo $grade * 2 ?> <?php echo trnslt("rapid-fire punches") ?>
 						+
@@ -75,7 +75,11 @@ if (ob_start()) {
 						<?php echo $grade * 4 ?> <?php echo trnslt("rapid-fire punches") ?>
 					</td>
 					<?php if ($main->is_mobile) echo '</tr><tr>' ?>
-					<td colspan="<?php echo $main->is_mobile ? 2 : 1 ?>"><?php submit() ?></td>
+					<td class="a-right" colspan="<?php echo $main->is_mobile ? 2 : 1 ?>">
+						<?php echo ucfirst(trnslt('grade')) ?>:
+						<input type="number" name="exercises_for_the_arms[grade]" min="10" max="50" value="<?php echo $grade ?>" />
+						<?php if (!$main->is_mobile) echo submit() ?>
+					</td>
 				</tr>
 			</tfoot>
 		</table>

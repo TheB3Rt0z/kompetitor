@@ -365,7 +365,10 @@ function button($type = null, $data = null) {
 }
 
 
-function submit() {
+function submit($mobile_value = false) {
 
-	echo '<span class="button"><input type="submit" value="&#9775;" title="' . strtoupper(trnslt("update")) . '" /></span>';
+	return '<span class="button">'
+		 . '<input type="submit" value="' . ($mobile_value ? strtoupper(trnslt($mobile_value)) : "&#9775;")
+		 . '" title="' . strtoupper(trnslt($mobile_value ? $mobile_value : "update")) . '" />'
+		 . '</span>';
 }
