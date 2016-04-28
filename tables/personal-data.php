@@ -29,7 +29,7 @@ if (ob_start()) {
 	</fieldset>
 	<?php
 	if (!$main->is_mobile)
-		file_put_contents('tables/personal-data.htm', ob_get_contents());
+		file_put_contents('tables/personal-data.htm', file_get_contents('header.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }
 ?>

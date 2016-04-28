@@ -1,16 +1,5 @@
-<?php require_once 'init.php' ?><!DOCTYPE html>
-<html>
-	<head>
-		<title><?php echo APPLICATION_TITLE ?></title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="statics/icon-32x32.png" type="image/png" />
-        <link rel="shortcut icon" href="statics/icon-32x32.png" type="image/png" />
-		<link rel="stylesheet" type="text/css" href="statics/style.css" />
-		<link rel="stylesheet" type="text/css" href="statics/rwd.css" />
-		<script type="text/javascript" src="includes/jquery.min.js" charset="UTF-8"></script>
-		<script type="text/javascript" src="statics/scripts.js" charset="UTF-8"></script>
-	</head>
+<?php require_once 'init.php'; include_once('header.php') ?>
+
 	<body>
 		<form id="main" method="post">
 		<input type="hidden" name="width" id="width" />
@@ -232,25 +221,6 @@
 
 			<aside></aside>
 		</section>
-
-		<!--<footer>
-			<div>
-				<table>
-					<tfoot>
-						<tr>
-							<td colspan="3"><hr /></td>
-						</tr>
-						<tr>
-							<td class="a-left">REPORT</td>
-							<td class="a-left debug">
-								<br /><?php var_dump($main->post) ?><br />
-							</td>
-							<td class="a-right">EXPORT</td>
-						</tr>
-					</tfoot>
-				</table>
-			</div>
-		</footer>-->
 		</form>
-	</body>
-</html><?php include_once 'finish.php' ?>
+
+<?php include_once 'footer.php'; include_once 'finish.php' ?>

@@ -1,5 +1,6 @@
-<?php
+<?php include('header.php') ?>
 
+<?php
 if (ob_start()) {
 	?>
 	<fieldset>
@@ -58,7 +59,7 @@ if (ob_start()) {
 	</fieldset>
 	<?php
 	if (!$main->is_mobile)
-		file_put_contents('tables/physiological-data.htm', ob_get_contents());
+		file_put_contents('tables/physiological-data.htm', file_get_contents('header.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }
 ?>
