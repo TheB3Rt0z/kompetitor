@@ -6,6 +6,10 @@
     .invisible-on-tablet {
         display: block !important;
     }
+    
+    header th nav .button {
+        margin-left: 5px;
+    }
 }
 
 
@@ -26,6 +30,8 @@
         width: 50%;
     }
     header th nav .button {
+        margin-top: 4px;
+        padding: 13px 15px;
         text-align: left;
         width: 96%;
     }
@@ -36,13 +42,30 @@
     .content {
 	    width: 96% !important;
 	}
+	
+	.content:not(.log,.personal-data) .body {
+	    display: none;
+	}
+	
+	.content.icon .icon {
+	    margin-right: 2%;
+	    width: 3%;
+	}
+	
+	span.button:not(.mobile) {
+	    height: 21px;
+	    padding-right: 2px;
+	    padding-top: 2px;
+	    width: 26px;
+	}
 }
 
 
 @media all and (max-width:667px) {
 	
 	.content.icon .icon {
-        width: 5.5%;
+	    margin-right: 1.75%;
+        width: 5.25%;
 	}
 	.content.icon .header {
 	    width: 93%;
@@ -73,6 +96,7 @@
     }
     
     .content.icon .icon {
+        margin-right: 1.5%;
         width: 7.5%;
     }
     .content.icon .header {

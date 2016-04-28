@@ -15,7 +15,7 @@ function decorate() {
 
 function hideMobileNav() {
 	
-	if (jQuery(window).width() < 768) {
+	if (jQuery(window).width() <= 1024) {
 		jQuery('header nav').hide(delay);
 		jQuery('header .button.nav').show(delay);
 	}

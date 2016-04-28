@@ -183,7 +183,7 @@ class Main {
 
 	private function _retrieveData() {
 
-		if (!file_exists(DATA_FILE) || !$_SESSION['post']) {
+		if (!file_exists(DATA_FILE) || empty($_SESSION['post'])) {
 			$data = fopen(DATA_FILE, 'w+b');
 			$this->_dbcl->getFile('/data', $data);
 			fclose($data);
@@ -221,7 +221,7 @@ class Main {
 
 			Main::addLog("Profile data was saved to Dropbox API", 'info');
 		}
-
+Main::addLog("Saved profile data should be packed (b64 and human-readable formats) and emailed to profile's (???) email..", 'todo');
 		$_SESSION['post'] = $post;
 	}
 
@@ -367,7 +367,7 @@ function button($type = null, $data = null) {
 
 function submit($mobile_value = false) {
 
-	return '<span class="button">'
+	return '<span class="button ' . ($mobile_value ? "mobile" : '') . '">'
 		 . '<input type="submit" value="' . ($mobile_value ? strtoupper(trnslt($mobile_value)) : "&#9775;")
 		 . '" title="' . strtoupper(trnslt($mobile_value ? $mobile_value : "update")) . '" />'
 		 . '</span>';

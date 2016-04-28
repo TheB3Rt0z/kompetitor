@@ -44,6 +44,7 @@
 			<article>
 				<div>
 					<!-- place for logs -->
+
 					<div class="content width-60 icon personal-data">
 						<span class="icon"></span>
 						<div class="header">
@@ -54,60 +55,14 @@
 						<br />
 						<div class="body">
 							<br />
-							<fieldset>
-								<table>
-									<tr>
-										<td class="a-left"><?php echo ucfirst(trnslt('first name')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[first_name]" value="<?php echo $main->getPost('personal_data', 'first_name') ?>" /></td>
-										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
-										<td class="a-left"><?php echo ucfirst(trnslt('last name')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[last_name]" value="<?php echo $main->getPost('personal_data', 'last_name') ?>" /></td>
-										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
-										<td class="a-left"><?php echo ucfirst(trnslt('date of birth')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[date_of_birth]" value="<?php echo $main->getPost('personal_data', 'date_of_birth') ?>" /></td>
-									</tr>
-									<tr>
-										<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (in cm):</td>
-										<td class="a-right"><input type="text" name="personal_data[height]" value="<?php echo $main->getPost('personal_data', 'height') ?>" /></td>
-										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
-										<td class="a-left"><?php echo ucfirst(trnslt('foot length FL')) ?> (in cm):</td>
-										<td class="a-right"><input type="text" name="personal_data[foot_length]" value="<?php echo $main->getPost('personal_data', 'foot_length') ?>" /></td>
-										<?php
-										if (!$main->is_mobile)
-											echo '<td class="a-right" colspan="2">' . submit() . '</td>';
-										?>
-									</tr>
-								</table>
-							</fieldset>
+							<?php include 'tables/personal-data.php' ?>
 							<br />
-							<fieldset>
-								<legend><?php echo ucfirst(trnslt('daily weighing')) ?> (in kg)</legend>
-								<table>
-									<tr>
-										<td class="a-left"><?php echo ucfirst(trnslt('mon')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[daily_weighing][mon]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'mon') ?>" /></td>
-										<td class="a-left"><?php echo ucfirst(trnslt('tue')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[daily_weighing][tue]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'tue') ?>" /></td>
-										<td class="a-left"><?php echo ucfirst(trnslt('wed')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[daily_weighing][wed]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'wed') ?>" /></td>
-									    <?php if ($main->is_mobile) echo '</tr><tr>' ?>
-										<td class="a-left"><?php echo ucfirst(trnslt('thu')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[daily_weighing][thu]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'thu') ?>" /></td>
-										<td class="a-left"><?php echo ucfirst(trnslt('fri')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[daily_weighing][fri]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'fri') ?>" /></td>
-										<td class="a-left"><?php echo ucfirst(trnslt('sat')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[daily_weighing][sat]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'sat') ?>" /></td>
-										<?php if ($main->is_mobile) echo '</tr><tr>' ?>
-										<td class="a-left"><?php echo ucfirst(trnslt('sun')) ?>:</td>
-										<td class="a-right"><input type="text" name="personal_data[daily_weighing][sun]" value="<?php echo $main->getPost('personal_data', 'daily_weighing', 'sun') ?>" /></td>
-										<td class="a-right" colspan="4"><?php echo submit($main->is_mobile ? 'update data' : false) ?></td>
-									</tr>
-								</table>
-							</fieldset>
+							<?php include 'tables/daily-weighing.php' ?>
 							<br />
 							<?php include 'tables/distances-records.php' ?>
 						</div>
 					</div>
+
 					<div class="content width-40 icon processed-physiological-data">
 						<span class="icon"></span>
 						<div class="header">
@@ -118,63 +73,12 @@
 						<br />
 						<div class="body">
 							<br />
-							<fieldset>
-								<table>
-									<tr>
-										<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[age]" value="<?php echo $main->getPost('processed_physiological_data', 'age') ?>" readonly disabled /></td>
-										<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('mediated weekly weight')) ?> (in kg):</td>
-										<td class="a-right" colspan="2"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
-									</tr>
-									<tr>
-										<td class="a-left"><?php echo trnslt('BMI') ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[bmi]" value="<?php echo $main->getPost('processed_physiological_data', 'bmi') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo ucfirst(trnslt('ideal weight')) ?> (in kg):</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[ideal_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'ideal_weight') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo trnslt('RS') ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[rs]" value="<?php echo $main->getPost('processed_physiological_data', 'rs') ?>" readonly disabled /></td>
-									</tr>
-								</table>
-							</fieldset>
-							<br />
-							<fieldset>
-								<legend><?php echo ucfirst(trnslt('speed expectations')) ?> (min/km)</legend>
-								<table>
-									<tr>
-										<td class="a-left"><?php echo trnslt('10mi') ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][10mi]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', '10mi') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo trnslt('HM') ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][hm]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'hm') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo trnslt('M') ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][m]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'm') ?>" readonly disabled /></td>
-									</tr>
-									<tr>
-										<td class="a-left"><?php echo trnslt('CM') ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cm]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'cm') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo trnslt('CL') ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cl]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'cl') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo trnslt('LL') ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][ll]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'll') ?>" readonly disabled /></td>
-									</tr>
-								</table>
-							</fieldset>
-							<br />
-							<fieldset>
-								<legend><?php echo ucfirst(trnslt('shoes size')) ?></legend>
-								<table>
-									<tr>
-										<td class="a-left"><?php echo strtoupper(trnslt('usa')) ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][usa]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'usa') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo strtoupper(trnslt('uk')) ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][uk]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'uk') ?>" readonly disabled /></td>
-										<td class="a-left"><?php echo strtoupper(trnslt('eu')) ?>:</td>
-										<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][eu]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'eu') ?>" readonly disabled /></td>
-									</tr>
-								</table>
-							</fieldset>
+							<?php include 'tables/physiological-data.php' ?>
 						</div>
 					</div>
+
 					<div class="separator"></div>
+
 					<div class="content width-50 icon exercises">
 						<span class="icon"></span>
 						<div class="header">
@@ -190,6 +94,7 @@
 							</p>
 						</div>
 					</div>
+
 					<div class="content width-50 icon exercises">
 						<span class="icon"></span>
 						<div class="header">
@@ -205,7 +110,9 @@
 							</p>
 						</div>
 					</div>
+
 					<div class="separator"></div>
+
 					<div class="content width-50 icon exercises">
 						<span class="icon"></span>
 						<div class="header">
@@ -221,6 +128,7 @@
 							</p>
 						</div>
 					</div>
+
 					<div class="content width-50 icon exercises">
 						<span class="icon"></span>
 						<div class="header">
@@ -236,7 +144,9 @@
 							</p>
 						</div>
 					</div>
+
 					<div class="separator"></div>
+
 					<div class="content width-67 icon arms-exercises">
 						<span class="icon"></span>
 						<div class="header">
@@ -250,6 +160,7 @@
 							<?php include 'tables/arms-2x5kg.php' ?>
 						</div>
 					</div>
+
 					<div class="content width-33 icon bertoz-calculator">
 						<span class="icon"></span>
 						<div class="header">
@@ -265,7 +176,9 @@
 							</p>
 						</div>
 					</div>
+
 					<div class="separator"></div>
+
 					<div class="content width-33 icon riegel-calculator">
 						<span class="icon"></span>
 						<div class="header">
@@ -281,6 +194,7 @@
 							</p>
 						</div>
 					</div>
+
 					<div class="content width-33 icon tables-and-appendices">
 						<span class="icon"></span>
 						<div class="header">
@@ -296,6 +210,7 @@
 							</p>
 						</div>
 					</div>
+
 					<div class="content width-33 icon bibliography">
 						<span class="icon"></span>
 						<div class="header">
@@ -311,12 +226,14 @@
 							</p>
 						</div>
 					</div>
-					<div class="separator">&nbsp;<br />&nbsp;</div>
+					<!--<div class="separator">&nbsp;<br />&nbsp;</div>-->
 				</div>
 			</article>
+
 			<aside></aside>
 		</section>
-		<footer>
+
+		<!--<footer>
 			<div>
 				<table>
 					<tfoot>
@@ -326,15 +243,14 @@
 						<tr>
 							<td class="a-left">REPORT</td>
 							<td class="a-left debug">
-								<br />
-								<?php var_dump($main->post) ?>
+								<br /><?php var_dump($main->post) ?><br />
 							</td>
 							<td class="a-right">EXPORT</td>
 						</tr>
 					</tfoot>
 				</table>
 			</div>
-		</footer>
+		</footer>-->
 		</form>
 	</body>
 </html><?php include_once 'finish.php' ?>

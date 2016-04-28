@@ -90,6 +90,9 @@ header th {
 	padding: 1px 1% 0;
 	vertical-align: text-top;
 }
+header th hr {
+    margin: 15px 0;	
+}
 footer td {
     padding: 0 1% 5px;
 }
