@@ -238,7 +238,11 @@ footer td.debug:hover {
 	float: right;
 	padding: 2px 4px;
 	text-align: right;
-    width: 86%;
+    width: 87%;
+}
+.content .body table td input.mini {
+    float: none;
+    width: 29%;
 }
 .content .body table td input[type=number] {
     border: none;

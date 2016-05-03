@@ -178,6 +178,32 @@ class Main {
 			$this->post['processed_physiological_data']['speed_expectations']['cl'] = $this->speed_expectations['cl'] = BOH;
 			$this->post['processed_physiological_data']['speed_expectations']['ll'] = $this->speed_expectations['ll'] = BOH;
 		}
+
+		// heart rates calculation
+		$this->post['processed_physiological_data']['fcmax'] = BOH;
+		if ($this->age['years'] != BOH) {
+			$this->karvonen_cooper_fcmax = 220 - $this->age['years'];
+			$this->tanaka_mohanan_seals_fcmax = 208 - 0.7 * $this->age['years'];
+			$this->ballstate_university_fcmax = 214 - 0.8 * $this->age['years'];
+			$real_fcmax = ($this->karvonen_cooper_fcmax
+						+ $this->tanaka_mohanan_seals_fcmax
+						+ $this->ballstate_university_fcmax) / 3;
+			if (!empty($this->post['personal_data']['fcmax']))
+				$real_fcmax = ($real_fcmax + $this->post['personal_data']['fcmax']) / 2;
+			$this->post['processed_physiological_data']['fcmax'] = number_format($real_fcmax, 1);
+
+			if (!empty($this->post['personal_data']['fcmin'])) {
+				$this->fcmin = $this->post['personal_data']['fcmin'];
+				$backup_fc = $real_fcmax - $this->post['personal_data']['fcmin'];
+				$training_fcmin = $this->fcmin + 0.6 * ($real_fcmax - $this->fcmin);
+			}
+			$this->post['processed_physiological_data']['backup_fc'] = isset($backup_fc)
+			                                                     ? number_format($backup_fc, 1)
+			                                                     : BOH;
+			$this->post['processed_physiological_data']['training_fcmin'] = isset($training_fcmin)
+			                                                              ? number_format($training_fcmin, 1)
+			                                                              : BOH;
+		}
 	}
 
 

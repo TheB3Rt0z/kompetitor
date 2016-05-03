@@ -15,6 +15,8 @@
         def: "Secondo il metodo di Philippe E. Souchard: frutto dell'esperienza e dello studio dell'esperto globalista, é una forma di stretching relativa allo studio generale della postura umana e ai problemi che possono presentarsi durante la pratica sportiva."
 "age":
     IT: "età"
+"backup FC":
+    IT: "FC di riserva"
 "bas test":
     IT:
         string: "test BAS"
@@ -83,6 +85,10 @@
         def: "Si intende qui un ritmo che permette solo uno scambio di 'monosillabi'."
 "exercises for the arms":
     IT: "esercizi per le braccia"
+"FCmax/min values":
+    IT: "valori FCmax/min"
+"FCtr":
+    IT: "FCall"
 "finishing":
     IT: "defaticamento"
 "first name":
@@ -92,6 +98,11 @@
         string: "lunghezza del piede LP"
         short: "LP"
         def: "È la massima distanza orizzontale (rigorosamente in cm) dal centro della parte posteriore del tallone all'estremità del dito più sporgente, misurata mentre il soggetto è in posizione eretta con il peso equamente distribuito tra i due piedi.\nN.B.: Le dimensioni del piede sinistro e di quello destro sono spesso leggermente diverse e in questo caso entrambi i piedi sono misurati e le scarpe sono scelte sulla base della misura del piede più grande!"
+"maximum heart rate":
+    IT:
+        string: "frequenza cardiaca massima"
+        short: "FCmax"
+        def: ""
 "fri":
     IT: "ven"
 "frontal raises":
@@ -245,6 +256,11 @@
     IT: "gio"
 "toning and stability":
     IT: "tonificazione e stabilità"
+"training FCmin":
+    IT:
+        string: "FCmin di allenamento"
+        short: "FCall"
+        def: ""
 "tue":
     IT: "mar"
 "update":

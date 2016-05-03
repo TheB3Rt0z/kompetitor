@@ -19,6 +19,14 @@ if (ob_start()) {
 				<td class="a-left"><?php echo trnslt('RS') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[rs]" value="<?php echo $main->getPost('processed_physiological_data', 'rs') ?>" readonly disabled /></td>
 			</tr>
+			<tr>
+				<td class="a-left"><?php echo trnslt('FCmax') ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[fcmax]" value="<?php echo $main->getPost('processed_physiological_data', 'fcmax') ?>" readonly disabled /></td>
+				<td class="a-left"><?php echo ucfirst(trnslt('backup FC')) ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[backup_fc]" value="<?php echo $main->getPost('processed_physiological_data', 'backup_fc') ?>" readonly disabled /></td>
+				<td class="a-left"><?php echo trnslt('FCtr') ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[training_fcmin]" value="<?php echo $main->getPost('processed_physiological_data', 'training_fcmin') ?>" readonly disabled /></td>
+			</tr>
 		</table>
 	</fieldset>
 	<br />
