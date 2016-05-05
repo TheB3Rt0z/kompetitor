@@ -38,7 +38,7 @@ class Main {
 	private static $_logs = array();
 
 
-	function __construct() {
+	function __construct() {Main::addLog("main's _setPost should be implemented and the code searched for it..", 'todo');Main::addLog("could we add icons for log's entries?", 'idea');
 
 		$this->_dbcl = new dbx\Client($this->_dbat, 'PHP-Example/1.0');
 
@@ -227,7 +227,7 @@ class Main {
 
 	private function _setPost($fieldset, $field, $option = null) {
 
-		Main::addLog("main's _setPost shoul be implemented and the code searched for it..", 'todo');
+
 	}
 
 

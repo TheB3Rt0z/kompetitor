@@ -212,6 +212,8 @@
         string: "corsa con respirazione leggermente impegnata"
         short: "CRLI"
         def: "Si tratta di un'andatura che lascia in condizioni di parlare ma con un po’ di difficoltà."
+"running trainings":
+    IT: "allenamenti di corsa"
 "sat":
     IT: "sab"
 "settings":

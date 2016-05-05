@@ -168,14 +168,37 @@ footer td.debug:hover {
 	display: inline-block;
 	float: left;
 	height: 30px;
+	margin-right: .5%;
+    width: 2%;
+}
+.content.width-33.icon .icon {
+    margin-right: 1%;
+    width: 5.5%;
+}
+.content.width-40.icon .icon {
 	margin-right: 1%;
+    width: 5%;
+}
+.content.width-50.icon .icon {
+    margin-right: 1%;
     width: 4%;
+}
+.content.width-60.icon .icon {
+	margin-right: 1%;
+    width: 3%;
+}
+.content.width-67.icon .icon {
+    margin-right: 1%;
+    width: 2.75%;
 }
 .content.icon.personal-data .icon {
 	background-position: -6px 0;
 }
 .content.icon.processed-physiological-data .icon {
     background-position: -163px 0;
+}
+.content.icon.running-trainings .icon {
+    background-position: -121px -397px;
 }
 .content.icon.exercises .icon {
     background-position: -85px -398px;
@@ -197,7 +220,22 @@ footer td.debug:hover {
 }
 .content.icon .header {
 	float: left;
-	width: 95%;
+	width: 97.5%;
+}
+.content.width-33.icon .header {
+    width: 93.5%; 
+}
+.content.width-40.icon .header {
+    width: 94%;	
+}
+.content.width-50.icon .header {
+    width: 95%;
+}
+.content.width-60.icon .header {
+    width: 96%; 
+}
+.content.width-67.icon .header {
+    width: 96.25%; 
 }
 .content .header span {
 	float: right;
@@ -264,6 +302,9 @@ footer td.debug:hover {
 }
 .content.log .body legend {
 	color: var(--text-links);
+}
+.content.log .body table td .idea {
+    color: #a0a;
 }
 .content.log .body table td .todo {
     color: #0aa;

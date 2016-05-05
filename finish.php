@@ -1,7 +1,5 @@
-<?php define('APPLICATION_LOG', Main::hasLogs() ? serialize(Main::getLogs()) : false) ?>
-
 <?php
-if (APPLICATION_LOG) {
+if (Main::hasLogs()) {
 	?>
 	<div class="content log">
 		<div class="body">
@@ -9,7 +7,7 @@ if (APPLICATION_LOG) {
 				<legend><?php echo ucfirst(trnslt('application log')) ?></legend>
 				<table>
 					<?php
-					foreach (unserialize(APPLICATION_LOG) as $log) {
+					foreach (Main::getLogs() as $log) {
 						?>
 						<tr>
 							<td><?php echo $log?></td>

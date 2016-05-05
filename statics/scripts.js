@@ -38,8 +38,7 @@ jQuery(function() {
 	});
 	
 	jQuery('.content .header').bind('click', function() {
-		var body = jQuery(this).siblings('.body');
-		body.toggle(delay);
+		jQuery(this).siblings('.body').toggle(delay);
 		jQuery(this).children('span').toggleClass('opened');
 	});
 });

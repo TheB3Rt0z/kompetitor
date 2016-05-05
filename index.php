@@ -68,6 +68,24 @@
 
 					<div class="separator"></div>
 
+					<div class="content icon running-trainings">
+						<span class="icon"></span>
+						<div class="header">
+							<?php echo ucfirst(trnslt('running trainings')) ?>
+							<span>&#8679;</span>
+						</div>
+						<br />
+						<br />
+						<div class="body">
+							<br />
+							<p>
+								[...]
+							</p>
+						</div>
+					</div>
+
+					<div class="separator"></div>
+
 					<div class="content width-50 icon exercises">
 						<span class="icon"></span>
 						<div class="header">
