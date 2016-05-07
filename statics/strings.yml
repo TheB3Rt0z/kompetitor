@@ -13,8 +13,20 @@
         string: "stretching globale attivo"
         short: "SGA"
         def: "Secondo il metodo di Philippe E. Souchard: frutto dell'esperienza e dello studio dell'esperto globalista, é una forma di stretching relativa allo studio generale della postura umana e ai problemi che possono presentarsi durante la pratica sportiva."
+"aerobic activity":
+    IT: "attività aerobica"
+"aerobic threshold":
+    IT:
+        string: "soglia aerobica"
+        short: "Saer"
+        def: ""
 "age":
     IT: "età"
+"anaerobic activity":
+    IT:
+        string: "attività anaerobica"
+        short: "AA"
+        def: ""
 "backup FC":
     IT: "FC di riserva"
 "bas test":
@@ -125,6 +137,11 @@
     IT: "peso ideale"
 "information":
     IT: "informazioni"
+"lactate threshold":
+    IT:
+        string: "soglia del lattato"
+        short: "Slat"
+        def: ""
 "last name":
     IT: "cognome"
 "lateral flyes":
@@ -143,6 +160,8 @@
         string: "medio"
         short: "CM"
         def: "Tratti di corsa da correre alla velocità del 10/15% più lenta rispetto alla velocità di riferimento. Un ritmo uguale o molto simile a quelle che sarà il ritmo gara."
+"moderate activity":
+    IT: "attività moderata"
 "mon":
     IT: "lun"
 "most recent personal":
@@ -182,6 +201,8 @@
         def: "Si tratta di una velocità di corsa che permette solo uno scambio di 'monosillabi'."
 "rapid-fire punches":
     IT: "pugni a raffica"
+"rate expectations":
+    IT: "frequenze attese"
 "real hammers":
     IT: "real hammer"
 "rear handles":
@@ -227,6 +248,8 @@
         string: "respirazione leggermente impegnata"
         short: "RLI"
         def: "Si intende qui un ritmo che consente sì di parlare, ma con un po’ di difficoltà."
+"slimming":
+    IT: "dimagrimento"
 "slow":
     IT:
         string: "lento"
@@ -263,6 +286,8 @@
         string: "FCmin di allenamento"
         short: "FCall"
         def: ""
+"threshold activity":
+    IT: "attività alla soglia"
 "tue":
     IT: "mar"
 "update":

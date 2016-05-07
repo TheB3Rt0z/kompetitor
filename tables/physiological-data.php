@@ -1,6 +1,12 @@
 <?php include('header.php') ?>
 
 <?php
+
+$rate_steps = array(.5, .55, .6, .65, .7, .75, .8, .85, .9, .95);
+
+?>
+
+<?php
 if (ob_start()) {
 	?>
 	<fieldset>
@@ -27,8 +33,58 @@ if (ob_start()) {
 				<td class="a-left"><?php echo trnslt('FCtr') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[training_fcmin]" value="<?php echo $main->getPost('processed_physiological_data', 'training_fcmin') ?>" readonly disabled /></td>
 			</tr>
+			<tr>
+				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('aerobic threshold')) ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[aerobic_threshold]" value="<?php echo $main->getPost('processed_physiological_data', 'aerobic_threshold') ?>" readonly disabled /></td>
+				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('lactate threshold')) ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[lactate_threshold]" value="<?php echo $main->getPost('processed_physiological_data', 'lactate_threshold') ?>" readonly disabled /></td>
+			</tr>
 		</table>
 	</fieldset>
+	<?php
+	if ($main->getPost('processed_physiological_data', 'fcmax') != BOH) {
+		$fcmax = $main->getPost('processed_physiological_data', 'fcmax');
+		?>
+		<br />
+		<fieldset>
+			<legend><?php echo ucfirst(trnslt('rate expectations')) ?></legend>
+			<table>
+				<thead>
+					<tr>
+						<?php
+						foreach ($rate_steps as $step) {
+							?>
+							<th style="background-color:rgb(<?php echo round(255 * $step) ?>, <?php echo round(351 - 255 * $step) ?>, 0)"><?php echo $step * 100 ?>%</th>
+							<?php
+						}
+						?>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<?php
+						foreach ($rate_steps as $step) {
+							?>
+							<td><?php echo number_format($fcmax * $step, 1) ?></td>
+							<?php
+						}
+						?>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="3"><?php echo trnslt('moderate activity') ?></td>
+						<td colspan="2"><?php echo trnslt('slimming') ?></td>
+						<td colspan="2"><?php echo trnslt('aerobic activity') ?></td>
+						<td colspan="2"><?php echo trnslt('threshold activity') ?></td>
+						<td><?php echo trnslt('AA') ?></td>
+					</tr>
+				</tfoot>
+			</table>
+		</fieldset>
+		<?php
+	}
+	?>
 	<br />
 	<fieldset>
 		<legend><?php echo ucfirst(trnslt('speed expectations')) ?> (min/km)</legend>

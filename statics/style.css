@@ -262,6 +262,11 @@ footer td.debug:hover {
 .content .body table th {
 	font-size: .666em;
 }
+.content .body table tfoot td {
+	font-size: .875em;
+	text-align: center;
+	padding: 3px;
+}
 .content .body table th,
 .content .body table td {
     padding: 5px;

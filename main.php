@@ -66,31 +66,25 @@ class Main {
 
 			$interval = $date_of_birth->diff($now);
 
-			$this->age['years'] = $interval->y;
+			$this->post['processed_physiological_data']['age'] = $this->age['years'] = $interval->y;
 			$this->age['months'] = $interval->m;
 			$this->age['days'] = $interval->d;
 		}
-		else
-			$this->age['years'] = $this->age['months'] = $this->age['days'] = BOH;
-
-		$this->post['processed_physiological_data']['age'] = $this->age['years'];
 
 		// mediated-weekly-weight
-		$this->mediated_weekly_weight = BOH;
 		if (!empty($this->post['personal_data']['daily_weighing'])) {
 			if ($daily_weighing = array_filter($this->post['personal_data']['daily_weighing'], function(&$value) {
 				return $value = $value ? number_format((double)str_replace(',', '.', $value), 1) : false;
 			}))
-				$this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);
+				$this->post['processed_physiological_data']['mediated_weekly_weight'] = $this->mediated_weekly_weight = number_format(array_sum($daily_weighing) / count($daily_weighing), 3);
 		}
-		$this->post['processed_physiological_data']['mediated_weekly_weight'] = $this->mediated_weekly_weight;
 
 		// bmi and ideal-weight (averaged) calculation
-		if (!empty($this->height) && $this->mediated_weekly_weight != BOH) {
+		if (!empty($this->height) && isset($this->mediated_weekly_weight)) {
 			$bmi_quartelet = $this->mediated_weekly_weight / POW($this->height / 100, 2);
 			$this->post['processed_physiological_data']['bmi'] = $this->bmi = number_format($bmi_quartelet, 3);
 
-			if ($this->age['years'] != BOH) {
+			if (isset($this->age['years'])) {
 				$this->broca_ideal_weight = $this->height - 100;
 				$this->lorentz_ideal_weight = $this->height - 100 + (($this->height - 150) / 100);
 				$this->perrault_ideal_weight = $this->height - 100 - (($this->age['years'] - 20) / 4);
@@ -99,27 +93,16 @@ class Main {
 						      + $this->perrault_ideal_weight) / 3;
 				$this->post['processed_physiological_data']['ideal_weight'] = number_format($ideal_weight, 3);
 			}
-			else
-				$this->post['processed_physiological_data']['ideal_weight'] = BOH;
-		}
-		else {
-			$this->post['processed_physiological_data']['bmi'] = BOH;
-			$this->post['processed_physiological_data']['ideal_weight'] = BOH;
 		}
 
 		// shoes sizes calculation (ATM adult male only)
 		if (!empty($this->post['personal_data']['foot_length'])) {
-			$foot_length = $this->post['personal_data']['foot_length'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['foot_length']), 1);
-			$base_usa_cnd_uk = 3 * $foot_length * self::CM_TO_INCH;
+			$this->foot_length = $this->post['personal_data']['foot_length'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['foot_length']), 1);
+			$base_usa_cnd_uk = 3 * $this->foot_length * self::CM_TO_INCH;
 			$base_usa_cnd_uk = floor($base_usa_cnd_uk * 2) / 2;
 			$this->post['processed_physiological_data']['shoes_size']['usa'] = $this->shoes_size['usa'] = $base_usa_cnd_uk - 24;
 			$this->post['processed_physiological_data']['shoes_size']['uk'] = $this->shoes_size['uk'] = $base_usa_cnd_uk - 25;
-			$this->post['processed_physiological_data']['shoes_size']['eu'] = $this->shoes_size['eu'] = round(($foot_length + 1.5) * self::CM_TO_FP, 1);
-		}
-		else {
-			$this->post['processed_physiological_data']['shoes_size']['usa'] = BOH;
-			$this->post['processed_physiological_data']['shoes_size']['uk'] = BOH;
-			$this->post['processed_physiological_data']['shoes_size']['eu'] = BOH;
+			$this->post['processed_physiological_data']['shoes_size']['eu'] = $this->shoes_size['eu'] = round(($this->foot_length + 1.5) * self::CM_TO_FP, 1);
 		}
 
 		// providing distances and records calculations
@@ -127,28 +110,20 @@ class Main {
 			foreach ($this->post['distances_and_records'] as $key => $values) {
 				$distance = $values['distance'];
 
-				if (!empty($values['pb'])) {
+				if (!empty($values['pb']) && ($values['pb'] != BOH)) {
 					$pb = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($values['pb'])));
 					$this->distances_and_records[$key]['step_tmp'] = $step = round($pb->format('U') / $distance);
 					$this->distances_and_records[$key]['speed_tmp'] = $speed = $distance * 3600 / $pb->format('U');
 					$this->post['distances_and_records'][$key]['step'] = $this->distances_and_records[$key]['step'] = date('i:s', $step);
 					$this->post['distances_and_records'][$key]['speed'] = $this->distances_and_records[$key]['speed'] = number_format($speed, 3);
 				}
-				else {
-					$this->post['distances_and_records'][$key]['step'] = $this->distances_and_records[$key]['step'] = BOH;
-					$this->post['distances_and_records'][$key]['speed'] = $this->distances_and_records[$key]['speed'] = BOH;
-				}
 
-				if (!empty($values['last_pb'])) {
+				if (!empty($values['last_pb']) && ($values['last_pb'] != BOH)) {
 					$last_pb = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($values['last_pb'])));
 					$this->distances_and_records[$key]['last_step_tmp'] = $last_step = round($last_pb->format('U') / $distance);
 					$this->distances_and_records[$key]['last_speed_tmp'] = $last_speed = $distance * 3600 / $last_pb->format('U');
 					$this->post['distances_and_records'][$key]['last_step'] = $this->distances_and_records[$key]['last_step'] = date('i:s', $last_step);
 					$this->post['distances_and_records'][$key]['last_speed'] = $this->distances_and_records[$key]['last_speed'] = number_format($last_speed, 3);
-				}
-				else {
-					$this->post['distances_and_records'][$key]['last_step'] = $this->distances_and_records[$key]['last_step'] = BOH;
-					$this->post['distances_and_records'][$key]['last_speed'] = $this->distances_and_records[$key]['last_speed'] = BOH;
 				}
 			}
 		}
@@ -169,40 +144,32 @@ class Main {
 			$this->post['processed_physiological_data']['speed_expectations']['cl'] = $this->speed_expectations['cl'] = date('i:s', round($rs * 1.175)); // from corroergosum.it
 			$this->post['processed_physiological_data']['speed_expectations']['ll'] = $this->speed_expectations['ll'] = date('i:s', round($rs * 1.225)); // from corroergosum.it
 		}
-		else {
-			$this->post['processed_physiological_data']['rs'] = BOH;
-			$this->post['processed_physiological_data']['speed_expectations']['10mi'] = $this->speed_expectations['10mi'] = BOH;
-			$this->post['processed_physiological_data']['speed_expectations']['hm'] = $this->speed_expectations['hm'] = BOH;
-			$this->post['processed_physiological_data']['speed_expectations']['m'] = $this->speed_expectations['m'] = BOH;
-			$this->post['processed_physiological_data']['speed_expectations']['cm'] = $this->speed_expectations['cm'] = BOH;
-			$this->post['processed_physiological_data']['speed_expectations']['cl'] = $this->speed_expectations['cl'] = BOH;
-			$this->post['processed_physiological_data']['speed_expectations']['ll'] = $this->speed_expectations['ll'] = BOH;
-		}
 
 		// heart rates calculation
-		$this->post['processed_physiological_data']['fcmax'] = BOH;
-		if ($this->age['years'] != BOH) {
+		if (isset($this->age['years'])) {
 			$this->karvonen_cooper_fcmax = 220 - $this->age['years'];
 			$this->tanaka_mohanan_seals_fcmax = 208 - 0.7 * $this->age['years'];
 			$this->ballstate_university_fcmax = 214 - 0.8 * $this->age['years'];
-			$real_fcmax = ($this->karvonen_cooper_fcmax
-						+ $this->tanaka_mohanan_seals_fcmax
-						+ $this->ballstate_university_fcmax) / 3;
+			$this->real_fcmax = ($this->karvonen_cooper_fcmax
+						      + $this->tanaka_mohanan_seals_fcmax
+						      + $this->ballstate_university_fcmax) / 3;
 			if (!empty($this->post['personal_data']['fcmax']))
-				$real_fcmax = ($real_fcmax + $this->post['personal_data']['fcmax']) / 2;
-			$this->post['processed_physiological_data']['fcmax'] = number_format($real_fcmax, 1);
+				$this->real_fcmax = ($this->real_fcmax + $this->post['personal_data']['fcmax']) / 2;
+			$this->post['processed_physiological_data']['fcmax'] = number_format($this->real_fcmax, 1);
 
 			if (!empty($this->post['personal_data']['fcmin'])) {
 				$this->fcmin = $this->post['personal_data']['fcmin'];
-				$backup_fc = $real_fcmax - $this->post['personal_data']['fcmin'];
-				$training_fcmin = $this->fcmin + 0.6 * ($real_fcmax - $this->fcmin);
+				$this->backup_fc = $this->real_fcmax - $this->post['personal_data']['fcmin'];
+				$this->training_fcmin = $this->fcmin + 0.6 * ($this->real_fcmax - $this->fcmin);
 			}
-			$this->post['processed_physiological_data']['backup_fc'] = isset($backup_fc)
-			                                                     ? number_format($backup_fc, 1)
-			                                                     : BOH;
-			$this->post['processed_physiological_data']['training_fcmin'] = isset($training_fcmin)
-			                                                              ? number_format($training_fcmin, 1)
-			                                                              : BOH;
+
+			if (isset($this->backup_fc))
+				$this->post['processed_physiological_data']['backup_fc'] = number_format($this->backup_fc, 1);
+			if (isset($this->training_fcmin))
+				$this->post['processed_physiological_data']['training_fcmin'] = number_format($this->training_fcmin, 1);
+
+			$this->post['processed_physiological_data']['aerobic_threshold'] = number_format($this->real_fcmax * 0.625, 1);
+			$this->post['processed_physiological_data']['lactate_threshold'] = number_format($this->real_fcmax * 0.925, 1);
 		}
 	}
 
@@ -259,12 +226,12 @@ Main::addLog("Saved profile data should be packed (b64 and human-readable format
 			     ? $_POST[$fieldset][$field][$option]
 			     : (!empty($this->post[$fieldset][$field][$option])
 			       ? $this->post[$fieldset][$field][$option]
-			       : ''))
+			       : BOH))
 			   : (!empty($_POST[$fieldset][$field])
 			     ? $_POST[$fieldset][$field]
 			     : (!empty($this->post[$fieldset][$field])
 			       ? $this->post[$fieldset][$field]
-			       : '')));
+			       : BOH)));
 	}
 
 
