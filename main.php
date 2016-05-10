@@ -38,7 +38,7 @@ class Main {
 	private static $_logs = array();
 
 
-	function __construct() {Main::addLog("main's _setPost should be implemented and the code searched for it..", 'todo');Main::addLog("could we add icons for log's entries?", 'idea');
+	function __construct() {Main::addLog("main's _setPost should be implemented and the code searched for it..", 'todo');Main::addLog("could we add icons for log's entries? NO", 'idea');
 
 		$this->_dbcl = new dbx\Client($this->_dbat, 'PHP-Example/1.0');
 
