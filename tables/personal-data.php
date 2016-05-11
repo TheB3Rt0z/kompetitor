@@ -1,3 +1,5 @@
+<?php include 'header.php' ?>
+
 <?php
 
 if (ob_start()) {
@@ -39,4 +41,3 @@ if (ob_start()) {
 		file_put_contents('tables/personal-data.htm', file_get_contents('header.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }
-?>

@@ -1,12 +1,11 @@
-<?php include('header.php') ?>
+<?php include 'header.php' ?>
+
+<?php $rate_steps = array(.5, .55, .6, .65, .7, .75, .8, .85, .9, .95) ?>
+
+<?php $distances = array('5km', '7,5km', '10km', '1/3M', '15km', 'HM', '25km', '3/4M'/*, 'M'*/) ?>
 
 <?php
 
-$rate_steps = array(.5, .55, .6, .65, .7, .75, .8, .85, .9, .95);
-
-?>
-
-<?php
 if (ob_start()) {
 	?>
 	<fieldset>
@@ -106,6 +105,21 @@ if (ob_start()) {
 				<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][ll]" value="<?php echo $main->getPost('processed_physiological_data', 'speed_expectations', 'll') ?>" readonly disabled /></td>
 			</tr>
 		</table>
+		<table class="graph">
+			<tr>
+				<?php
+				foreach ($distances as $distance) {
+					?>
+					<td>
+						<span style="height:<?php echo ($main->getPost('distances_and_records', $distance, 'speed') - 9.25) * 5 ?>px">
+							<?php echo $distance ?>
+						</span>
+					</td>
+					<?php
+				}
+				?>
+			</tr>
+		</table>
 	</fieldset>
 	<br />
 	<fieldset>
@@ -126,4 +140,3 @@ if (ob_start()) {
 		file_put_contents('tables/physiological-data.htm', file_get_contents('header.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }
-?>

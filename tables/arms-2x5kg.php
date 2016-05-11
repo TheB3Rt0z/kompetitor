@@ -1,5 +1,7 @@
 <?php $grade = $main->getPost('exercises_for_the_arms', 'grade') // default value 25 ?>
 
+<?php include 'header.php' ?>
+
 <?php
 
 $exercises = array(
@@ -89,4 +91,3 @@ if (ob_start()) {
 		file_put_contents('tables/arms-2x5kg.htm', file_get_contents('header.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }
-?>

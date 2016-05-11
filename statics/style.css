@@ -302,6 +302,20 @@ footer td.debug:hover {
     color: white;
 }
 
+.content .body table.graph {
+	border: solid 1px var(--text-lighter);
+}
+.content .body table.graph td {
+	padding: 5px 0 0;
+	vertical-align: bottom;
+}
+.content .body table.graph td span {
+    background-color: var(--text-links);
+    color: white;
+    display: block;
+    padding: 5px;
+}
+
 .content.log {
 	box-shadow: 0 0 10px crimson inset;
 }
