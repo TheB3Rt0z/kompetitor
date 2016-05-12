@@ -1,4 +1,4 @@
-<?php include 'header.php' ?>
+<?php include_once 'header.php' ?>
 
 <?php $rate_steps = array(.5, .55, .6, .65, .7, .75, .8, .85, .9, .95) ?>
 
@@ -108,10 +108,11 @@ if (ob_start()) {
 		<table class="graph">
 			<tr>
 				<?php
-				foreach ($distances as $distance) {
+				foreach ($distances as $key => $distance) {
+					$speed = $main->getPost('distances_and_records', $distance, 'speed');
 					?>
 					<td>
-						<span style="height:<?php echo ($main->getPost('distances_and_records', $distance, 'speed') - 9.25) * 5 ?>px">
+						<span style="height:<?php echo ($speed - 9.25) * 5 ?>px<?php if ($speed < $main->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo ';background-color:crimson' ?>">
 							<?php echo $distance ?>
 						</span>
 					</td>

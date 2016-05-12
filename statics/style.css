@@ -306,7 +306,7 @@ footer td.debug:hover {
 	border: solid 1px var(--text-lighter);
 }
 .content .body table.graph td {
-	padding: 5px 0 0;
+	padding: 3px 0 0;
 	vertical-align: bottom;
 }
 .content .body table.graph td span {

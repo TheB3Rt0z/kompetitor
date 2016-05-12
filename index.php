@@ -213,7 +213,14 @@
 						<div class="body">
 							<br />
 							<p>
-								- tabella alimenti con valutazione quantitá<br />
+								<strong>1/2</strong>:
+								tazza jogurt bianco | tazzina jogurt plus | 2 Knäckerbrot | 200ml di succo | porzione di verdura | frutto piccolo | 1 pugno chiuso di frutta secca (ceci)<br />
+								<strong>(1)</strong>:
+								tazzona jogurt bianco | tazza jogurt plus | 1 fetta di pane | 400ml di succo | piatto di verdura | 1 frutto normale | 1 birra da 33/50cl<br />
+								<strong>1&1/2</strong>:
+								caffélattemüsli | tazzona jogurt plus | klappstulle | porzione di pasta | ciccia o pesce | porzione di formaggio<br />
+								<strong>(2!!)</strong>:
+								dolce piccolo | kebap o similia | colazione alla tedesca | kaffee-kuchen | skifezze varie<br />
 							</p>
 						</div>
 					</div>
@@ -233,7 +240,6 @@
 							</p>
 						</div>
 					</div>
-					<!--<div class="separator">&nbsp;<br />&nbsp;</div>-->
 				</div>
 			</article>
 
