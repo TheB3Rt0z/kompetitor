@@ -322,6 +322,9 @@ footer td.debug:hover {
 .content.log .body legend {
 	color: var(--text-links);
 }
+.content.log .body table td {
+    white-space: normal;
+}
 .content.log .body table td .idea {
     color: #a0a;
 }

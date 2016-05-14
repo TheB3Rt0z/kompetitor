@@ -2,7 +2,7 @@
 
 <?php $rate_steps = array(.5, .55, .6, .65, .7, .75, .8, .85, .9, .95) ?>
 
-<?php $distances = array('5km', '7,5km', '10km', '1/3M', '15km', 'HM', '25km', '3/4M'/*, 'M'*/) ?>
+<?php $distances = array('5km', '7,5km', '10km', '1/3M', '15km', 'HM', '25km', '3/4M', 'M') ?>
 
 <?php
 
@@ -112,7 +112,7 @@ if (ob_start()) {
 					$speed = $main->getPost('distances_and_records', $distance, 'speed');
 					?>
 					<td>
-						<span style="height:<?php echo ($speed - 9.25) * 5 ?>px<?php if ($speed < $main->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo ';background-color:crimson' ?>">
+						<span style="height:<?php echo ($speed - 9.25) * 5 ?>px<?php if ($speed <= $main->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo ';background-color:crimson' ?>">
 							<?php echo $distance ?>
 						</span>
 					</td>

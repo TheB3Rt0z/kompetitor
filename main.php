@@ -97,7 +97,7 @@ class Main {
 
 		// shoes sizes calculation (ATM adult male only)
 		if (!empty($this->post['personal_data']['foot_length'])) {
-			$this->foot_length = $this->post['personal_data']['foot_length'] = number_format((double)str_replace(',', '.', $this->post['personal_data']['foot_length']), 1);
+			$this->foot_length = $this->post['personal_data']['foot_length'] = number_format((float)str_replace(',', '.', $this->post['personal_data']['foot_length']), 1);
 			$base_usa_cnd_uk = 3 * $this->foot_length * self::CM_TO_INCH;
 			$base_usa_cnd_uk = floor($base_usa_cnd_uk * 2) / 2;
 			$this->post['processed_physiological_data']['shoes_size']['usa'] = $this->shoes_size['usa'] = $base_usa_cnd_uk - 24;
@@ -208,11 +208,16 @@ class Main {
 			file_put_contents(DATA_FILE, base64_encode(serialize($post)));
 
 			$data = fopen(DATA_FILE, 'rb'); // read only binary
-			if (!empty($post)) // not saving in dropbox if file was inexplicably truncated
-				$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update(null), $data);
+			if (!empty($post)) { // not saving in dropbox if file was inexplicably truncated
+				try {
+					$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update(null), $data);
+					Main::addLog("Profile data was saved to Dropbox API", 'info');
+				}
+				catch (Exception $e) {
+	                Main::addLog($e, 'warning');
+				}
+			}
 			fclose($data);
-
-			Main::addLog("Profile data was saved to Dropbox API", 'info');
 		}
 Main::addLog("Saved profile data should be packed (b64 and human-readable formats) and emailed to profile's (???) email..", 'todo');
 		$_SESSION['post'] = $post;
