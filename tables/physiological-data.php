@@ -127,6 +127,8 @@ if (ob_start()) {
 		<legend><?php echo ucfirst(trnslt('shoes size')) ?></legend>
 		<table>
 			<tr>
+				<td class="a-left"><?php echo strtoupper(trnslt('cm')) ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][cm]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'cm') ?>" readonly disabled /></td>
 				<td class="a-left"><?php echo strtoupper(trnslt('usa')) ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][usa]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'usa') ?>" readonly disabled /></td>
 				<td class="a-left"><?php echo strtoupper(trnslt('uk')) ?>:</td>

@@ -263,7 +263,8 @@
     IT:
         string: "stretching statico"
         short: "SS"
-        def: "Secondo il metodo di Bob Anderson: ???"
+        def: "Secondo il metodo di Bob Anderson: ispirato dallo yoga e dal pilates, prevede posizioni fisse sotto la soglia del dolore, con movimenti sempre piuttosto lenti."
+        link: "http://www.my-personaltrainer.it/allenamento/stretching2.html"
 "step":
     IT:
         string: "passo"
@@ -285,7 +286,7 @@
     IT:
         string: "FCmin di allenamento"
         short: "FCall"
-        def: ""
+        def: "Corrisponde all'entrata nella zona FC 3, cioè quella nella quale si ha uno sforzo evidente e quindi allenante, idealmente in fase aerobica con prevalente consumo di carboidrati, in cui la produzione del lattato viene agilmente smaltita: migliora perciò la cosiddetta capacità aerobica e di conseguenza il sistema vascolare."
 "threshold activity":
     IT: "attività alla soglia"
 "tue":
