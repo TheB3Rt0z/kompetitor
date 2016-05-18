@@ -75,11 +75,14 @@ class Main {
 
 		// mediated-weekly-weight
 		if (!empty($this->_post['personal_data']['daily_weighing'])) {
-			if ($daily_weighing = array_filter($this->_post['personal_data']['daily_weighing'], function(&$value) {
+			$daily_weighing = array_filter($this->_post['personal_data']['daily_weighing'], function(&$value) {
 				return $value = $value ? number_format((double)str_replace(',', '.', $value), 1) : false;
-			}))
-				$this->mediated_weekly_weight = $this->_setPost(number_format(array_sum($daily_weighing) / count($daily_weighing), 3),
-						                                        'processed_physiological_data', 'mediated_weekly_weight');
+			});
+			$mediated_weekly_weight = array_sum($daily_weighing) / count($daily_weighing);
+			$this->mediated_weekly_weight = $mediated_weekly_weight
+			                                ? $this->_setPost(number_format($mediated_weekly_weight, 3),
+						                                      'processed_physiological_data', 'mediated_weekly_weight')
+			                                : BOH;
 		}
 
 		// bmi and ideal-weight (averaged) calculation
@@ -133,7 +136,7 @@ class Main {
 
 				if (!empty($values['last_pb']) && ($values['last_pb'] != BOH)) {
 					$last_pb = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($values['last_pb'])));
-					$last_step = round($last_pb->format('U') / $distance);
+					$this->distances_and_records[$key] = $last_step = round($last_pb->format('U') / $distance);
 					$last_speed = $distance * 3600 / $last_pb->format('U');
 					$this->_setPost(date('i:s', $last_step),
 							        'distances_and_records', $key, 'last_step');
@@ -144,12 +147,12 @@ class Main {
 		}
 
 		// reference speed calculation + some speed expectations
-		if (!empty($this->_post['distances_and_records']['10km']['last_step_tmp'])
-				&& !empty($this->_post['distances_and_records']['1/3M']['last_step_tmp'])
-				&& !empty($this->_post['distances_and_records']['15km']['last_step_tmp'])) {
-			$rs = ($this->_post['distances_and_records']['10km']['last_step_tmp']
-			    + $this->_post['distances_and_records']['1/3M']['last_step_tmp']
-			    + $this->_post['distances_and_records']['15km']['last_step_tmp']) / 3;
+		if (!empty($this->distances_and_records['10km'])
+				&& !empty($this->distances_and_records['1/3M'])
+				&& !empty($this->distances_and_records['15km'])) {
+			$rs = ($this->distances_and_records['10km']
+			    + $this->distances_and_records['1/3M']
+			    + $this->distances_and_records['15km']) / 3;
 			$this->_setPost(date('i:s', round($rs)),
 					        'processed_physiological_data', 'rs');
 
