@@ -16,7 +16,7 @@
 								<?php button() ?>
 								<nav class="invisible-on-tablet">
 									<?php button('close') ?>
-									<?php button('print') ?>
+									<?php //button('print') ?>
 									<?php button('settings') ?>
 									<?php button('credits', APPLICATION_CREDITS) ?>
 								</nav>
@@ -32,7 +32,7 @@
 		<section>
 			<article>
 				<div>
-					<!-- place for logs -->
+					<!-- place for logs (admin only) -->
 
 					<div class="content width-60 icon personal-data">
 						<span class="icon"></span>
@@ -83,7 +83,7 @@
 							</p>
 						</div>
 					</div>
-
+<?php if ($_SESSION['status'] <= 1) { // only advanced users ?>
 					<div class="separator"></div>
 
 					<div class="content width-50 icon exercises">
@@ -242,7 +242,7 @@
 					</div>
 				</div>
 			</article>
-
+<?php } ?>
 			<aside></aside>
 		</section>
 		</form>

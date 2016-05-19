@@ -37,3 +37,5 @@ define('APPLICATION_CREDITS', APPLICATION_COPYRIGHT . "\\n\\n" . ucfirst(trnslt(
 Main::updateReadme("# " . APPLICATION_TITLE);
 
 $main = new Main;
+
+$_SESSION['status'] = 2; // for debug only

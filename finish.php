@@ -1,5 +1,5 @@
 <?php
-if (Main::hasLogs()) {
+if (($_SESSION['status'] === 0) && Main::hasLogs()) {
 	?>
 	<div class="content log">
 		<div class="body">

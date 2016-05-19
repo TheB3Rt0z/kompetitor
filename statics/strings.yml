@@ -13,6 +13,8 @@
         string: "stretching globale attivo"
         short: "SGA"
         def: "Secondo il metodo di Philippe E. Souchard: frutto dell'esperienza e dello studio dell'esperto globalista, é una forma di stretching relativa allo studio generale della postura umana e ai problemi che possono presentarsi durante la pratica sportiva."
+"actual speed's profile":
+    IT: "profilo attuale di velocità"
 "aerobic activity":
     IT: "attività aerobica"
 "aerobic threshold":
@@ -47,7 +49,7 @@
     IT:
         string: "indice di massa corporea"
         short: "IMC"
-        def: ""
+        def: "Si tratta di un dato biometrico, espresso come rapporto tra peso e quadrato dell'altezza di un individuo, utilizzato come indicatore dello stato di peso forma.\nÉ stato introdotto nel 1832 da Adolphe Quetelet, matematico e statistico belga."
 "clawings":
     IT: "artigliate"
 "conconi test":
@@ -80,9 +82,9 @@
     IT: "esercizi a due braccia"
 "dynamic ballistic stretching":
     IT:
-        string: "stretching dinamico balistico"
-        short: "SDB"
-        def: ""
+        string: "stretching balistico dinamico"
+        short: "SBD"
+        def: "Versione moderna dell'obsoleto stretching balistico: il concetto é sempre quello di far oscillare gli arti o il busto, ma in maniera controllata e lenta, quindi senza ricorrere a slanci e scatti come avveniva in passato.\nIl movimento consiste nello slanciare in una determinata direzione gli arti in maniera controllata e lenta arrivando a sfruttare gradatamente tutta l'ampiezza concessa dall'articolazione, evitando l'effetto rimbalzo o il molleggio che causano l'attivazione del riflesso miotatico portando il muscolo a reagire contraendosi anziché distendersi."
 "easy breathing":
     IT:
         string: "respirazione facile"
@@ -188,7 +190,8 @@
     IT:
         string: "facilitazione propriocettiva neuromuscolare"
         short: "FPN"
-        def: ""
+        def: "É una tecnica che viene utilizzata per aumentare la flessibilità e la gamma di movimento.\nDi solito viene integrata in una routine più grande, che ha lo scopo di mantenere i muscoli condizionati o per aiutare il recupero da un infortunio. La PNF viene eseguita con la presenza del fisioterapista che guida il paziente attraverso movimenti che vengono eseguiti secondo gli schemi neuromotori naturali del nostro corpo. Si sfrutta il principio della mobilizzazione neuro-dinamica del sistema nervoso periferico e ciò fa si che con questa metodica migliori sia l’efficienza del nervo periferico che quella del muscolo ottenendo sia un rinforzo ottimale delle fibre muscolari sia una migliore elasticità delle stesse."
+        link: "https://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwigrpn07-XMAhUHWhQKHSEeB0wQFggjMAE&url=http%3A%2F%2Fwww.my-personaltrainer.it%2Ftraumatologia-ortopedia%2Ffacilitazione-neuromuscolare-propriocettiva.html&usg=AFQjCNEpMX-spg5Oa89GT3qt3HlU_axfVw&sig2=SudgbZM7qroz8iA5EfHemQ"
 "race pace":
     IT:
         string: "ritmo gara"
