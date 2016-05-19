@@ -27,6 +27,15 @@
 						</tr>
 					</thead>
 				</table>
+				<fieldset class="content settings">
+					<table>
+						<tr>
+							<td class="a-left"><?php echo trnslt('E-Mail') ?>:</td>
+							<td class="a-right"><input type="text" name="settings[email]" value="<?php echo $main->getPost('settings', 'email') ?>" /></td>
+							<td class="a-right"><?php echo submit() ?></td>
+						</tr>
+					</table>
+				</fieldset>
 			</div>
 		</header>
 		<section>
@@ -79,7 +88,7 @@
 						<div class="body">
 							<br />
 							<p>
-								[...]
+								[...] in PROGRESS
 							</p>
 						</div>
 					</div>

@@ -148,6 +148,13 @@ footer td.debug:hover {
 .content.width-80 {
     width: 76%;
 }
+.content.settings {
+	border: none;
+	display: none;
+}
+.content.settings input[type=text] {
+    width: 100%;
+}
 .content .header {
 	border-bottom: solid 1px var(--text-color);
 	cursor: pointer;

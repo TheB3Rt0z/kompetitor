@@ -38,4 +38,4 @@ Main::updateReadme("# " . APPLICATION_TITLE);
 
 $main = new Main;
 
-$_SESSION['status'] = 2; // for debug only
+$_SESSION['status'] = 0; // for debug only

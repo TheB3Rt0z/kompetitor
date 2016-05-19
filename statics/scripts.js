@@ -37,6 +37,10 @@ jQuery(function() {
 		hideMobileNav();
 	});
 	
+	jQuery('header th nav .button.settings').bind('click', function() {
+		jQuery('.content.settings').show(delay);
+	});
+	
 	jQuery('.content .header').bind('click', function() {
 		jQuery(this).siblings('.body').toggle(delay);
 		jQuery(this).children('span').toggleClass('opened');
