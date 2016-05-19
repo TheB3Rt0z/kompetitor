@@ -26,7 +26,7 @@
     IT:
         string: "attività anaerobica"
         short: "AA"
-        def: ""
+        def: "Si tratta di quella in cui la ri-sintesi dell'ATP avviene in assenza di ossigeno, e cioè fin quando le scorte di glicogeno muscolare sono sufficienti a consentire la ri-trasformazione dell'acido piruvico in ATP.\nSi può definire come attività atletica ad alto carico di sforzo e ad alta intensità che consuma più ossigeno di quanto ne solleciti l'assunzione.\nPoiché pone l'organismo in debito di ossigeno, la sua durata non può essere molto prolungata, ma sviluppa soprattutto un'eccellente condizione di forza muscolare."
 "backup FC":
     IT: "FC di riserva"
 "bas test":
