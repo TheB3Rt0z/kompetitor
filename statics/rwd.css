@@ -63,6 +63,13 @@
 
 @media all and (max-width:667px) {
 	
+	.content.settings input[type="text"] {
+	    width: 97%;
+	}
+	.content.settings input[type="submit"] {
+	    font-size: 1.25em;
+	}
+	
 	.content.icon .icon {
 	    margin-right: 1.75% !important;
         width: 5.25% !important;

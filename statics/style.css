@@ -56,6 +56,9 @@ p a {
 .a-right {
     text-align: right;
 }
+.a-center {
+    text-align: center;
+}
 
 header > div, /* header should get position: fixed on scroll */
 footer > div {
@@ -153,7 +156,10 @@ footer td.debug:hover {
 	display: none;
 }
 .content.settings input[type=text] {
-    width: 100%;
+    border-radius: 3px;
+    padding: 2px 4px;
+    text-align: right;
+    width: 77%;
 }
 .content .header {
 	border-bottom: solid 1px var(--text-color);

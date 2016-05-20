@@ -32,5 +32,10 @@ if (($_SESSION['status'] === 0) && Main::hasLogs()) {
 	    jQuery(window).resize(function() {
 	    	form.children('#width').val(jQuery(window).width());
 	    });
+
+	    <?php
+	    if ($main->getPost('width') == BOH)
+	    	echo "form.submit();";
+	    ?>
     });
 </script>

@@ -31,8 +31,14 @@
 					<table>
 						<tr>
 							<td class="a-left"><?php echo trnslt('E-Mail') ?>:</td>
-							<td class="a-right"><input type="text" name="settings[email]" value="<?php echo $main->getPost('settings', 'email') ?>" /></td>
-							<td class="a-right"><?php echo submit() ?></td>
+							<td class="a-center"><input type="text" name="settings[email]" value="<?php echo $main->getPost('settings', 'email') ?>" /></td>
+							<?php if ($main->is_mobile) echo '<td class="a-right">' . submit('update') . '</td></tr><tr>' ?>
+							<td class="a-left"><?php echo trnslt('Username') ?>:</td>
+							<td class="a-center" colspan="2"><input type="text" name="settings[username]" value="<?php echo $main->getPost('settings', 'username') ?>" readonly disabled /></td>
+							<?php if ($main->is_mobile) echo '</tr><tr>' ?>
+							<td class="a-left"><?php echo trnslt('Password') ?>:</td>
+							<td class="a-center" colspan="2"><input type="text" name="settings[password]" value="<?php echo $main->getPost('settings', 'password') ?>" readonly disabled /></td>
+							<?php if (!$main->is_mobile) echo '<td class="a-right">' . submit() . '</td>' ?>
 						</tr>
 					</table>
 				</fieldset>

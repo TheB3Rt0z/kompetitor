@@ -222,12 +222,14 @@ class Main {
 	}
 
 
-	private function _setPost($value, $fieldset, $field, $option = null) {
+	private function _setPost($value, $fieldset, $field = null, $option = null) {
 
 		if ($option)
 			$this->_post[$fieldset][$field][$option] = $value;
-		else
+		elseif ($field)
 			$this->_post[$fieldset][$field] = $value;
+	    else
+	    	$this->_post[$fieldset] = $value;
 
 		return $value;
 	}
@@ -259,7 +261,7 @@ Main::addLog("Saved profile data should be packed (b64 and human-readable format
 	}
 
 
-	function getPost($fieldset, $field, $option = null) { // this should be better written..
+	function getPost($fieldset, $field = null, $option = null) { // this should be better written..
 
 		return ($option
 			   ? (!empty($_POST[$fieldset][$field][$option])
@@ -267,11 +269,17 @@ Main::addLog("Saved profile data should be packed (b64 and human-readable format
 			     : (!empty($this->_post[$fieldset][$field][$option])
 			       ? $this->_post[$fieldset][$field][$option]
 			       : BOH))
-			   : (!empty($_POST[$fieldset][$field])
-			     ? $_POST[$fieldset][$field]
-			     : (!empty($this->_post[$fieldset][$field])
-			       ? $this->_post[$fieldset][$field]
-			       : BOH)));
+			   : ($field
+			   	 ? (!empty($_POST[$fieldset][$field])
+			       ? $_POST[$fieldset][$field]
+			       : (!empty($this->_post[$fieldset][$field])
+			         ? $this->_post[$fieldset][$field]
+			         : BOH))
+			   	 : (!empty($_POST[$fieldset])
+			   	   ? $_POST[$fieldset]
+			       : (!empty($this->_post[$fieldset])
+			         ? $this->_post[$fieldset]
+			         : BOH))));
 	}
 
 
