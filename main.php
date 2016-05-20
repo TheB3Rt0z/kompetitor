@@ -40,17 +40,23 @@ class Main {
 
 	function __construct() {
 
-		$this->_dbcl = new dbx\Client($this->_dbat, 'PHP-Example/1.0');
+		$this->is_logged = isset($_SESSION['status'])
+			            && !empty($_SESSION['username'])
+		                && !empty($_SESSION['id']);
 
-		$this->_post = $this->_retrieveData();
-		if (!isset($_SESSION['post']))
-			$_SESSION['post'] = $this->_post;
+		if ($this->is_logged) {
+			$this->_dbcl = new dbx\Client($this->_dbat, 'PHP-Example/1.0');
 
-		$this->is_mobile = (!empty($this->_post['width']) && ($this->_post['width'] < 667));
+			$this->_post = $this->_retrieveData();
+			if (!isset($_SESSION['post']))
+				$_SESSION['post'] = $this->_post;
 
-		$this->_process();
+			$this->is_mobile = (!empty($this->_post['width']) && ($this->_post['width'] <= 667));
 
-		$this->_updateData();
+			$this->_process();
+
+			$this->_updateData();
+		}
 	}
 
 

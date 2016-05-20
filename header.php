@@ -10,11 +10,14 @@
 							<th class="a-right">
 								<?php button() ?>
 								<nav class="invisible-on-tablet">
+									<?php
+									if ($main->is_logged)
+										echo '<p class="invisible-on-mobile" style="float:left">' . ucfirst(trnslt('hallo')) . ' ' . $_SESSION['username'] . '!</p>';
+									?>
 									<?php button('close') ?>
 									<?php //button('print') ?>
-									<?php button('settings') ?>
+									<?php if ($main->is_logged) button('settings') ?>
 									<?php button('credits', APPLICATION_CREDITS) ?>
-									<p class="invisible-on-mobile" style="float:left"><?php echo ucfirst(trnslt('hallo')) ?> TEST!</p>
 								</nav>
 							</th>
 						</tr>

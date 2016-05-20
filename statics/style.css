@@ -151,6 +151,13 @@ footer td.debug:hover {
 .content.width-80 {
     width: 76%;
 }
+.content.login img {
+	max-width: 99%;
+}
+.content.login div {
+	display: inline-block;
+    margin: 1%;	
+}
 .content.settings {
 	border: none;
 	display: none;
