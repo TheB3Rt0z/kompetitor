@@ -112,11 +112,6 @@
         string: "lunghezza del piede LP"
         short: "LP"
         def: "È la massima distanza orizzontale (rigorosamente in cm) dal centro della parte posteriore del tallone all'estremità del dito più sporgente, misurata mentre il soggetto è in posizione eretta con il peso equamente distribuito tra i due piedi.\nN.B.: Le dimensioni del piede sinistro e di quello destro sono spesso leggermente diverse e in questo caso entrambi i piedi sono misurati e le scarpe sono scelte sulla base della misura del piede più grande!"
-"maximum heart rate":
-    IT:
-        string: "frequenza cardiaca massima"
-        short: "FCmax"
-        def: ""
 "fri":
     IT: "ven"
 "frontal raises":
@@ -129,8 +124,15 @@
         short: "HM"
         def: "Si tratta di una gara podistica su strada sulla distanza di 21,0975 chilometri, spesso chiamata impropriamente maratonina.\nFisiologicamente la mezza maratona viene considerata gara di fondo."
         link: "http://www.fulviomassini.com/capire-la-mezza-maratona/"
+"hallo":
+    IT: "ciao"
 "hammer-curls":
     IT: "hammer curl"
+"heart rate":
+    IT:
+        string: "frequenza cardiaca"
+        short: "BPM"
+        def: "La frequenza cardiaca viene espressa dai battiti al minuto che un cuore produce, e si dice media se misurata lungo un certo lasso di tempo."
 "height":
     IT: "altezza"
 "hump-launches":
@@ -155,6 +157,12 @@
         string: "falcata"
         short: "FLC"
         def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dello stesso."
+"maximum heart rate":
+    IT:
+        string: "frequenza cardiaca massima"
+        short: "FCmax"
+        def: "É la frequenza espressa in battiti al minuto (BPM) che un cuore sotto sforzo massimale riesce a raggiungere."
+        link: "http://www.albanesi.it/arearossa/articoli/01fcmax33.htm"
 "mediated weekly weight":
     IT: "peso settimanale mediato"
 "medium":

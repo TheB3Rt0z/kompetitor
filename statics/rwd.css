@@ -1,4 +1,4 @@
-@media all and (min-width:1025px) {
+@media all and (min-width: 1025px) {
 	
     .invisible-on-desktop {
         display: none !important;
@@ -13,7 +13,7 @@
 }
 
 
-@media all and (max-width:1024px) {
+@media all and (max-width: 1024px) {
 	
 	.invisible-on-tablet {
         display: none;
@@ -61,7 +61,7 @@
 }
 
 
-@media all and (max-width:667px) {
+@media all and (max-width: 667px) {
 	
 	.content.settings input[type="text"] {
 	    width: 97%;
@@ -87,7 +87,7 @@
 }
 
 
-@media all and (max-width:480px) {
+@media all and (max-width: 480px) {
 	
 	.invisible-on-mobile {
 	    display: none;

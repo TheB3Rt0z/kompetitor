@@ -1,4 +1,4 @@
-<?php include_once 'header.php' ?>
+<?php include_once 'head.php' ?>
 
 <?php $rate_steps = array(.5, .55, .6, .65, .7, .75, .8, .85, .9, .95) ?>
 
@@ -46,7 +46,7 @@ if (ob_start()) {
 		?>
 		<br />
 		<fieldset>
-			<legend><?php echo ucfirst(trnslt('rate expectations')) ?></legend>
+			<legend><?php echo ucfirst(trnslt('rate expectations')) ?> (<?php echo trnslt('BPM') ?>)</legend>
 			<table>
 				<thead>
 					<tr>
@@ -141,6 +141,6 @@ if (ob_start()) {
 	</fieldset>
 	<?php
 	if (!$main->is_mobile)
-		file_put_contents('tables/physiological-data.htm', file_get_contents('header.php') . ob_get_contents() . file_get_contents('footer.php'));
+		file_put_contents('tables/physiological-data.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }

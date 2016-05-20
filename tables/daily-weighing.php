@@ -1,4 +1,4 @@
-<?php include_once 'header.php' ?>
+<?php include_once 'head.php' ?>
 
 <?php
 
@@ -30,6 +30,6 @@ if (ob_start()) {
 	</fieldset>
 	<?php
 	if (!$main->is_mobile)
-		file_put_contents('tables/daily-weighing.htm', file_get_contents('header.php') . ob_get_contents() . file_get_contents('footer.php'));
+		file_put_contents('tables/daily-weighing.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }

@@ -88,8 +88,10 @@ class Main {
 		// bmi and ideal-weight (averaged) calculation
 		if (!empty($this->height) && isset($this->mediated_weekly_weight)) {
 			$bmi_quartelet = $this->mediated_weekly_weight / POW($this->height / 100, 2);
-			$this->bmi = $this->_setPost(number_format($bmi_quartelet, 3),
-					                     'processed_physiological_data', 'bmi');
+			$this->bmi = $bmi_quartelet
+			             ? $this->_setPost(number_format($bmi_quartelet, 3),
+					                       'processed_physiological_data', 'bmi')
+		                 : BOH;
 
 			if (isset($this->age['years'])) {
 				$this->broca_ideal_weight = $this->height - 100;
@@ -105,7 +107,7 @@ class Main {
 
 		// shoes sizes calculation (ATM adult male only)
 		if (!empty($this->_post['personal_data']['foot_length'])) {
-			$this->foot_length = $this->_setPost(number_format((float)str_replace(',', '.', $this->_post['personal_data']['foot_length']), 1),
+			$this->foot_length = $this->_setPost(number_format((float)str_replace(',', '.', $this->_post['personal_data']['foot_length']), 2),
 					                             'personal_data', 'foot_length');
 			$this->shoes_size['cm'] = $this->_setPost($this->foot_length + 1.5,
 					                                  'processed_physiological_data', 'shoes_size', 'cm'); // foot to shoe modifier https://it.wikipedia.org/wiki/Misura_delle_scarpe#Tabelle_di_conversione

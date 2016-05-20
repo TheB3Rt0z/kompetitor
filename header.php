@@ -1,15 +1,42 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title><?php echo APPLICATION_TITLE ?></title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="statics/icon-32x32.png" type="image/png" />
-        <link rel="shortcut icon" href="statics/icon-32x32.png" type="image/png" />
-		<link rel="stylesheet" type="text/css" href="statics/style.css" />
-		<link rel="stylesheet" type="text/css" href="statics/rwd.css" />
-		<script type="text/javascript" src="includes/jquery.min.js" charset="UTF-8"></script>
-		<script type="text/javascript" src="statics/scripts.js" charset="UTF-8"></script>
-	</head>
-
-	<body>
+		<header>
+			<div>
+				<table>
+					<thead>
+						<tr>
+							<th class="a-left title">
+								<img src="statics/icon-32x32.png" alt="<?php echo APPLICATION_NAME ?>" class="logo" />
+								&nbsp;<?php echo APPLICATION_TITLE ?>&nbsp;
+							</th>
+							<th class="a-right">
+								<?php button() ?>
+								<nav class="invisible-on-tablet">
+									<?php button('close') ?>
+									<?php //button('print') ?>
+									<?php button('settings') ?>
+									<?php button('credits', APPLICATION_CREDITS) ?>
+									<p class="invisible-on-mobile" style="float:left"><?php echo ucfirst(trnslt('hallo')) ?> TEST!</p>
+								</nav>
+							</th>
+						</tr>
+						<tr>
+							<th colspan="2"><hr /></th>
+						</tr>
+					</thead>
+				</table>
+				<fieldset class="content settings">
+					<table>
+						<tr>
+							<td class="a-left"><?php echo trnslt('E-Mail') ?>:</td>
+							<td class="a-center"><input type="text" name="settings[email]" value="<?php echo $main->getPost('settings', 'email') ?>" /></td>
+							<?php if ($main->is_mobile) echo '<td class="a-right">' . submit('update') . '</td></tr><tr>' ?>
+							<td class="a-left"><?php echo trnslt('Username') ?>:</td>
+							<td class="a-center" colspan="2"><input type="text" name="settings[username]" value="<?php echo $main->getPost('settings', 'username') ?>" readonly disabled /></td>
+							<?php if ($main->is_mobile) echo '</tr><tr>' ?>
+							<td class="a-left"><?php echo trnslt('Password') ?>:</td>
+							<td class="a-center" colspan="2"><input type="text" name="settings[password]" value="<?php echo $main->getPost('settings', 'password') ?>" readonly disabled /></td>
+							<?php if (!$main->is_mobile) echo '<td class="a-right">' . submit() . '</td>' ?>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+		</header>
