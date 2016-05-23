@@ -12,7 +12,7 @@
 								<nav class="invisible-on-tablet">
 									<?php
 									if ($main->isLogged())
-										echo '<p class="invisible-on-mobile" style="float:left">' . ucfirst(trnslt('hallo')) . ' ' . $_SESSION['username'] . ' (' . $_SESSION['id'] . ')!</p>';
+										echo '<p class="invisible-on-mobile" style="float:left">' . ucfirst(trnslt('hallo')) . ' ' . $_SESSION['username'] /*. ' (' . $_SESSION['id'] . ')*/ . '!</p>';
 									?>
 									<?php button('close') ?>
 									<?php //button('print') ?>

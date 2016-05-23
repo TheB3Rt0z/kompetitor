@@ -401,7 +401,8 @@ Main::addLog("Saved profile data should be packed (b64 and human-readable format
 
 	static function updateReadme($data) {
 
-		file_put_contents('README.md', $data);
+		if ($_SERVER['HTTP_HOST'] == 'localhost')
+			file_put_contents('README.md', $data);
 	}
 }
 

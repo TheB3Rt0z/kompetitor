@@ -61,7 +61,7 @@ if (ob_start()) {
 		</table>
 	</fieldset>
 	<?php
-	if (!$main->is_mobile)
+	if (!$main->is_mobile && ($_SERVER['HTTP_HOST'] == 'localhost'))
 		file_put_contents('tables/distances-records.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }
