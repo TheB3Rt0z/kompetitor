@@ -106,11 +106,13 @@ class Main {
 				       ? $value = number_format(str_replace(',', '.', $value), 1)
 				       : false;
 			});
-			$mediated_weekly_weight = array_sum($daily_weighing) / count($daily_weighing);
-			$this->mediated_weekly_weight = $this->_setPost($mediated_weekly_weight > 0
-			                                		        ? number_format($mediated_weekly_weight, 3)
-			                                		        : BOH,
-						                                    'processed_physiological_data', 'mediated_weekly_weight');
+			if (!empty($daily_weighing)) {
+				$mediated_weekly_weight = array_sum($daily_weighing) / count($daily_weighing);
+				$this->mediated_weekly_weight = $this->_setPost($mediated_weekly_weight > 0
+				                                		        ? number_format($mediated_weekly_weight, 3)
+				                                		        : BOH,
+							                                    'processed_physiological_data', 'mediated_weekly_weight');
+		    }
 		}
 
 		// bmi and ideal-weight (averaged) calculation

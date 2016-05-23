@@ -44,7 +44,7 @@ if (ob_start()) {
 				<?php
 				foreach ($distances as $key => $distance) {
 					?>
-					<tr>
+					<tr <?php if (in_array($key, array('10km', '1/3M', '15km'))) echo 'class="rs"' ?>>
 						<td class="a-left"><?php echo trnslt($key) ?>:<input type="hidden" name="distances_and_records[<?php echo $key ?>][distance]" value="<?php echo $distance ?>" /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][pb]" value="<?php echo $main->getPost('distances_and_records', $key, 'pb') ?>" /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][step]" value="<?php echo $main->getPost('distances_and_records', $key, 'step') ?>" readonly disabled /></td>

@@ -21,8 +21,8 @@ if (ob_start()) {
 				<td class="a-right"><input type="text" name="processed_physiological_data[bmi]" value="<?php echo $main->getPost('processed_physiological_data', 'bmi') ?>" readonly disabled /></td>
 				<td class="a-left"><?php echo ucfirst(trnslt('ideal weight')) ?> (in kg):</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[ideal_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'ideal_weight') ?>" readonly disabled /></td>
-				<td class="a-left"><?php echo trnslt('RS') ?>:</td>
-				<td class="a-right"><input type="text" name="processed_physiological_data[rs]" value="<?php echo $main->getPost('processed_physiological_data', 'rs') ?>" readonly disabled /></td>
+				<td class="a-left rs"><?php echo trnslt('RS') ?>:</td>
+				<td class="a-right rs"><input type="text" name="processed_physiological_data[rs]" value="<?php echo $main->getPost('processed_physiological_data', 'rs') ?>" readonly disabled /></td>
 			</tr>
 			<tr>
 				<td class="a-left"><?php echo trnslt('FCmax') ?>:</td>
