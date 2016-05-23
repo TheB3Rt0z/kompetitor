@@ -158,7 +158,7 @@
 					<div class="content width-33 icon riegel-calculator">
 						<span class="icon"></span>
 						<div class="header">
-							<?php echo ucfirst(trnslt('Riegel calculator')) ?>
+							<?php echo ucfirst(trnslt('Riegel\'s calculator')) ?>
 							<span>&#8679;</span>
 						</div>
 						<br />
@@ -197,7 +197,7 @@
 					<div class="content width-33 icon bibliography">
 						<span class="icon"></span>
 						<div class="header">
-							<?php echo ucfirst(trnslt('bibliography')) ?>
+							<?php echo ucfirst(trnslt('technical bibliography')) ?>
 							<span>&#8679;</span>
 						</div>
 						<br />

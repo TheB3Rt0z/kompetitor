@@ -11,12 +11,12 @@
 								<?php button() ?>
 								<nav class="invisible-on-tablet">
 									<?php
-									if ($main->is_logged)
-										echo '<p class="invisible-on-mobile" style="float:left">' . ucfirst(trnslt('hallo')) . ' ' . $_SESSION['username'] . '!</p>';
+									if ($main->isLogged())
+										echo '<p class="invisible-on-mobile" style="float:left">' . ucfirst(trnslt('hallo')) . ' ' . $_SESSION['username'] . ' (' . $_SESSION['id'] . ')!</p>';
 									?>
 									<?php button('close') ?>
 									<?php //button('print') ?>
-									<?php if ($main->is_logged) button('settings') ?>
+									<?php if ($main->isLogged()) button('settings') ?>
 									<?php button('credits', APPLICATION_CREDITS) ?>
 								</nav>
 							</th>

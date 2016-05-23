@@ -40,18 +40,17 @@ class Main {
 
 	function __construct() {
 
-		$this->is_logged = isset($_SESSION['status'])
-			            && !empty($_SESSION['username'])
-		                && !empty($_SESSION['id']);
+		$this->is_mobile = (!empty($_POST['width']) && ($_POST['width'] <= 667));
 
-		if ($this->is_logged) {
+		if (!$this->isLogged())
+			$this->_checkLogin();
+
+		if ($this->isLogged()) {
 			$this->_dbcl = new dbx\Client($this->_dbat, 'PHP-Example/1.0');
 
 			$this->_post = $this->_retrieveData();
 			if (!isset($_SESSION['post']))
 				$_SESSION['post'] = $this->_post;
-
-			$this->is_mobile = (!empty($this->_post['width']) && ($this->_post['width'] <= 667));
 
 			$this->_process();
 
@@ -60,14 +59,33 @@ class Main {
 	}
 
 
+	private function _checkLogin() {
+
+		if (!empty($_POST['username']) && !empty($_POST['password'])) {
+			$username = htmlspecialchars(stripslashes(trim($_POST['username'])));
+			$password = md5(htmlspecialchars(stripslashes(trim($_POST['password']))));
+			foreach (file(USERS_FILE) as $user) {
+				$user_array = explode("|", $user);
+				if (($user_array[1] == $username) && (trim($user_array[2]) == $password)) {
+					$_SESSION['status'] = $user_array[0];
+					$_SESSION['username'] = ucfirst($username);
+					$_SESSION['id'] = md5($user);
+				}
+			}
+		}
+	}
+
+
 	private function _process() {
 
-		if (!empty($this->_post['personal_data']['height']))
-			$this->height = $this->_setPost(number_format((double)str_replace(',', '.', $this->_post['personal_data']['height']), 1),
+		if (!empty($this->_post['personal_data']['height']) && $this->_post['personal_data']['height'] > 0)
+			$this->height = $this->_setPost(number_format(str_replace(',', '.', $this->_post['personal_data']['height']), 1),
 					                        'personal_data', 'height');
+		else
+			$this->height = $this->_setPost(BOH, 'personal_data', 'height');
 
 		// age (not only years anyway)
-		if (!empty($this->_post['personal_data']['date_of_birth'])) {
+		if (!empty($this->_post['personal_data']['date_of_birth']) && $this->_post['personal_data']['date_of_birth'] != BOH) {
 			$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->_post['personal_data']['date_of_birth'])));
 			$now = new DateTime(date('Y-m-d'));
 
@@ -78,26 +96,30 @@ class Main {
 			$this->age['months'] = $interval->m;
 			$this->age['days'] = $interval->d;
 		}
+		else
+			$this->age['years'] = $this->_setPost(BOH, 'processed_physiological_data', 'age');
 
 		// mediated-weekly-weight
 		if (!empty($this->_post['personal_data']['daily_weighing'])) {
 			$daily_weighing = array_filter($this->_post['personal_data']['daily_weighing'], function(&$value) {
-				return $value = $value ? number_format((double)str_replace(',', '.', $value), 1) : false;
+				return ($value != BOH && $value > 0)
+				       ? $value = number_format(str_replace(',', '.', $value), 1)
+				       : false;
 			});
 			$mediated_weekly_weight = array_sum($daily_weighing) / count($daily_weighing);
-			$this->mediated_weekly_weight = $mediated_weekly_weight
-			                                ? $this->_setPost(number_format($mediated_weekly_weight, 3),
-						                                      'processed_physiological_data', 'mediated_weekly_weight')
-			                                : BOH;
+			$this->mediated_weekly_weight = $this->_setPost($mediated_weekly_weight > 0
+			                                		        ? number_format($mediated_weekly_weight, 3)
+			                                		        : BOH,
+						                                    'processed_physiological_data', 'mediated_weekly_weight');
 		}
 
 		// bmi and ideal-weight (averaged) calculation
-		if (!empty($this->height) && isset($this->mediated_weekly_weight)) {
+		if (!empty($this->height) && $this->height > 0 && isset($this->mediated_weekly_weight)) {
 			$bmi_quartelet = $this->mediated_weekly_weight / POW($this->height / 100, 2);
-			$this->bmi = $bmi_quartelet
-			             ? $this->_setPost(number_format($bmi_quartelet, 3),
-					                       'processed_physiological_data', 'bmi')
-		                 : BOH;
+			$this->bmi = $this->_setPost($bmi_quartelet
+					                     ? number_format($bmi_quartelet, 3)
+					                     : BOH,
+					                     'processed_physiological_data', 'bmi');
 
 			if (isset($this->age['years'])) {
 				$this->broca_ideal_weight = $this->height - 100;
@@ -112,8 +134,8 @@ class Main {
 		}
 
 		// shoes sizes calculation (ATM adult male only)
-		if (!empty($this->_post['personal_data']['foot_length'])) {
-			$this->foot_length = $this->_setPost(number_format((float)str_replace(',', '.', $this->_post['personal_data']['foot_length']), 2),
+		if (!empty($this->_post['personal_data']['foot_length']) && $this->_post['personal_data']['foot_length'] > 0) {
+			$this->foot_length = $this->_setPost(number_format(str_replace(',', '.', $this->_post['personal_data']['foot_length']), 2),
 					                             'personal_data', 'foot_length');
 			$this->shoes_size['cm'] = $this->_setPost($this->foot_length + 1.5,
 					                                  'processed_physiological_data', 'shoes_size', 'cm'); // foot to shoe modifier https://it.wikipedia.org/wiki/Misura_delle_scarpe#Tabelle_di_conversione
@@ -126,6 +148,8 @@ class Main {
 			$this->shoes_size['eu'] = $this->_setPost(round(($this->foot_length + 1.5) * self::CM_TO_FP, 1),
 					                                  'processed_physiological_data', 'shoes_size', 'eu');
 		}
+		else
+			$this->foot_length = $this->_setPost(BOH, 'personal_data', 'foot_length');
 
 		// providing distances and records calculations
 		if (!empty($this->_post['distances_and_records'])) {
@@ -179,19 +203,19 @@ class Main {
 		}
 
 		// heart rates calculation
-		if (isset($this->age['years'])) {
+		if ($this->age['years'] > 0) {
 			$this->karvonen_cooper_fcmax = 220 - $this->age['years'];
 			$this->tanaka_mohanan_seals_fcmax = 208 - 0.7 * $this->age['years'];
 			$this->ballstate_university_fcmax = 214 - 0.8 * $this->age['years'];
 			$this->real_fcmax = ($this->karvonen_cooper_fcmax
 						      + $this->tanaka_mohanan_seals_fcmax
 						      + $this->ballstate_university_fcmax) / 3;
-			if (!empty($this->_post['personal_data']['fcmax']))
+			if ($this->_post['personal_data']['fcmax'] != BOH)
 				$this->real_fcmax = ($this->real_fcmax + $this->_post['personal_data']['fcmax']) / 2;
 			$this->_setPost(number_format($this->real_fcmax, 1),
 					        'processed_physiological_data', 'fcmax');
 
-			if (!empty($this->_post['personal_data']['fcmin'])) {
+			if ($this->_post['personal_data']['fcmin'] != BOH) {
 				$this->fcmin = $this->_post['personal_data']['fcmin'];
 				$this->backup_fc = $this->real_fcmax - $this->_post['personal_data']['fcmin'];
 				$this->training_fcmin = $this->fcmin + 0.6 * ($this->real_fcmax - $this->fcmin);
@@ -214,17 +238,21 @@ class Main {
 
 	private function _retrieveData() {
 
-		if (!file_exists(DATA_FILE) || empty($_SESSION['post'])) {
-			$data = fopen(DATA_FILE, 'w+b');
-			$this->_dbcl->getFile('/data', $data);
+		if (!file_exists(DATA_FILE . "-" . $_SESSION['id'])) {
+			$data = fopen(DATA_FILE . "-" . $_SESSION['id'], 'w+b');
+			try {
+				$response = $this->_dbcl->getFile('/data-' . $_SESSION['id'], $data);
+				Main::addLog("Profile data was loaded from Dropbox API", 'info');
+			}
+			catch (Exception $e) {
+				Main::addLog($e, 'warning');
+			}
 			fclose($data);
-
-			Main::addLog("Profile data was loaded from Dropbox API", 'info');
 		}
 
-		$data = file_get_contents(DATA_FILE);
-
-		return !empty($_POST)
+		$data = file_get_contents(DATA_FILE . "-" . $_SESSION['id']);
+//var_dump(unserialize(base64_decode($data)));DIE;
+		return !empty($_POST['personal_data'])
 			   ? $_POST
 		       : unserialize(base64_decode($data));
 	}
@@ -250,12 +278,12 @@ class Main {
 		unset($post['width'], $post['exercises_for_the_arms']['exercises']); // excluding from synchronization
 
 		if ($_SESSION['post'] != $post) {
-			file_put_contents(DATA_FILE, base64_encode(serialize($post)));
+			file_put_contents(DATA_FILE . "-" . $_SESSION['id'], base64_encode(serialize($post)));
 
-			$data = fopen(DATA_FILE, 'rb'); // read only binary
+			$data = fopen(DATA_FILE . "-" . $_SESSION['id'], 'rb'); // read only binary
 			if (!empty($post)) { // not saving in dropbox if file was inexplicably truncated
 				try {
-					$response = $this->_dbcl->uploadFile('/data', dbx\WriteMode::update(null), $data);
+					$response = $this->_dbcl->uploadFile('/data-' . $_SESSION['id'], dbx\WriteMode::update(null), $data);
 					Main::addLog("Profile data was saved to Dropbox API", 'info');
 				}
 				catch (Exception $e) {
@@ -266,6 +294,14 @@ class Main {
 		}
 Main::addLog("Saved profile data should be packed (b64 and human-readable formats) and emailed to profile's (???) email..", 'todo');
 		$_SESSION['post'] = $post;
+	}
+
+
+	function isLogged() {
+
+		return (isset($_SESSION['status'])
+			    && !empty($_SESSION['username'])
+		        && !empty($_SESSION['id']));
 	}
 
 

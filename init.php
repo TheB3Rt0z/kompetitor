@@ -3,6 +3,7 @@
 setlocale(LC_TIME, 'ita', 'it_IT.utf8'); // only for dates
 define('DEFAULT_LANGUAGE', "IT");
 define('DATA_FILE', '.data');
+define('USERS_FILE', '.users');
 
 global $intl, $shorts, $links;
 foreach ($yaml_parser->parse(file_get_contents('statics/strings.yml')) as $key => $langs) {
@@ -37,5 +38,3 @@ define('APPLICATION_CREDITS', APPLICATION_COPYRIGHT . "\\n\\n" . ucfirst(trnslt(
 Main::updateReadme("# " . APPLICATION_TITLE);
 
 $main = new Main;
-
-$_SESSION['status'] = 2; // for debug only

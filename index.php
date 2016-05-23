@@ -5,7 +5,7 @@
 		<input type="hidden" name="width" id="width" />
 		<?php
 		include_once 'header.php';
-		if ($main->is_logged)
+		if ($main->isLogged())
 			include_once 'section.php';
 		else
 			include_once 'login.php';
