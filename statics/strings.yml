@@ -21,7 +21,8 @@
     IT:
         string: "soglia aerobica"
         short: "Saer"
-        def: ""
+        def: "La soglia aerobica è stata definita come il punto subito al di sotto il livello del metabolismo energetico dove le concentrazioni di lattato ematico aumentano rispetto ai livelli basali.\nPuò essere anche definita come il livello al di sotto del quale la maggior parte delle fibre muscolari lavorano attraverso il metabolismo aerobico. Questo punto viene generalmente raggiunto quando le concentrazioni di lattato ammontano a circa 2 millimoli per litro."
+        link: "http://www.my-personaltrainer.it/alimentazione/soglia-aerobica.html"
 "age":
     IT: "età"
 "anaerobic activity":
@@ -181,6 +182,8 @@
         def: "Si tratta semplicemente dell'ultimo risultato realistico sulla distanza in esame, meglio se non più vecchio di pochi mesi, soprattutto se impiegato nel calcolo della velocità di riferimento (10km, 1/3M e 15km)!"
 "MRP":
     IT: "UP"
+"overrides FCmax processing, forces the use of this value only":
+    IT: "bypassa il processing della FCmax, e forza l'uso esclusivo di questo valore"
 "personal best":
     IT:
         string: "record personale"
@@ -317,6 +320,12 @@
         string: "lentissimo"
         short: "LL"
         def: "Tratti di corsa da correre alla velocità del 20-25% più lenta rispetto alla velocità di riferimento."
+"VO<sub>2</sub>max":
+    IT:
+        string: "massimo consumo di ossigeno"
+        short: "VO<sub>2</sub>max"
+        def: "Il massimo consumo di ossigeno è un parametro biologico che esprime il volume massimo di ossigeno che un essere umano può consumare nell'unità di tempo per contrazione muscolare."
+        link: "http://www.my-personaltrainer.it/VO2MAX.htm"
 "warming-up":
     IT: "riscaldamento"
 "Wharton's stretching":

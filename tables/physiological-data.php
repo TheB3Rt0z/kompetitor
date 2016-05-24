@@ -2,7 +2,7 @@
 
 <?php $rate_steps = array(.5, .55, .6, .65, .7, .75, .8, .85, .9, .95) ?>
 
-<?php $distances = array('5km', '7,5km', '10km', '1/3M', '15km', 'HM', '25km', '3/4M', 'M', '50km') ?>
+<?php $distances = array('5km', '7,5km', '10km', '1/3M', '15km', 'HM', '25km', '3/4M', 'M', '50km', '100km') ?>
 
 <?php
 
@@ -113,7 +113,7 @@ if (ob_start()) {
 					$speed = $main->getPost('distances_and_records', $distance, 'speed');
 					?>
 					<td>
-						<span style="height:<?php echo round(($speed - 10) * 5) ?>px<?php if ($speed <= $main->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo ';background-color:crimson' ?><?php if ($main->getPost('distances_and_records', $distances[$key], 'speed') == BOH) echo ';background-color:black' ?>">
+						<span style="height:<?php echo round(($speed - 10) * 10) ?>px<?php if ($speed <= $main->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo ';background-color:crimson' ?><?php if ($main->getPost('distances_and_records', $distances[$key], 'speed') == BOH) echo ';background-color:black' ?>">
 							<?php echo $distance ?>
 						</span>
 					</td>

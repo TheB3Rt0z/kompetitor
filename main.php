@@ -212,8 +212,11 @@ class Main {
 			$this->real_fcmax = ($this->karvonen_cooper_fcmax
 						      + $this->tanaka_mohanan_seals_fcmax
 						      + $this->ballstate_university_fcmax) / 3;
-			if ($this->_post['personal_data']['fcmax'] != BOH)
-				$this->real_fcmax = ($this->real_fcmax + $this->_post['personal_data']['fcmax']) / 2;
+			if ($this->_post['personal_data']['fcmax'] != BOH) {
+				$this->real_fcmax = !empty($this->_post['personal_data']['fcmax_override'])
+						            ? $this->_post['personal_data']['fcmax']
+						            : ($this->real_fcmax + $this->_post['personal_data']['fcmax']) / 2;
+			}
 			$this->_setPost(number_format($this->real_fcmax, 1),
 					        'processed_physiological_data', 'fcmax');
 
@@ -407,18 +410,20 @@ Main::addLog("Saved profile data should be packed (b64 and human-readable format
 }
 
 
-function trnslt($string) {
+function trnslt($string, $uses_shorts = true) {
 
 	global $intl, $shorts, $links;
 
 	if (isset($intl[$string]))
 		$string = $intl[$string];
 
-	foreach ($shorts as $short => $def) {
-		if (isset($links[$short]))
-			$string = str_replace($short, '<a href="' . $links[$short] . '" title="' . $def . '" target="_blank">' . $short . '</a>', $string);
-		else
-			$string = str_replace($short, '<span class="short" title="' . $def . '">' . $short . '</span>', $string);
+	if ($uses_shorts) {
+		foreach ($shorts as $short => $def) {
+			if (isset($links[$short]))
+				$string = str_replace($short, '<a href="' . $links[$short] . '" title="' . $def . '" target="_blank">' . $short . '</a>', $string);
+			else
+				$string = str_replace($short, '<span class="short" title="' . $def . '">' . $short . '</span>', $string);
+		}
 	}
 
 	return $string;

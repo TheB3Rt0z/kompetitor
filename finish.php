@@ -1,5 +1,5 @@
 <?php
-if (($main->isLogged() && $_SESSION['status'] === 0) && Main::hasLogs()) {
+if (($main->isLogged() && $_SESSION['status'] == 0) && Main::hasLogs()) {
 	?>
 	<div class="content log">
 		<div class="body">

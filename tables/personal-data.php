@@ -25,6 +25,8 @@ if (ob_start()) {
 				<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 				<td class="a-left"><?php echo trnslt('FCmax/min values') ?>:</td>
 				<td class="a-right">
+					<input type="checkbox" name="personal_data[fcmax_override]" title="<?php echo trnslt('overrides FCmax processing, forces the use of this value only', false) ?>" <?php if ($main->getPost('personal_data', 'fcmax_override') != BOH) echo 'checked' ?> />
+					&#8688;
 					<input type="text" name="personal_data[fcmax]" value="<?php echo $main->getPost('personal_data', 'fcmax') ?>" class="mini" />
 					/
 					<input type="text" name="personal_data[fcmin]" value="<?php echo $main->getPost('personal_data', 'fcmin') ?>" class="mini" />
