@@ -47,11 +47,11 @@ if (ob_start()) {
 					?>
 					<tr>
 						<td class="a-left"><?php echo trnslt($key) ?>:<input type="hidden" name="distances_and_records[<?php echo $key ?>][distance]" value="<?php echo $distance ?>" /></td>
-						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][pb]" value="<?php echo $main->getPost('distances_and_records', $key, 'pb') ?>" /></td>
+						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][pb]" value="<?php echo $main->getPost('distances_and_records', $key, 'pb') ?>" title="<?php echo trnslt('format: (h)h.mm.ss') ?>" /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][step]" value="<?php echo $main->getPost('distances_and_records', $key, 'step') ?>" readonly disabled /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][speed]" value="<?php echo $main->getPost('distances_and_records', $key, 'speed') ?>" readonly disabled /></td>
 						<?php if ($main->is_mobile) echo '</tr><tr><td>' . trnslt('MRP') . '-' . trnslt($key) . ':</td>' ?>
-						<td class="a-right <?php if (in_array($key, array('10km', '1/3M', '15km'))) echo 'rs' ?>"><input type="text" name="distances_and_records[<?php echo $key ?>][last_pb]" value="<?php echo $main->getPost('distances_and_records', $key, 'last_pb') ?>" /></td>
+						<td class="a-right <?php if (in_array($key, array('10km', '1/3M', '15km'))) echo 'rs' ?>"><input type="text" name="distances_and_records[<?php echo $key ?>][last_pb]" value="<?php echo $main->getPost('distances_and_records', $key, 'last_pb') ?>" title="<?php echo trnslt('format: (h)h.mm.ss') ?>" /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][last_step]" value="<?php echo $main->getPost('distances_and_records', $key, 'last_step') ?>" readonly disabled /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][last_speed]" value="<?php echo $main->getPost('distances_and_records', $key, 'last_speed') ?>" readonly disabled /></td>
 					</tr>

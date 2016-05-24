@@ -7,6 +7,7 @@
   --text-lighter: #ccc;
   --text-lighterer: #eee;
   --text-links: #966;
+  --text-linkser: #c99;
 } /* http://www.w3schools.com/colors/colors_names.asp */
 
 html {
@@ -211,8 +212,9 @@ footer td.debug:hover {
     margin-right: 1%;
     width: 2.75%;
 }
-.content td.rs {
-    background-color: crimson;
+.content td.rs input {
+    background-color: var(--text-linkser) !important;
+    color: var(--text-lighterer);
 }
 .content.icon.personal-data .icon {
 	background-position: -6px 0;
@@ -299,8 +301,12 @@ footer td.debug:hover {
     cursor: pointer;	
 }
 .content .body table td input[title] {
-    box-shadow: 0 0 3px crimson;
+    /*border-top-right-radius: 3px !important;
+    box-shadow: 1px -1px 2px rgba(0, 0, 0, .25);*/
     cursor: context-menu;
+}
+.content .body table td input[title]:after { /* ATM not working */
+    content: "◥";
 }
 .content .body table td input[type=text] {
 	border: none;

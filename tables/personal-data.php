@@ -14,14 +14,14 @@ if (ob_start()) {
 				<td class="a-right"><input type="text" name="personal_data[last_name]" value="<?php echo $main->getPost('personal_data', 'last_name') ?>" /></td>
 				<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 				<td class="a-left"><?php echo ucfirst(trnslt('date of birth')) ?>:</td>
-				<td class="a-right" colspan="<?php echo $main->is_mobile ? 1 : 2 ?>"><input type="text" name="personal_data[date_of_birth]" value="<?php echo $main->getPost('personal_data', 'date_of_birth') ?>" /></td>
+				<td class="a-right" colspan="<?php echo $main->is_mobile ? 1 : 2 ?>"><input type="text" name="personal_data[date_of_birth]" value="<?php echo $main->getPost('personal_data', 'date_of_birth') ?>" title="<?php echo trnslt('format: dd mon yyyy') ?>" /></td>
 			</tr>
 			<tr>
 				<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (in cm):</td>
-				<td class="a-right"><input type="text" name="personal_data[height]" value="<?php echo $main->getPost('personal_data', 'height') ?>" /></td>
+				<td class="a-right"><input type="text" name="personal_data[height]" value="<?php echo $main->getPost('personal_data', 'height') ?>" title="<?php echo trnslt('format: ###.#') ?>" /></td>
 				<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 				<td class="a-left"><?php echo ucfirst(trnslt('foot length FL')) ?> (in cm):</td>
-				<td class="a-right"><input type="text" name="personal_data[foot_length]" value="<?php echo $main->getPost('personal_data', 'foot_length') ?>" /></td>
+				<td class="a-right"><input type="text" name="personal_data[foot_length]" value="<?php echo $main->getPost('personal_data', 'foot_length') ?>" title="<?php echo trnslt('format: ##.##') ?>" /></td>
 				<?php if ($main->is_mobile) echo '</tr><tr>' ?>
 				<td class="a-left"><?php echo trnslt('FCmax/min values') ?>:</td>
 				<td class="a-right">

@@ -117,6 +117,16 @@
     IT: "ven"
 "frontal raises":
     IT: "alzate frontali"
+"format: ##.#":
+    IT: "in formato ##.#"
+"format: ##.##":
+    IT: "in formato ##.##"
+"format: ###.#":
+    IT: "in formato ###.#"
+"format: (h)h.mm.ss":
+    IT: "in formato (h)h.mm.ss"
+"format: dd mon yyyy":
+    IT: "in formato gg mes aaaa"
 "grade":
     IT: "grado"
 "half marathon":
