@@ -15,7 +15,7 @@ html {
 }
 
 body {
-	/*background: /* based on HoneyComb CSS3 Patern by Paul Salentiny http://lea.verou.me/css3patterns/#honeycomb */
+	/*background: /* based on HoneyComb CSS3 Pattern by Paul Salentiny http://lea.verou.me/css3patterns/#honeycomb */
         radial-gradient(circle farthest-side at 0% 50%, var(--bg-color-light) 23.5%, var(--bg-color-middle) 0) 21px 30px,
 		radial-gradient(circle farthest-side at 0% 50%, var(--bg-color-dark) 24%, var(--bg-color-middle) 0) 19px 30px,
 		linear-gradient(var(--bg-color-light) 14%, var(--bg-color-middle) 0, var(--bg-color-middle) 85%, var(--bg-color-light) 0) 0 0,
@@ -306,7 +306,7 @@ footer td.debug:hover {
     cursor: context-menu;
 }
 .content .body table td input[title]:after { /* ATM not working */
-    content: "◥";
+    /*content: "◥";*/
 }
 .content .body table td input[type=text] {
 	border: none;

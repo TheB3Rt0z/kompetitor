@@ -1,6 +1,5 @@
 <?php require_once 'init.php'; include_once 'head.php' ?>
 
-	<body>
 		<form id="main" method="post">
 		<input type="hidden" name="width" id="width" />
 		<?php
