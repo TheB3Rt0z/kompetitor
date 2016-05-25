@@ -158,7 +158,8 @@
     IT:
         string: "soglia del lattato"
         short: "Slat"
-        def: ""
+        def: "Detta anche soglia anaerobica, la soglia del lattato è un indice che determina il livello massimo di sforzo fisico che l'organismo può sostenere senza accumulare acido lattico e ioni idrogeno (H+) nel sangue e nei muscoli, oppure il livello di intensità dell'attività fisica di durata oltre il quale il metabolismo energetico passa dall'affidamento al sistema aerobico verso quello anaerobico (lattacido)."
+        link: "http://www.my-personaltrainer.it/soglia_anaerobica.htm"
 "last name":
     IT: "cognome"
 "lateral flyes":

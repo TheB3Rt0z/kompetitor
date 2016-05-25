@@ -297,7 +297,7 @@ class Main {
 			}
 			fclose($data);
 		}
-Main::addLog("Saved profile data should be packed (b64 and human-readable formats) and emailed to profile's (???) email..", 'todo');
+
 		$_SESSION['post'] = $post;
 	}
 
