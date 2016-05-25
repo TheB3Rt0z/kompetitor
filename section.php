@@ -209,6 +209,35 @@
 							</p>
 						</div>
 					</div>
+
+					<div class="separator"></div>
+
+					<div class="content icon definitions-list">
+						<span class="icon"></span>
+						<div class="header">
+							<?php echo ucfirst(trnslt('definitions list')) ?>
+							<span>&#8679;</span>
+						</div>
+						<br />
+						<br />
+						<div class="body">
+							<br />
+							<fieldset>
+								<table>
+									<?php
+									foreach ($shorts as $short => $def) {
+										?>
+										<tr>
+											<td><strong><?php echo $short ?></strong></td>
+											<td><?php echo $def ?></td>
+										</tr>
+										<?php
+									}
+									?>
+								</table>
+							</fieldset>
+						</div>
+					</div>
 				</div>
 			</article>
 <?php } ?>

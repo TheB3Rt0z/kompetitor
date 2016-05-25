@@ -26,6 +26,7 @@ foreach ($yaml_parser->parse(file_get_contents('statics/strings.yml')) as $key =
 		}
 	}
 }
+ksort($shorts);
 
 define('APPLICATION_NAME', "Kompetitor");
 define('APPLICATION_TITLE', trnslt(APPLICATION_NAME) . " v" . Main::getVersion());

@@ -243,6 +243,9 @@ footer td.debug:hover {
 .content.icon.bibliography .icon {
     background-position: -366px -529px;
 }
+.content.icon.definitions-list .icon {
+    background-position: -44px -401px;
+}
 .content.icon .header {
 	float: left;
 	width: 97.5%;
@@ -355,7 +358,9 @@ footer td.debug:hover {
 .content.log .body legend {
 	color: var(--text-links);
 }
-.content.log .body table td {
+.content.log .body table td,
+.content.definitions-list .body table td {
+	vertical-align: top;
     white-space: normal;
 }
 .content.log .body table td .idea {

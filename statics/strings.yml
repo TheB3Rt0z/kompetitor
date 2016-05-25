@@ -73,6 +73,8 @@
         short: "SGD"
         def: "Stretching secondo il metodo di Françoise Mézières, basato sul concetto di 'catene' muscolari, evolverà nei metodi di Philippe E. Souchard."
         link: "http://www.my-personaltrainer.it/allenamento/allungamento-globale-decompensato.html"
+"definitions list":
+    IT: "lista delle definizioni"
 "distance":
     IT: "distanza"
 "distances & records":
