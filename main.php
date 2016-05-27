@@ -238,6 +238,14 @@ class Main {
 			$this->_setPost(number_format($this->real_fcmax * 0.925, 1),
 					        'processed_physiological_data', 'lactate_threshold');
 		}
+
+		// bertoz calculatore procedures
+		if (($this->_post['bertoz_calculator']['time'] != BOH) && ($this->_post['bertoz_calculator']['distance'] != BOH)) {
+			$time = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($this->_post['bertoz_calculator']['time'])));
+			$speed = round($time->format('U') / $this->_post['bertoz_calculator']['distance']);
+			$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),
+					                                            'bertoz_calculator', 'speed');
+		}
 	}
 
 

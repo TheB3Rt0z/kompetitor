@@ -30,6 +30,8 @@
         string: "attività anaerobica"
         short: "AA"
         def: "Si tratta di quella in cui la ri-sintesi dell'ATP avviene in assenza di ossigeno, e cioè fin quando le scorte di glicogeno muscolare sono sufficienti a consentire la ri-trasformazione dell'acido piruvico in ATP.\nSi può definire come attività atletica ad alto carico di sforzo e ad alta intensità che consuma più ossigeno di quanto ne solleciti l'assunzione.\nPoiché pone l'organismo in debito di ossigeno, la sua durata non può essere molto prolungata, ma sviluppa soprattutto un'eccellente condizione di forza muscolare."
+"average speed calculation":
+    IT: "calcolo della valocità media"
 "backup FC":
     IT: "FC di riserva"
 "bas test":
@@ -119,14 +121,16 @@
     IT: "ven"
 "frontal raises":
     IT: "alzate frontali"
+"format: ?(.?) (in km)":
+    IT: "in formato: ?(.?) (in km)"
 "format: ##.#":
     IT: "in formato ##.#"
 "format: ##.##":
     IT: "in formato ##.##"
 "format: ###.#":
     IT: "in formato ###.#"
-"format: (h)h.mm.ss":
-    IT: "in formato (h)h.mm.ss"
+"format: (h)h:mm:ss":
+    IT: "in formato (h)h:mm:ss"
 "format: dd mon yyyy":
     IT: "in formato gg mes aaaa"
 "grade":
@@ -309,6 +313,8 @@
     IT: "bibliografia tecnica"
 "thu":
     IT: "gio"
+"time":
+    IT: "tempo"
 "toning and stability":
     IT: "tonificazione e stabilità"
 "training FCmin":
