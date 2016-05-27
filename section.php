@@ -233,11 +233,12 @@
 							<fieldset>
 								<table>
 									<?php
-									foreach ($shorts as $short => $def) {
+									foreach ($shorts_refs as $short => $ref) {
 										?>
 										<tr>
+											<td><strong><?php echo $ref ?></strong></td>
 											<td><strong><?php echo $short ?></strong></td>
-											<td><?php echo $def ?></td>
+											<td><?php echo $shorts[$short] ?></td>
 										</tr>
 										<?php
 									}

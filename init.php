@@ -5,12 +5,12 @@ define('DEFAULT_LANGUAGE', "IT");
 define('DATA_FILE', '.data');
 define('USERS_FILE', '.users');
 
-global $intl, $shorts, $links;
+global $intl, $shorts, $shorts_refs, $links;
 foreach ($yaml_parser->parse(file_get_contents('statics/strings.yml')) as $key => $langs) {
 	foreach ($langs as $lang => $values) {
 		if ($lang == DEFAULT_LANGUAGE) {
 			$string = is_string($values) ? $values : $values['string'];
-			$intl[$key] = $string ? $string : "[" . strtoupper($key) . "]";
+			$intl[$key] = $string ? $string : "[" . strtoupper(str_replace(" ", "_", $key)) . "]";
 			if (!empty($values['short']) && isset($values['def'])) {
 				if (empty($values['def'])) {
 					$values['def'] = BOH;
@@ -19,6 +19,7 @@ foreach ($yaml_parser->parse(file_get_contents('statics/strings.yml')) as $key =
 				elseif (strpos($values['def'], BOH) !== false)
 					Main::addLog("incomplete definition for short '" . $values['short'] . "'", 'warning');
 				$shorts[$values['short']] = $values['def'];
+				$shorts_refs[$values['short']] = $intl[$key];
 				if (!empty($values['link'])) {
 					$links[$values['short']] = $values['link'];
 				}
@@ -26,7 +27,7 @@ foreach ($yaml_parser->parse(file_get_contents('statics/strings.yml')) as $key =
 		}
 	}
 }
-ksort($shorts);
+natcasesort($shorts_refs);
 
 define('APPLICATION_NAME', "Kompetitor");
 define('APPLICATION_TITLE', trnslt(APPLICATION_NAME) . " v" . Main::getVersion());
