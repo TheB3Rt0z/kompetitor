@@ -353,7 +353,11 @@ footer td.debug:hover {
 }
 
 .content.log {
-	box-shadow: 0 0 10px crimson inset;
+	/*box-shadow: 0 0 10px crimson inset;*/
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    box-shadow: none;
+    margin: 0;
+    width: 98%;
 }
 .content.log .body legend {
 	color: var(--text-links);

@@ -11,5 +11,8 @@
 						<?php echo strtoupper(trnslt('password')) ?>:
 						<input type="password" name="password" value="<?php echo $main->getPost('password') ?>" />
 					</div>
+					<div>
+						<?php echo submit('login') ?>
+					</div>
 				</fieldset>
 			</div>
