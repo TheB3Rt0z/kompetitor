@@ -162,7 +162,7 @@ class Main {
 					$pb = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($values['pb'])));
 					$step = round($pb->format('U') / $distance);
 					$speed = $distance * 3600 / $pb->format('U');
-					$this->_setPost(date('i:s', $step),
+					$this->_setPost(ltrim(date('i:s', $step), "0"),
 							        'distances_and_records', $key, 'step');
 					$this->_setPost(number_format($speed, 3),
 							        'distances_and_records', $key, 'speed');
@@ -172,7 +172,7 @@ class Main {
 					$last_pb = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($values['last_pb'])));
 					$this->distances_and_records[$key] = $last_step = round($last_pb->format('U') / $distance);
 					$last_speed = $distance * 3600 / $last_pb->format('U');
-					$this->_setPost(date('i:s', $last_step),
+					$this->_setPost(ltrim(date('i:s', $last_step), "0"),
 							        'distances_and_records', $key, 'last_step');
 					$this->_setPost(number_format($last_speed, 3),
 							        'distances_and_records', $key, 'last_speed');
@@ -190,18 +190,40 @@ class Main {
 			$this->_setPost(date('i:s', round($rs)),
 					        'processed_physiological_data', 'rs');
 
-			$this->speed_expectations['10mi'] = $this->_setPost(date('i:s', round($rs + 1)),
+			$this->speed_expectations['10mi'] = $this->_setPost(ltrim(date('i:s', round($rs + 1)), "0"),
 					                                            'processed_physiological_data', 'speed_expectations', '10mi'); // 8-D
-			$this->speed_expectations['hm'] = $this->_setPost(date('i:s', round($rs + 2.5)),
+			$this->speed_expectations['HM'] = $this->_setPost(ltrim(date('i:s', round($rs + 2.5)), "0"),
 					                                          'processed_physiological_data', 'speed_expectations', 'hm'); // from Fulvio Massini
-			$this->speed_expectations['m'] = $this->_setPost(date('i:s', round($rs * 1.075)),
+			$this->speed_expectations['M'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.075)), "0"),
 					                                         'processed_physiological_data', 'speed_expectations', 'm'); // from corroergosum.it
-			$this->speed_expectations['cm'] = $this->_setPost(date('i:s', round($rs * 1.125)),
+			$this->speed_expectations['CM'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.125)), "0"),
 					                                          'processed_physiological_data', 'speed_expectations', 'cm'); // from corroergosum.it
-			$this->speed_expectations['cl'] = $this->_setPost(date('i:s', round($rs * 1.175)),
+			$this->speed_expectations['CL'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.175)), "0"),
 					                                          'processed_physiological_data', 'speed_expectations', 'cl'); // from corroergosum.it
-			$this->speed_expectations['ll'] = $this->_setPost(date('i:s', round($rs * 1.225)),
+			$this->speed_expectations['LL'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.225)), "0"),
 					                                          'processed_physiological_data', 'speed_expectations', 'll'); // from corroergosum.it
+		}
+
+		// fingerprint generation
+		if (!empty($this->_post['distances_and_records'])) {
+			foreach ($this->_post['distances_and_records'] as $key => $values) {
+				$last_step = strtotime("00:" . $this->getPost('distances_and_records', $key, 'last_step'));
+				$step = strtotime("00:" . $this->getPost('distances_and_records', $key, 'step'));
+				$middler = isset($this->speed_expectations[$key])
+				           ? $this->speed_expectations[$key]
+				           : ltrim(date('i:s', $step + ($last_step - $step) / 2), "0");
+				$fingerprint = $this->getPost('distances_and_records', $key, 'last_step')
+				             . "|" . $middler . "|"
+				             . $this->getPost('distances_and_records', $key, 'step');
+
+				/*$last = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($this->_post['bertoz_calculator']['time'])));
+				$speed = round($time->format('U') / $this->_post['bertoz_calculator']['distance']);
+				$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),
+						'bertoz_calculator', 'speed');*/
+
+				$this->_setPost($fingerprint,
+						        'distances_and_records', $key, 'fingerprint');
+			}
 		}
 
 		// heart rates calculation

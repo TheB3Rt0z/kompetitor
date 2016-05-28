@@ -27,6 +27,7 @@ if (ob_start()) {
 			<thead>
 				<tr>
 					<th class="a-left"><?php echo ucfirst(trnslt("distance")) ?></th>
+					<th><?php echo ucwords(trnslt("fingerprint")) ?></th>
 					<th><?php echo ucwords(trnslt("personal best")) ?></th>
 					<th><?php echo ucfirst(trnslt("step")) ?> (min/km)</th>
 					<th><?php echo ucfirst(trnslt("speed")) ?> (km/h)</th>
@@ -47,6 +48,7 @@ if (ob_start()) {
 					?>
 					<tr>
 						<td class="a-left"><?php echo trnslt($key) ?>:<input type="hidden" name="distances_and_records[<?php echo $key ?>][distance]" value="<?php echo $distance ?>" /></td>
+						<td class="a-right"><?php echo $main->getPost('distances_and_records', $key, 'fingerprint') ?></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][pb]" value="<?php echo $main->getPost('distances_and_records', $key, 'pb') ?>" title="<?php echo trnslt('format: (h)h:mm:ss') ?>" /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][step]" value="<?php echo $main->getPost('distances_and_records', $key, 'step') ?>" readonly disabled /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][speed]" value="<?php echo $main->getPost('distances_and_records', $key, 'speed') ?>" readonly disabled /></td>
