@@ -96,7 +96,7 @@
 	.content .body table th,
 	.content .body table td,
 	.content .body table tfoot td {
-	    font-size: .5em;
+	    font-size: .333em;
 	    white-space: normal;
 	}
 }

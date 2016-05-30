@@ -89,7 +89,7 @@
 
 					<div class="separator"></div>
 
-					<div class="content width-50 icon exercises">
+					<div class="content width-67 icon exercises">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('post-run stretching')) ?>
@@ -99,13 +99,11 @@
 						<br />
 						<div class="body">
 							<br />
-							<p>
-								[...]
-							</p>
+							<?php include 'tables/postrun-stretching.php' ?>
 						</div>
 					</div>
 
-					<div class="content width-50 icon exercises">
+					<div class="content width-33 icon exercises">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('toning and stability')) ?>

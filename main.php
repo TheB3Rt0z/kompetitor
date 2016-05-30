@@ -218,12 +218,6 @@ class Main {
 				$fingerprint = $this->getPost('distances_and_records', $key, 'last_step')
 				             . "|" . $middler . "|"
 				             . $this->getPost('distances_and_records', $key, 'step');
-
-				/*$last = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($this->_post['bertoz_calculator']['time'])));
-				$speed = round($time->format('U') / $this->_post['bertoz_calculator']['distance']);
-				$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),
-						'bertoz_calculator', 'speed');*/
-
 				$this->_setPost($fingerprint,
 						        'distances_and_records', $key, 'fingerprint');
 			}
@@ -264,8 +258,10 @@ class Main {
 					        'processed_physiological_data', 'lactate_threshold');
 		}
 
-		// bertoz calculatore procedures
-		if (($this->_post['bertoz_calculator']['time'] != BOH) && ($this->_post['bertoz_calculator']['distance'] != BOH)) {
+		// bertoz calculator procedures
+		if (($_SESSION['status'] <= 1)
+				&& ($this->_post['bertoz_calculator']['time'] != BOH)
+				&& ($this->_post['bertoz_calculator']['distance'] != BOH)) {
 			$time = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($this->_post['bertoz_calculator']['time'])));
 			$speed = round($time->format('U') / $this->_post['bertoz_calculator']['distance']);
 			$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),

@@ -113,7 +113,7 @@ if (ob_start()) {
 					$speed = $main->getPost('distances_and_records', $distance, 'speed');
 					?>
 					<td>
-						<span style="height:<?php echo round(($speed - 10) * 10) ?>px<?php if ($speed <= $main->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo ';background-color:crimson' ?><?php if ($main->getPost('distances_and_records', $distances[$key], 'speed') == BOH) echo ';background-color:black' ?>">
+						<span style="height:<?php echo round(($speed - 10.1) * 10) ?>px<?php if ($speed <= $main->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo ';background-color:crimson' ?><?php if ($main->getPost('distances_and_records', $distances[$key], 'speed') == BOH) echo ';background-color:black' ?>">
 							<?php echo $distance ?>
 						</span>
 					</td>
@@ -136,8 +136,10 @@ if (ob_start()) {
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][uk]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'uk') ?>" readonly disabled /></td>
 				<td class="a-left"><?php echo strtoupper(trnslt('eu')) ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][eu]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'eu') ?>" readonly disabled /></td>
-				<td class="a-left">ISO/Techfit:</td>
-				<td class="a-right"><?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'usa') + 0.5 ?>/<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'uk') + 0.5 ?>/<?php echo round($main->getPost('processed_physiological_data', 'shoes_size', 'eu') * 2) / 2 + 0.5 ?></td>
+				<td class="a-right">
+					ISO/Techfit:
+					<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'usa') + 0.5 ?>/<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'uk') + 0.5 ?>/<?php echo round($main->getPost('processed_physiological_data', 'shoes_size', 'eu') * 2) / 2 + 0.5 ?>
+				</td>
 			</tr>
 		</table>
 	</fieldset>
