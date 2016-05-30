@@ -136,6 +136,8 @@ if (ob_start()) {
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][uk]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'uk') ?>" readonly disabled /></td>
 				<td class="a-left"><?php echo strtoupper(trnslt('eu')) ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][eu]" value="<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'eu') ?>" readonly disabled /></td>
+				<td class="a-left">ISO/Techfit:</td>
+				<td class="a-right"><?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'usa') + 0.5 ?>/<?php echo $main->getPost('processed_physiological_data', 'shoes_size', 'uk') + 0.5 ?>/<?php echo round($main->getPost('processed_physiological_data', 'shoes_size', 'eu') * 2) / 2 + 0.5 ?></td>
 			</tr>
 		</table>
 	</fieldset>

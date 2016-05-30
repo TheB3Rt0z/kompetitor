@@ -211,7 +211,10 @@ class Main {
 				$step = strtotime("00:" . $this->getPost('distances_and_records', $key, 'step'));
 				$middler = isset($this->speed_expectations[$key])
 				           ? $this->speed_expectations[$key]
-				           : ltrim(date('i:s', $step + ($last_step - $step) / 2), "0");
+				           : ((($this->getPost('distances_and_records', $key, 'last_step') == BOH)
+				                 || ($this->getPost('distances_and_records', $key, 'step') == BOH))
+				             ? BOH
+				             : ltrim(date('i:s', $step + ($last_step - $step) / 2), "0"));
 				$fingerprint = $this->getPost('distances_and_records', $key, 'last_step')
 				             . "|" . $middler . "|"
 				             . $this->getPost('distances_and_records', $key, 'step');
