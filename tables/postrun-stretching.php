@@ -7,7 +7,7 @@
 $exercises = array(
 	"three calves (variable starting, springy final)" => $grade * 5 . " " . trnslt('synchronous') . " x",
 	"vertical pulls to 3/4 of height (hands on knees)" => $grade * 3 . " " . trnslt('synchronous') . " x",
-		"tirate all'albero (con movimentazione del piede anteriore)" => $grade * 3 . " + " . $grade * 3 . " x",
+	"tree pulls (with forefoot movimentation)" => $grade * 3 . " + " . $grade * 3 . " x",
 		"tirate verticali (in progressione, finale movimentato)" => $grade * 5 . " " . trnslt('synchronous') . " x",
 		"ginocchia al petto (gamba DX, con rotazione del piede)" => $grade * 3 . " + " . $grade * 3 . " x",
 		"ginocchia al petto (gamba SX, con rotazione del piede)" => $grade * 3 . " + " . $grade * 3 . " x",

@@ -324,10 +324,12 @@
         string: "FCmin di allenamento"
         short: "FCall"
         def: "Corrisponde all'entrata nella zona FC 3, cioè quella nella quale si ha uno sforzo evidente e quindi allenante, idealmente in fase aerobica con prevalente consumo di carboidrati, in cui la produzione del lattato viene agilmente smaltita: migliora perciò la cosiddetta capacità aerobica e di conseguenza il sistema vascolare."
-"three calves (variable starting, springy final)":
-    IT: "polpacci all'albero (inizio variabile, finale molleggiato)"
 "threshold activity":
     IT: "attività alla soglia"
+"tree calves (variable starting, springy final)":
+    IT: "polpacci all'albero (inizio variabile, finale molleggiato)"
+"tree pulls (with forefoot movimentation)":
+    IT: "tirate all'albero (con movimentazione del piede anteriore)"
 "tue":
     IT: "mar"
 "update":
