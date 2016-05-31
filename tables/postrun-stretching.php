@@ -6,7 +6,11 @@
 
 $exercises = array(
 	"polpacci all'albero (inizio variabile, finale molleggiato)" => $grade * 5 . " " . trnslt('sincroni') . " x",
+	"tirate verticali a 3/4 di altezza (mani sulle ginocchia)" => $grade * 3 . " " . trnslt('sincroni') . " x",
 	"tirate all'albero (con movimentazione del piede anteriore)" => $grade * 3 . " + " . $grade * 3 . " x",
+	"tirate verticali (in progressione, finale movimentato)" => $grade * 5 . " " . trnslt('sincroni') . " x",
+	"ginocchia al petto (gamba DX, con rotazione del piede)" => $grade * 3 . " + " . $grade * 3 . " x",
+	"ginocchia al petto (gamba SX, con rotazione del piede)" => $grade * 3 . " + " . $grade * 3 . " x",
 	"tirate posteriori e laterali (gamba DX, con torsioni fisse)" => $grade * 3 . " + " . $grade * 3 . " x",
 	"tirate posteriori e laterali (gamba SX, con torsioni fisse)" => $grade * 3 . " + " . $grade * 3 . " x",
 	"tirate alla sbarra (inizio variabile, finale molleggiato)" => $grade * 3 . " + " . $grade * 3 . " x",
@@ -21,6 +25,7 @@ $exercises = array(
 if (ob_start()) {
 	?>
 	<fieldset>
+<legend>CATASTROPHE! Da riordinare e tradurre..</legend>
 		<table>
 			<tr>
 				<?php
