@@ -1,31 +1,30 @@
-<?php $grade = $main->getPost('postrun_stretching', 'grade') // default value 11 ?>
-
 <?php include_once 'head.php' ?>
+
+<?php $grade = $main->getPost('postrun_stretching', 'grade') // default value 11 ?>
 
 <?php
 
 $exercises = array(
-	"polpacci all'albero (inizio variabile, finale molleggiato)" => $grade * 5 . " " . trnslt('sincroni') . " x",
-	"tirate verticali a 3/4 di altezza (mani sulle ginocchia)" => $grade * 3 . " " . trnslt('sincroni') . " x",
-	"tirate all'albero (con movimentazione del piede anteriore)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"tirate verticali (in progressione, finale movimentato)" => $grade * 5 . " " . trnslt('sincroni') . " x",
-	"ginocchia al petto (gamba DX, con rotazione del piede)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"ginocchia al petto (gamba SX, con rotazione del piede)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"tirate posteriori e laterali (gamba DX, con torsioni fisse)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"tirate posteriori e laterali (gamba SX, con torsioni fisse)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"tirate alla sbarra (inizio variabile, finale molleggiato)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"tirate superiori alla panchina alta (con corpo rigido)" => $grade * 5 . " " . trnslt('sincroni') . " x",
-	"tirate inferiori alla panchina bassa (con corpo rigido)" => $grade * 4 . " " . trnslt('sincroni') . " x",
-	"tirate verticali (inizio variabile, finale molleggiante)" => $grade * 3 . " " . trnslt('sincroni') . " x",
-	"anti-piriforme (gamba DX, posizione fissa su panchina)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"anti-piriforme (gamba SX, posizione fissa su panchina)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"tirate in accovacciamento (variabile, con dondolamento)" => $grade * 3 . " " . trnslt('sincroni') . " x",
+	"three calves (variable starting, springy final)" => $grade * 5 . " " . trnslt('synchronous') . " x",
+	"vertical pulls to 3/4 of height (hands on knees)" => $grade * 3 . " " . trnslt('synchronous') . " x",
+		"tirate all'albero (con movimentazione del piede anteriore)" => $grade * 3 . " + " . $grade * 3 . " x",
+		"tirate verticali (in progressione, finale movimentato)" => $grade * 5 . " " . trnslt('synchronous') . " x",
+		"ginocchia al petto (gamba DX, con rotazione del piede)" => $grade * 3 . " + " . $grade * 3 . " x",
+		"ginocchia al petto (gamba SX, con rotazione del piede)" => $grade * 3 . " + " . $grade * 3 . " x",
+		"tirate posteriori e laterali (gamba DX, con torsioni fisse)" => $grade * 3 . " + " . $grade * 3 . " x",
+		"tirate posteriori e laterali (gamba SX, con torsioni fisse)" => $grade * 3 . " + " . $grade * 3 . " x",
+		"tirate alla sbarra (inizio variabile, finale molleggiato)" => $grade * 3 . " + " . $grade * 3 . " x",
+		"tirate superiori alla panchina alta (con corpo rigido)" => $grade * 5 . " " . trnslt('synchronous') . " x",
+		"tirate inferiori alla panchina bassa (con corpo rigido)" => $grade * 4 . " " . trnslt('synchronous') . " x",
+		"tirate verticali (inizio variabile, finale molleggiante)" => $grade * 3 . " " . trnslt('synchronous') . " x",
+		"anti-piriforme (gamba DX, posizione fissa su panchina)" => $grade * 3 . " + " . $grade * 3 . " x",
+		"anti-piriforme (gamba SX, posizione fissa su panchina)" => $grade * 3 . " + " . $grade * 3 . " x",
+		"tirate in accovacciamento (variabile, con dondolamento)" => $grade * 3 . " " . trnslt('synchronous') . " x",
 );
 
 if (ob_start()) {
 	?>
 	<fieldset>
-<legend>CATASTROPHE! Da riordinare e tradurre..</legend>
 		<table>
 			<tr>
 				<?php

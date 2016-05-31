@@ -1,6 +1,6 @@
-<?php $grade = $main->getPost('exercises_for_the_arms', 'grade') // default value 25 ?>
-
 <?php include_once 'head.php' ?>
+
+<?php $grade = $main->getPost('exercises_for_the_arms', 'grade') // default value 25 ?>
 
 <?php
 
