@@ -30,6 +30,10 @@
         string: "attività anaerobica"
         short: "AA"
         def: "Si tratta di quella in cui la ri-sintesi dell'ATP avviene in assenza di ossigeno, e cioè fin quando le scorte di glicogeno muscolare sono sufficienti a consentire la ri-trasformazione dell'acido piruvico in ATP.\nSi può definire come attività atletica ad alto carico di sforzo e ad alta intensità che consuma più ossigeno di quanto ne solleciti l'assunzione.\nPoiché pone l'organismo in debito di ossigeno, la sua durata non può essere molto prolungata, ma sviluppa soprattutto un'eccellente condizione di forza muscolare."
+"anti-piriformis (left leg, fixed position on the bench)":
+    IT: "anti-piriforme (gamba SX, posizione fissa su panchina)"
+"anti-piriformis (right leg, fixed position on the bench)":
+    IT: "anti-piriforme (gamba DX, posizione fissa su panchina)"
 "average speed calculation":
     IT: "calcolo della valocità media"
 "backup FC":
@@ -181,6 +185,8 @@
         string: "falcata"
         short: "FLC"
         def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dello stesso."
+"lower pulls on middle bench (with rigid body)":
+    IT: "tirate inferiori alla panchina media (con corpo rigido)"
 "maximum heart rate":
     IT:
         string: "frequenza cardiaca massima"
@@ -300,6 +306,8 @@
     IT: "velocità"
 "speed expectations":
     IT: "velocità attese"
+"squatting pulls (variable, with swinging)":
+    IT: "tirate in accovacciamento (variabile, con dondolamento)"
 "static stretching":
     IT:
         string: "stretching statico"
@@ -346,12 +354,16 @@
     IT: "aggiorna"
 "update data":
     IT: "aggiorna i dati"
+"upper pulls on high bench (with rigid body)":
+    IT: "tirate superiori alla panchina alta (con corpo rigido)"
 "using the RsF to calculate expected time on a given distance":
     IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
 "vertical pulls":
     IT: "tirate verticali"
 "vertical pulls (in progression, enlivened final)":
     IT: "tirate verticali (in progressione, finale movimentato)"
+"vertical pulls (variable starting, springy final)":
+    IT: "tirate verticali (inizio variabile, finale molleggiante)"
 "vertical pulls to 3/4 of height (hands on knees)":
     IT: "tirate verticali a 3/4 di altezza (mani sulle ginocchia)"
 "very slow":

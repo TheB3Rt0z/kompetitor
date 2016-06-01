@@ -14,12 +14,12 @@ $exercises = array(
 	"rear and lateral pulls (right leg, with fixed twists)" => $grade * 3 . " + " . $grade * 3 . " x",
 	"rear and lateral pulls (left leg, with fixed twists)" => $grade * 3 . " + " . $grade * 3 . " x",
 	"bar pulls (variable starting, springy final)" => $grade * 3 . " + " . $grade * 3 . " x",
-		"tirate superiori alla panchina alta (con corpo rigido)" => $grade * 5 . " " . trnslt('synchronous') . " x",
-		"tirate inferiori alla panchina bassa (con corpo rigido)" => $grade * 4 . " " . trnslt('synchronous') . " x",
-		"tirate verticali (inizio variabile, finale molleggiante)" => $grade * 3 . " " . trnslt('synchronous') . " x",
-		"anti-piriforme (gamba DX, posizione fissa su panchina)" => $grade * 3 . " + " . $grade * 3 . " x",
-		"anti-piriforme (gamba SX, posizione fissa su panchina)" => $grade * 3 . " + " . $grade * 3 . " x",
-		"tirate in accovacciamento (variabile, con dondolamento)" => $grade * 3 . " " . trnslt('synchronous') . " x",
+    "upper pulls on high bench (with rigid body)" => $grade * 5 . " " . trnslt('synchronous') . " x",
+	"lower pulls on middle bench (with rigid body)" => $grade * 4 . " " . trnslt('synchronous') . " x",
+	"vertical pulls (variable starting, springy final)" => $grade * 3 . " " . trnslt('synchronous') . " x",
+	"anti-piriformis (right leg, fixed position on the bench)" => $grade * 3 . " + " . $grade * 3 . " x",
+	"anti-piriformis (left leg, fixed position on the bench)" => $grade * 3 . " + " . $grade * 3 . " x",
+	"squatting pulls (variable, with swinging)" => $grade * 3 . " " . trnslt('synchronous') . " x",
 );
 
 if (ob_start()) {

@@ -433,7 +433,8 @@ class Main {
 
 	static function updateReadme($data) {
 
-		if ($_SERVER['HTTP_HOST'] == 'localhost')
+		if (in_array($_SERVER['REMOTE_ADDR'],  array('127.0.0.1', '::1'))
+				&& in_array($_SERVER['SERVER_ADDR'], array('127.0.0.1', '::1')))
 			file_put_contents('README.md', $data);
 	}
 }
