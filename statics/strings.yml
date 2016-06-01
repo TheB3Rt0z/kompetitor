@@ -34,6 +34,8 @@
     IT: "calcolo della valocità media"
 "backup FC":
     IT: "FC di riserva"
+"bar pulls (variable starting, springy final)":
+    IT: "tirate alla sbarra (inizio variabile, finale molleggiato)"
 "bas test":
     IT:
         string: "test BAS"
@@ -158,6 +160,10 @@
     IT: "peso ideale"
 "information":
     IT: "informazioni"
+"knee to chest (left leg, with rotation of the foot)":
+    IT: "ginocchia al petto (gamba SX, con rotazione del piede)"
+"knee to chest (right leg, with rotation of the foot)":
+    IT: "ginocchia al petto (gamba DX, con rotazione del piede)"
 "lactate threshold":
     IT:
         string: "soglia del lattato"
@@ -236,6 +242,10 @@
     IT: "frequenze attese"
 "real hammers":
     IT: "real hammer"
+"rear and lateral pulls (left leg, with fixed twists)":
+    IT: "tirate posteriori e laterali (gamba SX, con torsioni fisse)"
+"rear and lateral pulls (right leg, with fixed twists)":
+    IT: "tirate posteriori e laterali (gamba DX, con torsioni fisse)"
 "rear handles":
     IT: "manubri posteriori"
 "reference speed":
@@ -340,6 +350,8 @@
     IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
 "vertical pulls":
     IT: "tirate verticali"
+"vertical pulls (in progression, enlivened final)":
+    IT: "tirate verticali (in progressione, finale movimentato)"
 "vertical pulls to 3/4 of height (hands on knees)":
     IT: "tirate verticali a 3/4 di altezza (mani sulle ginocchia)"
 "very slow":
