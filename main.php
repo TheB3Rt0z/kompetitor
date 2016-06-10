@@ -266,8 +266,8 @@ class Main {
 
 		// bertoz calculator procedures
 		if (($_SESSION['status'] <= 1)
-				&& ($this->_post['bertoz_calculator']['time'] != BOH)
-				&& ($this->_post['bertoz_calculator']['distance'] != BOH)) {
+				&& (!empty($this->_post['bertoz_calculator']['time']) && $this->_post['bertoz_calculator']['time'] != BOH)
+				&& (!empty($this->_post['bertoz_calculator']['distance']) && $this->_post['bertoz_calculator']['distance'] != BOH)) {
 			$time = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($this->_post['bertoz_calculator']['time'])));
 			$speed = round($time->format('U') / $this->_post['bertoz_calculator']['distance']);
 			$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),
