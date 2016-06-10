@@ -5,7 +5,7 @@
 <?php
 
 $exercises = array(
-	"three calves (variable starting, springy final)" => $grade * 5 . " " . trnslt('synchronous') . " x",
+	"tree calves (variable starting, springy final)" => $grade * 5 . " " . trnslt('synchronous') . " x",
 	"vertical pulls to 3/4 of height (hands on knees)" => $grade * 3 . " " . trnslt('synchronous') . " x",
 	"tree pulls (with forefoot movimentation)" => $grade * 3 . " + " . $grade * 3 . " x",
 	"vertical pulls (in progression, enlivened final)" => $grade * 5 . " " . trnslt('synchronous') . " x",
