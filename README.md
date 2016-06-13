@@ -1,1 +1,1 @@
-# Kompetitor v-2.70 (Build6396)
+# Kompetitor v-2.14 (Build6452)

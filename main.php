@@ -190,11 +190,11 @@ class Main {
 			$this->_setPost(date('i:s', round($rs)),
 					        'processed_physiological_data', 'rs');
 
-			$this->speed_expectations['5km'] = $this->_setPost(ltrim(date('i:s', round($rs - 9)), "0"),
+			$this->speed_expectations['5km'] = $this->_setPost(ltrim(date('i:s', round($rs - 11)), "0"),
 					                                           'processed_physiological_data', 'speed_expectations', '5km'); // based on personals
-			$this->speed_expectations['7,5km'] = $this->_setPost(ltrim(date('i:s', round($rs - 5)), "0"),
+			$this->speed_expectations['7,5km'] = $this->_setPost(ltrim(date('i:s', round($rs - 6)), "0"),
 					                                             'processed_physiological_data', 'speed_expectations', '7,5km'); // based on personals
-			$this->speed_expectations['10km'] = $this->_setPost(ltrim(date('i:s', round($rs - 1)), "0"),
+			$this->speed_expectations['10km'] = $this->_setPost(ltrim(date('i:s', round($rs - 2)), "0"),
 					                                           'processed_physiological_data', 'speed_expectations', '10km'); // based on personals
 			$this->speed_expectations['10mi'] = $this->_setPost(ltrim(date('i:s', round($rs + 1)), "0"),
 					                                            'processed_physiological_data', 'speed_expectations', '10mi'); // 8-D
