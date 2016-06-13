@@ -22,9 +22,10 @@
 </style>
 
 <table cellspacing="0">
+	<tr><td colspan="4"><br /></td></tr>
 	<tr>
 		<td>
-			<br />iPhone4<br />
+			iPhone4<br />
 			<br />
 			<iframe src="./index.php" name="iPhone4" height="480" width="320"></iframe>
 		</td>
@@ -57,4 +58,5 @@
 			<iframe src="./index.php" name="iPad Landscape" height="768" width="1024"></iframe>
 		</td>
 	</tr>
+	<tr><td colspan="4"><br /></td></tr>
 </table>
