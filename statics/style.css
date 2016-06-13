@@ -134,6 +134,9 @@ footer td.debug:hover {
 .content.width-33 {
     width: 29%;
 }
+.content.width-3x33 {
+    width: 29.333%;
+}
 .content.width-40 {
     width: 36%;
 }
@@ -192,7 +195,8 @@ footer td.debug:hover {
 	margin-right: .5%;
     width: 2%;
 }
-.content.width-33.icon .icon {
+.content.width-33.icon .icon,
+.content.width-3x33.icon .icon {
     margin-right: 1%;
     width: 5.5%;
 }
@@ -250,7 +254,8 @@ footer td.debug:hover {
 	float: left;
 	width: 97.5%;
 }
-.content.width-33.icon .header {
+.content.width-33.icon .header,
+.content.width-3x33.icon .header {
     width: 93.5%; 
 }
 .content.width-40.icon .header {
@@ -269,8 +274,11 @@ footer td.debug:hover {
 	float: right;
 	transition: .125s;
 }
-.content .header span.opened {
+.content.closed .header span {
 	transform: rotate(180deg);
+}
+.content.closed .body {
+    display: none;
 }
 .content .body {
 	/*display: none;*/ /* to be commented for debug */

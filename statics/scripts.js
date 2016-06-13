@@ -43,6 +43,6 @@ jQuery(function() {
 	
 	jQuery('.content .header').bind('click', function() {
 		jQuery(this).siblings('.body').toggle(delay);
-		jQuery(this).children('span').toggleClass('opened');
+		jQuery(this).parent().toggleClass('closed');
 	});
 });

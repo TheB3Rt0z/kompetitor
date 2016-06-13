@@ -43,9 +43,9 @@
 	    width: 96% !important;
 	}
 	
-	.content:not(.log,.personal-data) .body {
+	/*.content:not(.log,.personal-data) .body {
 	    display: none;
-	}
+	}*/
 	
 	.content.icon .header {
 	    width: 96.5% !important;

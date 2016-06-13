@@ -55,7 +55,7 @@
 <?php if ($_SESSION['status'] <= 1) { // only advanced users ?>
 					<div class="separator"></div>
 
-					<div class="content width-50 icon exercises">
+					<div class="content width-50 icon exercises closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('stretching exercises')) ?>
@@ -71,7 +71,7 @@
 						</div>
 					</div>
 
-					<div class="content width-50 icon exercises">
+					<div class="content width-50 icon exercises closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('core exercises')) ?>
@@ -89,7 +89,7 @@
 
 					<div class="separator"></div>
 
-					<div class="content width-67 icon exercises">
+					<div class="content width-67 icon exercises closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('post-run stretching')) ?>
@@ -103,7 +103,7 @@
 						</div>
 					</div>
 
-					<div class="content width-33 icon exercises">
+					<div class="content width-33 icon exercises closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('toning and stability')) ?>
@@ -121,7 +121,7 @@
 
 					<div class="separator"></div>
 
-					<div class="content width-67 icon arms-exercises">
+					<div class="content width-67 icon arms-exercises closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('exercises for the arms')) ?>
@@ -135,7 +135,7 @@
 						</div>
 					</div>
 
-					<div class="content width-33 icon bertoz-calculator">
+					<div class="content width-33 icon bertoz-calculator closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('Bertoz calculator')) ?>
@@ -161,7 +161,7 @@
 
 					<div class="separator"></div>
 
-					<div class="content width-33 icon riegel-calculator">
+					<div class="content width-3x33 icon riegel-calculator closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('Riegel\'s calculator')) ?>
@@ -177,7 +177,7 @@
 						</div>
 					</div>
 
-					<div class="content width-33 icon tables-and-appendices">
+					<div class="content width-3x33 icon tables-and-appendices closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucwords(trnslt('tables & appendices')) ?>
@@ -200,7 +200,7 @@
 						</div>
 					</div>
 
-					<div class="content width-33 icon bibliography">
+					<div class="content width-3x33 icon bibliography closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('technical bibliography')) ?>
@@ -218,7 +218,7 @@
 
 					<div class="separator"></div>
 
-					<div class="content icon definitions-list">
+					<div class="content icon definitions-list closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('definitions list')) ?>
