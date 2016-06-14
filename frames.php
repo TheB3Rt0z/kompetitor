@@ -30,30 +30,30 @@
 			<iframe src="./index.php" name="iPhone4" height="480" width="320"></iframe>
 		</td>
 		<td>
-			<br />iPhone5<br />
+			iPhone5<br />
 			<br />
 			<iframe src="./index.php" name="iPhone5" height="568" width="320"></iframe>
 		</td>
 		<td>
-			<br />iPhone6<br />
+			iPhone6<br />
 			<br />
 			<iframe src="./index.php" name="iPhone6" height="667" width="375"></iframe>
 		</td>
 		<td>
-			<br />iPhone6 Plus<br />
+			iPhone6 Plus<br />
 			<br />
 			<iframe src="./index.php" name="iPhone6 Plus" height="736" width="414"></iframe>
 		</td>
 	</tr>
-	<tr><td colspan="4">&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;</td></tr>
+	<tr><td colspan="4">&nbsp;<br />&nbsp;<br />&nbsp;</td></tr>
 	<tr>
 		<td colspan="2">
-			<br />iPad Portrait<br />
+			iPad Portrait<br />
 			<br />
 			<iframe src="./index.php" name="iPad Portrait" height="1024" width="768"></iframe>
 		</td>
 		<td colspan="2">
-			<br />iPad Landscape<br />
+			iPad Landscape<br />
 			<br />
 			<iframe src="./index.php" name="iPad Landscape" height="768" width="1024"></iframe>
 		</td>
