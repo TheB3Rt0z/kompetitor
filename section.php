@@ -171,9 +171,7 @@
 						<br />
 						<div class="body">
 							<br />
-							<p>
-								<?php echo ucfirst(trnslt('using the RsF to calculate expected time on a given distance')) ?>
-							</p>
+							<?php include 'tables/riegel-calculator.php' ?>
 						</div>
 					</div>
 

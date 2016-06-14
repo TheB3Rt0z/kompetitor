@@ -211,6 +211,8 @@
         def: "Si tratta semplicemente dell'ultimo risultato realistico sulla distanza in esame, meglio se non più vecchio di pochi mesi, soprattutto se impiegato nel calcolo della velocità di riferimento (10km, 1/3M e 15km)!"
 "MRP":
     IT: "UP"
+"overrides distance/time processing and forces usage of most recent 10.000 meters":
+    IT: "bypassa il calcolo basato sui precedenti distanza e tempo, e forza l'uso dei più recenti 10.000 metri"
 "overrides FCmax processing, forces the use of this value only":
     IT: "bypassa il processing della FCmax, e forza l'uso esclusivo di questo valore"
 "personal best":
@@ -254,6 +256,8 @@
     IT: "tirate posteriori e laterali (gamba DX, con torsioni fisse)"
 "rear handles":
     IT: "manubri posteriori"
+"recent run":
+    IT: "corsa recente"
 "reference speed":
     IT:
         string: "velocità di riferimento"

@@ -273,6 +273,28 @@ class Main {
 			$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),
 					                                            'bertoz_calculator', 'speed');
 		}
+
+		// riegel calculator procedures
+		if (($_SESSION['status'] <= 1)
+				&& ((!empty($this->_post['riegel_calculator']['distance']) && $this->_post['riegel_calculator']['distance'] != BOH)
+				&& (!empty($this->_post['riegel_calculator']['time']) && $this->_post['riegel_calculator']['time'] != BOH))
+				|| !empty($this->_post['riegel_calculator']['performance_override'])) {
+
+			if (!empty($this->_post['riegel_calculator']['performance_override'])) {
+				$base_distance = 10;
+				$time = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->getPost('distances_and_records', '10km', 'last_pb'))));
+			}
+			else
+				$time = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->_post['riegel_calculator']['time'])));
+
+			foreach ($this->_post['riegel_calculator']['distances'] as $key => $distance) {
+
+				$forecast = round($time->format('U') * pow($distance / (isset($base_distance) ? $base_distance : $this->_post['riegel_calculator']['distance']), 1.06)) - 3600;
+
+				$this->_setPost(ltrim(date('H:i:s', $forecast), "0:"),
+						        'riegel_calculator', 'forecasts', $key);
+			}
+		}
 	}
 
 
@@ -332,7 +354,7 @@ class Main {
 			}
 			fclose($data);
 		}
-
+//var_dump('<pre>', $post, '</pre>');
 		$_SESSION['post'] = $post;
 	}
 
