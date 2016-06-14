@@ -215,7 +215,7 @@
 							</p>
 						</div>
 					</div>
-
+<?php } ?>
 					<div class="separator"></div>
 
 					<div class="content icon definitions-list closed">
@@ -247,6 +247,5 @@
 					</div>
 				</div>
 			</article>
-<?php } ?>
 			<aside></aside>
 		</section>
