@@ -28,9 +28,16 @@ if (($main->isLogged() && $_SESSION['status'] == 0) && Main::hasLogs()) {
 
 	    var form = jQuery('form#main');
 
+	    jQuery(window).scrollTop(form.children('#v-pos').val());
+
 	    form.children('#width').val(jQuery(window).width());
 	    jQuery(window).resize(function() {
 	    	form.children('#width').val(jQuery(window).width());
+	    });
+
+	    form.children('#v-pos').val(jQuery(window).scrollTop());
+	    jQuery(window).scroll(function() {
+	    	form.children('#v-pos').val(jQuery(window).scrollTop());
 	    });
 
 	    <?php

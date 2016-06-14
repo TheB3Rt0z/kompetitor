@@ -114,7 +114,7 @@ if (ob_start()) {
 			</tr>
 		</table>
 		<br />&nbsp;<br />
-		<table class="graph"><tr><td colspan="<?php echo count($distances) ?>">&nbsp;<?php echo ucfirst(trnslt('actual speed\'s profile')) ?>:</td></tr>
+		<table class="graph"><tr><td colspan="<?php echo count($distances) ?>">&nbsp;<?php echo ucfirst(trnslt('actual speed\'s profile')) ?> (record):</td></tr>
 			<tr>
 				<?php
 				foreach ($distances as $key => $distance) {

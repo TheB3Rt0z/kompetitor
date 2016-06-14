@@ -315,7 +315,7 @@ class Main {
 
 		$post = (array)$this->_post + $_POST; // casting necessary to avoid errors on NULL
 
-		unset($post['width'], $post['exercises_for_the_arms']['exercises']); // excluding from synchronization
+		unset($post['width'], $post['v-pos'], $post['exercises_for_the_arms']['exercises']); // excluding from synchronization
 
 		if ($_SESSION['post'] != $post) {
 			file_put_contents(DATA_FILE . "-" . $_SESSION['id'], base64_encode(serialize($post)));
