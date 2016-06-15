@@ -131,6 +131,9 @@ footer td.debug:hover {
 .content.width-25 {
     width: 21%;
 }
+.content.width-30 {
+    width: 26%;
+}
 .content.width-33 {
     width: 29%;
 }
@@ -195,6 +198,7 @@ footer td.debug:hover {
 	margin-right: .5%;
     width: 2%;
 }
+.content.width-30.icon .icon,
 .content.width-33.icon .icon,
 .content.width-3x33.icon .icon {
     margin-right: 1%;
@@ -254,6 +258,7 @@ footer td.debug:hover {
 	float: left;
 	width: 97.5%;
 }
+.content.width-30.icon .header,
 .content.width-33.icon .header,
 .content.width-3x33.icon .header {
     width: 93.5%; 

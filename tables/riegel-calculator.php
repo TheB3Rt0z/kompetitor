@@ -34,6 +34,7 @@ if (ob_start()) {
 			</tr>
 		</table>
 	</fieldset>
+	<br />
 	<fieldset>
 		<table>
 			<tr>

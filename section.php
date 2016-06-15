@@ -161,7 +161,7 @@
 
 					<div class="separator"></div>
 
-					<div class="content width-3x33 icon riegel-calculator closed">
+					<div class="content width-40 icon riegel-calculator closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('Riegel\'s calculator')) ?>
@@ -175,7 +175,7 @@
 						</div>
 					</div>
 
-					<div class="content width-3x33 icon tables-and-appendices closed">
+					<div class="content width-30 icon tables-and-appendices closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucwords(trnslt('tables & appendices')) ?>
@@ -198,7 +198,7 @@
 						</div>
 					</div>
 
-					<div class="content width-3x33 icon bibliography closed">
+					<div class="content width-30 icon bibliography closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('technical bibliography')) ?>
