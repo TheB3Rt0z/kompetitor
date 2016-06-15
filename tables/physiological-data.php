@@ -4,6 +4,8 @@
 
 <?php $distances = array('5km', '7,5km', '10km', '1/3M', '15km', 'HM', '25km', '3/4M', 'M', '50km', '100km', '100mi') ?>
 
+<?php $weight_diff = $main->getPost('processed_physiological_data', 'mediated_weekly_weight') - $main->getPost('processed_physiological_data', 'ideal_weight') ?>
+
 <?php
 
 if (ob_start()) {
@@ -13,7 +15,7 @@ if (ob_start()) {
 			<tr>
 				<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[age]" value="<?php echo $main->getPost('processed_physiological_data', 'age') ?>" readonly disabled /></td>
-				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('mediated weekly weight')) ?> (in kg):</td>
+				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('average weekly weight')) ?> (in kg, ATM <?=($weight_diff>=0?'<font color="#a00">+':'<font color="#0a0">-').$weight_diff.'</font>'?>):</td>
 				<td class="a-right" colspan="2"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
 			</tr>
 			<tr>

@@ -193,8 +193,8 @@
         short: "FCmax"
         def: "É la frequenza espressa in battiti al minuto (BPM) che un cuore sotto sforzo massimale riesce a raggiungere."
         link: "http://www.albanesi.it/arearossa/articoli/01fcmax33.htm"
-"mediated weekly weight":
-    IT: "peso settimanale mediato"
+"average weekly weight":
+    IT: "peso medio settimanale"
 "medium":
     IT:
         string: "medio"
