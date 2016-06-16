@@ -376,7 +376,8 @@ footer td.debug:hover {
 	color: var(--text-links);
 }
 .content.log .body table td,
-.content.definitions-list .body table td {
+.content.definitions-list .body table td,
+.content.tables-and-appendices .body table td {
 	vertical-align: top;
     white-space: normal;
 }
