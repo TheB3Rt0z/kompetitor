@@ -399,7 +399,7 @@ class Main {
 			pclose($dir);
 
 			return number_format($size, 2)
-			     . ' (Build' . (int)$status . ')'; // to be commented on release
+			     . ($size < 0 ? ' (Build' . (int)$status . ')' : ''); // to be commented on release
 		}
 		else
 			return 'LIVE';
