@@ -25,6 +25,8 @@
         link: "http://www.my-personaltrainer.it/alimentazione/soglia-aerobica.html"
 "age":
     IT: "età"
+"agile pushups (2 steps in 2s)":
+    IT: "flessioni agili (2 step in 2s)"
 "anaerobic activity":
     IT:
         string: "attività anaerobica"
@@ -180,6 +182,9 @@
     IT: "volate laterali"
 "lateral slows":
     IT: "lenti laterali"
+"logout":
+    DE: "ausloggen"
+    IT: "logout"
 "lope":
     IT:
         string: "falcata"
@@ -204,6 +209,8 @@
     IT: "attività moderata"
 "mon":
     IT: "lun"
+"morning serie":
+    IT: "serie mattutina"
 "most recent personal":
     IT:
         string: "ultimo personale"
@@ -323,6 +330,8 @@
         string: "passo"
         short: "PSO"
         def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dell'altro."
+"straight abdominals (var. legs)":
+    IT: "addominali classici (gambe)"
 "straight punches":
     IT: "pugni diretti"
 "stretching exercises":

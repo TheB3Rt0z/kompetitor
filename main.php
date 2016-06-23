@@ -45,6 +45,9 @@ class Main {
 		if (!$this->isLogged())
 			$this->_checkLogin();
 
+		if (isset($_GET['q']) && $_GET['q'] == 'logout')
+			unset($_SESSION['status'], $_SESSION['username'], $_SESSION['id']);
+
 		if ($this->isLogged()) {
 			$this->_dbcl = new dbx\Client($this->_dbat, 'PHP-Example/1.0');
 
@@ -497,7 +500,12 @@ function button($type = null, $data = null) {
 		}
 		case 'credits': {
 			$label = strtoupper(trnslt('information'));
-			$href = "javascript:alert('" . $data . "');";
+			$href = "Javascript:alert('" . $data . "');";
+			break;
+		}
+		case 'logout'; {
+			$label = strtoupper(trnslt($type));
+			$href = "./?q=logout";
 			break;
 		}
 		case 'print': {

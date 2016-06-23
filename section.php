@@ -121,6 +121,22 @@
 
 					<div class="separator"></div>
 
+					<div class="content icon exercises closedd">
+						<span class="icon"></span>
+						<div class="header">
+							<?php echo ucfirst(trnslt('morning serie')) ?>
+							<span>&#8679;</span>
+						</div>
+						<br />
+						<br />
+						<div class="body">
+							<br />
+							<?php include 'tables/morning-serie.php' ?>
+						</div>
+					</div>
+
+					<div class="separator"></div>
+
 					<div class="content width-67 icon arms-exercises closed">
 						<span class="icon"></span>
 						<div class="header">
