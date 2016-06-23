@@ -7,6 +7,9 @@
 $exercises = array(
 	"agile pushups (2 steps in 2s)" => $grade . " x",
 	"straight abdominals (var. legs)" => $grade * 3 . " x",
+	"leg rollovers (+ iperextension)" => $grade * 2 . "s + " . $grade . "s",
+	"pull sitting (with straight legs)" => $grade * 2 . "s",
+	"pull sitting (with crossed legs)" => $grade . "s",
 	/*"vertical pulls to 3/4 of height (hands on knees)" => $grade * 3 . " " . trnslt('synchronous') . " x",
 	"tree pulls (with forefoot movimentation)" => $grade * 3 . " + " . $grade * 3 . " x",
 	"vertical pulls (in progression, enlivened final)" => $grade * 5 . " " . trnslt('synchronous') . " x",
@@ -30,14 +33,21 @@ if (ob_start()) {
 			<tr>
 				<?php
 				$count = 0;
+				$cols = 5;
 				foreach ($exercises as $key => $value) {
+					$count++;
+					$dir = (is_int($count / $cols)
+					       ? 'right'
+					       : (is_int(($count - 1) / $cols)
+					       	 ? 'left'
+					       	 : 'center'));
 					?>
-					<td class="a-left">
+					<td class="a-<?php echo $dir ?>">
 						<?php echo $value ?>
 						<?php echo trnslt($key) ?>
 					</td>
 					<?php
-					if ($main->is_mobile || is_int((++$count) / 5))
+					if ($main->is_mobile || is_int($count / $cols))
 						echo '</tr><tr>';
 				}
 				?>
