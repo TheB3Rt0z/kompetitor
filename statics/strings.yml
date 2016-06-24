@@ -1,3 +1,5 @@
+"agile pushups (---P-P steps in 6s)":
+    IT: "flessioni agili (---P-P step in 6s)"
 "90°-openings":
     IT: "aperture a 90°"
 "90°-pulls":
@@ -27,11 +29,15 @@
     IT: "età"
 "agile pushups (2 steps in 2s)":
     IT: "flessioni agili (2 step in 2s)"
+"alternated crunches (crossed legs)":
+    IT: "crunch alternati (a gambe incrociate)"
 "anaerobic activity":
     IT:
         string: "attività anaerobica"
         short: "AA"
         def: "Si tratta di quella in cui la ri-sintesi dell'ATP avviene in assenza di ossigeno, e cioè fin quando le scorte di glicogeno muscolare sono sufficienti a consentire la ri-trasformazione dell'acido piruvico in ATP.\nSi può definire come attività atletica ad alto carico di sforzo e ad alta intensità che consuma più ossigeno di quanto ne solleciti l'assunzione.\nPoiché pone l'organismo in debito di ossigeno, la sua durata non può essere molto prolungata, ma sviluppa soprattutto un'eccellente condizione di forza muscolare."
+"angles handling (overturned)":
+    IT: "movimentazione caviglie (ribaltato)"
 "anti-piriformis (left leg, fixed position on the bench)":
     IT: "anti-piriforme (gamba SX, posizione fissa su panchina)"
 "anti-piriformis (right leg, fixed position on the bench)":
@@ -75,6 +81,8 @@
         short: "CRP"
         def: "Effetto negativo sulla prestazione causato dagli esercizi di allungamento, per esempio troppo prolungato, che porta all'elongazione tendinea.\nCiò riduce la capacità di immagazzinare energia da parte del tendine!"
         link: "http://www.alessandroroppo.it/wordpress/approfondimenti/stretching-effetto-antalgico-e-creeping/"
+"crouching (with balancing)":
+    IT: "accucciamento (con bilanciamento)"
 "date of birth":
     IT: "data di nascita"
 "daily weighing":
@@ -198,6 +206,8 @@
         def: "Distanza che intercorre fra il termine della fase di spinta di un piede e l'inizio della fase di appoggio dello stesso."
 "lower pulls on middle bench (with rigid body)":
     IT: "tirate inferiori alla panchina media (con corpo rigido)"
+"lumbar pulls (overturned)":
+    IT: "tirate lombari (ribaltato)"
 "maximum heart rate":
     IT:
         string: "frequenza cardiaca massima"
@@ -247,10 +257,6 @@
         short: "FPN"
         def: "É una tecnica che viene utilizzata per aumentare la flessibilità e la gamma di movimento.\nDi solito viene integrata in una routine più grande, che ha lo scopo di mantenere i muscoli condizionati o per aiutare il recupero da un infortunio. La PNF viene eseguita con la presenza del fisioterapista che guida il paziente attraverso movimenti che vengono eseguiti secondo gli schemi neuromotori naturali del nostro corpo. Si sfrutta il principio della mobilizzazione neuro-dinamica del sistema nervoso periferico e ciò fa si che con questa metodica migliori sia l’efficienza del nervo periferico che quella del muscolo ottenendo sia un rinforzo ottimale delle fibre muscolari sia una migliore elasticità delle stesse."
         link: "https://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwigrpn07-XMAhUHWhQKHSEeB0wQFggjMAE&url=http%3A%2F%2Fwww.my-personaltrainer.it%2Ftraumatologia-ortopedia%2Ffacilitazione-neuromuscolare-propriocettiva.html&usg=AFQjCNEpMX-spg5Oa89GT3qt3HlU_axfVw&sig2=SudgbZM7qroz8iA5EfHemQ"
-"pull sitting (with crossed legs)":
-    IT: "tirate da seduti (a gambe incrociate)"
-"pull sitting (with straight legs)":
-    IT: "tirate da seduti (a gambe dritte)"
 "race pace":
     IT:
         string: "ritmo gara"
@@ -273,6 +279,8 @@
     IT: "tirate posteriori e laterali (gamba DX, con torsioni fisse)"
 "rear handles":
     IT: "manubri posteriori"
+"rear pushes (with widening at half)":
+    IT: "spinte posteriori (con allargamento)"
 "recent run":
     IT: "corsa recente"
 "reference speed":
@@ -313,6 +321,10 @@
     IT: "taglia di scarpe"
 "single-arm exercises":
     IT: "esercizi a braccio singolo"
+"sitting pulls (with crossed legs)":
+    IT: "tirate da seduti (a gambe incrociate)"
+"sitting pulls (with straight legs)":
+    IT: "tirate da seduti (a gambe dritte)"
 "slightly engaged breathing":
     IT:
         string: "respirazione leggermente impegnata"
@@ -331,6 +343,8 @@
     IT: "velocità attese"
 "squatting pulls (variable, with swinging)":
     IT: "tirate in accovacciamento (variabile, con dondolamento)"
+"static pushups (2/3 up and 1/3 down)":
+    IT: "flessioni statiche (2/3 su e 1/3 giù)"
 "static stretching":
     IT:
         string: "stretching statico"

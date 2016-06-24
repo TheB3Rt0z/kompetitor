@@ -8,26 +8,21 @@ $exercises = array(
 	"agile pushups (2 steps in 2s)" => $grade . " x",
 	"straight abdominals (var. legs)" => $grade * 3 . " x",
 	"leg rollovers (+ iperextension)" => $grade * 2 . "s + " . $grade . "s",
-	"pull sitting (with straight legs)" => $grade * 2 . "s",
-	"pull sitting (with crossed legs)" => $grade . "s",
+	"sitting pulls (with straight legs)" => $grade * 2 . "s",
+
+	"sitting pulls (with crossed legs)" => $grade . "s",
 	"frontal concave bridge (static)" => $grade . "s",
 	"egg buttocks (static backwards)" => $grade . "s",
 	"right-leg anti-piriform (pushing)" => $grade * 2 . "s",
 
-	/*"vertical pulls to 3/4 of height (hands on knees)" => $grade * 3 . " " . trnslt('synchronous') . " x",
-	"tree pulls (with forefoot movimentation)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"vertical pulls (in progression, enlivened final)" => $grade * 5 . " " . trnslt('synchronous') . " x",
-	"knee to chest (right leg, with rotation of the foot)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"knee to chest (left leg, with rotation of the foot)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"rear and lateral pulls (right leg, with fixed twists)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"rear and lateral pulls (left leg, with fixed twists)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"bar pulls (variable starting, springy final)" => $grade * 3 . " + " . $grade * 3 . " x",
-    "upper pulls on high bench (with rigid body)" => $grade * 5 . " " . trnslt('synchronous') . " x",
-	"lower pulls on middle bench (with rigid body)" => $grade * 4 . " " . trnslt('synchronous') . " x",
-	"vertical pulls (variable starting, springy final)" => $grade * 3 . " " . trnslt('synchronous') . " x",
-	"anti-piriformis (right leg, fixed position on the bench)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"anti-piriformis (left leg, fixed position on the bench)" => $grade * 3 . " + " . $grade * 3 . " x",
-	"squatting pulls (variable, with swinging)" => $grade * 3 . " " . trnslt('synchronous') . " x",*/
+	"agile pushups (---P-P steps in 6s)" => $grade . " x",
+	"alternated crunches (crossed legs)" => $grade . " + " . $grade . " x",
+	"angles handling (overturned)" => $grade . "s",
+	"lumbar pulls (overturned)" => $grade * 2 . "s",
+
+	"static pushups (2/3 up and 1/3 down)" => $grade * 2 . "s + " . $grade . "s",
+	"rear pushes (with widening at half)" => $grade . "s + " . $grade . "s",
+	"crouching (with balancing)" => $grade . "s",
 );
 
 if (ob_start()) {
@@ -37,7 +32,7 @@ if (ob_start()) {
 			<tr>
 				<?php
 				$count = 0;
-				$cols = 4;
+				$cols = $main->is_mobile ? 2 : 4;
 				foreach ($exercises as $key => $value) {
 					$count++;
 					$dir = (is_int($count / $cols)
@@ -51,7 +46,7 @@ if (ob_start()) {
 						<?php echo trnslt($key) ?>
 					</td>
 					<?php
-					if ($main->is_mobile || is_int($count / $cols))
+					if (is_int($count / $cols))
 						echo '</tr><tr>';
 				}
 				?>

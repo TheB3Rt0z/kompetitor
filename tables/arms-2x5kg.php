@@ -7,16 +7,22 @@
 $exercises = array(
 	"rapid-fire punches|" . $grade * 2, "biceps|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "vertical pulls|" . round($grade * 1.333),
+
 	"rapid-fire punches|" . $grade * 2, "rear handles|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "90°-openings|" . round($grade * 1.333),
+
 	"rapid-fire punches|" . $grade * 2, "hammer-curls|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "90°-pulls|" . round($grade * 1.333),
+
 	"rapid-fire punches|" . $grade * 2, "straight punches|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "hump-launches|" . round($grade * 2),
+
 	"rapid-fire punches|" . $grade * 2, "clawings|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "lateral slows|" . round($grade * 1.333),
+
 	"rapid-fire punches|" . $grade * 2, "frontal raises|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "double curls|" . round($grade * 1.333),
+
 	"rapid-fire punches|" . $grade * 2, "real hammers|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "lateral flyes|" . round($grade * 1.333),
 );
