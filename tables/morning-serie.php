@@ -10,6 +10,10 @@ $exercises = array(
 	"leg rollovers (+ iperextension)" => $grade * 2 . "s + " . $grade . "s",
 	"pull sitting (with straight legs)" => $grade * 2 . "s",
 	"pull sitting (with crossed legs)" => $grade . "s",
+	"frontal concave bridge (static)" => $grade . "s",
+	"egg buttocks (static backwards)" => $grade . "s",
+	"right-leg anti-piriform (pushing)" => $grade * 2 . "s",
+
 	/*"vertical pulls to 3/4 of height (hands on knees)" => $grade * 3 . " " . trnslt('synchronous') . " x",
 	"tree pulls (with forefoot movimentation)" => $grade * 3 . " + " . $grade * 3 . " x",
 	"vertical pulls (in progression, enlivened final)" => $grade * 5 . " " . trnslt('synchronous') . " x",
@@ -33,7 +37,7 @@ if (ob_start()) {
 			<tr>
 				<?php
 				$count = 0;
-				$cols = 5;
+				$cols = 4;
 				foreach ($exercises as $key => $value) {
 					$count++;
 					$dir = (is_int($count / $cols)

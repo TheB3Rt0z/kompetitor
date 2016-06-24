@@ -61,6 +61,8 @@
         string: "indice di massa corporea"
         short: "IMC"
         def: "Si tratta di un dato biometrico, espresso come rapporto tra peso e quadrato dell'altezza di un individuo, utilizzato come indicatore dello stato di peso forma.\nÉ stato introdotto nel 1832 da Adolphe Quetelet, matematico e statistico belga."
+"egg buttocks (static backwards)":
+    IT: "glutei a uovo (fissi all'indietro)"
 "clawings":
     IT: "artigliate"
 "conconi test":
@@ -127,6 +129,8 @@
         def: "È la massima distanza orizzontale (rigorosamente in cm) dal centro della parte posteriore del tallone all'estremità del dito più sporgente, misurata mentre il soggetto è in posizione eretta con il peso equamente distribuito tra i due piedi.\nN.B.: Le dimensioni del piede sinistro e di quello destro sono spesso leggermente diverse e in questo caso entrambi i piedi sono misurati e le scarpe sono scelte sulla base della misura del piede più grande!"
 "fri":
     IT: "ven"
+"frontal concave bridge (static)":
+    IT: "ponte frontale concavo (fisso)"
 "frontal raises":
     IT: "alzate frontali"
 "format: ?(.?) (in km)":
@@ -290,6 +294,8 @@
         short: "FR"
         def: "Formula di Riegel: elaborata da Pete Riegel nel 1977 per predire il tempo su una certa distanza, noto il tempo su di un'altra, TP2 = TP1 * (D2/D1)^1,06."
         link: "http://da0a42.blogspot.de/2014/03/la-formula-di-riegel-per-calcolare-le.html"
+"right-leg anti-piriform (pushing)":
+    IT: "anti-piriforme gamba destra (spingendo)"
 "RS":
     IT: "VR"
 "run with slightly engaged breathing":

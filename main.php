@@ -272,7 +272,9 @@ class Main {
 				&& (!empty($this->_post['bertoz_calculator']['time']) && $this->_post['bertoz_calculator']['time'] != BOH)
 				&& (!empty($this->_post['bertoz_calculator']['distance']) && $this->_post['bertoz_calculator']['distance'] != BOH)) {
 			$time = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($this->_post['bertoz_calculator']['time'])));
-			$speed = round($time->format('U') / $this->_post['bertoz_calculator']['distance']);
+			$distance = $_POST['bertoz_calculator']['distance'] = $this->_setPost(str_replace(',', '.', $this->_post['bertoz_calculator']['distance']),
+					                                                              'bertoz_calculator', 'distance');
+			$speed = round($time->format('U') / $distance);
 			$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),
 					                                            'bertoz_calculator', 'speed');
 		}
