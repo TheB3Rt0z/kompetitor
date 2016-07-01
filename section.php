@@ -55,6 +55,40 @@
 <?php if ($_SESSION['status'] <= 1) { // only advanced users ?>
 					<div class="separator"></div>
 
+					<div class="content icon running-samples">
+						<span class="icon"></span>
+						<div class="header">
+							<?php echo ucfirst(trnslt('running samples')) ?>
+							<span>&#8679;</span>
+						</div>
+						<br />
+						<br />
+						<div class="body">
+							<br />
+							<p>
+								76,3 al primo luglio, 22.2°, 14kph, 61% umiditá e 162/178
+								
+7,36 km
+Distanza
+
+33:27
+Tempo
+
+4:33
+Passo (min/km)
+
+551
+Calorie
+
+14 m
+G. quota
+								
+							</p>
+						</div>
+					</div>
+					
+					<div class="separator"></div>
+
 					<div class="content width-50 icon exercises closed">
 						<span class="icon"></span>
 						<div class="header">
