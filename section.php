@@ -55,7 +55,7 @@
 <?php if ($_SESSION['status'] <= 1) { // only advanced users ?>
 					<div class="separator"></div>
 
-					<div class="content icon running-samples">
+					<div class="content icon running-samples closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('running samples')) ?>
@@ -155,7 +155,7 @@ G. quota
 
 					<div class="separator"></div>
 
-					<div class="content icon exercises closedd">
+					<div class="content icon exercises closed">
 						<span class="icon"></span>
 						<div class="header">
 							<?php echo ucfirst(trnslt('morning serie')) ?>

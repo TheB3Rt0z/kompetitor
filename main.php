@@ -292,12 +292,20 @@ class Main {
 			else
 				$time = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->_post['riegel_calculator']['time'])));
 
+			$speed = round($time->format('U') / (isset($base_distance) ? $base_distance : $this->_post['riegel_calculator']['distance']));
+			$this->riegel_calculator['speed'] = $this->_setPost(date('i:s', $speed),
+					                                            'riegel_calculator', 'speed');
+			
 			foreach ($this->_post['riegel_calculator']['distances'] as $key => $distance) {
 
 				$forecast = round($time->format('U') * pow($distance / (isset($base_distance) ? $base_distance : $this->_post['riegel_calculator']['distance']), 1.06)) - 3600;
 
 				$this->_setPost(ltrim(date('H:i:s', $forecast), "0:"),
 						        'riegel_calculator', 'forecasts', $key);
+				
+				$speed_time = new DateTime(date('1970-01-01\TH:i:s+0:00', $forecast));
+				$this->_setPost(date('i:s', ($speed_time->format('U') / $distance)),
+						        'riegel_calculator', 'forespeed', $key);
 			}
 		}
 	}
