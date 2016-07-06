@@ -304,7 +304,7 @@ class Main {
 						        'riegel_calculator', 'forecasts', $key);
 				
 				$speed_time = new DateTime(date('1970-01-01\TH:i:s+0:00', $forecast));
-				$this->_setPost(date('i:s', ($speed_time->format('U') / $distance)),
+				$this->_setPost(ltrim(date('i:s', ($speed_time->format('U') / $distance)), "0"),
 						        'riegel_calculator', 'forespeed', $key);
 			}
 		}
