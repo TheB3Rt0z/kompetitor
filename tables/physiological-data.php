@@ -2,7 +2,7 @@
 
 <?php $rate_steps = array(.5, .55, .6, .65, .7, .75, .8, .85, .9, .95) ?>
 
-<?php $distances = array('5km', '7,5km', '10km', '1/3M', '15km', 'HM', '25km', '3/4M', 'M', '50km', '100km', '100mi') ?>
+<?php $distances = array('5km', '7,5km', '10km', '10++', '1/3M', '15km', 'HM', '25km', '3/4M', 'M', '50km', '100km', '100mi') ?>
 
 <?php $weight_diff = $main->getPost('processed_physiological_data', 'mediated_weekly_weight') - $main->getPost('processed_physiological_data', 'ideal_weight') ?>
 
@@ -18,6 +18,16 @@ if (ob_start()) {
 				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('average weight')) ?> (in kg, ATM <?=($weight_diff>=0?'<font color="#a00">+':'<font color="#0a0">').round($weight_diff, 3).'</font>'?>):</td>
 				<td class="a-right" colspan="2"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $main->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
 			</tr>
+			
+			<tr>
+				<td class="a-left"><?php echo trnslt('BM') ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[bm]" value="<?php echo $main->getPost('processed_physiological_data', 'bm') ?>" readonly disabled /></td>
+				<td class="a-left"><?php echo ucfirst(trnslt('caloric needs')) ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[cn]" value="<?php echo $main->getPost('processed_physiological_data', 'cn') ?>" readonly disabled /></td>
+				<td class="a-left"><?php echo trnslt('BMR') ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[bmr]" value="<?php echo $main->getPost('processed_physiological_data', 'bmr') ?>" readonly disabled /></td>
+			</tr>
+			
 			<tr>
 				<td class="a-left"><?php echo trnslt('BMI') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[bmi]" value="<?php echo $main->getPost('processed_physiological_data', 'bmi') ?>" readonly disabled /></td>
@@ -157,6 +167,6 @@ if (ob_start()) {
 	</fieldset>
 	<?php
 	if (!$main->is_mobile)
-		file_put_contents('./tables/physiological-data.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
+		@file_put_contents('./tables/physiological-data.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }

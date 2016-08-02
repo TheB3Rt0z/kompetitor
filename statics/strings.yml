@@ -54,14 +54,24 @@
         short: "BAS"
         def: "Test di Bisciotti/Arcelli/Sagnol: calcolo della velocità di soglia anaerobica, quella a cui andrebbero corse le ripetute! In più, offre indicazioni sul ritmo da tenere sui medi e i lunghi lenti.\nIn pratica si tratta di correre nel miglior tempo possibile i 2000 e i 3000 metri a distanza di 48 ore l'uno dall'altro."
         link: "http://www.runnerstermoli.it/myrun/langolo-tecnico/calcolo-della-velocita-di-soglia-anaerobica-test-di-bas/"
+"basal metabolism":
+    IT:
+        string: "metabolismo basale"
+        short: "MB"
+        def: "??? in Kcal"
+        link: "http://www.my-personaltrainer.it/metabolismo_basale.htm"
 "Bertoz calculator":
     IT: "calcolatore di Bertoz"
 "bibliography":
     IT: "bibliografia"
 "biceps":
     IT: "bicipiti"
+"BM":
+    IT: "MB"
 "BMI":
     IT: "IMC"
+"BMR":
+    IT: ""
 "body mass index":
     IT:
         string: "indice di massa corporea"
@@ -69,6 +79,8 @@
         def: "Si tratta di un dato biometrico, espresso come rapporto tra peso e quadrato dell'altezza di un individuo, utilizzato come indicatore dello stato di peso forma.\nÉ stato introdotto nel 1832 da Adolphe Quetelet, matematico e statistico belga."
 "egg buttocks (static backwards)":
     IT: "glutei a uovo (fissi all'indietro)"
+"caloric needs":
+    IT: "fabbisogno calorico"
 "clawings":
     IT: "artigliate"
 "conconi test":
@@ -372,6 +384,11 @@
     IT: "tabelle & appendici"
 "technical bibliography":
     IT: "bibliografia tecnica"
+"ten kilometer plus":
+    IT:
+        string: "10km abbondanti"
+        short: "10++"
+        def: "Distanza jolly valida per tutte le gare acclarate come 10km che però sforano di almeno mezzo chilometro questa distanza, andando piuttosto ad essere intorno agli 11km.."
 "thu":
     IT: "gio"
 "time":

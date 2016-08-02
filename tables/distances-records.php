@@ -6,6 +6,7 @@ $distances = array(
 	'5km' => 5,
 	'7,5km' => 7.5,
 	'10km' => 10,
+	'10++' => 11,
 	'1/3M' => 14.065,
 	'15km' => 15,
 	//'10mi' => 16093.44,
@@ -54,7 +55,7 @@ if (ob_start()) {
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][step]" value="<?php echo $main->getPost('distances_and_records', $key, 'step') ?>" readonly disabled /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][speed]" value="<?php echo $main->getPost('distances_and_records', $key, 'speed') ?>" readonly disabled /></td>
 						<?php if ($main->is_mobile) echo '</tr><tr><td colspan="2">' . trnslt('MRP') . '-' . trnslt($key) . ':</td>' ?>
-						<td class="a-right <?php if (in_array($key, array('10km', '1/3M', '15km'))) echo 'rs' ?>"><input type="text" name="distances_and_records[<?php echo $key ?>][last_pb]" value="<?php echo $main->getPost('distances_and_records', $key, 'last_pb') ?>" title="<?php echo trnslt('format: (h)h:mm:ss') ?>" /></td>
+						<td class="a-right <?php if (in_array($key, array('10km', '10++', '1/3M', '15km'))) echo 'rs' ?>"><input type="text" name="distances_and_records[<?php echo $key ?>][last_pb]" value="<?php echo $main->getPost('distances_and_records', $key, 'last_pb') ?>" title="<?php echo trnslt('format: (h)h:mm:ss') ?>" /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][last_step]" value="<?php echo $main->getPost('distances_and_records', $key, 'last_step') ?>" readonly disabled /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][last_speed]" value="<?php echo $main->getPost('distances_and_records', $key, 'last_speed') ?>" readonly disabled /></td>
 					</tr>
@@ -66,6 +67,6 @@ if (ob_start()) {
 	</fieldset>
 	<?php
 	if (!$main->is_mobile)
-		file_put_contents('./tables/distances-records.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
+		@file_put_contents('./tables/distances-records.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }

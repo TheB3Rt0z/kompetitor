@@ -117,7 +117,41 @@ class Main {
 							                                    'processed_physiological_data', 'mediated_weekly_weight');
 		    }
 		}
+		
+		// metabolism calculation
+		if (!empty($this->age['years']) && !empty($this->mediated_weekly_weight)) { // only male coefficients
+			if ($this->age['years'] >= 18 && $this->age['years'] <= 29)
+				$bm = 15.3 * $this->mediated_weekly_weight + 679;
+			elseif ($this->age['years'] >= 30 && $this->age['years'] <= 59)
+				$bm = 11.6 * $this->mediated_weekly_weight + 879;
+			elseif ($this->age['years'] >= 60 && $this->age['years'] <= 74)
+				$bm = 11.9 * $this->mediated_weekly_weight + 700;
+			elseif ($this->age['years'] >= 75)
+				$bm = 8.4 * $this->mediated_weekly_weight + 819;
+			
+			$this->bm = $this->_setPost(!empty($bm)
+										? round($bm)
+										: BOH,
+										'processed_physiological_data', 'bm');
+			$this->cn = $this->_setPost(!empty($bm)
+				                        ? round($bm * 1.74) // average activity for male between 18 and 59
+				                        : BOH,
+							            'processed_physiological_data', 'cn');
+			
+			if (!empty($this->height)) { // BMR calculation with Harris-Benedict's equation
+				$bmr = (66.5 + 13.75 * $this->mediated_weekly_weight
+				             + 5.003 * $this->height
+				             - 6.775 * $this->age['years']) * 1.3; // average activity (1.2-1.4)
+				$this->bmr = $this->_setPost(round($bmr), 'processed_physiological_data', 'bmr');
+				
+				/*$bmr = (9.99 * $this->mediated_weekly_weight // with Mifflin-St. Jeor equation
+				     + 6.25 * $this->height
+					 - 4.92 * $this->age['years']) * 1.3; // average activity (1.2-1.4)
+				$this->bmr = $this->_setPost(round($bmr), 'processed_physiological_data', 'bmr');*/
+			}
 
+		}
+			
 		// bmi and ideal-weight (averaged) calculation
 		if (!empty($this->height) && $this->height > 0 && isset($this->mediated_weekly_weight)) {
 			$bmi_quartelet = $this->mediated_weekly_weight / POW($this->height / 100, 2);
@@ -185,11 +219,13 @@ class Main {
 
 		// reference speed calculation + some speed expectations
 		if (!empty($this->distances_and_records['10km'])
+				&& !empty($this->distances_and_records['10++'])
 				&& !empty($this->distances_and_records['1/3M'])
 				&& !empty($this->distances_and_records['15km'])) {
 			$rs = ($this->distances_and_records['10km']
+				+ $this->distances_and_records['10++']
 			    + $this->distances_and_records['1/3M']
-			    + $this->distances_and_records['15km']) / 3;
+			    + $this->distances_and_records['15km']) / 4;
 			$this->_setPost(date('i:s', round($rs)),
 					        'processed_physiological_data', 'rs');
 
