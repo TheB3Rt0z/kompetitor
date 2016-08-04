@@ -444,7 +444,7 @@ class Main {
 			$dir = popen('/usr/bin/du -sk .', 'r');
 			$size = $status = fgets($dir, 4096);
 			$size = substr($size, 0, strpos($size, "\t"));
-			$size = ($size - ($base ? $base : $status)) / 100;
+			$size = ($size - ($base ? $base : $status)) / 1024; // 100
 			pclose($dir);
 
 			return number_format($size, 2)
