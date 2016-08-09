@@ -1,7 +1,8 @@
 jQuery.noConflict();
 
 
-var delay = 125;
+var delay = 125,
+    BOH = '???';
 
 
 function decorate() {
@@ -44,5 +45,7 @@ jQuery(function() {
 	jQuery('.content .header').bind('click', function() {
 		jQuery(this).siblings('.body').toggle(delay);
 		jQuery(this).parent().toggleClass('closed');
+		var input = jQuery(this).siblings('input');
+		input.val(input.val() == BOH ? 'closed' : BOH);
 	});
 });

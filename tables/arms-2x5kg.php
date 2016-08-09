@@ -1,6 +1,6 @@
 <?php include_once 'head.php' ?>
 
-<?php $grade = $main->getPost('exercises_for_the_arms', 'grade') // default value 25 ?>
+<?php $grade = $this->getPost('exercises_for_the_arms', 'grade') // default value 25 ?>
 
 <?php
 
@@ -38,7 +38,7 @@ if (ob_start()) {
 		</legend>
 		<table>
 			<?php
-			if (!$main->is_mobile) {
+			if (!$this->is_mobile) {
 				?>
 				<thead>
 					<tr>
@@ -54,7 +54,7 @@ if (ob_start()) {
 					<?php
 					foreach ($exercises as $key => $exercise) {
 						$exercise = explode("|", $exercise);
-						$value = $main->getPost('exercises_for_the_arms', 'exercises', $key);
+						$value = $this->getPost('exercises_for_the_arms', 'exercises', $key);
 						?>
 						<td class="a-left">
 							<input id="exercise_<?php echo $key ?>" name="exercises_for_the_arms[exercises][<?php echo $key ?>]" type="checkbox" <?php if ($value && $value != BOH) echo 'checked' ?>  />
@@ -64,7 +64,7 @@ if (ob_start()) {
 							</label>
 						</td>
 						<?php
-						if ($main->is_mobile && is_int(($key + 1) / 2))
+						if ($this->is_mobile && is_int(($key + 1) / 2))
 							echo '</tr><tr>';
 						if (is_int(($key + 1) / 4))
 							echo '</tr><tr>';
@@ -74,7 +74,7 @@ if (ob_start()) {
 			</tbody>
 			<tfoot>
 				<tr>
-					<td class="a-left" colspan="<?php echo $main->is_mobile ? 2 : 3 ?>">
+					<td class="a-left" colspan="<?php echo $this->is_mobile ? 2 : 3 ?>">
 						<?php echo ucfirst(trnslt("finishing")) ?>:
 						<?php echo $grade * 2 ?> <?php echo trnslt("rapid-fire punches") ?>
 						+
@@ -82,18 +82,18 @@ if (ob_start()) {
 						+
 						<?php echo $grade * 4 ?> <?php echo trnslt("rapid-fire punches") ?>
 					</td>
-					<?php if ($main->is_mobile) echo '</tr><tr>' ?>
-					<td class="a-right" colspan="<?php echo $main->is_mobile ? 2 : 1 ?>">
+					<?php if ($this->is_mobile) echo '</tr><tr>' ?>
+					<td class="a-right" colspan="<?php echo $this->is_mobile ? 2 : 1 ?>">
 						<?php echo ucfirst(trnslt('grade')) ?>:
 						<input type="number" name="exercises_for_the_arms[grade]" min="10" max="50" value="<?php echo $grade ?>" />
-						<?php if (!$main->is_mobile) echo submit() ?>
+						<?php if (!$this->is_mobile) echo submit() ?>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
 	</fieldset>
 	<?php
-	if (!$main->is_mobile)
+	if (!$this->is_mobile)
 		file_put_contents('./tables/arms-2x5kg.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }

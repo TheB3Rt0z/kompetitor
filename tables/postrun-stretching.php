@@ -1,6 +1,6 @@
 <?php include_once 'head.php' ?>
 
-<?php $grade = $main->getPost('postrun_stretching', 'grade') // default value 11 ?>
+<?php $grade = $this->getPost('postrun_stretching', 'grade') // default value 11 ?>
 
 <?php
 
@@ -43,20 +43,20 @@ if (ob_start()) {
 						<?php echo trnslt($key) ?>
 					</td>
 					<?php
-					if ($main->is_mobile || is_int((++$count) / 2))
+					if ($this->is_mobile || is_int((++$count) / 2))
 						echo '</tr><tr>';
 				}
 				?>
 				<td class="a-right">
 				    <?php echo ucfirst(trnslt('grade')) ?>:
 					<input type="number" name="postrun_stretching[grade]" min="11" max="55" value="<?php echo $grade ?>" />
-					<?php if (!$main->is_mobile) echo submit() ?>
+					<?php if (!$this->is_mobile) echo submit() ?>
 				</td>
 			</tr>
 		</table>
 	</fieldset>
 	<?php
-	if (!$main->is_mobile)
+	if (!$this->is_mobile)
 		file_put_contents('./tables/postrun-stretching.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }

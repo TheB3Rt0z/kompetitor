@@ -1,6 +1,6 @@
 <?php include_once 'head.php' ?>
 
-<?php $grade = $main->getPost('morning_serie', 'grade') // default value 25 ?>
+<?php $grade = $this->getPost('morning_serie', 'grade') // default value 25 ?>
 
 <?php
 
@@ -32,7 +32,7 @@ if (ob_start()) {
 			<tr>
 				<?php
 				$count = 0;
-				$cols = $main->is_mobile ? 2 : 4;
+				$cols = $this->is_mobile ? 2 : 4;
 				foreach ($exercises as $key => $value) {
 					$count++;
 					$dir = (is_int($count / $cols)
@@ -53,13 +53,13 @@ if (ob_start()) {
 				<td class="a-right">
 				    <?php echo ucfirst(trnslt('grade')) ?>:
 					<input type="number" name="morning_serie[grade]" min="10" max="50" value="<?php echo $grade ?>" />
-					<?php if (!$main->is_mobile) echo submit() ?>
+					<?php if (!$this->is_mobile) echo submit() ?>
 				</td>
 			</tr>
 		</table>
 	</fieldset>
 	<?php
-	if (!$main->is_mobile)
+	if (!$this->is_mobile)
 		file_put_contents('./tables/morning-serie.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }

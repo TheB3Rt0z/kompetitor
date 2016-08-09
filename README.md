@@ -1,1 +1,1 @@
-# Kompetitor v6.37
+# Kompetitor v0.54

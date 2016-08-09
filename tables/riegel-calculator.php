@@ -26,13 +26,13 @@ if (ob_start()) {
 		<table>
 			<tr>
 				<td class="a-left"><?php echo ucfirst(trnslt('recent run')) ?>:</td>
-				<td class="a-right"><input type="text" name="riegel_calculator[distance]" value="<?php echo $main->getPost('riegel_calculator', 'distance') ?>" title="<?php echo trnslt('format: ?(.?) (in km)') ?>" /></td>
+				<td class="a-right"><input type="text" name="riegel_calculator[distance]" value="<?php echo $this->getPost('riegel_calculator', 'distance') ?>" title="<?php echo trnslt('format: ?(.?) (in km)') ?>" /></td>
 				<td class="a-right">in</td>
-				<td class="a-left"><input type="text" name="riegel_calculator[time]" value="<?php echo $main->getPost('riegel_calculator', 'time') ?>" title="<?php echo trnslt('format: (h)h:mm:ss') ?>" /></td>
-				<td class="a-left">&#8656; <input type="checkbox" name="riegel_calculator[performance_override]" title="<?php echo trnslt('overrides distance/time processing and forces usage of most recent 10.000 meters', false) ?>" <?php if ($main->getPost('riegel_calculator', 'performance_override') != BOH) echo 'checked' ?> /></td>
+				<td class="a-left"><input type="text" name="riegel_calculator[time]" value="<?php echo $this->getPost('riegel_calculator', 'time') ?>" title="<?php echo trnslt('format: (h)h:mm:ss') ?>" /></td>
+				<td class="a-left">&#8656; <input type="checkbox" name="riegel_calculator[performance_override]" title="<?php echo trnslt('overrides distance/time processing and forces usage of most recent 10.000 meters', false) ?>" <?php if ($this->getPost('riegel_calculator', 'performance_override') != BOH) echo 'checked' ?> /></td>
 				<td class="a-left"><?php echo ucfirst(trnslt('speed')) ?>:</td>
-				<td class="a-right"><input type="text" name="riegel_calculator[speed]" value="<?php echo $main->getPost('riegel_calculator', 'speed') ?>" readonly disabled /></td>
-				<td class="a-right"><?php if (!$main->is_mobile) echo submit() ?></td>
+				<td class="a-right"><input type="text" name="riegel_calculator[speed]" value="<?php echo $this->getPost('riegel_calculator', 'speed') ?>" readonly disabled /></td>
+				<td class="a-right"><?php if (!$this->is_mobile) echo submit() ?></td>
 			</tr>
 		</table>
 	</fieldset>
@@ -45,8 +45,8 @@ if (ob_start()) {
 				foreach ($distances as $key => $distance) {
 					?>
 					<td class="a-left"><?php echo trnslt($key) ?>:<input type="hidden" name="riegel_calculator[distances][<?php echo $key ?>]" value="<?php echo $distance ?>" /></td>
-					<td class="a-right"><input type="text" name="riegel_calculator[forecasts][<?php echo $key ?>]" value="<?php echo $main->getPost('riegel_calculator', 'forecasts', $key) ?>" readonly disabled /></td>
-					<td class="a-right"><input type="text" name="riegel_calculator[forespeed][<?php echo $key ?>]" value="<?php echo $main->getPost('riegel_calculator', 'forespeed', $key) ?>" readonly disabled /></td>
+					<td class="a-right"><input type="text" name="riegel_calculator[forecasts][<?php echo $key ?>]" value="<?php echo $this->getPost('riegel_calculator', 'forecasts', $key) ?>" readonly disabled /></td>
+					<td class="a-right"><input type="text" name="riegel_calculator[forespeed][<?php echo $key ?>]" value="<?php echo $this->getPost('riegel_calculator', 'forespeed', $key) ?>" readonly disabled /></td>
 					<?php
 					if (is_int((++$count) / 3))
 						echo '</tr><tr>';
@@ -56,7 +56,7 @@ if (ob_start()) {
 		</table>
 	</fieldset>
 	<?php
-	if (!$main->is_mobile)
+	if (!$this->is_mobile)
 		file_put_contents('./tables/riegel-calculator.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }

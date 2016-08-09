@@ -436,6 +436,74 @@ class Main {
 			         ? $this->_post[$fieldset]
 			         : BOH))));
 	}
+	
+	
+	function block($width, $class, $title = null) {
+		
+		$switcher = $this->getPost('blocks', $class) == BOH ? '' : 'closed';
+		
+		?>
+		<div class="content width-<?=$width?> icon <?=$class?> <?=$switcher?>">
+			<input type="hidden" name="blocks[<?=$class?>]" value="<?=$this->getPost('blocks', $class)?>" />
+			<?php
+			if ($title) {
+				?>
+				<span class="icon"></span>
+				<div class="header">
+					<?=$title?>
+					<span>&#8679;</span>
+				</div>
+				<br />
+				<br />
+				<?php
+			}
+			?>
+			<div class="body">
+				<br />
+				<?php
+				switch ($class) {
+					case 'personal-data': {
+						include 'tables/personal-data.php';
+						echo '<br />';
+						include 'tables/daily-weighing.php';
+						echo '<br />';
+						include 'tables/distances-records.php';
+						break;
+					}
+					case 'processed-physiological-data': {
+						include 'tables/physiological-data.php';
+						break;
+					}
+					case 'running-trainings': {
+						echo '01.07.2016 | 76,3 kg | 22.2° | 14 kph | 61% | 162/178 bpm | 7,36 km | 33:27 | 4:33 | 551 kcal | 14 m Δ';
+						break;	
+					}
+					//case 'stretching exercises': {
+					//case 'core exercises': {
+					case 'post-run exercises': {
+						include 'tables/postrun-stretching.php';
+						break;
+					}
+					//case 'ton-stab exercises': {
+					case 'morning exercises': {
+						include 'tables/morning-serie.php';
+						break;
+					}
+					case 'arms-exercises': {
+						include 'tables/arms-2x5kg.php';
+						break;
+					}
+					case 'bertoz-calculator': {
+						include 'tables/bertoz-calculator.php';
+						break;
+					}
+					default: echo '(!) IN-PROGRESS';
+				}
+				?>
+			</div>
+		</div>
+		<?php
+	}
 
 
 	static function getVersion($base = 6666) { // base should be set on first release
