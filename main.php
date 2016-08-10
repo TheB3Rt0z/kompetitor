@@ -30,6 +30,18 @@ class Main {
 	      CM_TO_INCH = .3937,
 	      FP_TO_CM = .666,
 	      CM_TO_FP = 1.5;
+	
+	static $defaults = array(
+		'postrun_stretching' => array(
+			'grade' => 11,
+		),
+		'exercises_for_the_arms' => array(
+			'grade' => 25,
+	    ),
+		'daily_diet_proposal' => array(
+			'grade' => 20, // should be bound with BMR extimations..
+		),
+	);
 
 	private $_dbat = 'pjv6hedPbCEAAAAAAAARWxUKv1D1fZf2HxPeyzI7Ca4P-eZI3p1nCmuqbo1tORJN', // dropbox access token
 			$_dbcl = null,
@@ -416,29 +428,35 @@ class Main {
 	}
 
 
-	function getPost($fieldset, $field = null, $option = null) { // this should be better written..
+	function getPost($fieldset = null, $field = null, $option = null) {
 
 		return ($option
 			   ? (!empty($_POST[$fieldset][$field][$option])
 			     ? $_POST[$fieldset][$field][$option]
 			     : (!empty($this->_post[$fieldset][$field][$option])
 			       ? $this->_post[$fieldset][$field][$option]
-			       : BOH))
+			       : (isset(self::$defaults[$fieldset][$field][$option])
+			       	 ? self::$defaults[$fieldset][$field][$option]
+			       	 : BOH)))
 			   : ($field
 			   	 ? (!empty($_POST[$fieldset][$field])
 			       ? $_POST[$fieldset][$field]
 			       : (!empty($this->_post[$fieldset][$field])
 			         ? $this->_post[$fieldset][$field]
-			         : BOH))
+			         : (isset(self::$defaults[$fieldset][$field])
+			       	   ? self::$defaults[$fieldset][$field]
+			       	   : BOH)))
 			   	 : (!empty($_POST[$fieldset])
 			   	   ? $_POST[$fieldset]
 			       : (!empty($this->_post[$fieldset])
 			         ? $this->_post[$fieldset]
-			         : BOH))));
+			         : (isset(self::$defaults[$fieldset])
+			       	   ? self::$defaults[$fieldset]
+			       	   : BOH)))));
 	}
 	
 	
-	function block($width, $class, $title = null) {
+	function renderBlock($width, $class, $title = null) {
 		
 		$switcher = $this->getPost('blocks', $class) == BOH ? '' : 'closed';
 		
@@ -496,6 +514,22 @@ class Main {
 					case 'bertoz-calculator': {
 						include 'tables/bertoz-calculator.php';
 						break;
+					}
+					case 'riegel-calculator': {
+						include 'tables/riegel-calculator.php';
+						break;
+					}
+					case 'foods-table': {
+						include 'tables/foods-table.php';
+						break;
+					}
+					case 'bibliography': {
+						echo str_replace('\n', '<br />', APPLICATION_BIBLIOGRAPHY);
+						break;
+					}
+					case 'definitions-list': {
+						include 'tables/definitions-list.php';
+						break;	
 					}
 					default: echo '(!) IN-PROGRESS';
 				}
@@ -557,6 +591,18 @@ class Main {
 
 		self::$_logs[$code][] = $message;
 	}
+	
+	
+	static function addIdea($message) {
+		
+		self::addLog($message, 'idea');
+	}
+	
+	
+	static function addTodo($message) {
+	
+		self::addLog($message, 'todo');
+	}
 
 
 	static function getLogs($list = array()) {
@@ -584,7 +630,7 @@ class Main {
 	}
 }
 
-
+Main::addIdea("add a translations 'extractor' for google translate");
 function trnslt($string, $uses_shorts = true) {
 
 	global $intl, $shorts, $links;

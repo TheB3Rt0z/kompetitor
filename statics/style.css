@@ -245,11 +245,14 @@ footer td.debug:hover {
 .content.icon.riegel-calculator .icon {
     background-position: -246px -571px;
 }
-.content.icon.tables-and-appendices .icon {
-    background-position: -246px -43px;
+.content.icon.foods-table .icon {
+    background-position: -87px -530px;
 }
 .content.icon.bibliography .icon {
     background-position: -366px -529px;
+}
+.content.icon.tables-and-appendices .icon {
+    background-position: -246px -43px;
 }
 .content.icon.definitions-list .icon {
     background-position: -44px -401px;

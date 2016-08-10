@@ -44,6 +44,8 @@
     IT: "anti-piriforme (gamba DX, posizione fissa su panchina)"
 "average speed calculation":
     IT: "calcolo della valocità media"
+"average weight":
+    IT: "peso medio"
 "backup FC":
     IT: "FC di riserva"
 "bar pulls (variable starting, springy final)":
@@ -66,6 +68,8 @@
     IT: "bibliografia"
 "biceps":
     IT: "bicipiti"
+"big cup":
+    IT: "tazzona"
 "BM":
     IT: "MB"
 "BMI":
@@ -77,10 +81,10 @@
         string: "indice di massa corporea"
         short: "IMC"
         def: "Si tratta di un dato biometrico, espresso come rapporto tra peso e quadrato dell'altezza di un individuo, utilizzato come indicatore dello stato di peso forma.\nÉ stato introdotto nel 1832 da Adolphe Quetelet, matematico e statistico belga."
-"egg buttocks (static backwards)":
-    IT: "glutei a uovo (fissi all'indietro)"
 "caloric needs":
     IT: "fabbisogno calorico"
+"carbohydrates":
+    IT: "carboidrati"
 "clawings":
     IT: "artigliate"
 "conconi test":
@@ -95,6 +99,8 @@
         link: "http://www.alessandroroppo.it/wordpress/approfondimenti/stretching-effetto-antalgico-e-creeping/"
 "crouching (with balancing)":
     IT: "accucciamento (con bilanciamento)"
+"cup":
+    IT: "tazza"
 "date of birth":
     IT: "data di nascita"
 "daily weighing":
@@ -115,6 +121,8 @@
     IT: "doppio curl"
 "double-arm exercises":
     IT: "esercizi a due braccia"
+"dried fruit":
+    IT: "frutta secca"
 "dynamic ballistic stretching":
     IT:
         string: "stretching balistico dinamico"
@@ -125,6 +133,8 @@
         string: "respirazione facile"
         short: "RF"
         def: "Si intende qui un ritmo che consente di parlare con facilità."
+"egg buttocks (static backwards)":
+    IT: "glutei a uovo (fissi all'indietro)"
 "elbow rolls":
     IT: "rullate di gomito"
 "engaged breathing":
@@ -138,10 +148,14 @@
     IT: "valori FCmax/min"
 "FCtr":
     IT: "FCall"
+"fibers":
+    IT: "fibre"
 "finishing":
     IT: "defaticamento"
 "first name":
     IT: "nome"
+"fist":
+    IT: "pugno"
 "foot length FL":
     IT:
         string: "lunghezza del piede LP"
@@ -165,6 +179,8 @@
     IT: "in formato (h)h:mm:ss"
 "format: dd mon yyyy":
     IT: "in formato gg mes aaaa"
+"fruit juice":
+    IT: "succo di frutta"
 "grade":
     IT: "grado"
 "half marathon":
@@ -190,6 +206,8 @@
     IT: "peso ideale"
 "information":
     IT: "informazioni"
+"jogurt plus":
+    IT: "yogurt più"
 "knee to chest (left leg, with rotation of the foot)":
     IT: "ginocchia al petto (gamba SX, con rotazione del piede)"
 "knee to chest (right leg, with rotation of the foot)":
@@ -226,13 +244,15 @@
         short: "FCmax"
         def: "É la frequenza espressa in battiti al minuto (BPM) che un cuore sotto sforzo massimale riesce a raggiungere."
         link: "http://www.albanesi.it/arearossa/articoli/01fcmax33.htm"
-"average weight":
-    IT: "peso medio"
 "medium":
     IT:
         string: "medio"
         short: "CM"
         def: "Tratti di corsa da correre alla velocità del 10/15% più lenta rispetto alla velocità di riferimento. Un ritmo uguale o molto simile a quelle che sarà il ritmo gara."
+"minerals":
+    IT: "minerali"
+"minerals & fiber":
+    IT: "minerali & fibre"
 "moderate activity":
     IT: "attività moderata"
 "mon":
@@ -257,6 +277,16 @@
         def: "É lo sviluppo della migliore prova o gara a livello agonistico o professionale a livello personale, cioè un record che appartiene solo a se stesso."
 "personal data":
     IT: "dati personali"
+"piece":
+    DE: "Stück"
+    IT: "pezzo"
+"pieces":
+    DE: "Stücke"
+    IT: "pezzi"
+"plain jogurt":
+    IT: "yogurt bianco"
+"portion":
+    IT: "porzione"
 "post-run stretching":
     IT: "stretching post corsa"
 "print":
@@ -269,6 +299,8 @@
         short: "FPN"
         def: "É una tecnica che viene utilizzata per aumentare la flessibilità e la gamma di movimento.\nDi solito viene integrata in una routine più grande, che ha lo scopo di mantenere i muscoli condizionati o per aiutare il recupero da un infortunio. La PNF viene eseguita con la presenza del fisioterapista che guida il paziente attraverso movimenti che vengono eseguiti secondo gli schemi neuromotori naturali del nostro corpo. Si sfrutta il principio della mobilizzazione neuro-dinamica del sistema nervoso periferico e ciò fa si che con questa metodica migliori sia l’efficienza del nervo periferico che quella del muscolo ottenendo sia un rinforzo ottimale delle fibre muscolari sia una migliore elasticità delle stesse."
         link: "https://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwigrpn07-XMAhUHWhQKHSEeB0wQFggjMAE&url=http%3A%2F%2Fwww.my-personaltrainer.it%2Ftraumatologia-ortopedia%2Ffacilitazione-neuromuscolare-propriocettiva.html&usg=AFQjCNEpMX-spg5Oa89GT3qt3HlU_axfVw&sig2=SudgbZM7qroz8iA5EfHemQ"
+"proteins":
+    IT: "proteine"
 "race pace":
     IT:
         string: "ritmo gara"
@@ -351,6 +383,10 @@
         string: "lento"
         short: "CL"
         def: "Tratti di corsa da correre alla velocità del 15-20% più lenta rispetto alla velocità di riferimento."
+"small cup":
+    IT: "tazzina"
+"small fruit":
+    IT: "frutto piccolo"
 "speed":
     IT: "velocità"
 "speed expectations":
@@ -416,6 +452,8 @@
     IT: "tirate superiori alla panchina alta (con corpo rigido)"
 "using the RsF to calculate expected time on a given distance":
     IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
+"vegetables":
+    IT: "verdure"
 "vertical pulls":
     IT: "tirate verticali"
 "vertical pulls (in progression, enlivened final)":
