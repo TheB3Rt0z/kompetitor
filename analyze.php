@@ -15,8 +15,9 @@ function getFileType($path) { // http://www.techrepublic.com/article/obtain-impo
 		$file = explode(".", $path);
 		$end = end($file);
 		switch ($end) {
-			case 'gitignore': $type = 'Git'; break; // git Framework
-			case 'md': $type = 'MD'; break; // MarkDown
+			case 'gitignore': $type = 'Git'; break; // git Framework helper
+			case 'html': case 'htm': $type = 'HTML'; break; // HyperText Markup Language
+			case 'md': $type = 'MD'; break; // MarkDown syntax PlainText
 			case 'php': $type = 'PHP'; break; // Hypertext Preprocessor
 			case 'yaml': case 'yml': $type = 'YAML'; break; // YAML Ain't a Markup Language
 		}

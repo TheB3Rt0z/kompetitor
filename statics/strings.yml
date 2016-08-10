@@ -97,6 +97,9 @@
         short: "CRP"
         def: "Effetto negativo sulla prestazione causato dagli esercizi di allungamento, per esempio troppo prolungato, che porta all'elongazione tendinea.\nCiò riduce la capacità di immagazzinare energia da parte del tendine!"
         link: "http://www.alessandroroppo.it/wordpress/approfondimenti/stretching-effetto-antalgico-e-creeping/"
+"crispbread":
+    DE: "Knäckebrot"
+    IT: "cnecherbrot"
 "crouching (with balancing)":
     IT: "accucciamento (con bilanciamento)"
 "cup":
@@ -218,6 +221,9 @@
         short: "Slat"
         def: "Detta anche soglia anaerobica, la soglia del lattato è un indice che determina il livello massimo di sforzo fisico che l'organismo può sostenere senza accumulare acido lattico e ioni idrogeno (H+) nel sangue e nei muscoli, oppure il livello di intensità dell'attività fisica di durata oltre il quale il metabolismo energetico passa dall'affidamento al sistema aerobico verso quello anaerobico (lattacido)."
         link: "http://www.my-personaltrainer.it/soglia_anaerobica.htm"
+"language":
+    DE: "Sprache"
+    IT: "lingua"
 "last name":
     IT: "cognome"
 "lateral flyes":

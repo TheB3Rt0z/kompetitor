@@ -31,6 +31,19 @@
 				<fieldset class="content settings">
 					<table>
 						<tr>
+							<td class="a-left"><?php echo ucfirst(trnslt('language')) ?>:</td>
+							<td class="a-center">
+								<select name="settings[language]">
+									<option value="MN">EN (machine native)</option>
+									<?php
+									$total = count($intl);
+									foreach ($languages as $language => $translations) {
+										echo '<option value="' . $language . '"' . ($language == CURRENT_LANGUAGE ? ' selected' : '') . '>'
+										   . $language . ' ' . $translations . '/' . TRNSLT_KEYS . ' (' . round(100 / TRNSLT_KEYS * $translations) . '%)</option>';
+									}
+									?>
+								</select>
+							</td>
 							<td class="a-left"><?php echo trnslt('E-Mail') ?>:</td>
 							<td class="a-center"><input type="text" name="settings[email]" value="<?php echo $main->getPost('settings', 'email') ?>" /></td>
 							<?php if ($main->is_mobile) echo '<td class="a-right">' . submit('update') . '</td></tr><tr>' ?>

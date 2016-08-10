@@ -10,7 +10,7 @@
 $aliments = array( // data structure qty | unit | kcals
 	1 => array(
 		'carbohydrates' => array(
-			'Knäckerbrot' => "2|pieces|70",
+			'crispbread' => "2|pieces|70",
 			'small fruit' => "1|piece",
 			'fruit juice' => "200|ml",
 		),

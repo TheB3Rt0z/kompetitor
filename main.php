@@ -89,46 +89,60 @@ class Main {
 			}
 		}
 	}
-
-
-	private function _process() {
-
-		if (!empty($this->_post['personal_data']['height']) && $this->_post['personal_data']['height'] > 0)
-			$this->height = $this->_setPost(number_format(str_replace(',', '.', $this->_post['personal_data']['height']), 1),
-					                        'personal_data', 'height');
-		else
-			$this->height = $this->_setPost(BOH, 'personal_data', 'height');
-
-		// age (not only years anyway)
-		if (!empty($this->_post['personal_data']['date_of_birth']) && $this->_post['personal_data']['date_of_birth'] != BOH) {
+	
+	
+	private function _processHeight() {
+		
+		if ($this->_post['personal_data']['height'] != BOH)
+			return $this->_setPost(number_format(str_replace(',', '.', $this->_post['personal_data']['height']), 1),
+					               'personal_data', 'height');
+	}
+	
+	
+	private function _processAge($single = null) { // days, months or years allowed
+		
+		if ($this->_post['personal_data']['date_of_birth'] != BOH) {
 			$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->_post['personal_data']['date_of_birth'])));
 			$now = new DateTime(date('Y-m-d'));
-
 			$interval = $date_of_birth->diff($now);
-
-			$this->age['years'] = $this->_setPost($interval->y,
-					                              'processed_physiological_data', 'age');
-			$this->age['months'] = $interval->m;
-			$this->age['days'] = $interval->d;
+			$age = array(
+				'days' => $interval->d,
+				'months' => $interval->m,
+				'years' => $interval->y,
+			);
+			
+			if ($single)
+				return $this->_setPost($age[$single],
+					                   'processed_physiological_data', 'age', $single);
+			return $this->_setPost($age['years'] . 'y' . $age['months'] . 'm' . $age['days'] . 'd',
+					               'processed_physiological_data', 'age');
 		}
-		else
-			$this->age['years'] = $this->_setPost(BOH, 'processed_physiological_data', 'age');
-
-		// mediated-weekly-weight
+	}
+	
+	
+	private function _processWeight() {
+		
 		if (!empty($this->_post['personal_data']['daily_weighing'])) {
 			$daily_weighing = array_filter($this->_post['personal_data']['daily_weighing'], function(&$value) {
-				return ($value != BOH && $value > 0)
+				return $value != BOH
 				       ? $value = number_format(str_replace(',', '.', $value), 1)
 				       : false;
 			});
-			if (!empty($daily_weighing)) {
-				$mediated_weekly_weight = array_sum($daily_weighing) / count($daily_weighing);
-				$this->mediated_weekly_weight = $this->_setPost($mediated_weekly_weight > 0
-				                                		        ? number_format($mediated_weekly_weight, 3)
-				                                		        : BOH,
-							                                    'processed_physiological_data', 'mediated_weekly_weight');
-		    }
+			
+			if (!empty($daily_weighing)) { // if at least one element is available
+				if ($mediated_weekly_weight = array_sum($daily_weighing) / count($daily_weighing))
+					return $this->_setPost(number_format($mediated_weekly_weight, 3),
+						                   'processed_physiological_data', 'mediated_weekly_weight');
+			}
 		}
+	}
+	
+
+	private function _process() { // internal variables returning null if processing was not successful
+
+		$this->height = $this->_processHeight();
+		$this->age['years'] = $this->_processAge('years');
+		$this->mediated_weekly_weight = $this->_processWeight();
 		
 		// metabolism calculation
 		if (!empty($this->age['years']) && !empty($this->mediated_weekly_weight)) { // only male coefficients
@@ -374,7 +388,12 @@ class Main {
 		}
 
 		$data = file_get_contents(DATA_FILE . "-" . $_SESSION['id']);
-//var_dump(unserialize(base64_decode($data)));DIE;
+
+		array_walk_recursive($_POST, function(&$value) { // assurance from input empty values
+			if (empty($value))
+				$value = BOH;
+		});
+
 		return !empty($_POST['personal_data'])
 			   ? $_POST
 		       : unserialize(base64_decode($data));
@@ -415,7 +434,7 @@ class Main {
 			}
 			fclose($data);
 		}
-//var_dump('<pre>', $post, '</pre>');
+
 		$_SESSION['post'] = $post;
 	}
 
@@ -694,4 +713,17 @@ function submit($mobile_value = false) {
 		 . '<input type="submit" value="' . ($mobile_value ? strtoupper(trnslt($mobile_value)) : "&#9775;")
 		 . '" title="' . strtoupper(trnslt($mobile_value ? $mobile_value : "update")) . '" />'
 		 . '</span>';
+}
+
+
+function dump() {
+	
+	echo '<pre>';
+	
+	foreach (func_get_args() as $arg) {
+		var_dump($arg);
+		echo '<br />';
+	}
+		
+	echo '</pre>';
 }
