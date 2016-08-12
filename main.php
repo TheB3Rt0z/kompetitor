@@ -1,4 +1,4 @@
-<?php session_start(); define('BOH', "???");
+<?php session_start(); define('BOH', "???"); Main::addInfo("main library should be the first to be checked trough the analyzer..");
 
 ini_set('display_startup_errors', 1); ini_set('display_errors', 1); error_reporting(E_ALL);
 
@@ -32,15 +32,10 @@ class Main {
 	      CM_TO_FP = 1.5;
 	
 	static $defaults = array(
-		'postrun_stretching' => array(
-			'grade' => 11,
-		),
-		'exercises_for_the_arms' => array(
-			'grade' => 25,
-	    ),
-		'daily_diet_proposal' => array(
-			'grade' => 20, // should be bound with BMR extimations..
-		),
+		'postrun_stretching' => ['grade' => 11],
+		'morning_serie' => ['grade' => 25],
+		'exercises_for_the_arms' => ['grade' => 25],
+		'daily_diet_proposal' => ['grade' => 20], // should be bound with BMR extimations..
 	);
 
 	private $_dbat = 'pjv6hedPbCEAAAAAAAARWxUKv1D1fZf2HxPeyzI7Ca4P-eZI3p1nCmuqbo1tORJN', // dropbox access token
@@ -175,7 +170,11 @@ class Main {
 					 - 4.92 * $this->age['years']) * 1.3; // average activity (1.2-1.4)
 				$this->bmr = $this->_setPost(round($bmr), 'processed_physiological_data', 'bmr');*/
 			}
-
+			Main::addTodo("this calories calulation of us is to betterize..");
+			//http://www.piuvivi.com/alimentazione/come-calcolo-fabbisogno-calorie-quotidiano-formula.html
+			//http://www.my-personaltrainer.it/calcolatore-calorico-giornaliero.htm
+			//https://fitnessbb.wordpress.com/2011/02/11/calcolo-fabbisogno-calorico-giornaliero/
+			//http://www.benessere360.com/metabolismo.html
 		}
 			
 		// bmi and ideal-weight (averaged) calculation
@@ -511,9 +510,11 @@ class Main {
 						include 'tables/physiological-data.php';
 						break;
 					}
-					case 'running-trainings': {
+					Main::addTodo("combine information from all books in a array, adding values in order to customize training types on personal parameters (ref. speed and max frequency)");
+					//case 'running trainings': {
+					case 'running samples': {
 						echo '01.07.2016 | 76,3 kg | 22.2° | 14 kph | 61% | 162/178 bpm | 7,36 km | 33:27 | 4:33 | 551 kcal | 14 m Δ';
-						break;	
+						break;
 					}
 					//case 'stretching exercises': {
 					//case 'core exercises': {
@@ -542,6 +543,8 @@ class Main {
 						include 'tables/foods-table.php';
 						break;
 					}
+					//case 'posture-selftest': {
+					//case 'unlocked-achievements': {
 					case 'bibliography': {
 						echo str_replace('\n', '<br />', APPLICATION_BIBLIOGRAPHY);
 						break;
@@ -615,6 +618,12 @@ class Main {
 	static function addIdea($message) {
 		
 		self::addLog($message, 'idea');
+	}
+	
+	
+	static function addInfo($message) {
+	
+		self::addLog($message, 'info');
 	}
 	
 	

@@ -4,10 +4,7 @@
 
 <?php Main::addTodo("compile a comprehensive and deteiled table of aliments"); // http://www.duepiu.it/def/valorenutritivo2.html
 
-//2 tazzona jogurt bianco | tazza jogurt plus | 1 fetta di pane | 400ml di succo | piatto di verdura | 1 frutto normale | 1 birra da 33/50cl
-//3 caffélattemüsli | tazzona jogurt plus | klappstulle | porzione di pasta | ciccia o pesce | porzione di formaggio
-//4 dolce piccolo | kebap o similia | colazione alla tedesca | kaffee-kuchen | skifezze varie
-$aliments = array( // data structure qty | unit | kcals
+$aliments = array( // data structure qty | unit | kcals | body-unit
 	1 => array(
 		'carbohydrates' => array(
 			'crispbread' => "2|pieces|70",
@@ -19,15 +16,42 @@ $aliments = array( // data structure qty | unit | kcals
 			'jogurt plus' => "1|small cup",
 			'dried fruit' => "1|fist",
 		),
-		'minerals' => array(
+		'minerals-fibers' => array(
 			'vegetables' => "1|portion",
 		),
-		'fibers' => array(),
 	),
 	2 => array(
+		'carbohydrates' => array(
+			'bread' => "1|slice",
+			'fruit' => "1|piece",
+			'fruit juice' => "400|ml",
+			'beer' => "1|bottle",
+		),
 		'proteins' => array(
 			'plain jogurt' => "1|big cup",
 			'jogurt plus' => "1|cup",
+			'fish' => "1|portion",
+		),
+		'minerals-fibers' => array(
+			'vegetables' => "2|portions",
+		),
+	),
+	3 => array(
+		'carbohydrates' => array(
+			'coffee-milk-müsli' => "1|big cup",
+			'sandwich' => "1|piece",
+			'pasta' => "1|portion",
+			'small dessert' => "1|portion",
+		),
+		'proteins' => array(
+			'plain jogurt' => "500|ml",
+			'jogurt plus' => "1|big cup",
+			'cheese' => "1|portion",
+			'flesh' => "1|portion",
+			'salmon' => '100|g',
+		),
+		'minerals-fibers' => array(
+			'vegetables' => "3|portions",
 		),
 	),
 );
@@ -47,8 +71,7 @@ if (ob_start()) {
 						<th></th>
 						<th><?php echo trnslt("carbohydrates") ?></th>
 						<th><?php echo trnslt("proteins") ?></th>
-						<th><?php echo trnslt("minerals") ?></th>
-						<th><?php echo trnslt("fibers") ?></th>
+						<th><?php echo trnslt("minerals & fibers") ?></th>
 					</tr>
 				</thead>
 				<?php

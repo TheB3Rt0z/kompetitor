@@ -5,12 +5,12 @@
 					<?php $main->renderBlock(60, 'personal-data', ucfirst(trnslt('personal-data'))) ?>
 					<?php $main->renderBlock(40, 'processed-physiological-data', ucfirst(trnslt('processed physiological data'))) ?>
 					<div class="separator"></div>
-					<?php $main->renderBlock(100, 'running-trainings', ucfirst(trnslt('running trainings'))) ?>
+					<?php $main->renderBlock(100, 'running trainings', ucfirst(trnslt('running trainings'))) ?>
 					<?php
 					if ($_SESSION['status'] <= 1) { // only advanced users
 						?>
 						<div class="separator"></div>
-						<?php $main->renderBlock(100, 'running-samples', ucfirst(trnslt('running samples'))) ?>
+						<?php $main->renderBlock(100, 'running samples', ucfirst(trnslt('running samples'))) ?>
 						<div class="separator"></div>
 						<?php $main->renderBlock(50, 'stretching exercises', ucfirst(trnslt('stretching exercises'))) ?>
 						<?php $main->renderBlock(50, 'core exercises', ucfirst(trnslt('core exercises'))) ?>
@@ -26,13 +26,16 @@
 						<?php $main->renderBlock(40, 'riegel-calculator', ucfirst(trnslt('Riegel\'s calculator'))) ?>
 						<?php $main->renderBlock(60, 'foods-table', ucfirst(trnslt('table of foods'))) ?>
 						<div class="separator"></div>
+						<?php $main->renderBlock(70, 'posture-selftest', ucfirst(trnslt('posture selftest'))) ?>
+						<?php $main->renderBlock(30, 'unlocked-achievements', ucfirst(trnslt('unlocked achievements'))) ?>
+						<div class="separator"></div>
 						<?php $main->renderBlock(67, 'tables-and-appendices', ucwords(trnslt('tables & appendices'))) ?>
 						<?php $main->renderBlock(33, 'bibliography', ucfirst(trnslt('technical bibliography'))) ?>
 						<?php
 					}
 					?>
 					<div class="separator"></div>
-					<?php $main->renderBlock(100, 'definitions-list', ucfirst(trnslt('definitions list'))) ?>
+					<?php if (!empty($shorts_refs)) $main->renderBlock(100, 'definitions-list', ucfirst(trnslt('definitions list'))) ?>
 				</div>
 			</article>
 			<aside></aside>

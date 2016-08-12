@@ -2,7 +2,7 @@
 
 <?php $grade = $this->getPost('morning_serie', 'grade') // default value 25 ?>
 
-<?php
+<?php Main::addTodo("check core exercises for Therese, and add this to the list, with times (total should be less than 5 minutes)");
 
 $exercises = array(
 	"agile pushups (2 steps in 2s)" => $grade . " x",
@@ -54,6 +54,7 @@ if (ob_start()) {
 				    <?php echo ucfirst(trnslt('grade')) ?>:
 					<input type="number" name="morning_serie[grade]" min="10" max="50" value="<?php echo $grade ?>" />
 					<?php if (!$this->is_mobile) echo submit() ?>
+					<?php echo ucfirst(trnslt('total')) ?>:
 				</td>
 			</tr>
 		</table>

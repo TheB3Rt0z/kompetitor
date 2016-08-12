@@ -1,3 +1,5 @@
+"unlocked achievements":
+    IT: "risultati raggiunti"
 "agile pushups (---P-P steps in 6s)":
     IT: "flessioni agili (---P-P step in 6s)"
 "90°-openings":
@@ -295,6 +297,8 @@
     IT: "porzione"
 "post-run stretching":
     IT: "stretching post corsa"
+"posture selftest":
+    IT: "autotest della postura"
 "print":
     IT: "stampa"
 "processed physiological data":
@@ -377,6 +381,8 @@
     IT: "tirate da seduti (a gambe incrociate)"
 "sitting pulls (with straight legs)":
     IT: "tirate da seduti (a gambe dritte)"
+"slice":
+    IT: "fetta"
 "slightly engaged breathing":
     IT:
         string: "respirazione leggermente impegnata"
@@ -444,6 +450,9 @@
         def: "Corrisponde all'entrata nella zona FC 3, cioè quella nella quale si ha uno sforzo evidente e quindi allenante, idealmente in fase aerobica con prevalente consumo di carboidrati, in cui la produzione del lattato viene agilmente smaltita: migliora perciò la cosiddetta capacità aerobica e di conseguenza il sistema vascolare."
 "threshold activity":
     IT: "attività alla soglia"
+"total":
+    DE: "Summe"
+    IT: "totale"
 "tree calves (variable starting, springy final)":
     IT: "polpacci all'albero (inizio variabile, finale molleggiato)"
 "tree pulls (with forefoot movimentation)":
