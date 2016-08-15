@@ -1,5 +1,6 @@
 <?php
 
+
 define('APP_TITLE', 'PHP Analyzer v' . number_format(filesize(__FILE__) / 1024 / 100, 2));
 define('FILES_FILTER', serialize(['.', '..', '.git', '.DS_Store', '.project']));
 define('HTML_EOL', "<br />");
@@ -7,9 +8,13 @@ define('NEGATIVE_MODE', isset($_GET['negative']));
 define('PATH_PREFIX', "./");
 define('SCAN_DEEP', !empty($_GET['deep']) ? $_GET['deep'] : 0);
 define('SIDEBAR_WIDTH', 480);
-define('TABLE_HEADERS', serialize(['type','size'] + (!isset($_GET['filesystem']) ? ['permissions','owner','group','modified', 'realpath'] : [])));
+define('TABLE_HEADERS', serialize(array_merge(['type','size'],
+		                                      (!isset($_GET['filesystem']) ? ['permissions','owner','group','modified', 'realpath'] : []),
+		                                      (!isset($_GET['analyze']) ? ['analyze'] : []))));
+
 
 function getFileType($path) { // http://www.techrepublic.com/article/obtain-important-file-information-with-these-php-file-functions/
+	
 	$type = '';
 	if (($filetype = filetype($path)) != 'dir') {
 		$file = explode(".", $path);
@@ -24,7 +29,25 @@ function getFileType($path) { // http://www.techrepublic.com/article/obtain-impo
 	}
 	else
 		$filetype = 'directory';
+	
 	return $filetype . ' ' . $type;
+}
+
+
+function _analyzeFilePHP($path) {
+	
+	return "OK!";
+}
+
+
+function getAnalyze($type, $path) {
+	
+	$analyzer = '_analyze' . str_replace(' ', '', ucfirst($type));
+	
+	if (function_exists($analyzer))
+		return call_user_func($analyzer, $path);
+	
+	return '-';
 }
 
 function formatPermissions($permissions) {
@@ -75,7 +98,9 @@ function scanPath($path = PATH_PREFIX, $deep = 1, $data = []) {
 				'group' => posix_getgrgid(filegroup($realpath)),
 				'lastmod' => date('Y-m-d', filemtime($realpath)),
 				'realpath' => realpath($realpath),
-		];
+			];
+		if (!isset($_GET['analyze']))
+			$attributes['analyze'] = getAnalyze($attributes['type'], $realpath);
 		if (is_dir($realpath)) {
 			$deeper = $deep + 1;
 			$attributes['sub'] = scanPath($realpath . "/", $deeper);
@@ -85,13 +110,16 @@ function scanPath($path = PATH_PREFIX, $deep = 1, $data = []) {
 		}
 		$data[$realpath] = $attributes;
 	}
+	
 	uasort($data, function($a, $b) {
 		return $a['type'] . $a['name'] > $b['type'] . $b['name'];
 	});
+	
 	return $data;
 }
 
 function renderHeaders($headers) {
+	
 	foreach ($headers as $header) {
 		?>
 		<th>
@@ -105,6 +133,7 @@ function renderHeaders($headers) {
 }
 
 function renderTree($data, $rel = null, $deep = 0) {
+	
 	$last = end($data);
 	foreach ($data as $file => $attributes) {
 		$driver = '';
@@ -130,6 +159,11 @@ function renderTree($data, $rel = null, $deep = 0) {
 				<td><span class="groups"><?=$attributes['group']['name']?></span></td>
 				<td><span class="modifieds"><?=$attributes['lastmod']?></span></td>
 				<td><span class="realpaths"><?=$attributes['realpath']?></span></td>
+				<?php
+			}
+			if (!isset($_GET['analyze'])) {
+				?>
+				<td><span class="analyzes"><?=$attributes['analyze']?></span></td>
 				<?php
 			}
 			?>
