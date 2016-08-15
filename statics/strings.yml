@@ -1,7 +1,7 @@
 "unlocked achievements":
     IT: "risultati raggiunti"
-"agile pushups (---P-P steps in 6s)":
-    IT: "flessioni agili (---P-P step in 6s)"
+"agile pushups (---P-P steps in 5s)":
+    IT: "flessioni agili (---P-P step in 5s)"
 "90°-openings":
     IT: "aperture a 90°"
 "90°-pulls":
@@ -83,6 +83,8 @@
         string: "indice di massa corporea"
         short: "IMC"
         def: "Si tratta di un dato biometrico, espresso come rapporto tra peso e quadrato dell'altezza di un individuo, utilizzato come indicatore dello stato di peso forma.\nÉ stato introdotto nel 1832 da Adolphe Quetelet, matematico e statistico belga."
+"boot vibrations (static)":
+    IT: "barchetta vibrante (statica)"
 "caloric needs":
     IT: "fabbisogno calorico"
 "carbohydrates":
@@ -93,6 +95,8 @@
     IT:
 "core exercises":
     IT: "esercizi per il core"
+"core pushups (static flat body)":
+    IT: "flessione del core (corpo dritto)"
 "creeping":
     IT:
         string: "creeping"
@@ -246,6 +250,8 @@
     IT: "tirate inferiori alla panchina media (con corpo rigido)"
 "lumbar pulls (overturned)":
     IT: "tirate lombari (ribaltato)"
+"lumbar pulls (with crossed legs)":
+    IT: "tirate lombari (piedi uniti)"
 "maximum heart rate":
     IT:
         string: "frequenza cardiaca massima"
@@ -333,6 +339,8 @@
     IT: "tirate posteriori e laterali (gamba DX, con torsioni fisse)"
 "rear handles":
     IT: "manubri posteriori"
+"rear L bridge (neck down)":
+    IT: "ponte a L (collo in giù)" 
 "rear pushes (with widening at half)":
     IT: "spinte posteriori (con allargamento)"
 "recent run":
@@ -426,6 +434,8 @@
     IT: "esercizi di stretching"
 "sun":
     IT: "dom"
+"sun salutation (S chain extension)":
+    IT: "saluto al sole (estensione catena)"
 "synchronous":
     IT: "sincroni"
 "tables & appendices":
