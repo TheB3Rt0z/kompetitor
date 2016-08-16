@@ -1,6 +1,5 @@
-"unlocked achievements":
-    IT: "risultati raggiunti"
 "agile pushups (---P-P steps in 5s)":
+    DE: "agil hochdrücken (--- P-P Schritte in 5s)"
     IT: "flessioni agili (---P-P step in 5s)"
 "90°-openings":
     IT: "aperture a 90°"
@@ -64,6 +63,9 @@
         short: "MB"
         def: "??? in Kcal"
         link: "http://www.my-personaltrainer.it/metabolismo_basale.htm"
+"beer":
+    DE: "Bier"
+    IT: "birra"
 "Bertoz calculator":
     IT: "calcolatore di Bertoz"
 "bibliography":
@@ -163,8 +165,15 @@
     IT: "defaticamento"
 "first name":
     IT: "nome"
+"fish":
+    DE: "Fisch"
+    IT: "pesce"
 "fist":
+    DE: "Faust"
     IT: "pugno"
+"flesh":
+    DE: "Fleisch"
+    IT: "carne"
 "foot length FL":
     IT:
         string: "lunghezza del piede LP"
@@ -214,6 +223,7 @@
 "ideal weight":
     IT: "peso ideale"
 "information":
+    DE: "Information"
     IT: "informazioni"
 "jogurt plus":
     IT: "yogurt più"
@@ -267,6 +277,9 @@
     IT: "minerali"
 "minerals & fiber":
     IT: "minerali & fibre"
+"missing translations":
+    DE: "fehlende Übersetzungen"
+    IT: "traduzioni mancanti"
 "moderate activity":
     IT: "attività moderata"
 "mon":
@@ -301,6 +314,8 @@
     IT: "yogurt bianco"
 "portion":
     IT: "porzione"
+"portions":
+    IT: "porzioni"  
 "post-run stretching":
     IT: "stretching post corsa"
 "posture selftest":
@@ -377,9 +392,13 @@
     IT: "campionamenti di corsa"
 "running trainings":
     IT: "allenamenti di corsa"
+"salmon":
+    DE: "Lachs"
+    IT: "salmone"
 "sat":
     IT: "sab"
 "settings":
+    DE: "Einstellungen"
     IT: "impostazioni"
 "shoes size":
     IT: "taglia di scarpe"
@@ -469,6 +488,8 @@
     IT: "tirate all'albero (con movimentazione del piede anteriore)"
 "tue":
     IT: "mar"
+"unlocked achievements":
+    IT: "risultati raggiunti"
 "update":
     IT: "aggiorna"
 "update data":

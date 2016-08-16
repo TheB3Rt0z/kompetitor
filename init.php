@@ -12,9 +12,10 @@ define('CURRENT_LANGUAGE', $main->getPost('settings', 'language') != BOH
 		                   ? $main->getPost('settings', 'language')
 		                   : DEFAULT_LANGUAGE);
 
-global $intl, $shorts, $shorts_refs, $links;
+global $intl, $shorts, $shorts_refs, $links; // translation engine
 $shorts = $shorts_refs = array();
 $keys = $yaml_parser->parse(file_get_contents('statics/strings.yml'));
+$language = fopen(CURRENT_LANGUAGE. '.txt', 'w+b');
 foreach ($keys as $key => $langs) {
 	foreach ($langs as $lang => $values) {
 		if (isset($languages[$lang]))
@@ -39,8 +40,31 @@ foreach ($keys as $key => $langs) {
 			}
 		}
 	}
+	if (!isset($intl[$key]))
+		fwrite($language, $key . "\n");
 }
-natcasesort($shorts_refs);
+fclose($language);
+
+natcasesort($shorts_refs); // for definition list
+
+function trnslt($string, $uses_shorts = true) {
+
+	global $intl, $shorts, $links;
+
+	if (isset($intl[$string]))
+		$string = $intl[$string];
+
+	if ($uses_shorts) {
+		foreach ($shorts as $short => $def) {
+			if (isset($links[$short]))
+				$string = str_replace($short, '<a href="' . $links[$short] . '" title="' . $def . '" target="_blank">' . $short . '</a>', $string);
+			else
+				$string = str_replace($short, '<span class="short" title="' . $def . '">' . $short . '</span>', $string);
+		}
+	}
+
+	return $string;
+}
 
 define('TRNSLT_KEYS', count($keys));
 define('APPLICATION_NAME', "Kompetitor");

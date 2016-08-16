@@ -36,7 +36,6 @@
 								<select name="settings[language]">
 									<option value="MN">EN (machine native)</option>
 									<?php
-									$total = count($intl);
 									foreach ($languages as $language => $translations) {
 										echo '<option value="' . $language . '"' . ($language == CURRENT_LANGUAGE ? ' selected' : '') . '>'
 										   . $language . ' ' . $translations . '/' . TRNSLT_KEYS . ' (' . round(100 / TRNSLT_KEYS * $translations) . '%)</option>';
@@ -44,13 +43,22 @@
 									?>
 								</select>
 							</td>
+							<?php
+							if (count($languages[CURRENT_LANGUAGE]) < TRNSLT_KEYS) {
+								?>
+								<td class="a-left">
+									<a href="/<?php echo CURRENT_LANGUAGE ?>.txt"><?php echo trnslt('missing translations') ?></a>
+								</td>
+								<?php
+							}
+							?>
 							<td class="a-left"><?php echo trnslt('E-Mail') ?>:</td>
 							<td class="a-center"><input type="text" name="settings[email]" value="<?php echo $main->getPost('settings', 'email') ?>" /></td>
 							<?php if ($main->is_mobile) echo '<td class="a-right">' . submit('update') . '</td></tr><tr>' ?>
-							<td class="a-left"><?php echo trnslt('Username') ?>:</td>
+							<td class="a-left"><?php echo ucfirst(trnslt('username')) ?>:</td>
 							<td class="a-center" colspan="2"><input type="text" name="settings[username]" value="<?php echo $main->getPost('settings', 'username') ?>" readonly disabled /></td>
 							<?php if ($main->is_mobile) echo '</tr><tr>' ?>
-							<td class="a-left"><?php echo trnslt('Password') ?>:</td>
+							<td class="a-left"><?php echo ucfirst(trnslt('password')) ?>:</td>
 							<td class="a-center" colspan="2"><input type="text" name="settings[password]" value="<?php echo $main->getPost('settings', 'password') ?>" readonly disabled /></td>
 							<?php if (!$main->is_mobile) echo '<td class="a-right">' . submit() . '</td>' ?>
 						</tr>

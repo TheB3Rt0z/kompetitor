@@ -658,26 +658,6 @@ class Main {
 	}
 }
 
-Main::addIdea("add a translations 'extractor' for google translate");
-function trnslt($string, $uses_shorts = true) {
-
-	global $intl, $shorts, $links;
-
-	if (isset($intl[$string]))
-		$string = $intl[$string];
-
-	if ($uses_shorts) {
-		foreach ($shorts as $short => $def) {
-			if (isset($links[$short]))
-				$string = str_replace($short, '<a href="' . $links[$short] . '" title="' . $def . '" target="_blank">' . $short . '</a>', $string);
-			else
-				$string = str_replace($short, '<span class="short" title="' . $def . '">' . $short . '</span>', $string);
-		}
-	}
-
-	return $string;
-}
-
 
 function button($type = null, $data = null) {
 
