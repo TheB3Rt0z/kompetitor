@@ -339,7 +339,7 @@ class Main {
 			$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),
 					                                            'bertoz_calculator', 'speed');
 		}
-
+Main::addTodo("fix riegel's distance processing to accept commas, weight/height style");
 		// riegel calculator procedures
 		if (($_SESSION['status'] <= 1)
 				&& ((!empty($this->_post['riegel_calculator']['distance']) && $this->_post['riegel_calculator']['distance'] != BOH)
