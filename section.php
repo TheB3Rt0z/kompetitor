@@ -20,7 +20,7 @@
 						<div class="separator"></div>
 						<?php $main->renderBlock(100, 'morning exercises', ucfirst(trnslt('morning serie'))) ?>
 						<div class="separator"></div>
-						<?php $main->renderBlock(67, 'arms-exercises', ucfirst(trnslt('exercises for the arms'))) ?>
+						<?php $main->renderBlock(67, 'arms exercises', ucfirst(trnslt('exercises for the arms'))) ?>
 						<?php $main->renderBlock(33, 'bertoz-calculator', ucfirst(trnslt('Bertoz calculator'))) ?>
 						<div class="separator"></div>
 						<?php $main->renderBlock(40, 'riegel-calculator', ucfirst(trnslt('Riegel\'s calculator'))) ?>

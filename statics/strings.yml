@@ -2,6 +2,7 @@
     DE: "agil hochdrücken (--- P-P Schritte in 5s)"
     IT: "flessioni agili (---P-P step in 5s)"
 "90°-openings":
+    DE: "90°-Öffnungen"
     IT: "aperture a 90°"
 "90°-pulls":
     IT: "tirate a 90°"
@@ -87,12 +88,24 @@
         def: "Si tratta di un dato biometrico, espresso come rapporto tra peso e quadrato dell'altezza di un individuo, utilizzato come indicatore dello stato di peso forma.\nÉ stato introdotto nel 1832 da Adolphe Quetelet, matematico e statistico belga."
 "boot vibrations (static)":
     IT: "barchetta vibrante (statica)"
+"bottle":
+    DE: "Flasche"
+    IT: "bottiglia"
+"bread":
+    DE: "Brot"
+    IT: "pane"
 "caloric needs":
     IT: "fabbisogno calorico"
 "carbohydrates":
     IT: "carboidrati"
+"cheese":
+    DE: "Käse"
+    IT: "formaggio"
 "clawings":
     IT: "artigliate"
+"close":
+    DE: "schließen"
+    IT: "chiudi"
 "conconi test":
     IT:
 "core exercises":
@@ -197,6 +210,9 @@
     IT: "in formato (h)h:mm:ss"
 "format: dd mon yyyy":
     IT: "in formato gg mes aaaa"
+"fruit":
+    DE: "Frucht"
+    IT: "frutto"
 "fruit juice":
     IT: "succo di frutta"
 "grade":
@@ -275,7 +291,8 @@
         def: "Tratti di corsa da correre alla velocità del 10/15% più lenta rispetto alla velocità di riferimento. Un ritmo uguale o molto simile a quelle che sarà il ritmo gara."
 "minerals":
     IT: "minerali"
-"minerals & fiber":
+"minerals & fibers":
+    DE: "Mineralien & Fasern"
     IT: "minerali & fibre"
 "missing translations":
     DE: "fehlende Übersetzungen"
@@ -293,10 +310,19 @@
         def: "Si tratta semplicemente dell'ultimo risultato realistico sulla distanza in esame, meglio se non più vecchio di pochi mesi, soprattutto se impiegato nel calcolo della velocità di riferimento (10km, 1/3M e 15km)!"
 "MRP":
     IT: "UP"
+"muesli + milkcoffee":
+    DE: "Müsli + Milchkaffee"
+    IT: "muesli + caffè-latte"
+"muesli + orange juice":
+    DE: "Müsli + Orangensaft"
+    IT: "muesli + succo d'arancia"
 "overrides distance/time processing and forces usage of most recent 10.000 meters":
     IT: "bypassa il calcolo basato sui precedenti distanza e tempo, e forza l'uso dei più recenti 10.000 metri"
 "overrides FCmax processing, forces the use of this value only":
     IT: "bypassa il processing della FCmax, e forza l'uso esclusivo di questo valore"
+"pause":
+    DE: "Pause"
+    IT: "pausa"
 "personal best":
     IT:
         string: "record personale"
@@ -395,6 +421,9 @@
 "salmon":
     DE: "Lachs"
     IT: "salmone"
+"sandwich":
+    DE: "Stulle"
+    IT: "panino"
 "sat":
     IT: "sab"
 "settings":
@@ -466,22 +495,25 @@
         string: "10km abbondanti"
         short: "10++"
         def: "Distanza jolly valida per tutte le gare acclarate come 10km che però sforano di almeno mezzo chilometro questa distanza, andando piuttosto ad essere intorno agli 11km.."
+"threshold activity":
+    IT: "attività alla soglia"
 "thu":
     IT: "gio"
 "time":
     IT: "tempo"
 "toning and stability":
     IT: "tonificazione e stabilità"
+"total":
+    DE: "Summe"
+    IT: "totale"
+"total time":
+    DE: "gesamte Zeit"
+    IT: "tempo totale"
 "training FCmin":
     IT:
         string: "FCmin di allenamento"
         short: "FCall"
         def: "Corrisponde all'entrata nella zona FC 3, cioè quella nella quale si ha uno sforzo evidente e quindi allenante, idealmente in fase aerobica con prevalente consumo di carboidrati, in cui la produzione del lattato viene agilmente smaltita: migliora perciò la cosiddetta capacità aerobica e di conseguenza il sistema vascolare."
-"threshold activity":
-    IT: "attività alla soglia"
-"total":
-    DE: "Summe"
-    IT: "totale"
 "tree calves (variable starting, springy final)":
     IT: "polpacci all'albero (inizio variabile, finale molleggiato)"
 "tree pulls (with forefoot movimentation)":

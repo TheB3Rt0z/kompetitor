@@ -1,8 +1,10 @@
 <?php include_once 'head.php' ?>
 
-<?php $speed_second_coefficient = .666; $grade = $this->getPost('morning_serie', 'grade') // default value 25 ?>
-
 <?php
+
+$speed_second_coefficient = .666;
+
+$grade = $this->getPost('morning_serie', 'grade'); // default value 25
 
 $exercises = array(
 	"sun salutation (S chain extension)" => $grade . "s|" . $grade,
@@ -28,7 +30,7 @@ $exercises = array(
 	"core pushups (static flat body)" => $grade . "s|" . $grade,
 	"static pushups (2/3 up and 1/3 down)" => $grade * 2 . "s + " . $grade . "s|" . $grade * 3,
 	//"rear pushes (with widening at half)" => $grade . "s + " . $grade . "s",
-	//"crouching (with balancing)" => $grade . "s",
+	//"crouching (with balancing)" => $grade . "s", // reduced to single bottom exercise
 	"rear pushes and crouching" => $grade . " + " . $grade . " x|" . $grade * 2,
 );
 
@@ -64,11 +66,11 @@ if (ob_start()) {
 				}
 				?>
 				<td class="a-right" colspan="2">
-				    <?php echo ucfirst(trnslt('total')) ?>: <?php echo date('i:s', $total * $speed_second_coefficient) ?>
+				    <?php echo ucfirst(trnslt('total time')) ?>: <?php echo date('i:s', $total * $speed_second_coefficient) ?>
 				    |
 					<?php echo ucfirst(trnslt('grade')) ?>:
 					<input type="number" name="morning_serie[grade]" min="10" max="50" value="<?php echo $grade ?>" />
-					<?php if (!$this->is_mobile) echo submit() ?>
+					<?php /*if (!$this->is_mobile)*/ echo submit() ?>
 				</td>
 			</tr>
 		</table>

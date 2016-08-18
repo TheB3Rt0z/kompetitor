@@ -115,7 +115,7 @@ class Main {
 	}
 	
 	
-	private function _processWeight() {
+	private function _processMediatedWeeklyWeight() {
 		
 		if (!empty($this->_post['personal_data']['daily_weighing'])) {
 			$daily_weighing = array_filter($this->_post['personal_data']['daily_weighing'], function(&$value) {
@@ -132,12 +132,50 @@ class Main {
 		}
 	}
 	
+	
+	private function _processRiegelCalculator() {
+		
+		if (($_SESSION['status'] <= 1)
+			&& ((!empty($this->_post['riegel_calculator']['distance']) && $this->_post['riegel_calculator']['distance'] != BOH)
+				&& (!empty($this->_post['riegel_calculator']['time']) && $this->_post['riegel_calculator']['time'] != BOH))
+			|| !empty($this->_post['riegel_calculator']['performance_override'])) {
+		
+			if (!empty($this->_post['riegel_calculator']['performance_override'])) { // skipping input values, using last personal best on 10km
+				$calculator['distance'] = 10;
+				$calculator['time'] = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->getPost('distances_and_records', '10km', 'last_pb'))));
+			}
+			else {
+				$calculator['distance'] = $this->_setPost(str_replace(',', '.', $this->_post['riegel_calculator']['distance']),
+				                                          'riegel_calculator', 'distance');
+				$calculator['time'] = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->_post['riegel_calculator']['time'])));
+			}
+			$calculator['speed'] = $this->_setPost(date('i:s', round($calculator['time']->format('U') / $calculator['distance'])),
+							                       'riegel_calculator', 'speed');
+						
+			foreach ($this->_post['riegel_calculator']['distances'] as $key => $distance) {
+		
+				$forecast = round($calculator['time']->format('U') * pow($distance / $calculator['distance'], 1.06)) - 3600;
+
+				$calculator['forecasts'][$key] = $this->_setPost(ltrim(date('H:i:s', $forecast), "0:"),
+								                                 'riegel_calculator', 'forecasts', $key);
+				
+				$speed_time = new DateTime(date('1970-01-01\TH:i:s+0:00', $forecast));
+				$calculator['forespeed'][$key] = $this->_setPost(ltrim(date('i:s', ($speed_time->format('U') / $distance)), "0"),
+								                                 'riegel_calculator', 'forespeed', $key);
+			}
+			
+			return $calculator;
+		}
+	}
+	
 
 	private function _process() { // internal variables returning null if processing was not successful
 
 		$this->height = $this->_processHeight();
 		$this->age['years'] = $this->_processAge('years');
-		$this->mediated_weekly_weight = $this->_processWeight();
+		$this->mediated_weekly_weight = $this->_processMediatedWeeklyWeight();
+		// ...
+		$this->riegel_calculator = $this->_processRiegelCalculator();
 		
 		// metabolism calculation
 		if (!empty($this->age['years']) && !empty($this->mediated_weekly_weight)) { // only male coefficients
@@ -339,36 +377,6 @@ class Main {
 			$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),
 					                                            'bertoz_calculator', 'speed');
 		}
-Main::addTodo("fix riegel's distance processing to accept commas, weight/height style");
-		// riegel calculator procedures
-		if (($_SESSION['status'] <= 1)
-				&& ((!empty($this->_post['riegel_calculator']['distance']) && $this->_post['riegel_calculator']['distance'] != BOH)
-				&& (!empty($this->_post['riegel_calculator']['time']) && $this->_post['riegel_calculator']['time'] != BOH))
-				|| !empty($this->_post['riegel_calculator']['performance_override'])) {
-
-			if (!empty($this->_post['riegel_calculator']['performance_override'])) {
-				$base_distance = 10;
-				$time = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->getPost('distances_and_records', '10km', 'last_pb'))));
-			}
-			else
-				$time = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->_post['riegel_calculator']['time'])));
-
-			$speed = round($time->format('U') / (isset($base_distance) ? $base_distance : $this->_post['riegel_calculator']['distance']));
-			$this->riegel_calculator['speed'] = $this->_setPost(date('i:s', $speed),
-					                                            'riegel_calculator', 'speed');
-			
-			foreach ($this->_post['riegel_calculator']['distances'] as $key => $distance) {
-
-				$forecast = round($time->format('U') * pow($distance / (isset($base_distance) ? $base_distance : $this->_post['riegel_calculator']['distance']), 1.06)) - 3600;
-
-				$this->_setPost(ltrim(date('H:i:s', $forecast), "0:"),
-						        'riegel_calculator', 'forecasts', $key);
-				
-				$speed_time = new DateTime(date('1970-01-01\TH:i:s+0:00', $forecast));
-				$this->_setPost(ltrim(date('i:s', ($speed_time->format('U') / $distance)), "0"),
-						        'riegel_calculator', 'forespeed', $key);
-			}
-		}
 	}
 
 
@@ -527,7 +535,7 @@ Main::addTodo("fix riegel's distance processing to accept commas, weight/height 
 						include 'tables/morning-serie.php';
 						break;
 					}
-					case 'arms-exercises': {
+					case 'arms exercises': {
 						include 'tables/arms-2x5kg.php';
 						break;
 					}
@@ -663,7 +671,7 @@ function button($type = null, $data = null) {
 
 	switch ($type) {
 		case 'close': {
-			$label = false;
+			$label = strtoupper(trnslt($type));
 			break;
 		}
 		case 'credits': {

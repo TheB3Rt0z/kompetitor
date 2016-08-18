@@ -242,7 +242,7 @@ footer td.debug:hover {
 .content.icon.exercises .icon {
     background-position: -85px -398px;
 }
-.content.icon.arms-exercises .icon {
+.content.icon.arms.exercises .icon {
     background-position: -122px -441px;
 }
 .content.icon.bertoz-calculator .icon {
@@ -299,6 +299,7 @@ footer td.debug:hover {
 }
 .content.closed .header span {
 	transform: rotate(180deg);
+	z-index: 1 !important;
 }
 .content.closed .body {
     display: none;
@@ -431,6 +432,7 @@ footer td.debug:hover {
 	padding: 3px 5px;
 	text-decoration: none;
 	white-space: nowrap;
+	z-index: 2;
 }
 .button:hover {
 	background-color: white;
@@ -463,6 +465,7 @@ input[type=submit] {
     right: 1%;
     top: 10px;
 	width: auto !important;
+	z-index: 2;
 }
 .button.nav .icon {
     background-position: 1px -163px;
@@ -472,6 +475,7 @@ input[type=submit] {
 }
 .button.close .icon {
     background-position: -148px -35px;
+    float: left;
 }
 .button.credits .icon {
     background-position: -49px -145px;

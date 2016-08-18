@@ -13,6 +13,7 @@ if (ob_start()) {
 			<td class="a-right"><input type="text" name="bertoz_calculator[distance]" value="<?php echo $this->getPost('bertoz_calculator', 'distance') ?>" title="<?php echo trnslt('format: ?(.?) (in km)') ?>" /></td>
 			<td class="a-left"><?php echo ucfirst(trnslt('speed')) ?>:</td>
 			<td class="a-right"><input type="text" name="bertoz_calculator[speed]" value="<?php echo $this->getPost('bertoz_calculator', 'speed') ?>" readonly disabled /></td>
+			<td class="a-right"><?php echo submit() ?></td>
 		</table>
 	</fieldset>
 	<?php

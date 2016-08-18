@@ -42,8 +42,8 @@ if (ob_start()) {
 				?>
 				<thead>
 					<tr>
-						<th colspan="2"><?php echo trnslt("single-arm exercises") ?></th>
-						<th colspan="2"><?php echo trnslt("double-arm exercises") ?></th>
+						<th colspan="3"><?php echo trnslt("single-arm exercises") ?></th>
+						<th colspan="3"><?php echo trnslt("double-arm exercises") ?></th>
 					</tr>
 				</thead>
 				<?php
@@ -64,17 +64,16 @@ if (ob_start()) {
 							</label>
 						</td>
 						<?php
-						if ($this->is_mobile && is_int(($key + 1) / 2))
-							echo '</tr><tr>';
-						if (is_int(($key + 1) / 4))
+						if (is_int(($key + 1) / 2))
+							echo '<td class="a-right">' . $grade . 's ' . trnslt('pause') . '</td>';
+						if (($this->is_mobile && is_int(($key + 1) / 2))
+							|| (is_int(($key + 1) / 4)))
 							echo '</tr><tr>';
 					}
 					?>
 				</tr>
-			</tbody>
-			<tfoot>
 				<tr>
-					<td class="a-left" colspan="<?php echo $this->is_mobile ? 2 : 3 ?>">
+					<td class="a-left" colspan="<?php echo $this->is_mobile ? 3 : 4 ?>">
 						<?php echo ucfirst(trnslt("finishing")) ?>:
 						<?php echo $grade * 2 ?> <?php echo trnslt("rapid-fire punches") ?>
 						+
@@ -83,13 +82,13 @@ if (ob_start()) {
 						<?php echo $grade * 4 ?> <?php echo trnslt("rapid-fire punches") ?>
 					</td>
 					<?php if ($this->is_mobile) echo '</tr><tr>' ?>
-					<td class="a-right" colspan="<?php echo $this->is_mobile ? 2 : 1 ?>">
+					<td class="a-right" colspan="<?php echo $this->is_mobile ? 3 : 2 ?>">
 						<?php echo ucfirst(trnslt('grade')) ?>:
 						<input type="number" name="exercises_for_the_arms[grade]" min="10" max="50" value="<?php echo $grade ?>" />
 						<?php if (!$this->is_mobile) echo submit() ?>
 					</td>
 				</tr>
-			</tfoot>
+			</tbody>
 		</table>
 	</fieldset>
 	<?php

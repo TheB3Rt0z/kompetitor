@@ -76,7 +76,7 @@ if (ob_start()) {
 						<?php
 						foreach ($rate_steps as $step) {
 							?>
-							<td><?php echo number_format($fcmax * $step, 1) ?></td>
+							<td><small><?php echo number_format($fcmax * $step, 1) ?></small></td>
 							<?php
 						}
 						?>

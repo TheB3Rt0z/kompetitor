@@ -74,13 +74,18 @@
         width: 3.5% !important;
     }
     
-    .content.exercises {
-        font-size: .666em; /* ATM not working */
+    .content.exercises .body {
+        font-size: .75em; /* ATM not working */
     }
 }
 
 
 @media all and (max-width: 667px) { /* medium devices (iPhone+) */
+	
+	header th .button.nav {
+		padding: 10px;
+        top: 5px;
+    }
 	
 	.content.settings input[type="text"] {
 	    width: 97%;
@@ -100,8 +105,18 @@
 	.content .body table th,
 	.content .body table td,
 	.content .body table tfoot td {
-	    font-size: .333em;
 	    white-space: normal;
+	}
+	
+	.content.login div {
+		clear: both;
+		display: block;
+    	margin-bottom: 3%;
+	}
+	
+	.content.log {
+    	padding: 1%;
+    	width: 98% !important;
 	}
 }
 
@@ -113,12 +128,12 @@
 	}
 	
 	header th nav .button {
-	    padding: 15px 5px;
+	    padding: 10px 5px;
         width: 92%;
     }
     
     .content {
-        margin: 5% 1%;
+        margin: 1%;
         padding: 3%;
         width: 92% !important;
     }

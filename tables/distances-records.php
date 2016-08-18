@@ -50,7 +50,7 @@ if (ob_start()) {
 					?>
 					<tr>
 						<td class="a-left"><?php echo trnslt($key) ?>:<input type="hidden" name="distances_and_records[<?php echo $key ?>][distance]" value="<?php echo $distance ?>" /></td>
-						<td class="a-center"><?php echo $this->getPost('distances_and_records', $key, 'fingerprint') ?></td>
+						<td class="a-center" <?php if ($this->is_mobile) echo 'rowspan="2"' ?>><?php echo $this->is_mobile ? str_replace("|", '<br />', $this->getPost('distances_and_records', $key, 'fingerprint')) : $this->getPost('distances_and_records', $key, 'fingerprint') ?></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][pb]" value="<?php echo $this->getPost('distances_and_records', $key, 'pb') ?>" title="<?php echo trnslt('format: (h)h:mm:ss') ?>" /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][step]" value="<?php echo $this->getPost('distances_and_records', $key, 'step') ?>" readonly disabled /></td>
 						<td class="a-right"><input type="text" name="distances_and_records[<?php echo $key ?>][speed]" value="<?php echo $this->getPost('distances_and_records', $key, 'speed') ?>" readonly disabled /></td>

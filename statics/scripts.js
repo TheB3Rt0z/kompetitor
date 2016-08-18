@@ -27,7 +27,7 @@ jQuery(function() {
 	
 	jQuery('.content.log').prependTo('html body section article > div');
 	
-	decorate();
+	decorate(); // actually just adding "boh" class to unknown form elements
 	
 	jQuery('header .button.nav').bind('click', function() {
 		jQuery(this).hide(delay);
@@ -47,5 +47,10 @@ jQuery(function() {
 		jQuery(this).parent().toggleClass('closed');
 		var input = jQuery(this).siblings('input');
 		input.val(input.val() == BOH ? 'closed' : BOH);
+		if (!jQuery(this).parent().hasClass('closed'))
+			//jQuery(window).scrollTop(jQuery(this).parent().offset().top);
+			jQuery('html, body').animate({
+		          scrollTop: jQuery(this).parent().offset().top
+	        }, delay);
 	});
 });
