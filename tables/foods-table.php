@@ -2,7 +2,7 @@
 
 <?php $grade = $this->getPost('daily_diet_proposal', 'grade') // default value 20 ?>
 
-<?php Main::addTodo("compile a comprehensive and deteiled table of aliments"); // http://www.duepiu.it/def/valorenutritivo2.html
+<?php Main::addTodo("compile a comprehensive and detailed table of aliments"); // http://www.duepiu.it/def/valorenutritivo2.html
 
 $aliments = array( // data structure qty | unit | kcals | body-unit (if portion specified)
 	1 => array(

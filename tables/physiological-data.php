@@ -18,7 +18,7 @@ if (ob_start()) {
 				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('average weight')) ?> (in kg, ATM <?=($weight_diff>=0?'<font color="#a00">+':'<font color="#0a0">').round($weight_diff, 3).'</font>'?>):</td>
 				<td class="a-right" colspan="2"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $this->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
 			</tr>
-			
+
 			<tr>
 				<td class="a-left"><?php echo trnslt('BM') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[bm]" value="<?php echo $this->getPost('processed_physiological_data', 'bm') ?>" readonly disabled /></td>
@@ -27,7 +27,7 @@ if (ob_start()) {
 				<td class="a-left"><?php echo trnslt('BMR') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[bmr]" value="<?php echo $this->getPost('processed_physiological_data', 'bmr') ?>" readonly disabled /></td>
 			</tr>
-			
+
 			<tr>
 				<td class="a-left"><?php echo trnslt('BMI') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[bmi]" value="<?php echo $this->getPost('processed_physiological_data', 'bmi') ?>" readonly disabled /></td>
@@ -126,15 +126,17 @@ if (ob_start()) {
 			</tr>
 		</table>
 		<br />&nbsp;<br />
-		<table class="graph"><tr><td colspan="<?php echo count($distances) ?>">&nbsp;<?php echo ucfirst(trnslt('actual speed\'s profile')) ?> (record):</td></tr>
+		<table class="graph"><tr><td colspan="<?php echo count($distances) ?>">&nbsp;<?php echo ucfirst(trnslt('actual speed\'s profile')) ?> (record + overhead):</td></tr>
 			<tr>
 				<?php
 				foreach ($distances as $key => $distance) {
 					$speed = $this->getPost('distances_and_records', $distance, 'speed');
+					$last_speed = $this->getPost('distances_and_records', $distance, 'last_speed');
+					$overhead = $speed - $last_speed;
 					if (($this->getPost('distances_and_records', $distances[$key], 'speed') != BOH)) {
 						?>
 						<td>
-							<span style="height:<?php echo round(($speed - 10.1) * 10) ?>px<?php if ($speed <= $this->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo ';background-color:crimson' ?><?php if ($this->getPost('distances_and_records', $distances[$key], 'speed') == BOH) echo ';background-color:black' ?>">
+							<span style="border-top:solid <?php echo round($overhead * 10) ?>px black; height: <?php echo round(($speed - 11) * 10) ?>px<?php if ($speed <= $this->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo '; background-color: crimson' ?><?php if ($this->getPost('distances_and_records', $distances[$key], 'speed') == BOH) echo '; background-color: black' ?>">
 								<?php echo $distance ?>
 							</span>
 						</td>
