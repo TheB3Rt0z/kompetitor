@@ -30,7 +30,7 @@ class Main {
 	      CM_TO_INCH = .3937,
 	      FP_TO_CM = .666,
 	      CM_TO_FP = 1.5;
-	
+
 	static $defaults = array(
 		'postrun_stretching' => ['grade' => 11],
 		'morning_serie' => ['grade' => 25],
@@ -84,18 +84,18 @@ class Main {
 			}
 		}
 	}
-	
-	
+
+
 	private function _processHeight() {
-		
+
 		if ($this->_post['personal_data']['height'] != BOH)
 			return $this->_setPost(number_format(str_replace(',', '.', $this->_post['personal_data']['height']), 1),
 					               'personal_data', 'height');
 	}
-	
-	
+
+
 	private function _processAge($single = null) { // days, months or years allowed
-		
+
 		if ($this->_post['personal_data']['date_of_birth'] != BOH) {
 			$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->_post['personal_data']['date_of_birth'])));
 			$now = new DateTime(date('Y-m-d'));
@@ -105,7 +105,7 @@ class Main {
 				'months' => $interval->m,
 				'years' => $interval->y,
 			);
-			
+
 			if ($single)
 				return $this->_setPost($age[$single],
 					                   'processed_physiological_data', 'age', $single);
@@ -113,17 +113,17 @@ class Main {
 					               'processed_physiological_data', 'age');
 		}
 	}
-	
-	
+
+
 	private function _processMediatedWeeklyWeight() {
-		
+
 		if (!empty($this->_post['personal_data']['daily_weighing'])) {
 			$daily_weighing = array_filter($this->_post['personal_data']['daily_weighing'], function(&$value) {
 				return $value != BOH
 				       ? $value = number_format(str_replace(',', '.', $value), 1)
 				       : false;
 			});
-			
+
 			if (!empty($daily_weighing)) { // if at least one element is available
 				if ($mediated_weekly_weight = array_sum($daily_weighing) / count($daily_weighing))
 					return $this->_setPost(number_format($mediated_weekly_weight, 3),
@@ -131,15 +131,15 @@ class Main {
 			}
 		}
 	}
-	
-	
+
+
 	private function _processRiegelCalculator() {
-		
+
 		if (($_SESSION['status'] <= 1)
 			&& ((!empty($this->_post['riegel_calculator']['distance']) && $this->_post['riegel_calculator']['distance'] != BOH)
 				&& (!empty($this->_post['riegel_calculator']['time']) && $this->_post['riegel_calculator']['time'] != BOH))
 			|| !empty($this->_post['riegel_calculator']['performance_override'])) {
-		
+
 			if (!empty($this->_post['riegel_calculator']['performance_override'])) { // skipping input values, using last personal best on 10km
 				$calculator['distance'] = 10;
 				$calculator['time'] = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->getPost('distances_and_records', '10km', 'last_pb'))));
@@ -151,23 +151,23 @@ class Main {
 			}
 			$calculator['speed'] = $this->_setPost(date('i:s', round($calculator['time']->format('U') / $calculator['distance'])),
 							                       'riegel_calculator', 'speed');
-						
+
 			foreach ($this->_post['riegel_calculator']['distances'] as $key => $distance) {
-		
+
 				$forecast = round($calculator['time']->format('U') * pow($distance / $calculator['distance'], 1.06)) - 3600;
 
 				$calculator['forecasts'][$key] = $this->_setPost(ltrim(date('H:i:s', $forecast), "0:"),
 								                                 'riegel_calculator', 'forecasts', $key);
-				
+
 				$speed_time = new DateTime(date('1970-01-01\TH:i:s+0:00', $forecast));
 				$calculator['forespeed'][$key] = $this->_setPost(ltrim(date('i:s', ($speed_time->format('U') / $distance)), "0"),
 								                                 'riegel_calculator', 'forespeed', $key);
 			}
-			
+
 			return $calculator;
 		}
 	}
-	
+
 
 	private function _process() { // internal variables returning null if processing was not successful
 
@@ -176,7 +176,7 @@ class Main {
 		$this->mediated_weekly_weight = $this->_processMediatedWeeklyWeight();
 		// ...
 		$this->riegel_calculator = $this->_processRiegelCalculator();
-		
+
 		// metabolism calculation
 		if (!empty($this->age['years']) && !empty($this->mediated_weekly_weight)) { // only male coefficients
 			if ($this->age['years'] >= 18 && $this->age['years'] <= 29)
@@ -187,7 +187,7 @@ class Main {
 				$bm = 11.9 * $this->mediated_weekly_weight + 700;
 			elseif ($this->age['years'] >= 75)
 				$bm = 8.4 * $this->mediated_weekly_weight + 819;
-			
+
 			$this->bm = $this->_setPost(!empty($bm)
 										? round($bm)
 										: BOH,
@@ -196,13 +196,13 @@ class Main {
 				                        ? round($bm * 1.74) // average activity for male between 18 and 59
 				                        : BOH,
 							            'processed_physiological_data', 'cn');
-			
+
 			if (!empty($this->height)) { // BMR calculation with Harris-Benedict's equation
 				$bmr = (66.5 + 13.75 * $this->mediated_weekly_weight
 				             + 5.003 * $this->height
 				             - 6.775 * $this->age['years']) * 1.3; // average activity (1.2-1.4)
 				$this->bmr = $this->_setPost(round($bmr), 'processed_physiological_data', 'bmr');
-				
+
 				/*$bmr = (9.99 * $this->mediated_weekly_weight // with Mifflin-St. Jeor equation
 				     + 6.25 * $this->height
 					 - 4.92 * $this->age['years']) * 1.3; // average activity (1.2-1.4)
@@ -214,7 +214,7 @@ class Main {
 			//https://fitnessbb.wordpress.com/2011/02/11/calcolo-fabbisogno-calorico-giornaliero/
 			//http://www.benessere360.com/metabolismo.html
 		}
-			
+
 		// bmi and ideal-weight (averaged) calculation
 		if (!empty($this->height) && $this->height > 0 && isset($this->mediated_weekly_weight)) {
 			$bmi_quartelet = $this->mediated_weekly_weight / POW($this->height / 100, 2);
@@ -480,12 +480,12 @@ class Main {
 			       	   ? self::$defaults[$fieldset]
 			       	   : BOH)))));
 	}
-	
-	
+
+
 	function renderBlock($width, $class, $title = null) {
-		
+
 		$switcher = $this->getPost('blocks', $class) == BOH ? '' : 'closed';
-		
+
 		?>
 		<div class="content width-<?=$width?> icon <?=$class?> <?=$switcher?>">
 			<input type="hidden" name="blocks[<?=$class?>]" value="<?=$this->getPost('blocks', $class)?>" />
@@ -559,7 +559,7 @@ class Main {
 					}
 					case 'definitions-list': {
 						include 'tables/definitions-list.php';
-						break;	
+						break;
 					}
 					default: echo '(!) IN-PROGRESS';
 				}
@@ -621,22 +621,22 @@ class Main {
 
 		self::$_logs[$code][] = $message;
 	}
-	
-	
+
+
 	static function addIdea($message) {
-		
+
 		self::addLog($message, 'idea');
 	}
-	
-	
+
+
 	static function addInfo($message) {
-	
+
 		self::addLog($message, 'info');
 	}
-	
-	
+
+
 	static function addTodo($message) {
-	
+
 		self::addLog($message, 'todo');
 	}
 
@@ -671,7 +671,7 @@ function button($type = null, $data = null) {
 
 	switch ($type) {
 		case 'close': {
-			$label = strtoupper(trnslt($type));
+			$label = false;//strtoupper(trnslt($type));
 			break;
 		}
 		case 'credits': {
@@ -714,13 +714,13 @@ function submit($mobile_value = false) {
 
 
 function dump() {
-	
+
 	echo '<pre>';
-	
+
 	foreach (func_get_args() as $arg) {
 		var_dump($arg);
 		echo '<br />';
 	}
-		
+
 	echo '</pre>';
 }

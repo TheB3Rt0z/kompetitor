@@ -11,17 +11,17 @@ $exercises = array(
 	"agile pushups (2 steps in 2s)" => $grade . " x|" . $grade * 2,
 	"straight abdominals (var. legs)" => $grade * 3 . " x|" . $grade * 3 * 5,
 	"leg rollovers (+ iperextension)" => $grade * 2 . "s + " . $grade . "s|" . $grade * 3,
-		
-	"sitting pulls (with straight legs)" => $grade * 2 . "s|" . $grade * 2,
-	"sitting pulls (with crossed legs)" => $grade . "s|" . $grade,
-	"frontal concave bridge (static)" => $grade . "s|" . $grade,
-	"egg buttocks (static backwards)" => $grade . "s|" . $grade,
-		
-	"right-leg anti-piriform (pushing)" => $grade * 2 . "s|" . $grade * 2,
+
+	"sitting pulls (with straight legs)" => round($grade * 1.333) . "s|" . $grade * 1.333,
+	"sitting pulls (with crossed legs)" => round($grade * 1.333) . "s|" . $grade * 1.333,
+	"frontal concave bridge (static)" => round($grade * 1.333) . "s|" . $grade * 1.333,
+	"egg buttocks (static backwards)" => round($grade * 1.333) . "s|" . $grade * 1.333,
+
+	"right-leg anti-piriform (pushing)" => round($grade * 1.333) . "s|" . $grade * 1.333,
 	"agile pushups (---P-P steps in 5s)" => $grade . " x|" . $grade * 5,
 	"alternated crunches (crossed legs)" => $grade . " + " . $grade . " x|" . $grade * 2 * 5,
 	"angles handling (overturned)" => $grade . "s|" . $grade,
-		
+
 	"lumbar pulls (overturned)" => $grade * 2 . "s|" . $grade * 2,
 	"lumbar pulls (with crossed legs)" => $grade . "s|" . $grade,
 	"boot vibrations (static)" => $grade . "s|" . $grade,
@@ -31,7 +31,7 @@ $exercises = array(
 	"static pushups (2/3 up and 1/3 down)" => $grade * 2 . "s + " . $grade . "s|" . $grade * 3,
 	//"rear pushes (with widening at half)" => $grade . "s + " . $grade . "s",
 	//"crouching (with balancing)" => $grade . "s", // reduced to single bottom exercise
-	"rear pushes and crouching" => $grade . " + " . $grade . " x|" . $grade * 2,
+	"rear pushes and crouching" => round($grade * 1.333) . "s + " . round($grade * 1.333) . "s x|" . $grade * 2.666,
 );
 
 if (ob_start()) {
