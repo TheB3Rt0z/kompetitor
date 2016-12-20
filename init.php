@@ -53,6 +53,8 @@ function trnslt($string, $uses_shorts = true) {
 
 	if (isset($intl[$string]))
 		$string = $intl[$string];
+	elseif (CURRENT_LANGUAGE != 'MN')
+		$string = "[" . str_replace(" ", "_", $string) . "]";
 
 	if ($uses_shorts) {
 		foreach ($shorts as $short => $def) {

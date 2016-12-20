@@ -6,7 +6,7 @@ $speed_second_coefficient = .666;
 
 $grade = $this->getPost('postrun_stretching', 'grade'); // default value 11
 
-$exercises = array(
+/*$exercises = array(
 	"tree calves (variable starting, springy final)" => $grade * 5 . " " . trnslt('synchronous') . " x|" . $grade * 5,
 	"vertical pulls to 3/4 of height (hands on knees)" => $grade * 3 . " " . trnslt('synchronous') . " x|" . $grade * 3,
 
@@ -29,6 +29,31 @@ $exercises = array(
 	"anti-piriformis (left leg, fixed position on the bench)" => $grade * 3 . " + " . $grade * 3 . " x|" . $grade * 6,
 
 	"squatting pulls (variable, with swinging)" => $grade * 3 . " " . trnslt('synchronous') . " x|" . $grade * 3,
+);*/
+
+$exercises = array(
+	"broken A stretching (with shoes string loosing)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
+	"vertical pulls to 3/4 of height (hands on knees)" => $grade * 3 . " " . trnslt('synchronous') . " x|" . $grade * 3,
+
+	"tree calves (variable starting, springy final)" => $grade * 5 . " " . trnslt('synchronous') . " x|" . $grade * 5,
+	"tree pulls (with forefoot movimentation)" => $grade * 3 . " + " . $grade * 3 . " x|" . $grade * 6,
+
+	"knee to chest (right leg, with rotation of the foot)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
+	"knee to chest (left leg, with rotation of the foot)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
+
+	"rear and lateral pulls (right leg, with fixed twists)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
+	"rear and lateral pulls (left leg, with fixed twists)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
+
+	"bar pulls (variable starting, springy final)" => $grade * 3 . " + " . $grade * 3 . " x|" . $grade * 6,
+	"upper pulls on high bench (with rigid body)" => $grade * 5 . " " . trnslt('synchronous') . " x|" . $grade * 5,
+
+	"lower pulls on middle bench (with rigid body)" => $grade * 4 . " " . trnslt('synchronous') . " x|" . $grade * 4,
+	"squatting pulls (variable, with swinging)" => $grade * 3 . " " . trnslt('synchronous') . " x|" . $grade * 3,
+
+	"anti-piriformis (right leg, fixed position on the bench)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
+	"anti-piriformis (left leg, fixed position on the bench)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
+
+	"vertical pulls (in progression, enlivened final)" => $grade * 5 . " " . trnslt('synchronous') . " x|" . $grade * 5,
 );
 
 if (ob_start()) {
@@ -45,7 +70,7 @@ if (ob_start()) {
 					?>
 					<td class="a-left">
 						<?php echo $value[0] ?>
-						<?php echo trnslt($key) ?>
+						<?php echo str_replace(" (", "<br />(", trnslt($key)) ?>
 					</td>
 					<td class="a-right">
 						<?php echo date('i:s', $value[1]) ?>

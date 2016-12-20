@@ -44,7 +44,7 @@
 								</select>
 							</td>
 							<?php
-							if (count($languages[CURRENT_LANGUAGE]) < TRNSLT_KEYS) {
+							if (@count($languages[CURRENT_LANGUAGE]) < TRNSLT_KEYS) {
 								?>
 								<td class="a-left">
 									<a href="/<?php echo CURRENT_LANGUAGE ?>.txt"><?php echo trnslt('missing translations') ?></a>

@@ -15,8 +15,8 @@
 						<?php $main->renderBlock(50, 'stretching exercises', ucfirst(trnslt('stretching exercises'))) ?>
 						<?php $main->renderBlock(50, 'core exercises', ucfirst(trnslt('core exercises'))) ?>
 						<div class="separator"></div>
-						<?php $main->renderBlock(67, 'post-run exercises', ucfirst(trnslt('post-run stretching'))) ?>
-						<?php $main->renderBlock(33, 'ton-stab exercises', ucfirst(trnslt('toning and stability'))) ?>
+						<?php $main->renderBlock(60, 'post-run exercises', ucfirst(trnslt('post-run stretching'))) ?>
+						<?php $main->renderBlock(40, 'ton-stab exercises', ucfirst(trnslt('toning and stability'))) ?>
 						<div class="separator"></div>
 						<?php $main->renderBlock(100, 'morning exercises', ucfirst(trnslt('morning serie'))) ?>
 						<div class="separator"></div>

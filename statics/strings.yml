@@ -6,6 +6,8 @@
     IT: "aperture a 90°"
 "90°-pulls":
     IT: "tirate a 90°"
+"AA":
+    IT: "AA"
 "abdominal breathing":
     IT:
         string: "respirazione addominale"
@@ -44,6 +46,8 @@
     IT: "anti-piriforme (gamba SX, posizione fissa su panchina)"
 "anti-piriformis (right leg, fixed position on the bench)":
     IT: "anti-piriforme (gamba DX, posizione fissa su panchina)"
+"application log":
+    IT: "application log"
 "average speed calculation":
     IT: "calcolo della valocità media"
 "average weight":
@@ -80,7 +84,7 @@
 "BMI":
     IT: "IMC"
 "BMR":
-    IT: ""
+    IT: "BMR"
 "body mass index":
     IT:
         string: "indice di massa corporea"
@@ -91,9 +95,13 @@
 "bottle":
     DE: "Flasche"
     IT: "bottiglia"
+"BPM":
+    IT: "BPM"
 "bread":
     DE: "Brot"
     IT: "pane"
+"broken A stretching (with shoes string loosing)":
+    IT: "stretching ad A sbilenca (sciogliere i lacci)"
 "caloric needs":
     IT: "fabbisogno calorico"
 "carbohydrates":
@@ -168,15 +176,20 @@
         def: "Si intende qui un ritmo che permette solo uno scambio di 'monosillabi'."
 "exercises for the arms":
     IT: "esercizi per le braccia"
+"FCMAX":
+    IT: "FCmax"
 "FCmax/min values":
     IT: "valori FCmax/min"
 "FCtr":
     IT: "FCall"
 "fibers":
     IT: "fibre"
+"fingerprint":
+    IT: "impronta"
 "finishing":
     IT: "defaticamento"
 "first name":
+    DE: "Name"
     IT: "nome"
 "fish":
     DE: "Fisch"
@@ -247,6 +260,9 @@
     IT: "ginocchia al petto (gamba SX, con rotazione del piede)"
 "knee to chest (right leg, with rotation of the foot)":
     IT: "ginocchia al petto (gamba DX, con rotazione del piede)"
+"Kompetitor":
+    DE: "Kompetitor"
+    IT: "Kompetitor"
 "lactate threshold":
     IT:
         string: "soglia del lattato"
@@ -328,7 +344,7 @@
         string: "record personale"
         short: "RP"
         def: "É lo sviluppo della migliore prova o gara a livello agonistico o professionale a livello personale, cioè un record che appartiene solo a se stesso."
-"personal data":
+"personal-data":
     IT: "dati personali"
 "piece":
     DE: "Stück"
