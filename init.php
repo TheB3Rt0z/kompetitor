@@ -17,29 +17,31 @@ $shorts = $shorts_refs = array();
 $keys = $yaml_parser->parse(file_get_contents('statics/strings.yml'));
 $language = fopen(CURRENT_LANGUAGE. '.txt', 'w+b');
 foreach ($keys as $key => $langs) {
-	foreach ($langs as $lang => $values) {
-		if (isset($languages[$lang]))
-			$languages[$lang]++;
-		else
-			$languages[$lang] = 1;
-		if ($lang == CURRENT_LANGUAGE) {
-			$string = is_string($values) ? $values : $values['string'];
-			$intl[$key] = $string ? $string : "[" . strtoupper(str_replace(" ", "_", $key)) . "]";
-			if (!empty($values['short']) && isset($values['def'])) {
-				if (empty($values['def'])) {
-					$values['def'] = BOH;
-					Main::addLog("definition for short '" . $values['short'] . "' not found", 'notice');
-				}
-				elseif (strpos($values['def'], BOH) !== false)
-				Main::addLog("incomplete definition for short '" . $values['short'] . "'", 'warning');
-				$shorts[$values['short']] = $values['def'];
-				$shorts_refs[$values['short']] = $intl[$key];
-				if (!empty($values['link'])) {
-					$links[$values['short']] = $values['link'];
-				}
-			}
-		}
-	}
+    if (!empty($langs)) {
+    	foreach ($langs as $lang => $values) {
+    		if (isset($languages[$lang]))
+    			$languages[$lang]++;
+    		else
+    			$languages[$lang] = 1;
+    		if ($lang == CURRENT_LANGUAGE) {
+    			$string = is_string($values) ? $values : $values['string'];
+    			$intl[$key] = $string ? $string : "[" . strtoupper(str_replace(" ", "_", $key)) . "]";
+    			if (!empty($values['short']) && isset($values['def'])) {
+    				if (empty($values['def'])) {
+    					$values['def'] = BOH;
+    					Main::addLog("definition for short '" . $values['short'] . "' not found", 'notice');
+    				}
+    				elseif (strpos($values['def'], BOH) !== false)
+    				Main::addLog("incomplete definition for short '" . $values['short'] . "'", 'warning');
+    				$shorts[$values['short']] = $values['def'];
+    				$shorts_refs[$values['short']] = $intl[$key];
+    				if (!empty($values['link'])) {
+    					$links[$values['short']] = $values['link'];
+    				}
+    			}
+    		}
+    	}
+    }
 	if (!isset($intl[$key]))
 		fwrite($language, $key . "\n");
 }

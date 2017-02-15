@@ -2,7 +2,7 @@
 
 <?php
 
-$speed_second_coefficient = .666;
+$speed_second_coefficient = .675;
 
 $grade = $this->getPost('postrun_stretching', 'grade'); // default value 11
 
