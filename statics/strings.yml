@@ -1,14 +1,27 @@
 "10++":
+    IT: "10++"
 "100km":
+    IT: "100 Km"
 "100mi":
+    IT: "100 Mi"
 "10km":
+    IT: "10 Km"
+"10mi":
+    IT: "10 Mi"
 "15km":
+    IT: "15 Km"
 "1/3M":
+    IT: "<sup>1</sup>/<sub>3</sub> M"
 "25km":
+    IT: "25 Km"
 "3/4M":
+    IT: "<sup>3</sup>/<sub>4</sub> M"
 "50km":
+    IT: "50 Km"
 "5km":
-"7,5km":
+    IT: "5 Km"
+"7.5km":
+    IT: "7,5 Km" 
 "90°-openings":
     DE: "90°-Öffnungen"
     IT: "aperture a 90°"
@@ -67,6 +80,7 @@
 "backup FC":
     IT: "FC di riserva"
 "banana":
+    IT: "banana"
 "bar pulls (variable starting, springy final)":
     IT: "tirate alla sbarra (inizio variabile, finale molleggiato)"
 "bas test":
@@ -122,6 +136,10 @@
 "cheese":
     DE: "Käse"
     IT: "formaggio"
+"CM":
+    IT: "CM"
+"cm":
+    IT: "cm"
 "clawings":
     IT: "artigliate"
 "close":
@@ -149,6 +167,7 @@
 "date of birth":
     IT: "data di nascita"
 "daily diet proposal":
+    IT: "Dieta giornaliera proposta"
 "daily weighing":
     IT: "pesaggio giornaliero"
 "decompensated global stretching":
@@ -175,6 +194,7 @@
         short: "SBD"
         def: "Versione moderna dell'obsoleto stretching balistico: il concetto é sempre quello di far oscillare gli arti o il busto, ma in maniera controllata e lenta, quindi senza ricorrere a slanci e scatti come avveniva in passato.\nIl movimento consiste nello slanciare in una determinata direzione gli arti in maniera controllata e lenta arrivando a sfruttare gradatamente tutta l'ampiezza concessa dall'articolazione, evitando l'effetto rimbalzo o il molleggio che causano l'attivazione del riflesso miotatico portando il muscolo a reagire contraendosi anziché distendersi."
 "E-Mail":
+    IT: "eMail"
 "easy breathing":
     IT:
         string: "respirazione facile"
@@ -189,6 +209,8 @@
         string: "respirazione impegnata"
         short: "RI"
         def: "Si intende qui un ritmo che permette solo uno scambio di 'monosillabi'."
+"EU":
+    IT: "UE"
 "exercises for the arms":
     IT: "esercizi per le braccia"
 "FCmax":
@@ -244,6 +266,7 @@
 "fruit juice":
     IT: "succo di frutta"
 "g":
+    IT: "g"
 "grade":
     IT: "grado"
 "half marathon":
@@ -264,6 +287,7 @@
 "height":
     IT: "altezza"
 "HM":
+    IT: "MM"
 "hump-launches":
     IT: "lanci gobbi"
 "ideal weight":
@@ -317,6 +341,7 @@
 "lumbar pulls (with crossed legs)":
     IT: "tirate lombari (piedi uniti)"
 "M":
+    IT: "M"
 "maximum heart rate":
     IT:
         string: "frequenza cardiaca massima"
@@ -337,6 +362,7 @@
     DE: "fehlende Übersetzungen"
     IT: "traduzioni mancanti"
 "ml":
+    IT: 
 "moderate activity":
     IT: "attività moderata"
 "mon":
@@ -361,7 +387,9 @@
 "overrides FCmax processing, forces the use of this value only":
     IT: "bypassa il processing della FCmax, e forza l'uso esclusivo di questo valore"
 "password":
+    IT: "password"
 "pasta":
+    IT: "pasta"
 "pause":
     DE: "Pause"
     IT: "pausa"
@@ -496,6 +524,7 @@
 "small cup":
     IT: "tazzina"
 "small dessert":
+    IT: "dolce piccolo"
 "small fruit":
     IT: "frutto piccolo"
 "speed":
@@ -530,6 +559,7 @@
 "synchronous":
     IT: "sincroni"
 "table of foods":
+    IT: "Tabelle caloriche"
 "tables & appendices":
     IT: "tabelle & appendici"
 "technical bibliography":
@@ -564,6 +594,8 @@
     IT: "tirate all'albero (con movimentazione del piede anteriore)"
 "tue":
     IT: "mar"
+"UK":
+    IT: "UK"
 "unlocked achievements":
     IT: "risultati raggiunti"
 "update":
@@ -572,7 +604,10 @@
     IT: "aggiorna i dati"
 "upper pulls on high bench (with rigid body)":
     IT: "tirate superiori alla panchina alta (con corpo rigido)"
+"USA":
+    IT: "USA"
 "username":
+    IT: "username"
 "using the RsF to calculate expected time on a given distance":
     IT: "utilizzo della FR per calcolare il tempo atteso su di una data distanza"
 "vegetables":
