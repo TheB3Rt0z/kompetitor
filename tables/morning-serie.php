@@ -68,7 +68,7 @@ if (ob_start()) {
 				}
 				?>
 				<td class="a-right" colspan="2">
-				    <?php echo ucfirst(trnslt('total time')) ?>: <?php echo date('i:s', $total * $speed_second_coefficient) ?>
+				    <?php echo ucfirst(trnslt('total time')) ?> (*<?php echo trim($speed_second_coefficient, "0") ?>): <?php echo date('i:s', $total * $speed_second_coefficient) ?>
 				    |
 					<?php echo ucfirst(trnslt('grade')) ?>:
 					<input type="number" name="morning_serie[grade]" min="10" max="50" value="<?php echo $grade ?>" />

@@ -2,7 +2,7 @@
 
 <?php
 
-$speed_second_coefficient = .675;
+$speed_second_coefficient = .925;
 
 $grade = $this->getPost('postrun_stretching', 'grade'); // default value 11
 
@@ -41,11 +41,11 @@ $exercises = array(
 	"knee to chest (right leg, with rotation of the foot)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
 	"knee to chest (left leg, with rotation of the foot)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
 
-	"rear and lateral pulls (right leg, with fixed twists)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
-	"rear and lateral pulls (left leg, with fixed twists)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
-
 	"bar pulls (variable starting, springy final)" => $grade * 3 . " + " . $grade * 3 . " x|" . $grade * 6,
-	"upper pulls on high bench (with rigid body)" => $grade * 5 . " " . trnslt('synchronous') . " x|" . $grade * 5,
+    "rear and lateral pulls (right leg, with fixed twists)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
+
+    "rear and lateral pulls (left leg, with fixed twists)" => $grade * 2 . " + " . $grade * 2 . " x|" . $grade * 4,
+    "upper pulls on high bench (with rigid body)" => $grade * 5 . " " . trnslt('synchronous') . " x|" . $grade * 5,
 
 	"lower pulls on middle bench (with rigid body)" => $grade * 4 . " " . trnslt('synchronous') . " x|" . $grade * 4,
 	"squatting pulls (variable, with swinging)" => $grade * 3 . " " . trnslt('synchronous') . " x|" . $grade * 3,
@@ -81,7 +81,7 @@ if (ob_start()) {
 				}
 				?>
 				<td class="a-right" colspan="2">
-				    <?php echo ucfirst(trnslt('total time')) ?>: <?php echo date('i:s', $total * $speed_second_coefficient) ?>
+				    <?php echo ucfirst(trnslt('total time')) ?> (*<?php echo trim($speed_second_coefficient, "0") ?>): <?php echo date('i:s', $total * $speed_second_coefficient) ?>
 				    |
 					<?php echo ucfirst(trnslt('grade')) ?>:
 					<input type="number" name="postrun_stretching[grade]" min="11" max="55" value="<?php echo $grade ?>" />
