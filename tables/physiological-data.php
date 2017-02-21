@@ -2,7 +2,7 @@
 
 <?php $rate_steps = array(.5, .55, .6, .65, .7, .75, .8, .85, .9, .95) ?>
 
-<?php $distances = array('5km', '7,5km', '10km', '10++', '1/3M', '15km', 'HM', '25km', '3/4M', 'M', '50km', '100km', '100mi') ?>
+<?php $distances = array('5km', '7.5km', '10km', '10++', '1/3M', '15km', 'HM', '25km', '3/4M', 'M', '50km', '100km', '100mi') ?>
 
 <?php $weight_diff = $this->getPost('processed_physiological_data', 'mediated_weekly_weight') - $this->getPost('processed_physiological_data', 'ideal_weight') ?>
 
@@ -103,8 +103,8 @@ if (ob_start()) {
 			<tr>
 				<td class="a-left"><?php echo trnslt('5km') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][5km]" value="<?php echo $this->getPost('processed_physiological_data', 'speed_expectations', '5km') ?>" readonly disabled /></td>
-				<td class="a-left"><?php echo trnslt('7,5km') ?>:</td>
-				<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][7,5km]" value="<?php echo $this->getPost('processed_physiological_data', 'speed_expectations', '7,5km') ?>" readonly disabled /></td>
+				<td class="a-left"><?php echo trnslt('7.5km') ?>:</td>
+				<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][7.5km]" value="<?php echo $this->getPost('processed_physiological_data', 'speed_expectations', '7.5km') ?>" readonly disabled /></td>
 				<td class="a-left"><?php echo trnslt('10km') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][10km]" value="<?php echo $this->getPost('processed_physiological_data', 'speed_expectations', '10km') ?>" readonly disabled /></td>
 			</tr>

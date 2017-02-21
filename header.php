@@ -38,16 +38,16 @@
 									<?php
 									foreach ($languages as $language => $translations) {
 										echo '<option value="' . $language . '"' . ($language == CURRENT_LANGUAGE ? ' selected' : '') . '>'
-										   . $language . ' ' . $translations . '/' . TRNSLT_KEYS . ' (' . round(100 / TRNSLT_KEYS * $translations) . '%)</option>';
+										   . $language . ' ' . $translations . '/' . TRNSLT_KEYS . ' (' . floor(100 / TRNSLT_KEYS * $translations) . '%)</option>';
 									}
 									?>
 								</select>
 							</td>
 							<?php
-							if (@count($languages[CURRENT_LANGUAGE]) < TRNSLT_KEYS) {
+							if ((CURRENT_LANGUAGE != 'MN') && ($languages[CURRENT_LANGUAGE] < TRNSLT_KEYS)) {
 								?>
 								<td class="a-left">
-									<a href="/<?php echo CURRENT_LANGUAGE ?>.txt"><?php echo trnslt('missing translations') ?></a>
+									<a href="/<?php echo CURRENT_LANGUAGE ?>.txt" target="_blank"><?php echo trnslt('missing translations') ?></a>
 								</td>
 								<?php
 							}

@@ -93,7 +93,7 @@
     IT:
         string: "metabolismo basale"
         short: "MB"
-        def: "??? in Kcal"
+        def: "Fabbisogno calorico di base, in Kcal"
         link: "http://www.my-personaltrainer.it/metabolismo_basale.htm"
 "beer":
     DE: "Bier"
@@ -146,7 +146,7 @@
     DE: "schließen"
     IT: "chiudi"
 "conconi test":
-    IT:
+    IT: "test di Conconi"
 "core exercises":
     IT: "esercizi per il core"
 "core pushups (static flat body)":
@@ -362,7 +362,7 @@
     DE: "fehlende Übersetzungen"
     IT: "traduzioni mancanti"
 "ml":
-    IT: 
+    IT: "ml"
 "moderate activity":
     IT: "attività moderata"
 "mon":

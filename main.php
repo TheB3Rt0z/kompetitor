@@ -294,8 +294,8 @@ class Main {
 
 			$this->speed_expectations['5km'] = $this->_setPost(ltrim(date('i:s', round($rs - 11)), "0"),
 					                                           'processed_physiological_data', 'speed_expectations', '5km'); // based on personals
-			$this->speed_expectations['7,5km'] = $this->_setPost(ltrim(date('i:s', round($rs - 6)), "0"),
-					                                             'processed_physiological_data', 'speed_expectations', '7,5km'); // based on personals
+			$this->speed_expectations['7.5km'] = $this->_setPost(ltrim(date('i:s', round($rs - 6)), "0"),
+					                                             'processed_physiological_data', 'speed_expectations', '7.5km'); // based on personals
 			$this->speed_expectations['10km'] = $this->_setPost(ltrim(date('i:s', round($rs - 2)), "0"),
 					                                           'processed_physiological_data', 'speed_expectations', '10km'); // based on personals
 			$this->speed_expectations['10mi'] = $this->_setPost(ltrim(date('i:s', round($rs + 1)), "0"),
@@ -632,6 +632,11 @@ class Main {
 	static function addInfo($message) {
 
 		self::addLog($message, 'info');
+	}
+
+    static function addNotice($message) {
+
+		self::addLog($message, 'notice');
 	}
 
 

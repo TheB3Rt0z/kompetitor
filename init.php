@@ -23,13 +23,18 @@ foreach ($keys as $key => $langs) {
     			$languages[$lang]++;
     		else
     			$languages[$lang] = 1;
+    		$string = is_string($values) ? $values : $values['string'];
     		if ($lang == CURRENT_LANGUAGE) {
-    			$string = is_string($values) ? $values : $values['string'];
     			$intl[$key] = $string ? $string : "[" . strtoupper(str_replace(" ", "_", $key)) . "]";
+                if (empty($string)) {
+                    Main::addNotice("translation for '" . $key . "' not found");
+                    $languages[$lang]--;
+                    fwrite($language, $key . "\n");
+                }
     			if (!empty($values['short']) && isset($values['def'])) {
     				if (empty($values['def'])) {
     					$values['def'] = BOH;
-    					Main::addLog("definition for short '" . $values['short'] . "' not found", 'notice');
+    					Main::addNotice("definition for short '" . $values['short'] . "' not found");
     				}
     				elseif (strpos($values['def'], BOH) !== false)
     				Main::addLog("incomplete definition for short '" . $values['short'] . "'", 'warning');
@@ -40,10 +45,17 @@ foreach ($keys as $key => $langs) {
     				}
     			}
     		}
+    		elseif (empty($string)) {
+    		    $languages[$lang]--;
+    		    $language_pointer = fopen($lang. '.txt', 'a+b');
+    		    fwrite($language_pointer, $key . "\n");
+    		    fclose($language_pointer);
+    		}
     	}
     }
-	if (!isset($intl[$key]))
+	if (!isset($intl[$key])) {
 		fwrite($language, $key . "\n");
+	}
 }
 fclose($language);
 
