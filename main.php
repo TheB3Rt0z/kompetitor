@@ -570,7 +570,7 @@ class Main {
 	}
 
 
-	static function getVersion($base = 6666) { // base should be set on first release
+	static function getVersion($base = 9999) { // base should be set on first release
 
 		if (function_exists('popen')) {
 			$dir = popen('/usr/bin/du -sk .', 'r');
