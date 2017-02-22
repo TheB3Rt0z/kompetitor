@@ -44,7 +44,7 @@
 								</select>
 							</td>
 							<?php
-							if ((CURRENT_LANGUAGE != 'MN') && ($languages[CURRENT_LANGUAGE] < TRNSLT_KEYS)) {
+							if ((CURRENT_LANGUAGE != 'MN') && ($languages[CURRENT_LANGUAGE] < TRNSLT_KEYS) && ($main->getVersion() != 'LIVE')) {
 								?>
 								<td class="a-left">
 									<a href="/<?php echo CURRENT_LANGUAGE ?>.txt" target="_blank"><?php echo trnslt('missing translations') ?></a>

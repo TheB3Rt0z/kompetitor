@@ -486,3 +486,21 @@ input[type=submit] {
 .button.settings .icon {
     background-position: -0 -17px;
 }
+
+#loader {
+	background-color: rgba(0, 0, 0, .875);
+	color: red;
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 2; /* because of mobile navigation hamburger */
+}
+#loader > img {
+	position: relative;
+	top: 45%;
+	width: 10%;
+}

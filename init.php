@@ -15,49 +15,67 @@ define('CURRENT_LANGUAGE', $main->getPost('settings', 'language') != BOH
 global $intl, $shorts, $shorts_refs, $links; // translation engine
 $shorts = $shorts_refs = array();
 $keys = $yaml_parser->parse(file_get_contents('statics/strings.yml'));
-$language = fopen(CURRENT_LANGUAGE. '.txt', 'w+b');
+
+if (Main::getVersion() != 'LIVE')
+    $language = fopen(CURRENT_LANGUAGE. '.txt', 'w+b');
+
 foreach ($keys as $key => $langs) {
+
     if (!empty($langs)) {
+
     	foreach ($langs as $lang => $values) {
+
     		if (isset($languages[$lang]))
     			$languages[$lang]++;
     		else
     			$languages[$lang] = 1;
+
     		$string = is_string($values) ? $values : $values['string'];
+
     		if ($lang == CURRENT_LANGUAGE) {
+
     			$intl[$key] = $string ? $string : "[" . strtoupper(str_replace(" ", "_", $key)) . "]";
+
                 if (empty($string)) {
                     Main::addNotice("translation for '" . $key . "' not found");
                     $languages[$lang]--;
-                    fwrite($language, $key . "\n");
+                    if (Main::getVersion() != 'LIVE')
+                        fwrite($language, $key . "\n");
                 }
+
     			if (!empty($values['short']) && isset($values['def'])) {
+
     				if (empty($values['def'])) {
     					$values['def'] = BOH;
     					Main::addNotice("definition for short '" . $values['short'] . "' not found");
     				}
+
     				elseif (strpos($values['def'], BOH) !== false)
-    				Main::addLog("incomplete definition for short '" . $values['short'] . "'", 'warning');
+    				    Main::addLog("incomplete definition for short '" . $values['short'] . "'", 'warning');
+
     				$shorts[$values['short']] = $values['def'];
     				$shorts_refs[$values['short']] = $intl[$key];
-    				if (!empty($values['link'])) {
+
+    				if (!empty($values['link']))
     					$links[$values['short']] = $values['link'];
-    				}
     			}
     		}
     		elseif (empty($string)) {
     		    $languages[$lang]--;
-    		    $language_pointer = fopen($lang. '.txt', 'a+b');
-    		    fwrite($language_pointer, $key . "\n");
-    		    fclose($language_pointer);
+    		    if (Main::getVersion() != 'LIVE') {
+                    $language_pointer = fopen($lang. '.txt', 'a+b');
+    		        fwrite($language_pointer, $key . "\n");
+    		        fclose($language_pointer);
+    		    }
     		}
     	}
     }
-	if (!isset($intl[$key])) {
+	if (!isset($intl[$key]) && (Main::getVersion() != 'LIVE'))
 		fwrite($language, $key . "\n");
-	}
 }
-fclose($language);
+
+if (Main::getVersion() != 'LIVE')
+    fclose($language);
 
 natcasesort($shorts_refs); // for definition list
 

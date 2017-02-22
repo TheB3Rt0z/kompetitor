@@ -23,10 +23,16 @@ if (($main->isLogged() && $_SESSION['status'] == 0) && Main::hasLogs()) {
 }
 ?>
 
+<div id="loader"><img src="/statics/loader-120x120.gif" /></div>
+
 <script type="text/javascript">
     jQuery(function() {
 
 	    var form = jQuery('form#main');
+
+	    form.on('submit', function() {
+	    	jQuery('#loader').fadeIn(125);
+	    });
 
 	    jQuery(window).scrollTop(form.children('#v-pos').val());
 
