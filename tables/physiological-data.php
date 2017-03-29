@@ -15,7 +15,7 @@ if (ob_start()) {
 			<tr>
 				<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[age][years]" value="<?php echo $this->getPost('processed_physiological_data', 'age', 'years') ?>" readonly disabled /></td>
-				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('average weight')) ?> (in kg, ATM <?=($weight_diff>=0?'<font color="#a00">+':'<font color="#0a0">').number_format($weight_diff, 3).'</font>'?>):</td>
+				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('average weight')) ?> <strong><?php echo number_format($this->getPost('processed_physiological_data', 'mediated_weekly_weight'), 1, ',', '.') ?></strong> (in kg, ATM <?=($weight_diff>=0?'<font color="#a00">+':'<font color="#0a0">').number_format($weight_diff, 3).'</font>'?>):</td>
 				<td class="a-right" colspan="2"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo $this->getPost('processed_physiological_data', 'mediated_weekly_weight') ?>" readonly disabled /></td>
 			</tr>
 

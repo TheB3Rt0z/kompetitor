@@ -332,6 +332,9 @@ footer td.debug:hover {
     padding: 5px;
     white-space: nowrap;
 }
+.content .body table td strong {
+	font-weight: 700;
+}
 .content .body table td label {
     cursor: pointer;	
 }
