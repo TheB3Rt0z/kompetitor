@@ -12,6 +12,12 @@ require_once 'includes/symphony.yaml/Exception/ParseException.php';
 use Symfony\Component\Yaml as yaml; // https://symfony.com/doc/current/components/yaml/yaml_format.html, https://en.wikipedia.org/wiki/YAML
 $yaml_parser = new yaml\Parser; // https://symfony.com/doc/current/components/yaml/index.html
 
+require_once "includes/parsedown.php/Parsedown.php"; // https://github.com/erusev/parsedown/wiki/Tutorial:-Get-Started
+$md_parser = new Parsedown(); // https://guides.github.com/features/mastering-markdown/
+// https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+// https://daringfireball.net/projects/markdown/syntax
+// http://markdown.de/
+
 require_once "includes/dropbox.php/autoload.php"; // https://www.dropbox.com/developers-v1/core/sdks/php
 use Dropbox as dbx;
 
