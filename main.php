@@ -100,20 +100,28 @@ class Main {
 	}
 
 
-	private function _processAge($single = null) { // days, months or years allowed
+	private function _processAge($single = null, $percent = '') { // days, months or years allowed
 
 		if ($this->_post['personal_data']['date_of_birth'] != BOH) {
+
 			$date_of_birth = new DateTime(date('Y-m-d', strtotime($this->_post['personal_data']['date_of_birth'])));
 			$now = new DateTime(date('Y-m-d'));
 			$interval = $date_of_birth->diff($now);
+
 			$age = array(
 				'days' => $interval->d,
 				'months' => $interval->m,
 				'years' => $interval->y,
 			);
 
+			if ($percent) {
+			    $age_in_years = ($now->getTimestamp() - $date_of_birth->getTimestamp()) / 31556926;
+                $integer_age = floor($age_in_years);
+                $percent = ',' . number_format($age_in_years - $integer_age, 2) * 100;
+			}
+
 			if ($single)
-				return $this->_setPost($age[$single],
+				return $this->_setPost($age[$single] . $percent,
 					                   'processed_physiological_data', 'age', $single);
 			return $this->_setPost($age['years'] . 'y' . $age['months'] . 'm' . $age['days'] . 'd',
 					               'processed_physiological_data', 'age');
@@ -178,7 +186,7 @@ class Main {
 	private function _process() { // internal variables returning null if processing was not successful
 
 		$this->height = $this->_processHeight();
-		$this->age['years'] = $this->_processAge('years');
+		$this->age['years'] = $this->_processAge('years', true);
 		$this->mediated_weekly_weight = $this->_processMediatedWeeklyWeight();
 		// ...
 		$this->riegel_calculator = $this->_processRiegelCalculator();
