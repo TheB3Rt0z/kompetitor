@@ -104,15 +104,15 @@ if (ob_start()) {
 										   	 ? ' x ' . $data[2] . " kcal"
 										   	 : '')
 										   . '<br />';
-											
+
 									}
 									?>
 								</td>
-								<?php 
+								<?php
 							}
 							?>
 						</tr>
-						<?php 
+						<?php
 					}
 					?>
 				</tr>

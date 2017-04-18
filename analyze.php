@@ -14,7 +14,7 @@ define('TABLE_HEADERS', serialize(array_merge(['type','size'],
 
 
 function getFileType($path) { // http://www.techrepublic.com/article/obtain-important-file-information-with-these-php-file-functions/
-	
+
 	$type = '';
 	if (($filetype = filetype($path)) != 'dir') {
 		$file = explode(".", $path);
@@ -31,24 +31,24 @@ function getFileType($path) { // http://www.techrepublic.com/article/obtain-impo
 	}
 	else
 		$filetype = 'directory';
-	
+
 	return $filetype . ' ' . $type;
 }
 
 
 function _analyzeFilePHP($path) {
-	
+
 	return "OK!";
 }
 
 
 function getAnalyze($type, $path) {
-	
+
 	$analyzer = '_analyze' . str_replace(' ', '', ucfirst($type));
-	
+
 	if (function_exists($analyzer))
 		return call_user_func($analyzer, $path);
-	
+
 	return '-';
 }
 
@@ -112,16 +112,16 @@ function scanPath($path = PATH_PREFIX, $deep = 1, $data = []) {
 		}
 		$data[$realpath] = $attributes;
 	}
-	
+
 	uasort($data, function($a, $b) {
 		return $a['type'] . $a['name'] > $b['type'] . $b['name'];
 	});
-	
+
 	return $data;
 }
 
 function renderHeaders($headers) {
-	
+
 	foreach ($headers as $header) {
 		?>
 		<th>
@@ -135,7 +135,7 @@ function renderHeaders($headers) {
 }
 
 function renderTree($data, $rel = null, $deep = 0) {
-	
+
 	$last = end($data);
 	foreach ($data as $file => $attributes) {
 		$driver = '';
@@ -213,7 +213,7 @@ $data = scanPath();//echo'<pre>';var_dump($data);echo'</pre>';DIE
 		    }
 		    sidebar {
 			    background-color: rgba(255, 255, 255, .93875);
-			    border-bottom-right-radius: 3px;	
+			    border-bottom-right-radius: 3px;
 			    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
 			    left: -<?=SIDEBAR_WIDTH?>px;
 			    opacity: .125;
@@ -297,7 +297,7 @@ $data = scanPath();//echo'<pre>';var_dump($data);echo'</pre>';DIE
 					});
 					jQuery('sidebar > a').attr('href', href);
 				});
-				
+
 				jQuery('.toggler').on('click', function() {
 					var rel = jQuery(this).attr('rel');
 					jQuery(this).toggleClass('active');

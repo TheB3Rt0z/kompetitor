@@ -43,6 +43,16 @@ table {
 	width: 100%;
 }
 
+h1 {
+	font-size: 1.25em;
+	margin: 0 0 1.5%;
+}
+
+h2 {
+	font-size: 1em;
+	margin: 0 0 .75%;
+}
+
 p {
 	line-height: 1.5em;
 	margin: 0 0 1.5%;
@@ -417,6 +427,24 @@ footer td.debug:hover {
 }
 .content.log .body table td .error {
     color: #a00;
+}
+
+.list {
+	list-style-type: none;
+	margin: 0;
+    padding: 0;
+}
+.list.tables-and-appendices > li > span {
+	display: none;
+}
+.list.tables-and-appendices > li > span > a {
+    float: right;
+}
+.list.tables-and-appendices > li ul {
+	display: block;
+	list-style-type: disc;
+    margin: 0 0 1.5% 1.5%;
+    padding: 0;
 }
 
 .separator {

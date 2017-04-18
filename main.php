@@ -13,7 +13,7 @@ use Symfony\Component\Yaml as yaml; // https://symfony.com/doc/current/component
 $yaml_parser = new yaml\Parser; // https://symfony.com/doc/current/components/yaml/index.html
 
 require_once "includes/parsedown.php/Parsedown.php"; // https://github.com/erusev/parsedown/wiki/Tutorial:-Get-Started
-$md_parser = new Parsedown(); // https://guides.github.com/features/mastering-markdown/
+//$md_parser = new Parsedown(); // https://guides.github.com/features/mastering-markdown/
 // https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 // https://daringfireball.net/projects/markdown/syntax
 // http://markdown.de/
@@ -46,6 +46,7 @@ class Main {
 
 	private $_dbat = 'pjv6hedPbCEAAAAAAAARWxUKv1D1fZf2HxPeyzI7Ca4P-eZI3p1nCmuqbo1tORJN', // dropbox access token
 			$_dbcl = null,
+			$_mdpd = null,
 			$_post = null;
 
 	private static $_logs = array();
@@ -63,6 +64,9 @@ class Main {
 
 		if ($this->isLogged()) {
 			$this->_dbcl = new dbx\Client($this->_dbat, 'PHP-Example/1.0');
+
+			$this->_mdpd = new Parsedown();
+			$this->_mdpd->setBreaksEnabled(true);
 
 			$this->_post = $this->_retrieveData();
 			if (!isset($_SESSION['post']))
@@ -567,6 +571,10 @@ class Main {
 					}
 					//case 'posture-selftest': {
 					//case 'unlocked-achievements': {
+					case 'tables-and-appendices': {
+					    include 'tanda.php'; // standalone module experiment
+					    break;
+					}
 					case 'bibliography': {
 						echo str_replace('\n', '<br />', APPLICATION_BIBLIOGRAPHY);
 						break;
@@ -582,6 +590,12 @@ class Main {
 		</div>
 		<?php
 	}
+
+
+    function parseDown($text) {
+
+	    return $this->_mdpd->text($text);
+    }
 
 
 	static function getVersion($base = 9999) { // base should be set on first release
