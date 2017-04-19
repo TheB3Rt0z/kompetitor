@@ -1,6 +1,25 @@
-<?php include_once 'head.php' ?>
+<?php $test = @include_once 'init.php';
 
-<?php
+if (!$test) {
+    $test = require_once '../init.php';
+    if ($test === 1) {
+        include_once '../head.php';
+        ?>
+        <style type="text/css">
+            body {
+                padding: 1%;
+            }
+        </style>
+        <?php
+    }
+    else
+        include_once 'head.php';
+}
+else
+    include_once 'head.php';
+
+if (!isset($main))
+    $main = $this;
 
 $distances = array(
 	'5km' => 5,
@@ -56,7 +75,7 @@ if (ob_start()) {
 		</table>
 	</fieldset>
 	<?php
-	if (!$this->is_mobile)
+	if (!$this->is_mobile && $test !== 1)
 		file_put_contents('./tables/riegel-calculator.htm', file_get_contents('head.php') . ob_get_contents() . file_get_contents('footer.php'));
 	ob_end_flush();
 }

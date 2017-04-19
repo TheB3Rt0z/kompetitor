@@ -151,6 +151,38 @@ class Main {
 	}
 
 
+    private function _processBertozCalculator() {
+
+		if (($_SESSION['status'] <= 1)
+			&& ((!empty($this->_post['bertoz_calculator']['distance']) && $this->_post['bertoz_calculator']['distance'] != BOH)
+				&& (!empty($this->_post['bertoz_calculator']['time']) && $this->_post['bertoz_calculator']['time'] != BOH))) {
+
+			$calculator['distance'] = $this->_setPost(str_replace(',', '.', $this->_post['riegel_calculator']['distance']),
+				                                      'bertoz_calculator', 'distance');
+		    $calculator['time'] = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->_post['bertoz_calculator']['time'])));
+
+			$calculator['speed'] = $this->_setPost(date('i:s', round($calculator['time']->format('U') / $calculator['distance'])),
+							                       'bertoz_calculator', 'speed');
+
+			if (isset($this->_post['bertoz_calculator']['distances'])) {
+    			foreach ($this->_post['bertoz_calculator']['distances'] as $key => $distance) {
+
+    				$forecast = round($calculator['time']->format('U') * pow($distance / $calculator['distance'], 1.06)) - 3600;
+
+    				$calculator['forecasts'][$key] = $this->_setPost(ltrim(date('H:i:s', $forecast), "0:"),
+    								                                 'bertoz_calculator', 'forecasts', $key);
+
+    				$speed_time = new DateTime(date('1970-01-01\TH:i:s+0:00', $forecast));
+    				$calculator['forespeed'][$key] = $this->_setPost(ltrim(date('i:s', ($speed_time->format('U') / $distance)), "0"),
+    								                                 'bertoz_calculator', 'forespeed', $key);
+    			}
+			}
+
+			return $calculator;
+		}
+	}
+
+
 	private function _processRiegelCalculator() {
 
 		if (($_SESSION['status'] <= 1)
@@ -193,6 +225,7 @@ class Main {
 		$this->age['years'] = $this->_processAge('years', true);
 		$this->mediated_weekly_weight = $this->_processMediatedWeeklyWeight();
 		// ...
+		$this->bertoz_calculator = $this->_processBertozCalculator();
 		$this->riegel_calculator = $this->_processRiegelCalculator();
 
 		// metabolism calculation
@@ -382,18 +415,6 @@ class Main {
 					        'processed_physiological_data', 'aerobic_threshold');
 			$this->_setPost(number_format($this->real_fcmax * 0.925, 1),
 					        'processed_physiological_data', 'lactate_threshold');
-		}
-
-		// bertoz calculator procedures
-		if (($_SESSION['status'] <= 1)
-				&& (!empty($this->_post['bertoz_calculator']['time']) && $this->_post['bertoz_calculator']['time'] != BOH)
-				&& (!empty($this->_post['bertoz_calculator']['distance']) && $this->_post['bertoz_calculator']['distance'] != BOH)) {
-			$time = new DateTime(date('1970-01-01\TH:i:s+00:00', strtotime($this->_post['bertoz_calculator']['time'])));
-			$distance = $_POST['bertoz_calculator']['distance'] = $this->_setPost(str_replace(',', '.', $this->_post['bertoz_calculator']['distance']),
-					                                                              'bertoz_calculator', 'distance');
-			$speed = round($time->format('U') / $distance);
-			$this->bertoz_calculator['speed'] = $this->_setPost(date('i:s', $speed),
-					                                            'bertoz_calculator', 'speed');
 		}
 	}
 
@@ -601,7 +622,7 @@ class Main {
 	static function getVersion($base = 9999) { // base should be set on first release
 
 		if (function_exists('popen')) {
-			$dir = popen('/usr/bin/du -sk .', 'r');
+			$dir = popen('/usr/bin/du -sk ' . $_SERVER['DOCUMENT_ROOT'], 'r');
 			$size = $status = fgets($dir, 4096);
 			$size = substr($size, 0, strpos($size, "\t"));
 			$size = ($size - ($base ? $base : $status)) / 1024; // 100

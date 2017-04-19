@@ -14,7 +14,7 @@ define('CURRENT_LANGUAGE', $main->getPost('settings', 'language') != BOH
 
 global $intl, $shorts, $shorts_refs, $links; // translation engine
 $shorts = $shorts_refs = array();
-$keys = $yaml_parser->parse(file_get_contents('statics/strings.yml'));
+$keys = $yaml_parser->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/statics/strings.yml'));
 
 if (Main::getVersion() != 'LIVE')
     $language = fopen(CURRENT_LANGUAGE. '.txt', 'w+b');

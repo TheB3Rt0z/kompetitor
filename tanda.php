@@ -1,7 +1,15 @@
 <?php
 
 $test = require_once 'init.php';
+
 include_once 'head.php';
+
+if (!isset($main))
+    $main = $this;
+
+?>
+
+<?php
 if ($test === 1) {
     ?>
     <style type="text/css">
@@ -11,7 +19,6 @@ if ($test === 1) {
     </style>
     <?php
 }
-
 ?>
 
 <ul class="list tables-and-appendices">
@@ -23,7 +30,7 @@ if ($test === 1) {
                 <?php echo str_replace(array('texts/' . CURRENT_LANGUAGE, '.md'), '', $md_file) ?>
             </a>
             <span>
-                <?php echo isset($main) ? $main->parseDown(file_get_contents($md_file)) : $this->parseDown(file_get_contents($md_file)) ?>
+                <?php echo $main->parseDown(file_get_contents($md_file)) ?>
                 <a href="Javascript:;"><?php echo trnslt('index') ?></a>
             </span>
         </li>
@@ -46,3 +53,4 @@ if ($test === 1) {
         links.show(delay);
     });
 </script>
+
