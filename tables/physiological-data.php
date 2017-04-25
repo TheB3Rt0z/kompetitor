@@ -117,11 +117,11 @@ if (ob_start()) {
 				<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][m]" value="<?php echo $this->getPost('processed_physiological_data', 'speed_expectations', 'm') ?>" readonly disabled /></td>
 			</tr>
 			<tr>
-				<td class="a-left"><?php echo trnslt('CM') ?>:</td>
+				<td class="a-left"><?php echo trnslt('MR') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cm]" value="<?php echo $this->getPost('processed_physiological_data', 'speed_expectations', 'cm') ?>" readonly disabled /></td>
-				<td class="a-left"><?php echo trnslt('CL') ?>:</td>
+				<td class="a-left"><?php echo trnslt('LR') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][cl]" value="<?php echo $this->getPost('processed_physiological_data', 'speed_expectations', 'cl') ?>" readonly disabled /></td>
-				<td class="a-left"><?php echo trnslt('LL') ?>:</td>
+				<td class="a-left"><?php echo trnslt('ELR') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[speed_expectations][ll]" value="<?php echo $this->getPost('processed_physiological_data', 'speed_expectations', 'll') ?>" readonly disabled /></td>
 			</tr>
 		</table>
@@ -152,13 +152,13 @@ if (ob_start()) {
 		<legend><?php echo ucfirst(trnslt('shoes size')) ?></legend>
 		<table>
 			<tr>
-				<td class="a-left"><?php echo strtoupper(trnslt('cm')) ?>:</td>
+				<td class="a-left"><?php echo trnslt('cm') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][cm]" value="<?php echo $this->getPost('processed_physiological_data', 'shoes_size', 'cm') ?>" readonly disabled /></td>
-				<td class="a-left"><?php echo strtoupper(trnslt('usa')) ?>:</td>
+				<td class="a-left"><?php echo trnslt('USA') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][usa]" value="<?php echo $this->getPost('processed_physiological_data', 'shoes_size', 'usa') ?>" readonly disabled /></td>
-				<td class="a-left"><?php echo strtoupper(trnslt('uk')) ?>:</td>
+				<td class="a-left"><?php echo trnslt('UK') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][uk]" value="<?php echo $this->getPost('processed_physiological_data', 'shoes_size', 'uk') ?>" readonly disabled /></td>
-				<td class="a-left"><?php echo strtoupper(trnslt('eu')) ?>:</td>
+				<td class="a-left"><?php echo trnslt('EU') ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][eu]" value="<?php echo $this->getPost('processed_physiological_data', 'shoes_size', 'eu') ?>" readonly disabled /></td>
 				<td class="a-right">
 					ISO/Techfit:

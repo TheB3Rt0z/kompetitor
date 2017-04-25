@@ -333,7 +333,7 @@ class Main {
 				}
 			}
 		}
-
+Main::addIdea('add a checkbox to stored pb and actual personals to include them or not in expected speed calculation');
 		// reference speed calculation + some speed expectations
 		if (!empty($this->distances_and_records['10km'])
 				&& !empty($this->distances_and_records['10++'])
@@ -358,12 +358,12 @@ class Main {
 					                                          'processed_physiological_data', 'speed_expectations', 'hm'); // from Fulvio Massini
 			$this->speed_expectations['M'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.075)), "0"),
 					                                         'processed_physiological_data', 'speed_expectations', 'm'); // from corroergosum.it
-			$this->speed_expectations['CM'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.125)), "0"),
-					                                          'processed_physiological_data', 'speed_expectations', 'cm'); // from corroergosum.it
-			$this->speed_expectations['CL'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.175)), "0"),
-					                                          'processed_physiological_data', 'speed_expectations', 'cl'); // from corroergosum.it
-			$this->speed_expectations['LL'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.225)), "0"),
-					                                          'processed_physiological_data', 'speed_expectations', 'll'); // from corroergosum.it
+			$this->speed_expectations['MR'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.125)), "0"),
+					                                          'processed_physiological_data', 'speed_expectations', 'mr'); // from corroergosum.it
+			$this->speed_expectations['LR'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.175)), "0"),
+					                                          'processed_physiological_data', 'speed_expectations', 'lr'); // from corroergosum.it
+			$this->speed_expectations['ELR'] = $this->_setPost(ltrim(date('i:s', round($rs * 1.225)), "0"),
+					                                           'processed_physiological_data', 'speed_expectations', 'elr'); // from corroergosum.it
 		}
 
 		// fingerprint generation

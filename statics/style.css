@@ -377,7 +377,7 @@ footer td.debug:hover {
 }
 .content .body table td input[readonly] {
     background-color: var(--text-lighter);
-    padding: 3px 4px 3.25px;
+    padding: 3px; /*3px 4px 3.25px;*/
 }
 .content .body table td input.boh {
     background-color: var(--text-links);
