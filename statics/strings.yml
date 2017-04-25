@@ -1,4 +1,5 @@
 "10++":
+    DE: "10++"
     IT: "10++"
 "100km":
     IT: "100 Km"
@@ -228,7 +229,7 @@
 "finishing":
     IT: "defaticamento"
 "first name":
-    DE: "Name"
+    DE: "Vorname"
     IT: "nome"
 "fish":
     DE: "Fisch"
@@ -316,6 +317,7 @@
     DE: "Sprache"
     IT: "lingua"
 "last name":
+    DE: "Nachname"
     IT: "cognome"
 "lateral flyes":
     IT: "volate laterali"
