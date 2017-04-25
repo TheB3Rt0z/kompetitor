@@ -14,6 +14,8 @@
     IT: "<sup>1</sup>/<sub>3</sub> M"
 "25km":
     IT: "25 Km"
+"2/3M":
+    IT: "<sup>2</sup>/<sub>3</sub> M"
 "3/4M":
     IT: "<sup>3</sup>/<sub>4</sub> M"
 "50km":
@@ -304,9 +306,9 @@
     IT: "ginocchia al petto (gamba SX, con rotazione del piede)"
 "knee to chest (right leg, with rotation of the foot)":
     IT: "ginocchia al petto (gamba DX, con rotazione del piede)"
-"Kompetitor":
-    DE: "Kompetitor"
-    IT: "Kompetitor"
+"[K]ompetitor":
+    DE: "[K]ompetitor"
+    IT: "[K]ompetitor"
 "lactate threshold":
     IT:
         string: "soglia del lattato"

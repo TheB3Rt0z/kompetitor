@@ -157,7 +157,7 @@ class Main {
 			&& ((!empty($this->_post['bertoz_calculator']['distance']) && $this->_post['bertoz_calculator']['distance'] != BOH)
 				&& (!empty($this->_post['bertoz_calculator']['time']) && $this->_post['bertoz_calculator']['time'] != BOH))) {
 
-			$calculator['distance'] = $this->_setPost(str_replace(',', '.', $this->_post['riegel_calculator']['distance']),
+			$calculator['distance'] = $this->_setPost(str_replace(',', '.', $this->_post['bertoz_calculator']['distance']),
 				                                      'bertoz_calculator', 'distance');
 		    $calculator['time'] = new DateTime(date('1970-01-01\TH:i:s+0:00', strtotime($this->_post['bertoz_calculator']['time'])));
 
@@ -165,9 +165,12 @@ class Main {
 							                       'bertoz_calculator', 'speed');
 
 			if (isset($this->_post['bertoz_calculator']['distances'])) {
+
+			    $bertoz_coefficient = 1.075;
+
     			foreach ($this->_post['bertoz_calculator']['distances'] as $key => $distance) {
 
-    				$forecast = round($calculator['time']->format('U') * pow($distance / $calculator['distance'], 1.06)) - 3600;
+    				$forecast = round($calculator['time']->format('U') * pow($distance / $calculator['distance'], $bertoz_coefficient)) - 3600; //
 
     				$calculator['forecasts'][$key] = $this->_setPost(ltrim(date('H:i:s', $forecast), "0:"),
     								                                 'bertoz_calculator', 'forecasts', $key);

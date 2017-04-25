@@ -101,7 +101,7 @@ function trnslt($string, $uses_shorts = true) {
 }
 
 define('TRNSLT_KEYS', count($keys));
-define('APPLICATION_NAME', "Kompetitor");
+define('APPLICATION_NAME', "[K]ompetitor");
 define('APPLICATION_TITLE', trnslt(APPLICATION_NAME) . " v" . Main::getVersion());
 define('APPLICATION_COPYRIGHT', APPLICATION_TITLE . ", Copyright © " . date('Y') . " Bertozzi Matteo");
 define('APPLICATION_BIBLIOGRAPHY', "- Andiamo a Correre (Fulvio Massini, 2012)" . "\\n"

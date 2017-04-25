@@ -172,6 +172,7 @@ footer td.debug:hover {
     width: 76%;
 }
 .content.login img {
+	max-height: 414px;
 	max-width: 99%;
 }
 .content.login div {
