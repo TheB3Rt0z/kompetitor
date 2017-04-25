@@ -28,6 +28,7 @@ body {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: .75em;
 	font-weight: 100;
+	letter-spacing: -.333px;
 	margin: 0;
 	overflow-x: hidden;
 	padding: 0;
@@ -361,7 +362,7 @@ footer td.debug:hover {
 	border: none;
 	border-radius: 3px;
 	float: right;
-	padding: 2px 4px;
+	padding: 2px; /*2px 4px;*/
 	text-align: right;
     width: 87%;
 }
@@ -372,12 +373,12 @@ footer td.debug:hover {
 .content .body table td input[type=number] {
     border: none;
     border-radius: 3px;
-    padding: 2px 4px;
+    padding: 2px; /*2px 4px;*/
     width: 21%;
 }
 .content .body table td input[readonly] {
     background-color: var(--text-lighter);
-    padding: 3px; /*3px 4px 3.25px;*/
+    /*padding: 3px 4px 3.25px;*/
 }
 .content .body table td input.boh {
     background-color: var(--text-links);
