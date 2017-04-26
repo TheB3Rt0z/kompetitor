@@ -33,7 +33,7 @@
 						<tr>
 							<td class="a-left"><?php echo ucfirst(trnslt('language')) ?>:</td>
 							<td class="a-center">
-								<select name="settings[language]">
+								<select name="settings[language]" id="settings-language">
 									<option value="MN">EN (machine native)</option>
 									<?php
 									foreach ($languages as $language => $translations) {

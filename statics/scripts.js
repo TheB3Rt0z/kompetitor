@@ -30,27 +30,39 @@ jQuery(function() {
 	decorate(); // actually just adding "boh" class to unknown form elements
 	
 	jQuery('header .button.nav').bind('click', function() {
+		
 		jQuery(this).hide(delay);
+		
 		jQuery('header nav').show(delay);
 	});
 	
 	jQuery('header nav').bind('mouseleave click', function() {
+		
 		hideMobileNav();
 	});
 	
 	jQuery('header th nav .button.settings').bind('click', function() {
+		
 		jQuery('.content.settings').show(delay);
 	});
 	
 	jQuery('.content .header').bind('click', function() {
+		
 		jQuery(this).siblings('.body').toggle(delay);
 		jQuery(this).parent().toggleClass('closed');
+		
 		var input = jQuery(this).siblings('input');
 		input.val(input.val() == BOH ? 'closed' : BOH);
+		
 		if (!jQuery(this).parent().hasClass('closed'))
-			//jQuery(window).scrollTop(jQuery(this).parent().offset().top);
+//jQuery(window).scrollTop(jQuery(this).parent().offset().top); // scroll without animation
 			jQuery('html, body').animate({
 		          scrollTop: jQuery(this).parent().offset().top
 	        }, delay);
+	});
+	
+	jQuery('#settings-language').on('change', function() {
+		
+		jQuery('form#main').submit();
 	});
 });
