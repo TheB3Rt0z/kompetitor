@@ -166,11 +166,9 @@ class Main {
 
 			if (isset($this->_post['bertoz_calculator']['distances'])) {
 
-			    $bertoz_coefficient = 1.075;
+			    foreach ($this->_post['bertoz_calculator']['distances'] as $key => $distance) {
 
-    			foreach ($this->_post['bertoz_calculator']['distances'] as $key => $distance) {
-
-    				$forecast = round($calculator['time']->format('U') * pow($distance / $calculator['distance'], $bertoz_coefficient)) - 3600; //
+    				$forecast = round($calculator['time']->format('U') * pow($distance / $calculator['distance'], BERTOZ_COEFFICIENT)) - 3600;
 
     				$calculator['forecasts'][$key] = $this->_setPost(ltrim(date('H:i:s', $forecast), "0:"),
     								                                 'bertoz_calculator', 'forecasts', $key);

@@ -6,6 +6,8 @@ define('DEFAULT_LANGUAGE', "IT");
 define('DATA_FILE', '.data');
 define('USERS_FILE', '.users');
 
+define('BERTOZ_COEFFICIENT', 1.123); // kommt die Polizei
+
 $main = new Main;
 
 define('CURRENT_LANGUAGE', $main->getPost('settings', 'language') != BOH
