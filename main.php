@@ -620,10 +620,11 @@ Main::addIdea('add a checkbox to stored pb and actual personals to include them 
     }
 
 
-	static function getVersion($base = 9999) { // base should be set on first release
+	static function getVersion($base = 666) { // base should be set on first release
 
 		if (function_exists('popen')) {
-			$dir = popen('/usr/bin/du -sk ' . $_SERVER['DOCUMENT_ROOT'], 'r');
+			$dir = popen('/usr/bin/du -sk -I bckps -I ideas -I .git '
+			           . $_SERVER['DOCUMENT_ROOT'], 'r');
 			$size = $status = fgets($dir, 4096);
 			$size = substr($size, 0, strpos($size, "\t"));
 			$size = ($size - ($base ? $base : $status)) / 1024; // 100
