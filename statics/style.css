@@ -2,6 +2,8 @@
   --bg-color-light: rgba(255, 51, 0, 1);
   --bg-color-middle: rgba(240, 166, 17, 0); /* ATM no effect on mozilla */
   --bg-color-dark: rgba(221, 51, 0, 1);
+  --text-darker: #000;
+  --text-dark: #333;
   --text-color: #666;
   --text-light: #999;
   --text-lighter: #ccc;
@@ -378,6 +380,7 @@ footer td.debug:hover {
 }
 .content .body table td input[readonly] {
     background-color: var(--text-lighter);
+    color: var(--text-dark);
     /*padding: 3px 4px 3.25px;*/
 }
 .content .body table td input.boh {
