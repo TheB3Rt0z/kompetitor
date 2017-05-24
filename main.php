@@ -144,7 +144,7 @@ class Main {
 
 			if (!empty($daily_weighing)) { // if at least one element is available
 				if ($mediated_weekly_weight = array_sum($daily_weighing) / count($daily_weighing))
-					return $this->_setPost(number_format($mediated_weekly_weight, 3),
+					return $this->_setPost(number_format($mediated_weekly_weight, 1),
 						                   'processed_physiological_data', 'mediated_weekly_weight');
 			}
 		}

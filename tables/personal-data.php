@@ -14,7 +14,7 @@ if (ob_start()) {
 				<td class="a-right"><input type="text" name="personal_data[last_name]" value="<?php echo $this->getPost('personal_data', 'last_name') ?>" /></td>
 				<?php if ($this->is_mobile) echo '</tr><tr>' ?>
 				<td class="a-left"><?php echo ucfirst(trnslt('date of birth')) ?>:</td>
-				<td class="a-right" colspan="<?php echo $this->is_mobile ? 1 : 2 ?>"><input type="text" name="personal_data[date_of_birth]" value="<?php echo $this->getPost('personal_data', 'date_of_birth') ?>" title="<?php echo trnslt('format: dd mon yyyy') ?>" /></td>
+				<td class="a-right" colspan="<?php echo $this->is_mobile ? 1 : 2 ?>"><input type="text" name="personal_data[date_of_birth]" value="<?php echo $this->getPost('personal_data', 'date_of_birth') ?>" title="<?php echo trnslt('format: dd mm yyyy') ?>" /></td>
 			</tr>
 			<tr>
 				<td class="a-left"><?php echo ucfirst(trnslt('height')) ?> (in cm):</td>

@@ -261,8 +261,8 @@
     IT: "in formato ###.#"
 "format: (h)h:mm:ss":
     IT: "in formato (h)h:mm:ss"
-"format: dd mon yyyy":
-    IT: "in formato gg mes aaaa"
+"format: dd mm yyyy":
+    IT: "in formato gg mm aaaa"
 "fruit":
     DE: "Frucht"
     IT: "frutto"
