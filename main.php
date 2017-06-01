@@ -90,6 +90,7 @@ class Main {
 					$_SESSION['status'] = $user_array[0];
 					$_SESSION['username'] = ucfirst($username);
 					$_SESSION['id'] = md5($user);
+					$_SESSION['language'] = $user_array[3];
 				}
 			}
 		}

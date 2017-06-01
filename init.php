@@ -10,8 +10,13 @@ define('BERTOZ_COEFFICIENT', 1.123); // kommt die Polizei
 
 $main = new Main;
 
-define('CURRENT_LANGUAGE', $main->getPost('settings', 'language') != BOH
-		                   ? $main->getPost('settings', 'language')
+$current_language = $main->getPost('settings', 'language');
+
+if (($current_language == BOH) && isset($_SESSION['language']))
+    $current_language = $_SESSION['language'];
+
+define('CURRENT_LANGUAGE', $current_language != BOH
+		                   ? $current_language
 		                   : DEFAULT_LANGUAGE);
 
 global $intl, $shorts, $shorts_refs, $links; // translation engine
