@@ -139,13 +139,13 @@ class Main {
 		if (!empty($this->_post['personal_data']['daily_weighing'])) {
 			$daily_weighing = array_filter($this->_post['personal_data']['daily_weighing'], function(&$value) {
 				return $value != BOH
-				       ? $value = number_format(str_replace(',', '.', $value), 1)
+				       ? $value = str_replace(',', '.', $value)
 				       : false;
 			});
 
 			if (!empty($daily_weighing)) { // if at least one element is available
 				if ($mediated_weekly_weight = array_sum($daily_weighing) / count($daily_weighing))
-					return $this->_setPost(number_format($mediated_weekly_weight, 1),
+					return $this->_setPost($mediated_weekly_weight,
 						                   'processed_physiological_data', 'mediated_weekly_weight');
 			}
 		}
@@ -283,7 +283,7 @@ class Main {
 				$ideal_weight = ($this->broca_ideal_weight
 						      + $this->lorentz_ideal_weight
 						      + $this->perrault_ideal_weight) / 3;
-				$this->ideal_weight = $this->_setPost(number_format($ideal_weight, 3),
+				$this->ideal_weight = $this->_setPost($ideal_weight,
 						                              'processed_physiological_data', 'ideal_weight');
 			}
 		}
