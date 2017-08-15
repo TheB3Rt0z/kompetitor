@@ -1,13 +1,5 @@
-/.project
-/.data
+/.data-*
 /.htaccess
 /.htpasswd
-/.data.bckp
-/.data-7ade94b8d21a97ad57a1c8dc737d091d
-/.data-b89552addfe444a8779f7d98bbe9e92a
-/.data-9b72d57ddabd4e0c15e6a540b191d417
+/.project
 /*.txt
-/i-ways/
-/.data-e4ec808846091906157f5af9c7c073d5
-/.data-b89a01db964fbd82c68a52d5e62bf226
-/.data-c2186ab5dc3f64f2d4aff235faf3f3fa
