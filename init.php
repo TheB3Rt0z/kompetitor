@@ -2,7 +2,7 @@
 
 setlocale(LC_TIME, 'ita', 'it_IT.utf8'); // only for dates
 
-define('DEFAULT_LANGUAGE', "IT");
+define('DEFAULT_LANGUAGE', "IT"); Main::addTodo('check if it is really possibile to change language, and to save its setting..');
 define('DATA_FILE', '.data');
 define('USERS_FILE', '.users');
 
