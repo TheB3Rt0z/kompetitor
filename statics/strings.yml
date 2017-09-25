@@ -245,6 +245,8 @@
         string: "lunghezza del piede LP"
         short: "LP"
         def: "È la massima distanza orizzontale (rigorosamente in cm) dal centro della parte posteriore del tallone all'estremità del dito più sporgente, misurata mentre il soggetto è in posizione eretta con il peso equamente distribuito tra i due piedi.\nN.B.: Le dimensioni del piede sinistro e di quello destro sono spesso leggermente diverse e in questo caso entrambi i piedi sono misurati e le scarpe sono scelte sulla base della misura del piede più grande!"
+"forecast based on coefficient":
+    IT: "previsioni basate sul coefficiente"
 "fri":
     IT: "ven"
 "frontal concave bridge (static)":

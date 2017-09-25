@@ -6,7 +6,7 @@ define('DEFAULT_LANGUAGE', "IT"); Main::addTodo('check if it is really possibile
 define('DATA_FILE', '.data');
 define('USERS_FILE', '.users');
 
-define('BERTOZ_COEFFICIENT', 1.123); // kommt die Polizei
+define('BERTOZ_COEFFICIENT', 1.07654321); // kommt die Polizei
 
 $main = new Main;
 

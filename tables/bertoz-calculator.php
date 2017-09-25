@@ -52,8 +52,8 @@ if (ob_start()) {
 			<td class="a-right"><?php echo submit() ?></td>
 		</table>
 	</fieldset>
-	<br />
 	<fieldset>
+	    <legend><?php echo ucfirst(trnslt('forecast based on coefficient')) ?> <? echo BERTOZ_COEFFICIENT ?></legend>
 		<table>
 			<tr>
 				<?php
