@@ -24,7 +24,7 @@ $exercises = array(
 
 	"angles handling (overturned)" => $grade . "s|" . $grade,
 
-	"lumbar pulls (overturned)" => $grade * 2 . "s|" . $grade * 2,
+	"lumbar pulls (overturned)" => $grade * 2 . "s|" . $grade,
 	"lumbar pulls (with crossed legs)" => $grade . "s|" . $grade,
 	"boot vibrations (static)" => $grade * 2 . "s|" . $grade * 2,
 	"rear L bridge (neck down)" => $grade * 2 . "s|" . $grade * 2,
