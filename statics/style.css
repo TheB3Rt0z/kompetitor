@@ -401,6 +401,9 @@ footer td.debug:hover {
     display: block;
     padding: 5px;
 }
+.content .body table.graph td:last-child span {
+	background-color: var(--text-links) !important;
+}
 
 .content.log {
 	/*box-shadow: 0 0 10px crimson inset;*/
