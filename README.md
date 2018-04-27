@@ -1,1 +1,1 @@
-# [K]ompetitor v2.19
+# [K]ompetitor v8.33

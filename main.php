@@ -224,7 +224,7 @@ class Main {
 	private function _process() { // internal variables returning null if processing was not successful
 
 		$this->height = $this->_processHeight();
-		$this->age['years'] = $this->_processAge('years', true);
+		$this->age['years'] = str_replace(',', '.', $this->_processAge('years', true));
 		$this->mediated_weekly_weight = $this->_processMediatedWeeklyWeight();
 		// ...
 		$this->bertoz_calculator = $this->_processBertozCalculator();
@@ -468,7 +468,15 @@ Main::addIdea('add a checkbox to stored pb and actual personals to include them 
 		unset($post['width'], $post['v-pos'], $post['exercises_for_the_arms']['exercises']); // excluding from synchronization
 
 		if ($_SESSION['post'] != $post) {
-			file_put_contents(DATA_FILE . "-" . $_SESSION['id'], base64_encode(serialize($post)));
+
+		    $data = base64_encode(serialize($post));
+
+			file_put_contents(DATA_FILE . "-" . $_SESSION['id'], $data);
+
+			if ($_SESSION['username'] == 'Bertoz') {
+
+			    file_put_contents("bckps/data-" . $_SESSION['username'] . "-" . date('Y-m-d'), $data);
+			}
 
 			$data = fopen(DATA_FILE . "-" . $_SESSION['id'], 'rb'); // read only binary
 			if (!empty($post)) { // not saving in dropbox if file was inexplicably truncated

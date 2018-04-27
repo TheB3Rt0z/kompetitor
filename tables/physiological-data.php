@@ -132,8 +132,8 @@ if (ob_start()) {
 				foreach ($distances as $key => $distance) {
 					$speed = $this->getPost('distances_and_records', $distance, 'speed');
 					$last_speed = $this->getPost('distances_and_records', $distance, 'last_speed');
-					$overhead = $speed - $last_speed;
 					if (($this->getPost('distances_and_records', $distances[$key], 'speed') != BOH)) {
+					    $overhead = $speed - $last_speed;
 						?>
 						<td>
 							<span style="border-top:solid <?php echo round($overhead * 10) ?>px black; height: <?php echo round(($speed - 11) * 10) ?>px<?php if ($speed <= $this->getPost('distances_and_records', $distances[$key + 1], 'speed')) echo '; background-color: crimson' ?><?php if ($this->getPost('distances_and_records', $distances[$key], 'speed') == BOH) echo '; background-color: black' ?>">
