@@ -26,9 +26,11 @@ if (($main->isLogged() && $_SESSION['status'] == 0) && Main::hasLogs()) {
 <div id="loader"><img src="/statics/loader-120x120.gif" /></div>
 
 <script type="text/javascript">
-    jQuery(function() {
-
-	    var form = jQuery('form#main');
+    jQuery(function()
+    {
+	    var form = jQuery('form#main')/*,
+	        footer_container = jQuery('.footer'),
+	        garmin_iframe = jQuery('.footer > iframe')*/;
 
 	    form.on('submit', function() {
 	    	jQuery('#loader').fadeIn(125);
@@ -46,9 +48,16 @@ if (($main->isLogged() && $_SESSION['status'] == 0) && Main::hasLogs()) {
 	    	form.children('#v-pos').val(jQuery(window).scrollTop());
 	    });
 
+	    /*garmin_iframe.on('load', function ()
+	    {
+		    jQuery(this).width(footer_container.width());
+	    });*/
+
 	    <?php
 	    if ($main->getPost('width') == BOH)
+	    {
 	    	echo "form.submit();";
+	    }
 	    ?>
     });
 </script>

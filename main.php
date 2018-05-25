@@ -283,7 +283,7 @@ class Main {
 				$ideal_weight = ($this->broca_ideal_weight
 						      + $this->lorentz_ideal_weight
 						      + $this->perrault_ideal_weight) / 3;
-				$this->ideal_weight = $this->_setPost($ideal_weight,
+				$this->ideal_weight = $this->_setPost(number_format($ideal_weight, 3),
 						                              'processed_physiological_data', 'ideal_weight');
 			}
 		}

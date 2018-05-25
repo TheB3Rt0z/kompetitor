@@ -40,6 +40,10 @@
 			</article>
 			<aside></aside>
 		</section>
+        <br />
+		<div class="footer">
+		    <iframe src="https://connect.garmin.com/modern/course/embed/18395347" width="465" height="548" frameborder="0"></iframe>
+	    </div>
 		<!--<footer>
 			<div>
 				<table>
