@@ -425,6 +425,9 @@ footer td.debug:hover {
 	vertical-align: top;
     white-space: normal;
 }
+.content.log .body table td pre {
+    margin: 0;
+}
 .content.log .body table td .idea {
     color: #a0a;
 }
