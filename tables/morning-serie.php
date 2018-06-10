@@ -9,8 +9,8 @@ $grade = $this->getPost('morning_serie', 'grade'); // default value 25
 $exercises = array(
 	"sun salutation (S chain extension)" => $grade . "s|" . $grade,
 	"agile pushups (2 steps in 2s)" => $grade . " x|" . $grade * 2,
-	"straight abdominals (var. legs)" => $grade * 3 . " x|" . $grade * 3 * 5,
-	"leg rollovers (+ iperextension)" => $grade * 2 . "s + " . $grade . "s|" . $grade * 3,
+	"straight abdominals (var. legs)" => $grade * 3 . " x|" . $grade * 3 * 4,
+	"leg rollovers (+ iperextension)" => round($grade * 1.333) . "s + " . round($grade * 1.333) . "s|" . $grade * 2.666,
 
 	"sitting pulls (with straight legs)" => round($grade * 1.333) . "s|" . $grade * 1.333,
 	"sitting pulls (with crossed legs)" => round($grade * 1.333) . "s|" . $grade * 1.333,
@@ -18,13 +18,13 @@ $exercises = array(
 	"egg buttocks (static backwards)" => round($grade * 1.333) . "s|" . $grade * 1.333,
 
 	"right-leg anti-piriform (pushing)" => round($grade * 1.333) . "s|" . $grade * 1.333,
-    "left-leg anti-piriform (pushing)" => round($grade * 1.333) . "s|" . $grade * 1.333,
+        "left-leg anti-piriform (pushing)" => round($grade * 1.333) . "s|" . $grade * 1.333,
 	"agile pushups (---P-P steps in 5s)" => $grade . " x|" . $grade * 5,
-	"alternated crunches (crossed legs)" => $grade . " + " . $grade . " x|" . $grade * 2 * 5,
+	"alternated crunches (crossed legs)" => $grade . " + " . $grade . " x|" . $grade * 2 * 4,
 
 	"angles handling (overturned)" => $grade . "s|" . $grade,
 
-	"lumbar pulls (overturned)" => $grade * 2 . "s|" . $grade,
+	"lumbar pulls (overturned)" => $grade . "s|" . $grade,
 	"lumbar pulls (with crossed legs)" => $grade . "s|" . $grade,
 	"boot vibrations (static)" => $grade * 2 . "s|" . $grade * 2,
 	"rear L bridge (neck down)" => $grade * 2 . "s|" . $grade * 2,
