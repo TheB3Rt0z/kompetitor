@@ -4,7 +4,24 @@
 
 <?php $distances = array('5km', '7.5km', '10km', '10++', '1/3M', '15km', 'HM', '25km', '3/4M', 'M', '50km', '100km', '100mi') ?>
 
-<?php $weight_diff = $this->getPost('processed_physiological_data', 'mediated_weekly_weight') - $this->getPost('processed_physiological_data', 'ideal_weight') ?>
+<?php
+
+$mediated_weekly_weight = $this->getPost('processed_physiological_data', 'mediated_weekly_weight');
+$ideal_weight = $this->getPost('processed_physiological_data', 'ideal_weight');
+
+$weight_diff = (is_float($mediated_weekly_weight) && is_float($ideal_weight))
+               ? number_format($mediated_weekly_weight - $ideal_weight, 3)
+               : BOH;
+
+?>
+
+<?php
+
+$shoes_size_usa = $this->getPost('processed_physiological_data', 'shoes_size', 'usa');
+$shoes_size_uk = $this->getPost('processed_physiological_data', 'shoes_size', 'uk');
+$shoes_size_eu = $this->getPost('processed_physiological_data', 'shoes_size', 'eu');
+
+?>
 
 <?php
 
@@ -15,7 +32,7 @@ if (ob_start()) {
 			<tr>
 				<td class="a-left"><?php echo ucfirst(trnslt('age')) ?>:</td>
 				<td class="a-right"><input type="text" name="processed_physiological_data[age][years]" value="<?php echo $this->getPost('processed_physiological_data', 'age', 'years') ?>" readonly disabled /></td>
-				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('average weight')) ?> (in kg, ATM <strong><?=($weight_diff>=0?'<font color="#a00">+':'<font color="#0a0">').number_format($weight_diff, 3).'</font>'?></strong>):</td>
+				<td class="a-left" colspan="2"><?php echo ucfirst(trnslt('average weight')) ?> (in kg, ATM <strong><?=($weight_diff!=BOH?'<font color="#a00">+':'<font color="#0a0">').$weight_diff.'</font>'?></strong>):</td>
 				<td class="a-right" colspan="2"><input type="text" name="processed_physiological_data[mediated_weekly_weight]" value="<?php echo number_format((float)$this->getPost('processed_physiological_data', 'mediated_weekly_weight'), 3) ?>" readonly disabled /></td>
 			</tr>
 
@@ -162,7 +179,11 @@ if (ob_start()) {
 				<td class="a-right"><input type="text" name="processed_physiological_data[shoes_size][eu]" value="<?php echo $this->getPost('processed_physiological_data', 'shoes_size', 'eu') ?>" readonly disabled /></td>
 				<td class="a-right">
 					ISO/Techfit:
-					<?php echo $this->getPost('processed_physiological_data', 'shoes_size', 'usa') + 0.5 ?>/<?php echo $this->getPost('processed_physiological_data', 'shoes_size', 'uk') + 0.5 ?>/<?php echo round($this->getPost('processed_physiological_data', 'shoes_size', 'eu') * 2) / 2 + 0.5 ?>
+					<?php
+                    echo (is_float($shoes_size_usa) ? $shoes_size_usa + 0.5 : BOH) . '/'
+                       . (is_float($shoes_size_uk) ? $shoes_size_uk + 0.5 : BOH) . '/'
+                       . (is_float($shoes_size_eu) ? round($shoes_size_eu) / 2 + 0.5 : BOH);
+                    ?>
 				</td>
 			</tr>
 		</table>

@@ -41,10 +41,10 @@
 			<aside></aside>
 		</section>
         <br />
-		<div class="footer">
+		<?php /* <div class="footer">
 		    <iframe src="https://connect.garmin.com/modern/course/embed/18395347" width="465" height="548" frameborder="0"></iframe>
 	    </div>
-		<!--<footer>
+		<footer>
 			<div>
 				<table>
 					<tfoot>
@@ -61,4 +61,4 @@
 					</tfoot>
 				</table>
 			</div>
-		</footer>-->
+		</footer> */ ?>

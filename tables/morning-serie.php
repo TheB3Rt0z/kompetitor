@@ -2,38 +2,45 @@
 
 <?php
 
-$speed_second_coefficient = .666;
+$speed_second_coefficient = .71;
 
 $grade = $this->getPost('morning_serie', 'grade'); // default value 25
 
+$single = $grade;
+$double = $grade * 2;
+$triple = $grade * 3;
+$four_thirds = round($grade * 1.333);
+
 $exercises = array(
-	"sun salutation (S chain extension)" => $grade . "s|" . $grade,
-	"agile pushups (2 steps in 2s)" => $grade . " x|" . $grade * 2,
-	"straight abdominals (var. legs)" => $grade * 3 . " x|" . $grade * 3 * 4,
-	"leg rollovers (+ iperextension)" => round($grade * 1.333) . "s + " . round($grade * 1.333) . "s|" . $grade * 2.666,
 
-	"sitting pulls (with straight legs)" => round($grade * 1.333) . "s|" . $grade * 1.333,
-	"sitting pulls (with crossed legs)" => round($grade * 1.333) . "s|" . $grade * 1.333,
-	"frontal concave bridge (static)" => round($grade * 1.333) . "s|" . $grade * 1.333,
-	"egg buttocks (static backwards)" => round($grade * 1.333) . "s|" . $grade * 1.333,
+	"sun salutation (S chain extension)" => $single . "s|" . $single,
+	"agile pushups (2 steps in 2s)" => $single . " x|" . $double,
 
-	"right-leg anti-piriform (pushing)" => round($grade * 1.333) . "s|" . $grade * 1.333,
-        "left-leg anti-piriform (pushing)" => round($grade * 1.333) . "s|" . $grade * 1.333,
-	"agile pushups (---P-P steps in 5s)" => $grade . " x|" . $grade * 5,
-	"alternated crunches (crossed legs)" => $grade . " + " . $grade . " x|" . $grade * 2 * 4,
+	"straight abdominals (var. legs)" => $triple . " x|" . $triple * 4, // 1|1-2-3
+	"leg rollovers (+ iperextension)" => $four_thirds . "s + " . $four_thirds . "s|" . $four_thirds * 2, // sum
 
-	"angles handling (overturned)" => $grade . "s|" . $grade,
+	"sitting pulls (with straight legs)" => $four_thirds . "s|" . $four_thirds,
+	"sitting pulls (with crossed legs)" => $four_thirds . "s|" . $four_thirds,
+	"frontal concave bridge (static)" => $four_thirds . "s|" . $four_thirds,
+	"egg buttocks (static backwards)" => $four_thirds . "s|" . $four_thirds,
+	"right-leg anti-piriform (pushing)" => $four_thirds . "s|" . $four_thirds,
+        "left-leg anti-piriform (pushing)" => $four_thirds . "s|" . $four_thirds,
 
-	"lumbar pulls (overturned)" => $grade . "s|" . $grade,
-	"lumbar pulls (with crossed legs)" => $grade . "s|" . $grade,
-	"boot vibrations (static)" => $grade * 2 . "s|" . $grade * 2,
-	"rear L bridge (neck down)" => $grade * 2 . "s|" . $grade * 2,
+	"agile pushups (---P-P steps in 5s)" => $single . " x|" . $single * 4, // 1-2-3|P|1|P
+	"alternated crunches (crossed legs)" => $single . " + " . $single . " x|" . $double * 4, // 1|1-2-3, alternated SX-DX
 
-	"core pushups (static flat body)" => $grade * 2 . "s|" . $grade * 2,
-	"static pushups (2/3 up and 1/3 down)" => $grade * 2 . "s + " . $grade . "s|" . $grade * 3,
-	//"rear pushes (with widening at half)" => $grade . "s + " . $grade . "s",
-	//"crouching (with balancing)" => $grade . "s", // reduced to single bottom exercise
-	"widening rear pushes and crouching" => round($grade * 1.333) . "s + " . round($grade * 1.333) . "s x|" . $grade * 2.666,
+	"angles handling (overturned)" => $four_thirds . "s|" . $four_thirds,
+	"lumbar pulls (overturned)" => $four_thirds . "s|" . $four_thirds,
+	"lumbar pulls (with crossed legs)" => $four_thirds . "s|" . $four_thirds,
+
+	"boot vibrations (static)" => $four_thirds . "s|" . $four_thirds,
+	"rear L bridge (neck down)" => $four_thirds . "s|" . $four_thirds,
+
+	"core pushups (static flat body)" => $four_thirds . "s|" . $four_thirds,
+	"static pushups (2/3 up and 1/3 down)" => $four_thirds . "s + " . $four_thirds . "s|" . $four_thirds * 2,
+	//"rear pushes (with widening at half)" => $single . "s + " . $single . "s",
+	//"crouching (with balancing)" => $single . "s", // reduced to single bottom exercise
+	"widening rear pushes and crouching" => $four_thirds . "s + " . $four_thirds . "s x|" . $four_thirds * 2,
 );
 
 if (ob_start()) {
