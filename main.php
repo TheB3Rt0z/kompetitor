@@ -38,7 +38,7 @@ class Main {
           CM_TO_FP = 1.5;
 
     static $defaults = array(
-        'postrun_stretching' => ['grade' => 11],
+        'postrun_stretching' => ['grade' => 25],
         'morning_serie' => ['grade' => 25],
         'exercises_for_the_arms' => ['grade' => 25],
         'daily_diet_proposal' => ['grade' => 20], // should be bound with BMR extimations..

@@ -2,7 +2,7 @@
 
 <?php
 
-$speed_second_coefficient = .71;
+$speed_second_coefficient = .7;
 
 $grade = $this->getPost('morning_serie', 'grade'); // default value 25
 
