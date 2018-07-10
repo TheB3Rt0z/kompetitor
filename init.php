@@ -23,8 +23,9 @@ global $intl, $shorts, $shorts_refs, $links; // translation engine
 $shorts = $shorts_refs = array();
 $keys = $yaml_parser->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/statics/strings.yml'));
 
-if (Main::getVersion() != 'LIVE')
-    $language = fopen(CURRENT_LANGUAGE. '.txt', 'w+b');
+if (Main::getVersion() != 'LIVE' && CURRENT_LANGUAGE != 'MN') {
+    $language = fopen('missing-strings-' . CURRENT_LANGUAGE . '.txt', 'w+b');
+}
 
 foreach ($keys as $key => $langs) {
 
@@ -46,7 +47,7 @@ foreach ($keys as $key => $langs) {
                 if (empty($string)) {
                     Main::addNotice("translation for '" . $key . "' not found");
                     $languages[$lang]--;
-                    if (Main::getVersion() != 'LIVE')
+                    if (Main::getVersion() != 'LIVE' && $lang != 'MN')
                         fwrite($language, $key . "\n");
                 }
 
@@ -69,20 +70,22 @@ foreach ($keys as $key => $langs) {
             }
             elseif (empty($string)) {
                 $languages[$lang]--;
-                if (Main::getVersion() != 'LIVE') {
-                    $language_pointer = fopen($lang. '.txt', 'a+b');
+                if (Main::getVersion() != 'LIVE' && $lang != 'MN') {
+                    $language_pointer = fopen($lang . '.txt', 'a+b');
                     fwrite($language_pointer, $key . "\n");
                     fclose($language_pointer);
                 }
             }
         }
     }
-    if (!isset($intl[$key]) && (Main::getVersion() != 'LIVE'))
+    if (!isset($intl[$key]) && (Main::getVersion() != 'LIVE' && isset($language))) {
         fwrite($language, $key . "\n");
+    }
 }
 
-if (Main::getVersion() != 'LIVE')
+if (Main::getVersion() != 'LIVE' && isset($language)) {
     fclose($language);
+}
 
 natcasesort($shorts_refs); // for definition list
 
