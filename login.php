@@ -5,11 +5,11 @@
 					<br />
 					<div>
 						<?php echo strtoupper(trnslt('username')) ?>:
-						<input type="text" name="username" value="<?php echo $main->getPost('username') ?>" />
+						<input type="text" name="username" value="" />
 					</div>
 					<div>
 						<?php echo strtoupper(trnslt('password')) ?>:
-						<input type="password" name="password" value="<?php echo $main->getPost('password') ?>" />
+						<input type="password" name="password" value="" />
 					</div>
 					<div>
 						<?php echo submit('login') ?>
