@@ -14,8 +14,14 @@ $exercises = array(
 	"rapid-fire punches|" . $grade * 2, "hammer-curls|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "90°-pulls|" . round($grade * 1.333),
 
+	"rapid-fire punches|" . $grade * 2, "death wings|" . $grade . " + " . $grade,
+	"rapid-fire punches|" . $grade * 2, "dolby rolls|" . round($grade * 1.333),
+
 	"rapid-fire punches|" . $grade * 2, "straight punches|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "hump-launches|" . round($grade * 2),
+
+	"rapid-fire punches|" . $grade * 2, "async pulls|" . $grade . " + " . $grade,
+	"rapid-fire punches|" . $grade * 2, "double wings|" . round($grade * 1.333),
 
 	"rapid-fire punches|" . $grade * 2, "clawings|" . $grade . " + " . $grade,
 	"rapid-fire punches|" . $grade * 2, "lateral slows|" . round($grade * 1.333),
