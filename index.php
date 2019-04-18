@@ -5,10 +5,11 @@
 			<input type="hidden" name="v-pos" id="v-pos" value="<?=(isset($_POST['v-pos'])?$_POST['v-pos']:'')?>" />
 			<?php
 			include_once 'header.php';
-			if ($main->isLogged())
+			if ($main->isLogged()) {
 				include_once 'section.php';
-			else
+			} else {
 				include_once 'login.php';
+			}
 			?>
 		</form>
 

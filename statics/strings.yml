@@ -2,29 +2,41 @@
     DE: "10++"
     IT: "10++"
 "100km":
+    DE: "100 Km"
     IT: "100 Km"
 "100mi":
+    DE: "100 Mi"
     IT: "100 Mi"
 "10km":
+    DE: "10 Km"
     IT: "10 Km"
 "10mi":
+    DE: "10 Mi"
     IT: "10 Mi"
 "15km":
+    DE: "15 Km"
     IT: "15 Km"
 "1/3M":
+    DE: "<sup>1</sup>/<sub>3</sub> M"
     IT: "<sup>1</sup>/<sub>3</sub> M"
 "25km":
+    DE: "25 Km"
     IT: "25 Km"
 "2/3M":
+    DE: "<sup>2</sup>/<sub>3</sub> M"
     IT: "<sup>2</sup>/<sub>3</sub> M"
 "3/4M":
+    DE: "<sup>3</sup>/<sub>4</sub> M"
     IT: "<sup>3</sup>/<sub>4</sub> M"
 "50km":
+    DE: "50 Km"
     IT: "50 Km"
 "5km":
+    DE: "5 Km"
     IT: "5 Km"
 "7.5km":
-    IT: "7,5 Km" 
+    IT: "7,5 Km"
+    IT: "7,5 Km"
 "90°-openings":
     DE: "90°-Öffnungen"
     IT: "aperture a 90°"
@@ -79,10 +91,12 @@
 "average speed calculation":
     IT: "calcolo della valocità media"
 "average weight":
+    DE: "Durchschnittsgewicht"
     IT: "peso medio"
 "backup FC":
     IT: "FC di riserva"
 "banana":
+    DE: "Banane"
     IT: "banana"
 "bar pulls (variable starting, springy final)":
     IT: "tirate alla sbarra (inizio variabile, finale molleggiato)"
@@ -102,20 +116,26 @@
     DE: "Bier"
     IT: "birra"
 "Bertoz calculator":
+    DE: "Bertoz-Rechner"
     IT: "calcolatore di Bertoz"
 "bibliography":
+    DE: "Literaturverzeichnis"
     IT: "bibliografia"
 "biceps":
+    DE: "Bizeps"
     IT: "bicipiti"
 "big cup":
+    DE: "große Tasse"
     IT: "tazzona"
 "BM":
     IT: "MB"
-"BMI":
-    IT: "IMC"
+"BMI": # body mass index
+    DE: "BMI" # Body-Mass-Index
+    IT: "IMC" # indice di massa corporea
 "BMR":
     IT: "BMR"
 "body mass index":
+    DE: "Body-Mass-Index"
     IT:
         string: "indice di massa corporea"
         short: "IMC"
@@ -166,6 +186,7 @@
 "cup":
     IT: "tazza"
 "date of birth":
+    DE: "Geburtsdatum"
     IT: "data di nascita"
 "daily diet proposal":
     IT: "Dieta giornaliera proposta"
@@ -248,6 +269,7 @@
 "forecast based on coefficient":
     IT: "previsioni basate sul coefficiente"
 "fri":
+    DE: "Fr."
     IT: "ven"
 "frontal concave bridge (static)":
     IT: "ponte frontale concavo (fisso)"
@@ -275,6 +297,7 @@
 "grade":
     IT: "grado"
 "half marathon":
+    DE: "Halbmarathon"
     IT:
         string: "mezza maratona"
         short: "HM"
@@ -291,9 +314,11 @@
         short: "BPM"
         def: "La frequenza cardiaca viene espressa dai battiti al minuto che un cuore produce, e si dice media se misurata lungo un certo lasso di tempo."
 "height":
+    DE: "Höhe"
     IT: "altezza"
-"HM":
-    IT: "MM"
+"HM": # half marathon
+    DE: "HM" # Halbmarathon
+    IT: "MM" # mezza maratona
 "hump-launches":
     IT: "lanci gobbi"
 "ideal weight":
@@ -374,6 +399,7 @@
 "moderate activity":
     IT: "attività moderata"
 "mon":
+    DE: "Mo."
     IT: "lun"
 "morning serie":
     IT: "serie mattutina"
@@ -409,6 +435,7 @@
         short: "RP"
         def: "É lo sviluppo della migliore prova o gara a livello agonistico o professionale a livello personale, cioè un record che appartiene solo a se stesso."
 "personal-data":
+    DE: "persönliche Daten"
     IT: "dati personali"
 "piece":
     DE: "Stück"
@@ -505,6 +532,7 @@
     DE: "Stulle"
     IT: "panino"
 "sat":
+    DE: "Sa."
     IT: "sab"
 "settings":
     DE: "Einstellungen"
@@ -563,6 +591,7 @@
 "stretching exercises":
     IT: "esercizi di stretching"
 "sun":
+    DE: "So."
     IT: "dom"
 "sun salutation (S chain extension)":
     IT: "saluto al sole (estensione catena)"
@@ -582,6 +611,7 @@
 "threshold activity":
     IT: "attività alla soglia"
 "thu":
+    DE: "Do."
     IT: "gio"
 "time":
     IT: "tempo"
@@ -603,6 +633,7 @@
 "tree pulls (with forefoot movimentation)":
     IT: "tirate all'albero (con movimentazione del piede anteriore)"
 "tue":
+    DE: "Di."
     IT: "mar"
 "UK":
     IT: "UK"
@@ -650,6 +681,7 @@
         def: "Secondo il metodo di Wharton padre e figlio: dalla discussa efficacia, si basa sul principio dell'interruzione dell'allungamento dopo pochi secondi (2 o meno), per evitare l'insorgere della contrazione da riflesso."
         link: "http://www.albanesi.it/arearossa/articoli/01wharton35.htm"
 "wed":
+    DE: "Mi."
     IT: "mer"
 "widening rear pushes and crouching":
     IT: "spinte posteriori allarganti e accovacciamento"
